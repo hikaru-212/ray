@@ -108,9 +108,10 @@ class ActorTaskSubmitter : public ActorTaskSubmitterInterface {
   /// \param[in] actor_id The actor for whom to add a queue.
   /// \param[in] max_pending_calls The max pending calls for the actor to be added.
   /// \param[in] allow_out_of_order_execution Whether to execute tasks out of order.
-  /// \param[in] fail_if_actor_unreachable Whether to fail newly submitted tasks
+  /// \param[in] fail_if_actor_unreachable Legacy actor-level restart policy retained
+  /// for interface compatibility. Restart disposition is determined from each task's
+  /// effective retry policy.
   /// \param[in] owned Whether the actor is owned by the current process.
-  /// immediately when the actor is unreachable.
   void AddActorQueueIfNotExists(const ActorID &actor_id,
                                 int32_t max_pending_calls,
                                 bool allow_out_of_order_execution,
@@ -351,7 +352,8 @@ class ActorTaskSubmitter : public ActorTaskSubmitterInterface {
     /// The current task number in this client queue.
     int32_t cur_pending_calls_ = 0;
 
-    /// Whether to fail newly submitted tasks immediately when the actor is unreachable.
+    /// Legacy actor-level restart policy retained for interface compatibility. This no
+    /// longer controls task disposition while the actor is restarting.
     bool fail_if_actor_unreachable_ = true;
 
     /// Whether the current process is owner of the actor.

@@ -811,6 +811,97 @@ TEST_P(ActorTaskSubmitterTest, TestActorRestartFastFail) {
   ASSERT_EQ(io_context.poll_one(), 1);
 }
 
+// Regression test for #44719. The actor handle's default policy says to fail fast, but
+// this individual task has a retry budget. A known restart must not synthesize a failed
+// attempt and consume that budget before an actor RPC is sent.
+TEST_P(ActorTaskSubmitterTest, TestPerTaskRetryOverrideBuffersDuringRestart) {
+  const auto allow_out_of_order_execution = GetParam();
+  rpc::Address addr;
+  auto worker_id = WorkerID::FromRandom();
+  addr.set_worker_id(worker_id.Binary());
+  ActorID actor_id = ActorID::Of(JobID::FromInt(0), TaskID::Nil(), 0);
+  submitter_.AddActorQueueIfNotExists(actor_id,
+                                      -1,
+                                      allow_out_of_order_execution,
+                                      /*fail_if_actor_unreachable=*/true,
+                                      /*owned=*/false);
+  submitter_.ConnectActor(actor_id, addr, /*num_restarts=*/0);
+
+  const auto death_cause = CreateMockDeathCause();
+  submitter_.DisconnectActor(actor_id,
+                             /*num_restarts=*/1,
+                             /*dead=*/false,
+                             death_cause,
+                             /*is_restartable=*/true);
+
+  auto task = CreateActorTaskHelper(actor_id, worker_id, 0);
+  task.GetMutableMessage().set_max_retries(1);
+  ASSERT_EQ(task.AttemptNumber(), 0);
+  ASSERT_EQ(task.MaxRetries(), 1);
+
+  EXPECT_CALL(*task_manager_, FailOrRetryPendingTask(task.TaskId(), _, _, _, _, _))
+      .Times(0);
+  submitter_.SubmitTask(task);
+  ASSERT_EQ(io_context.poll_one(), 1);
+
+  // Dependency resolution is complete, but a known restart must not create a local
+  // failure callback or an actor RPC.
+  EXPECT_EQ(io_context.poll(), 0);
+  EXPECT_EQ(worker_client_->callbacks.size(), 0);
+  EXPECT_EQ(submitter_.NumPendingTasks(actor_id), 1);
+
+  addr.set_port(1);
+  submitter_.ConnectActor(actor_id, addr, /*num_restarts=*/1);
+
+  EXPECT_EQ(worker_client_->callbacks.size(), 1);
+  EXPECT_THAT(worker_client_->received_seq_nos, ElementsAre(0));
+  ASSERT_TRUE(worker_client_->callbacks.contains(task.GetTaskAttempt()));
+  EXPECT_CALL(*task_manager_, CompletePendingTask(task.TaskId(), _, _, _)).Times(1);
+  EXPECT_TRUE(worker_client_->ReplyPushTask(task.GetTaskAttempt(), Status::OK()));
+}
+
+// Reverse mismatch for #44719. The actor handle's default policy says to buffer, but
+// this individual dependency-ready head task explicitly has no retry budget.
+TEST_P(ActorTaskSubmitterTest, TestPerTaskZeroRetryOverrideFailsDuringRestart) {
+  const auto allow_out_of_order_execution = GetParam();
+  rpc::Address addr;
+  auto worker_id = WorkerID::FromRandom();
+  addr.set_worker_id(worker_id.Binary());
+  ActorID actor_id = ActorID::Of(JobID::FromInt(0), TaskID::Nil(), 0);
+  submitter_.AddActorQueueIfNotExists(actor_id,
+                                      -1,
+                                      allow_out_of_order_execution,
+                                      /*fail_if_actor_unreachable=*/false,
+                                      /*owned=*/false);
+  submitter_.ConnectActor(actor_id, addr, /*num_restarts=*/0);
+
+  const auto death_cause = CreateMockDeathCause();
+  submitter_.DisconnectActor(actor_id,
+                             /*num_restarts=*/1,
+                             /*dead=*/false,
+                             death_cause,
+                             /*is_restartable=*/true);
+
+  auto task = CreateActorTaskHelper(actor_id, worker_id, 0);
+  task.GetMutableMessage().set_max_retries(0);
+  EXPECT_CALL(*task_manager_,
+              FailOrRetryPendingTask(task.TaskId(),
+                                     rpc::ErrorType::ACTOR_UNAVAILABLE,
+                                     _,
+                                     _,
+                                     _,
+                                     _))
+      .Times(1)
+      .WillOnce(Return(false));
+
+  submitter_.SubmitTask(task);
+  ASSERT_EQ(io_context.poll_one(), 1);
+
+  EXPECT_EQ(worker_client_->callbacks.size(), 0);
+  EXPECT_EQ(io_context.poll(), 1);
+  EXPECT_EQ(submitter_.NumPendingTasks(actor_id), 0);
+}
+
 TEST_P(ActorTaskSubmitterTest, TestPendingTasks) {
   auto allow_out_of_order_execution = GetParam();
   int32_t max_pending_calls = 10;
@@ -883,6 +974,187 @@ TEST_P(ActorTaskSubmitterTest, TestActorRestartResubmit) {
   ASSERT_TRUE(submitter_.QueueGeneratorForResubmit(task1));
   EXPECT_CALL(*task_manager_, MarkGeneratorFailedAndResubmit(task1.TaskId())).Times(1);
   worker_client_->ReplyPushTask(task1.GetTaskAttempt(), Status::OK());
+}
+
+TEST(SequentialActorSubmitQueueTest, RestartFailureRemovesOnlyZeroRetryPrefix) {
+  const auto actor_id = ActorID::Of(JobID::FromInt(0), TaskID::Nil(), 0);
+  const auto worker_id = WorkerID::FromRandom();
+  SequentialActorSubmitQueue queue;
+
+  const std::vector<int> max_retries = {0, 0, 0, 3, 0};
+  for (size_t i = 0; i < max_retries.size(); i++) {
+    auto task = CreateActorTaskHelper(actor_id, worker_id, i);
+    task.GetMutableMessage().set_max_retries(max_retries[i]);
+    queue.Emplace("", i, task);
+    queue.MarkDependencyResolved("", i);
+  }
+
+  const auto tasks_to_fail = queue.PopTasksToFailOnActorRestart();
+  std::vector<int64_t> failed_sequences;
+  for (const auto &task : tasks_to_fail) {
+    failed_sequences.push_back(task.ConcurrencyGroupSequenceNumber());
+  }
+  EXPECT_THAT(failed_sequences, ElementsAre(0, 1, 2));
+
+  // Sequence 3 is a retryable ordering barrier, so sequence 4 remains for reconnect.
+  std::vector<int64_t> reconnect_sequence;
+  while (auto task = queue.PopNextTaskToSend()) {
+    reconnect_sequence.push_back(task->first.ConcurrencyGroupSequenceNumber());
+  }
+  EXPECT_THAT(reconnect_sequence, ElementsAre(3, 4));
+}
+
+TEST(SequentialActorSubmitQueueTest, RestartFailureAfterBarrierCancellation) {
+  const auto actor_id = ActorID::Of(JobID::FromInt(0), TaskID::Nil(), 0);
+  const auto worker_id = WorkerID::FromRandom();
+  SequentialActorSubmitQueue queue;
+
+  for (const auto &[sequence_no, max_retries] :
+       std::vector<std::pair<int64_t, int>>{{0, 3}, {1, 0}, {2, 3}}) {
+    auto task = CreateActorTaskHelper(actor_id, worker_id, sequence_no);
+    task.GetMutableMessage().set_max_retries(max_retries);
+    queue.Emplace("", sequence_no, task);
+    queue.MarkDependencyResolved("", sequence_no);
+  }
+
+  EXPECT_TRUE(queue.PopTasksToFailOnActorRestart().empty());
+
+  queue.MarkTaskCanceled("", 0);
+  auto tasks_to_fail = queue.PopTasksToFailOnActorRestart();
+  ASSERT_EQ(tasks_to_fail.size(), 1);
+  const auto &task_to_fail = tasks_to_fail.front();
+  EXPECT_EQ(task_to_fail.ConcurrencyGroupSequenceNumber(), 1);
+  EXPECT_EQ(task_to_fail.MaxRetries(), 0);
+
+  auto reconnect_task = queue.PopNextTaskToSend();
+  ASSERT_TRUE(reconnect_task.has_value());
+  EXPECT_EQ(reconnect_task->first.ConcurrencyGroupSequenceNumber(), 2);
+  EXPECT_EQ(reconnect_task->first.MaxRetries(), 3);
+  EXPECT_TRUE(queue.Empty());
+}
+
+TEST(SequentialActorSubmitQueueTest, RestartFailureIsIndependentPerConcurrencyGroup) {
+  const auto actor_id = ActorID::Of(JobID::FromInt(0), TaskID::Nil(), 0);
+  const auto worker_id = WorkerID::FromRandom();
+  SequentialActorSubmitQueue queue;
+
+  auto task_a = CreateActorTaskHelper(actor_id, worker_id, 0);
+  task_a.GetMutableMessage().set_concurrency_group_name("group_a");
+  task_a.GetMutableMessage().set_max_retries(3);
+  queue.Emplace("group_a", 0, task_a);
+  queue.MarkDependencyResolved("group_a", 0);
+
+  auto task_b = CreateActorTaskHelper(actor_id, worker_id, 0);
+  task_b.GetMutableMessage().set_concurrency_group_name("group_b");
+  task_b.GetMutableMessage().set_max_retries(0);
+  queue.Emplace("group_b", 0, task_b);
+  queue.MarkDependencyResolved("group_b", 0);
+
+  auto tasks_to_fail = queue.PopTasksToFailOnActorRestart();
+  ASSERT_EQ(tasks_to_fail.size(), 1);
+  const auto &task_to_fail = tasks_to_fail.front();
+  EXPECT_EQ(task_to_fail.ConcurrencyGroupName(), "group_b");
+
+  auto reconnect_task = queue.PopNextTaskToSend();
+  ASSERT_TRUE(reconnect_task.has_value());
+  EXPECT_EQ(reconnect_task->first.ConcurrencyGroupName(), "group_a");
+  EXPECT_TRUE(queue.Empty());
+}
+
+TEST(OutofOrderActorSubmitQueueTest, RestartFailureSelectsInitialReadyZeroRetryTasks) {
+  const auto actor_id = ActorID::Of(JobID::FromInt(0), TaskID::Nil(), 0);
+  const auto worker_id = WorkerID::FromRandom();
+  OutofOrderActorSubmitQueue queue;
+
+  const std::vector<int> max_retries = {3, 0, 0, 3, 0, 3, 0, 0, 3, 0};
+  for (size_t i = 0; i < max_retries.size(); i++) {
+    auto task = CreateActorTaskHelper(actor_id, worker_id, i);
+    task.GetMutableMessage().set_max_retries(max_retries[i]);
+    if (i == 2 || i == 6) {
+      // Retry attempts remain buffered even if their remaining retry count is zero.
+      task.GetMutableMessage().set_attempt_number(1);
+    }
+    queue.Emplace("", i, task);
+    queue.MarkDependencyResolved("", i);
+  }
+
+  const auto tasks_to_fail = queue.PopTasksToFailOnActorRestart();
+  std::vector<int64_t> failed_sequences;
+  for (const auto &task : tasks_to_fail) {
+    failed_sequences.push_back(task.ConcurrencyGroupSequenceNumber());
+  }
+  EXPECT_THAT(failed_sequences, ElementsAre(1, 4, 7, 9));
+
+  std::vector<int64_t> reconnect_sequences;
+  while (auto task = queue.PopNextTaskToSend()) {
+    reconnect_sequences.push_back(task->first.ConcurrencyGroupSequenceNumber());
+  }
+  EXPECT_THAT(reconnect_sequences, ElementsAre(0, 2, 3, 5, 6, 8));
+}
+
+class SequentialActorTaskSubmitterTest : public ActorTaskSubmitterTest {};
+
+TEST_F(SequentialActorTaskSubmitterTest, TestDependencyFailureReevaluatesRestartQueue) {
+  rpc::Address addr;
+  const auto worker_id = WorkerID::FromRandom();
+  addr.set_worker_id(worker_id.Binary());
+  const auto actor_id = ActorID::Of(JobID::FromInt(0), TaskID::Nil(), 0);
+  submitter_.AddActorQueueIfNotExists(actor_id,
+                                      -1,
+                                      /*allow_out_of_order_execution=*/false,
+                                      /*fail_if_actor_unreachable=*/false,
+                                      /*owned=*/false);
+  submitter_.ConnectActor(actor_id, addr, /*num_restarts=*/0);
+  submitter_.DisconnectActor(actor_id,
+                             /*num_restarts=*/1,
+                             /*dead=*/false,
+                             CreateMockDeathCause(),
+                             /*is_restartable=*/true);
+
+  actor_creator_.actor_pending = true;
+  const auto dependency_actor_id =
+      ActorID::Of(JobID::FromInt(0), TaskID::Nil(), 1);
+  auto blocked_head = CreateActorTaskHelper(actor_id, worker_id, 0);
+  auto *arg = blocked_head.GetMutableMessage().add_args();
+  arg->add_nested_inlined_refs()->set_object_id(
+      ObjectID::ForActorHandle(dependency_actor_id).Binary());
+
+  auto zero_retry_follower = CreateActorTaskHelper(actor_id, worker_id, 1);
+  zero_retry_follower.GetMutableMessage().set_max_retries(0);
+
+  submitter_.SubmitTask(blocked_head);
+  ASSERT_EQ(io_context.poll_one(), 1);
+  ASSERT_EQ(actor_creator_.callbacks.size(), 1);
+
+  submitter_.SubmitTask(zero_retry_follower);
+  ASSERT_EQ(io_context.poll_one(), 1);
+  EXPECT_EQ(worker_client_->callbacks.size(), 0);
+
+  EXPECT_CALL(*task_manager_,
+              FailOrRetryPendingTask(blocked_head.TaskId(),
+                                     rpc::ErrorType::DEPENDENCY_RESOLUTION_FAILED,
+                                     _,
+                                     _,
+                                     _,
+                                     _))
+      .Times(1)
+      .WillOnce(Return(false));
+  EXPECT_CALL(*task_manager_,
+              FailOrRetryPendingTask(zero_retry_follower.TaskId(),
+                                     rpc::ErrorType::ACTOR_UNAVAILABLE,
+                                     _,
+                                     _,
+                                     _,
+                                     _))
+      .Times(1)
+      .WillOnce(Return(false));
+
+  auto dependency_callback = std::move(actor_creator_.callbacks.front());
+  actor_creator_.callbacks.pop_front();
+  dependency_callback(Status::IOError("dependency actor creation failed"));
+
+  EXPECT_EQ(io_context.poll(), 1);
+  EXPECT_EQ(worker_client_->callbacks.size(), 0);
 }
 
 // Test that when the head task of an actor's queue is cancelled,

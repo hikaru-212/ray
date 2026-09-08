@@ -161,7 +161,13 @@ As a best practice, if the caller gets the ``ActorUnavailableError`` error, it s
 "quarantine" the actor and stop sending traffic to the actor. It can then periodically ping
 the actor until it raises ``ActorDiedError`` or returns OK.
 
-If a task has ``max_task_retries > 0`` and it received ``ActorUnavailableError``, Ray will retry the task up to ``max_task_retries`` times. If the actor is restarting in its constructor, the task retry will fail, consuming one retry count. If there are still retries remaining, Ray will retry again after ``RAY_task_retry_delay_ms``, until all retries are consumed or the actor is ready to accept tasks. If the constructor takes a long time to run, consider increasing ``max_task_retries`` or increase ``RAY_task_retry_delay_ms``.
+If Ray knows that an actor is restarting before it sends a task, a call configured with
+retries (``max_task_retries != 0``) remains queued until the actor reconnects or is
+declared dead. Waiting for the actor in this case doesn't consume the task's retry
+budget. If an actor task instead becomes unavailable after Ray attempts to send it,
+normal retry accounting applies: Ray retries the task up to ``max_task_retries`` times
+with exponential backoff, until its retries are consumed, the actor reconnects, or it
+is declared dead.
 
 Actor method exceptions
 -----------------------

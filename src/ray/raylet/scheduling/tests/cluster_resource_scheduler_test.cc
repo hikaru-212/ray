@@ -15,6 +15,7 @@
 // clang-format off
 #include "ray/raylet/scheduling/cluster_resource_scheduler.h"
 
+#include <algorithm>
 #include <string>
 #include <utility>
 #include <vector>
@@ -30,6 +31,7 @@
 #include "ray/common/scheduling/resource_set.h"
 #include "ray/common/scheduling/scheduling_ids.h"
 #include "ray/observability/fake_metric.h"
+#include "ray/raylet/placement_group_resource_manager.h"
 #include "ray/util/clock.h"
 #include "mock/ray/gcs_client/gcs_client.h"
 // clang-format on
@@ -1905,6 +1907,236 @@ TEST_F(ClusterResourceSchedulerTest, AffinityWithBundleScheduleTest) {
   test_schedule({{"CPU", 1}, {"memory", 100}}, bundle_3, scheduling::NodeID::Nil());
 
   test_schedule({{"CPU", 2}}, bundle_1, scheduling::NodeID::Nil());
+}
+
+// Characterize #64307 without assuming an order-independent completion guarantee for
+// implicit PG actors. Only resource-view propagation is synchronous in this fixture.
+class HeterogeneousPlacementGroupSchedulingTest : public ::testing::Test {
+ protected:
+  void SetUp() override {
+    node_a_ = std::make_unique<ClusterResourceScheduler>(
+        PeriodicalRunner::Create(io_context_),
+        a_,
+        absl::flat_hash_map<std::string, double>{{"CPU", 1}, {"GPU", 1}},
+        [](auto) { return true; },
+        gauge_,
+        clock_);
+    node_b_ = std::make_unique<ClusterResourceScheduler>(
+        PeriodicalRunner::Create(io_context_),
+        b_,
+        absl::flat_hash_map<std::string, double>{{"CPU", 2}, {"GPU", 1}},
+        [](auto) { return true; },
+        gauge_,
+        clock_);
+    SyncNodeB();
+
+    std::vector<std::shared_ptr<const BundleSpecification>> bundles;
+    for (int index = 0; index < 3; ++index) {
+      rpc::Bundle bundle;
+      bundle.mutable_bundle_id()->set_placement_group_id(pg_.Binary());
+      bundle.mutable_bundle_id()->set_bundle_index(index);
+      (*bundle.mutable_unit_resources())["CPU"] = 1;
+      if (index < 2) {
+        (*bundle.mutable_unit_resources())["GPU"] = 1;
+      }
+      bundles.push_back(std::make_shared<BundleSpecification>(bundle));
+    }
+    std::vector<const ResourceRequest *> requests;
+    for (const auto &bundle : bundles) {
+      requests.push_back(&bundle->GetRequiredResources());
+    }
+    const auto placement =
+        node_a_->SchedulePlacementGroup(requests, SchedulingOptions::BundlePack());
+    ASSERT_TRUE(placement.status.IsSuccess());
+    ASSERT_EQ(placement.selected_nodes.size(), 3u);
+    ASSERT_NE(placement.selected_nodes[0], placement.selected_nodes[1]);
+    ASSERT_EQ(placement.selected_nodes[2], b_);
+    mixed_bundle_a_ = placement.selected_nodes[0] == a_ ? 0 : 1;
+    mixed_bundle_b_ = 1 - mixed_bundle_a_;
+
+    // Commit the real PACK plan; do not fabricate wildcard capacities.
+    pg_a_ = std::make_unique<raylet::NewPlacementGroupResourceManager>(*node_a_);
+    pg_b_ = std::make_unique<raylet::NewPlacementGroupResourceManager>(*node_b_);
+    ASSERT_TRUE(pg_a_->PrepareBundles({bundles[mixed_bundle_a_]}));
+    ASSERT_TRUE(pg_b_->PrepareBundles({bundles[mixed_bundle_b_], bundles[2]}));
+    pg_a_->CommitBundles({bundles[mixed_bundle_a_]});
+    pg_b_->CommitBundles({bundles[mixed_bundle_b_], bundles[2]});
+    SyncNodeB();
+    AssertAvailable(1, 1, 2, 1);
+    ASSERT_EQ(TrainerCapacity(), 2);
+
+    // Prove a complete assignment on copies of the actual instance sets, without
+    // changing S0: one Trainer on each node, then the Worker on B.
+    auto available_a = node_a_->GetLocalResourceManager().GetLocalResources().available;
+    auto available_b = node_b_->GetLocalResourceManager().GetLocalResources().available;
+    ASSERT_TRUE(available_a.TryAllocate(Actor(true).GetRequiredResources()));
+    ASSERT_TRUE(available_b.TryAllocate(Actor(true).GetRequiredResources()));
+    ASSERT_TRUE(available_b.TryAllocate(Actor(false).GetRequiredResources()));
+  }
+
+  LeaseSpecification Actor(bool trainer, int bundle_index = -1) const {
+    rpc::LeaseSpec lease;
+    lease.set_type(rpc::TaskType::ACTOR_CREATION_TASK);
+    auto *strategy = lease.mutable_scheduling_strategy()
+                         ->mutable_placement_group_scheduling_strategy();
+    strategy->set_placement_group_id(pg_.Binary());
+    strategy->set_placement_group_bundle_index(bundle_index);
+    std::unordered_map<std::string, double> resources{{"CPU", 1}};
+    if (trainer) {
+      resources["GPU"] = 1;
+    }
+    const auto constrained = AddPlacementGroupConstraint(resources, pg_, bundle_index);
+    lease.mutable_required_resources()->insert(constrained.begin(), constrained.end());
+    return LeaseSpecification(lease);
+  }
+
+  scheduling::NodeID Schedule(const LeaseSpecification &actor) {
+    bool is_infeasible = false;
+    // Empty preferred_node_id bypasses the public API's local-node shortcut.
+    // Both nodes have all ordinary CPUs reserved (score 1). Hybrid prefers its
+    // local node A on ties, independently of hash iteration and top-k randomness.
+    return node_a_->GetBestSchedulableNode(actor, "", false, false, &is_infeasible);
+  }
+
+  bool CanSchedule(scheduling::NodeID node, const LeaseSpecification &actor) {
+    return node_a_->IsSchedulableOnNode(node,
+                                        actor.GetRequiredResources().GetResourceMap(),
+                                        actor.GetLabelSelector(),
+                                        /*requires_object_store_memory=*/false);
+  }
+
+  std::shared_ptr<TaskResourceInstances> Allocate(scheduling::NodeID node,
+                                                  const LeaseSpecification &actor) {
+    auto allocation = std::make_shared<TaskResourceInstances>();
+    auto &scheduler = node == a_ ? *node_a_ : *node_b_;
+    if (!scheduler.GetLocalResourceManager().AllocateLocalTaskResources(
+            actor.GetRequiredResources().GetResourceMap(), allocation)) {
+      return nullptr;
+    }
+    SyncNodeB();
+    return allocation;
+  }
+
+  ResourceID Resource(const std::string &name, int index = -1) const {
+    return ResourceID(FormatPlacementGroupResource(name, pg_, index));
+  }
+
+  double Available(ClusterResourceScheduler &node, const std::string &resource) {
+    return node.GetLocalResourceManager()
+        .GetLocalResources()
+        .available.Sum(Resource(resource))
+        .Double();
+  }
+
+  double TrainerCapacity() {
+    // Exact for these unit requests, one GPU per node, and unit CPU bundles.
+    return std::min(Available(*node_a_, "CPU"), Available(*node_a_, "GPU")) +
+           std::min(Available(*node_b_, "CPU"), Available(*node_b_, "GPU"));
+  }
+
+  void AssertAvailable(double cpu_a, double gpu_a, double cpu_b, double gpu_b) {
+    ASSERT_EQ(Available(*node_a_, "CPU"), cpu_a);
+    ASSERT_EQ(Available(*node_a_, "GPU"), gpu_a);
+    ASSERT_EQ(Available(*node_b_, "CPU"), cpu_b);
+    ASSERT_EQ(Available(*node_b_, "GPU"), gpu_b);
+  }
+
+  void SyncNodeB() {
+    auto &cluster = node_a_->GetClusterResourceManager();
+    if (!cluster.HasNode(b_)) {
+      cluster.UpdateResourceCapacity(b_, ResourceID::CPU(), 2);
+    }
+    syncer::ResourceViewSyncMessage snapshot;
+    node_b_->GetLocalResourceManager().PopulateResourceViewSyncMessage(snapshot);
+    ASSERT_TRUE(cluster.UpdateNode(b_, snapshot));
+  }
+
+  instrumented_io_context io_context_;
+  ray::observability::FakeGauge gauge_;
+  ray::Clock clock_;
+  const scheduling::NodeID a_{std::string(NodeID::Size(), 'a')};
+  const scheduling::NodeID b_{std::string(NodeID::Size(), 'b')};
+  const PlacementGroupID pg_ =
+      PlacementGroupID::FromBinary(std::string(PlacementGroupID::Size(), 'p'));
+  std::unique_ptr<ClusterResourceScheduler> node_a_, node_b_;
+  std::unique_ptr<raylet::NewPlacementGroupResourceManager> pg_a_, pg_b_;
+  int mixed_bundle_a_ = -1;
+  int mixed_bundle_b_ = -1;
+};
+
+TEST_F(HeterogeneousPlacementGroupSchedulingTest,
+       CpuOnlyActorCanStrandRemainingHeterogeneousPgActors) {
+  const auto worker = Actor(false);
+  const auto trainer = Actor(true);
+  ASSERT_TRUE(CanSchedule(a_, trainer));
+  ASSERT_TRUE(CanSchedule(b_, trainer));
+  ASSERT_EQ(TrainerCapacity(), 2);
+
+  ASSERT_EQ(Schedule(worker), a_);
+  ASSERT_TRUE(CanSchedule(a_, worker));
+  const auto worker_allocation = Allocate(a_, worker);
+  ASSERT_NE(worker_allocation, nullptr);
+  ASSERT_EQ(FixedPoint::Sum(worker_allocation->Get(Resource("CPU", mixed_bundle_a_))),
+            FixedPoint(1));
+  ASSERT_EQ(FixedPoint::Sum(worker_allocation->Get(Resource("CPU"))), FixedPoint(1));
+
+  // This first allocation strands a GPU. Totals still suffice for two Trainers,
+  // but their node-local CPU+GPU combinations no longer do.
+  AssertAvailable(0, 1, 2, 1);
+  ASSERT_EQ(Available(*node_a_, "CPU") + Available(*node_b_, "CPU"), 2);
+  ASSERT_EQ(Available(*node_a_, "GPU") + Available(*node_b_, "GPU"), 2);
+  ASSERT_EQ(TrainerCapacity(), 1);
+  ASSERT_FALSE(CanSchedule(a_, trainer));
+  ASSERT_TRUE(CanSchedule(b_, trainer));
+
+  ASSERT_EQ(Schedule(trainer), b_);
+  const auto trainer_allocation = Allocate(b_, trainer);
+  ASSERT_NE(trainer_allocation, nullptr);
+  // Record indexed provenance without requiring CPU/GPU/marker indices to agree
+  // or disagree: hash iteration order is not part of this characterization.
+  RecordProperty("trainer_allocation", trainer_allocation->DebugString());
+  AssertAvailable(0, 1, 1, 0);
+  ASSERT_EQ(TrainerCapacity(), 0);
+  ASSERT_FALSE(CanSchedule(a_, trainer));
+  ASSERT_FALSE(CanSchedule(b_, trainer));
+
+  // Hybrid may return a node feasible by total capacity to wait on. Neither local
+  // allocator can actually grant the second Trainer; failure leaves state intact.
+  const auto waiting_node = Schedule(trainer);
+  ASSERT_TRUE(waiting_node == a_ || waiting_node == b_);
+  ASSERT_EQ(Allocate(waiting_node, trainer), nullptr);
+  ASSERT_EQ(Allocate(waiting_node == a_ ? b_ : a_, trainer), nullptr);
+  AssertAvailable(0, 1, 1, 0);
+}
+
+TEST_F(HeterogeneousPlacementGroupSchedulingTest, ExplicitBundleIndicesAllowCpuFirst) {
+  const auto worker = Actor(false, 2);
+  ASSERT_EQ(Schedule(worker), b_);
+  ASSERT_NE(Allocate(b_, worker), nullptr);
+  AssertAvailable(1, 1, 1, 1);
+  ASSERT_EQ(TrainerCapacity(), 2);
+
+  const auto trainer_a = Actor(true, mixed_bundle_a_);
+  ASSERT_EQ(Schedule(trainer_a), a_);
+  ASSERT_NE(Allocate(a_, trainer_a), nullptr);
+  const auto trainer_b = Actor(true, mixed_bundle_b_);
+  ASSERT_EQ(Schedule(trainer_b), b_);
+  ASSERT_NE(Allocate(b_, trainer_b), nullptr);
+  AssertAvailable(0, 0, 0, 0);
+}
+
+TEST_F(HeterogeneousPlacementGroupSchedulingTest, ImplicitGpuFirstAllowsAllActors) {
+  const auto trainer = Actor(true);
+  ASSERT_EQ(Schedule(trainer), a_);
+  ASSERT_NE(Allocate(a_, trainer), nullptr);
+  ASSERT_EQ(Schedule(trainer), b_);
+  ASSERT_NE(Allocate(b_, trainer), nullptr);
+  AssertAvailable(0, 0, 1, 0);
+
+  const auto worker = Actor(false);
+  ASSERT_EQ(Schedule(worker), b_);
+  ASSERT_NE(Allocate(b_, worker), nullptr);
+  AssertAvailable(0, 0, 0, 0);
 }
 
 TEST_F(ClusterResourceSchedulerTest, LabelSelectorIsSchedulableOnNodeTest) {

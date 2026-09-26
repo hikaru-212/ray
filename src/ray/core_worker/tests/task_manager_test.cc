@@ -1608,6 +1608,112 @@ TEST_F(TaskManagerLineageTest, TestResubmittedDynamicReturnsTaskFails) {
   ASSERT_EQ(stored_in_plasma.size(), 3);
 }
 
+TEST_F(TaskManagerLineageTest,
+       TestStreamingGeneratorReplayFailurePreservesRemotePrimary) {
+  std::vector<rpc::TaskStatus> recorded_statuses;
+  RecordTaskStatuses(&recorded_statuses);
+  const auto owner_node = NodeID::FromRandom();
+  const auto first_node = NodeID::FromRandom();
+  const auto replay_node = NodeID::FromRandom();
+  ASSERT_NE(owner_node, replay_node);
+  ASSERT_NE(first_node, replay_node);
+  auto caller_address = addr_;
+  caller_address.set_node_id(owner_node.Binary());
+  auto spec = CreateTaskHelper(1,
+                               {},
+                               /*dynamic_returns=*/true,
+                               /*streaming_generator=*/true,
+                               /*generator_backpressure_num_objects=*/-1);
+  const auto generator_id = spec.ReturnId(0);
+  const auto return_id = ObjectID::FromIndex(spec.TaskId(), 2);
+  manager_.AddPendingTask(caller_address, spec, "", /*max_retries=*/1);
+  manager_.MarkDependenciesResolved(spec.TaskId());
+  manager_.MarkTaskWaitingForExecution(spec.TaskId(), first_node, WorkerID::FromRandom());
+
+  // Reporting and consuming the ref establishes real ownership and keeps it in scope.
+  uint8_t value = 1;
+  auto data = std::make_shared<LocalMemoryBuffer>(&value, sizeof(value));
+  auto request = GetIntermediateTaskReturn(/*idx=*/0,
+                                           /*finished=*/false,
+                                           generator_id,
+                                           return_id,
+                                           data,
+                                           /*set_in_plasma=*/true,
+                                           first_node);
+  ASSERT_TRUE(manager_.HandleReportGeneratorItemReturns(
+      request, [](Status status) { ASSERT_TRUE(status.ok()); }));
+  ObjectID read_id;
+  ASSERT_TRUE(manager_.TryReadObjectRefStream(generator_id, &read_id).ok());
+  ASSERT_EQ(read_id, return_id);
+  CompletePendingStreamingTask(spec,
+                               caller_address,
+                               /*num_streaming_generator_returns=*/1,
+                               /*set_in_plasma=*/true);
+  ASSERT_FALSE(manager_.IsTaskPending(spec.TaskId()));
+  const auto completed_spec = manager_.GetTaskSpec(spec.TaskId());
+  ASSERT_TRUE(completed_spec.has_value());
+  ASSERT_EQ(completed_spec->NumStreamingGeneratorReturns(), 1u);
+  ASSERT_EQ(completed_spec->StreamingGeneratorReturnId(0), return_id);
+
+  // Lose the original primary and replay using the retained task lineage.
+  reference_counter_->ResetObjectsOnRemovedNode(first_node);
+  ASSERT_THAT(reference_counter_->FlushObjectsToRecover(),
+              ::testing::ElementsAre(return_id));
+  store_->Delete({return_id});
+  std::vector<ObjectID> task_deps;
+  ASSERT_EQ(manager_.ResubmitTask(spec.TaskId(), &task_deps), std::nullopt);
+  ASSERT_TRUE(task_deps.empty());
+  ASSERT_EQ(num_retries_, 1);
+  manager_.MarkDependenciesResolved(spec.TaskId());
+  manager_.MarkTaskWaitingForExecution(
+      spec.TaskId(), replay_node, WorkerID::FromRandom());
+
+  // Re-report the same consumed ref from a different node, without completing replay.
+  request.mutable_worker_addr()->set_node_id(replay_node.Binary());
+  request.set_attempt_number(manager_.GetTaskSpec(spec.TaskId())->AttemptNumber());
+  bool report_accepted = false;
+  manager_.HandleReportGeneratorItemReturns(request, [&](Status status) {
+    ASSERT_TRUE(status.ok());
+    report_accepted = true;
+  });
+  ASSERT_TRUE(report_accepted);
+  ASSERT_TRUE(reference_counter_->HasReference(return_id));
+  bool owned_by_us = false;
+  NodeID pinned_at;
+  bool spilled = false;
+  ASSERT_TRUE(reference_counter_->IsPlasmaObjectPinnedOrSpilled(
+      return_id, &owned_by_us, &pinned_at, &spilled));
+  ASSERT_TRUE(owned_by_us);
+  ASSERT_EQ(pinned_at, replay_node);
+  ASSERT_FALSE(spilled);
+  ASSERT_TRUE(manager_.IsTaskPending(spec.TaskId()));
+  bool in_plasma = false;
+  ASSERT_TRUE(store_->Contains(return_id, &in_plasma));
+  ASSERT_TRUE(in_plasma);
+  ASSERT_FALSE(stored_in_plasma.count(return_id));
+  ASSERT_FALSE(plasma_put_error_types_.count(return_id));
+
+  // The only retry was consumed by ResubmitTask. Task failure must not invalidate
+  // the already-rematerialized return retained by the remote primary (issue #53772).
+  EXPECT_FALSE(
+      manager_.FailOrRetryPendingTask(spec.TaskId(), rpc::ErrorType::ACTOR_DIED));
+  EXPECT_FALSE(manager_.IsTaskPending(spec.TaskId()));
+  EXPECT_EQ(num_retries_, 1);
+  ASSERT_FALSE(recorded_statuses.empty());
+  EXPECT_EQ(recorded_statuses.back(), rpc::TaskStatus::FAILED);
+  const auto error_it = plasma_put_error_types_.find(return_id);
+  EXPECT_TRUE(error_it == plasma_put_error_types_.end())
+      << "Unexpected terminal Plasma write for " << return_id << ": "
+      << (error_it == plasma_put_error_types_.end()
+              ? "none"
+              : rpc::ErrorType_Name(error_it->second));
+  EXPECT_FALSE(stored_in_plasma.count(return_id));
+
+  reference_counter_->RemoveLocalReference(return_id, nullptr);
+  reference_counter_->RemoveLocalReference(generator_id, nullptr);
+  EXPECT_TRUE(manager_.TryDelObjectRefStream(generator_id));
+}
+
 // High-level tests around plasma put failures and retries using a real memory store
 TEST_F(TaskManagerTest, PlasmaPut_ObjectStoreFull_FailsTaskAndWritesError) {
   auto local_ref_counter = std::make_shared<ReferenceCounter>(
@@ -4834,13 +4940,15 @@ TEST_F(TaskManagerTest, TestStreamingGeneratorFailsReportedReturnsBeforeFirstCom
   // Report one plasma return and consume it, but never complete the task, so
   // spec.NumStreamingGeneratorReturns() stays 0.
   auto return_id = ObjectID::FromIndex(spec.TaskId(), 2);
+  const auto producer_node = NodeID::FromRandom();
   auto data = GenerateRandomBuffer();
   auto req = GetIntermediateTaskReturn(/*idx*/ 0,
                                        /*finished*/ false,
                                        generator_id,
                                        /*dynamic_return_id*/ return_id,
                                        /*data*/ data,
-                                       /*set_in_plasma*/ true);
+                                       /*set_in_plasma*/ true,
+                                       producer_node);
   ASSERT_TRUE(manager_.HandleReportGeneratorItemReturns(
       req, /*execution_signal_callback*/ [](Status) {}));
   ObjectID obj_id;
@@ -4850,17 +4958,38 @@ TEST_F(TaskManagerTest, TestStreamingGeneratorFailsReportedReturnsBeforeFirstCom
 
   // Simulate the object being lost: its only copy was on the dead node, and
   // object recovery deletes the in-memory marker before attempting recovery.
+  node_died_ = true;
+  reference_counter_->ResetObjectsOnRemovedNode(producer_node);
+  ASSERT_THAT(reference_counter_->FlushObjectsToRecover(),
+              ::testing::ElementsAre(return_id));
+  ASSERT_TRUE(reference_counter_->HasReference(return_id));
+  bool owned_by_us = false;
+  NodeID pinned_at;
+  bool spilled = false;
+  ASSERT_TRUE(reference_counter_->IsPlasmaObjectPinnedOrSpilled(
+      return_id, &owned_by_us, &pinned_at, &spilled));
+  ASSERT_TRUE(owned_by_us);
+  ASSERT_TRUE(pinned_at.IsNil());
+  ASSERT_FALSE(spilled);
+  // No secondary copy was created or advertised in this test.
+  const auto locations = reference_counter_->GetObjectLocations(return_id);
+  ASSERT_TRUE(locations.has_value());
+  ASSERT_TRUE(locations->empty());
   store_->Delete({return_id});
   ASSERT_FALSE(stored_in_plasma.count(return_id));
+  ASSERT_FALSE(plasma_put_error_types_.count(return_id));
 
   // The task fails permanently (no retries left). With the fix the reported
   // plasma return is failed through the plasma path (put_in_local_plasma_callback_)
   // so its error lands in plasma and wakes a plasma-pull-blocked ray.get, rather
   // than being left with no value (which would hang forever in pending creation).
   auto error = rpc::ErrorType::ACTOR_DIED;
-  manager_.FailOrRetryPendingTask(spec.TaskId(), error);
+  ASSERT_FALSE(manager_.FailOrRetryPendingTask(spec.TaskId(), error));
   ASSERT_FALSE(manager_.IsTaskPending(spec.TaskId()));
   ASSERT_TRUE(stored_in_plasma.count(return_id));
+  const auto error_it = plasma_put_error_types_.find(return_id);
+  ASSERT_NE(error_it, plasma_put_error_types_.end());
+  ASSERT_EQ(error_it->second, rpc::ErrorType::ACTOR_DIED);
 
   reference_counter_->RemoveLocalReference(return_id, nullptr);
 }

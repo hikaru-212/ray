@@ -1962,17 +1962,24 @@ void TaskManager::MarkTaskReturnObjectsFailed(
                         ? std::optional<rpc::RayErrorInfo>(*ray_error_info)
                         : std::nullopt);
 
-    // If it was a streaming generator, try failing all the return object refs.
-    // In a normal time, it is no-op because the object ref values are already
-    // written, and Ray doesn't allow to overwrite values for the object ref.
-    // It is only useful when lineage reconstruction retry is failed. In this
-    // case, all these objects are lost from the plasma store, so we
-    // can overwrite them. See the test test_dynamic_generator_reconstruction_fails
-    // for more details.
+    // Materialize terminal errors for unresolved streaming returns. A failed replay
+    // may already have rematerialized some returns on another node. For ACTOR_DIED,
+    // preserve an owned, non-spilled primary to avoid a conflicting error copy.
+    // Plasma still protects existing local values from duplicate insertion.
     auto num_streaming_generator_returns = spec.NumStreamingGeneratorReturns();
     for (size_t i = 0; i < num_streaming_generator_returns; i++) {
       const auto generator_return_id = spec.StreamingGeneratorReturnId(i);
       if (store_in_plasma_ids.contains(generator_return_id)) {
+        if (error_type == rpc::ErrorType::ACTOR_DIED) {
+          bool owned_by_us = false;
+          NodeID pinned_at = NodeID::Nil();
+          bool spilled = false;
+          const bool ref_exists = reference_counter_.IsPlasmaObjectPinnedOrSpilled(
+              generator_return_id, &owned_by_us, &pinned_at, &spilled);
+          if (ref_exists && owned_by_us && !pinned_at.IsNil() && !spilled) {
+            continue;
+          }
+        }
         Status s = put_in_local_plasma_callback_(error, generator_return_id);
         if (!s.ok()) {
           RAY_LOG(WARNING).WithField(generator_return_id)

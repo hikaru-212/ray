@@ -65,6 +65,19 @@ std::optional<rpc::ErrorType> ObjectRecoveryManager::RecoverObject(
             absl::MutexLock lock(&objects_pending_recovery_mu_);
             RAY_CHECK(objects_pending_recovery_.erase(object_id)) << object_id;
           }
+          // The publication that satisfied GetAsync may have been invalidated
+          // before this callback ran. CoreWorker removes the memory-store entry
+          // before requesting recovery, and that request may have been suppressed
+          // by the old pending entry. Check current presence, not the captured obj.
+          bool in_plasma = false;
+          if (!in_memory_store_.Contains(object_id, &in_plasma)) {
+            RAY_LOG(DEBUG).WithField(object_id)
+                << "Object lost again before recovery completion; restarting recovery";
+            // A missing or non-owned reference ends this reevaluation; do not
+            // publish a failure for an object we no longer need to recover.
+            RAY_UNUSED(RecoverObject(object_id));
+            return;
+          }
           RAY_LOG(INFO).WithField(object_id) << "Recovery complete for object";
         });
     // Gets the node ids from reference_counter and then gets addresses from the local

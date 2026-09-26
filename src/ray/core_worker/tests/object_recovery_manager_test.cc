@@ -401,6 +401,11 @@ TEST_F(ObjectRecoveryManagerTest, TestReconstructionSuppression) {
       "TestReconstructionSuppression.WaitForFirstRecovery");
   first_recovery_completed.get_future().wait();
 
+  ASSERT_TRUE(object_directory_->callbacks.empty());
+  ASSERT_TRUE(raylet_client_->callbacks.empty());
+  ASSERT_EQ(task_manager_->num_tasks_resubmitted, 0);
+  ASSERT_TRUE(failed_reconstructions_.empty());
+
   // The object has been marked as failed but it is still pinned on the new
   // node. Another attempt to recover the object will not trigger any
   // callbacks.
@@ -472,7 +477,11 @@ TEST_F(ObjectRecoveryManagerTest, TestLossBeforeRecoveryCompletionIsNotForgotten
     ASSERT_EQ(memory_store_->GetIfExists(object_id), nullptr);
     ASSERT_TRUE(object_directory_->callbacks.empty());
     ASSERT_FALSE(manager_.RecoverObject(object_id).has_value());
+    // Additional requests while the old completion is queued must coalesce.
+    ASSERT_FALSE(manager_.RecoverObject(object_id).has_value());
+    ASSERT_FALSE(manager_.RecoverObject(object_id).has_value());
     lookups_after_second_loss = object_directory_->callbacks.size();
+    ASSERT_EQ(lookups_after_second_loss, 0);
     ASSERT_FALSE(recovery_result_delivered);
   });
   auto loss_processed = lose_again.get_future();
@@ -513,6 +522,66 @@ TEST_F(ObjectRecoveryManagerTest, TestLossBeforeRecoveryCompletionIsNotForgotten
       << ", primary=" << PinnedAt(object_id)
       << ", value available=" << value_available
       << ", terminal failure=" << terminal_failure;
+
+  // All three suppressed requests result in exactly one replacement lookup.
+  ASSERT_EQ(object_directory_->callbacks.size(), 1);
+  EXPECT_EQ(object_directory_->callbacks.front().first, object_id);
+  EXPECT_TRUE(raylet_client_->callbacks.empty());
+  EXPECT_EQ(task_manager_->num_tasks_resubmitted, 0);
+  EXPECT_TRUE(failed_reconstructions_.empty());
+}
+
+TEST_F(ObjectRecoveryManagerTest, TestReferenceDeletedBeforeRecoveryCompletion) {
+  const ObjectID object_id = ObjectID::FromRandom();
+  ref_counter_->AddOwnedObject(object_id,
+                               {},
+                               rpc::Address(),
+                               "",
+                               0,
+                               LineageReconstructionEligibility::ELIGIBLE,
+                               /*add_local_ref=*/true);
+  rpc::Address address;
+  address.set_node_id(NodeID::FromRandom().Binary());
+  object_directory_->SetLocations(object_id, {address});
+  ASSERT_FALSE(manager_.RecoverObject(object_id).has_value());
+  ASSERT_EQ(object_directory_->Flush(), 1);
+
+  bool recovery_result_delivered = false;
+  memory_store_->GetAsync(object_id, [&](const std::shared_ptr<RayObject> &object) {
+    EXPECT_TRUE(object->IsInPlasmaError());
+    recovery_result_delivered = true;
+  });
+
+  // Put posts completion to this same loop, so dropping the reference and
+  // deleting the entry within this handler must happen before completion.
+  std::packaged_task<void()> drop_reference([&] {
+    ASSERT_EQ(raylet_client_->Flush(), 1);
+    ASSERT_NE(memory_store_->GetIfExists(object_id), nullptr);
+    ASSERT_FALSE(recovery_result_delivered);
+
+    std::vector<ObjectID> deleted;
+    ref_counter_->RemoveLocalReference(object_id, &deleted);
+    ASSERT_FALSE(ref_counter_->HasReference(object_id));
+    ASSERT_THAT(deleted, ::testing::ElementsAre(object_id));
+    memory_store_->Delete(deleted);
+    ASSERT_EQ(memory_store_->GetIfExists(object_id), nullptr);
+    ASSERT_FALSE(recovery_result_delivered);
+  });
+  auto reference_dropped = drop_reference.get_future();
+  io_context_.GetIoService().post([&] { drop_reference(); },
+                                  "TestOnly.DropReferenceBeforeRecoveryCompletion");
+  reference_dropped.get();
+  DrainIoContext();
+  ASSERT_FALSE(HasFatalFailure());
+  ASSERT_TRUE(recovery_result_delivered);
+
+  EXPECT_FALSE(ref_counter_->HasReference(object_id));
+  EXPECT_EQ(memory_store_->GetIfExists(object_id), nullptr);
+  EXPECT_TRUE(ref_counter_->FlushObjectsToRecover().empty());
+  EXPECT_TRUE(object_directory_->callbacks.empty());
+  EXPECT_TRUE(raylet_client_->callbacks.empty());
+  EXPECT_EQ(task_manager_->num_tasks_resubmitted, 0);
+  EXPECT_TRUE(failed_reconstructions_.empty());
 }
 
 TEST_F(ObjectRecoveryManagerTest, TestReconstructionChain) {
@@ -556,6 +625,18 @@ TEST_F(ObjectRecoveryManagerTest, TestReconstructionFails) {
 
   ASSERT_TRUE(failed_reconstructions_[object_id] ==
               rpc::ErrorType::OBJECT_UNRECONSTRUCTABLE_MAX_ATTEMPTS_EXCEEDED);
+  // The fixture publishes a Plasma sentinel for the terminal error without
+  // recording a primary. Completion must accept that resolution, not retry it.
+  DrainIoContext();
+  ASSERT_TRUE(PinnedAt(object_id).IsNil());
+  ASSERT_FALSE(IsSpilled(object_id));
+  bool in_plasma = false;
+  ASSERT_TRUE(memory_store_->Contains(object_id, &in_plasma));
+  ASSERT_TRUE(in_plasma);
+  ASSERT_TRUE(object_directory_->callbacks.empty());
+  ASSERT_TRUE(raylet_client_->callbacks.empty());
+  // The fixture also rejects any second failure callback for the same object.
+  ASSERT_EQ(failed_reconstructions_.size(), 1);
   ASSERT_EQ(task_manager_->num_tasks_resubmitted, 0);
 }
 

@@ -417,6 +417,104 @@ TEST_F(ObjectRecoveryManagerTest, TestReconstructionSuppression) {
   ASSERT_EQ(object_directory_->Flush(), 1);
 }
 
+TEST_F(ObjectRecoveryManagerTest, TestLossBeforeRecoveryCompletionIsNotForgotten) {
+  const ObjectID object_id = ObjectID::FromRandom();
+  const NodeID remote_node_id = NodeID::FromRandom();
+  ref_counter_->AddOwnedObject(object_id,
+                               {},
+                               rpc::Address(),
+                               "",
+                               0,
+                               LineageReconstructionEligibility::ELIGIBLE,
+                               /*add_local_ref=*/true);
+  rpc::Address address;
+  address.set_node_id(remote_node_id.Binary());
+  object_directory_->SetLocations(object_id, {address});
+
+  ASSERT_FALSE(manager_.RecoverObject(object_id).has_value());
+  ASSERT_EQ(object_directory_->Flush(), 1);
+  ASSERT_EQ(raylet_client_->callbacks.size(), 1);
+
+  // Registered after RecoverObject's GetAsync callback: observing this callback
+  // proves that the old recovery's completion callback has also executed.
+  bool recovery_result_delivered = false;
+  memory_store_->GetAsync(object_id, [&](const std::shared_ptr<RayObject> &object) {
+    EXPECT_TRUE(object->IsInPlasmaError());
+    recovery_result_delivered = true;
+  });
+
+  size_t lookups_after_second_loss = 0;
+  // Keep pin completion, node loss, and the second recovery request in one
+  // event-loop handler. Put posts its GetAsync callbacks to this same loop, so
+  // they cannot execute until all three operations below have finished.
+  // packaged_task also releases the waiting test thread on a fatal assertion.
+  std::packaged_task<void()> lose_again([&] {
+    ASSERT_EQ(raylet_client_->Flush(), 1);
+    ASSERT_TRUE(ref_counter_->HasReference(object_id));
+    ASSERT_EQ(PinnedAt(object_id), remote_node_id);
+    ASSERT_FALSE(IsSpilled(object_id));
+    const auto available = memory_store_->GetIfExists(object_id);
+    ASSERT_NE(available, nullptr);
+    ASSERT_TRUE(available->IsInPlasmaError());
+    ASSERT_FALSE(recovery_result_delivered);
+
+    KillNode(remote_node_id);
+    object_directory_->SetLocations(object_id, {});
+    const auto lost = ref_counter_->FlushObjectsToRecover();
+    ASSERT_THAT(lost, ::testing::ElementsAre(object_id));
+    ASSERT_TRUE(ref_counter_->HasReference(object_id));
+    ASSERT_TRUE(PinnedAt(object_id).IsNil());
+    ASSERT_FALSE(IsSpilled(object_id));
+
+    // Match CoreWorker's periodic recovery path: remove the sentinel before
+    // handing the newly lost object to ObjectRecoveryManager.
+    memory_store_->Delete(lost);
+    ASSERT_EQ(memory_store_->GetIfExists(object_id), nullptr);
+    ASSERT_TRUE(object_directory_->callbacks.empty());
+    ASSERT_FALSE(manager_.RecoverObject(object_id).has_value());
+    lookups_after_second_loss = object_directory_->callbacks.size();
+    ASSERT_FALSE(recovery_result_delivered);
+  });
+  auto loss_processed = lose_again.get_future();
+  io_context_.GetIoService().post([&] { lose_again(); },
+                                  "TestOnly.LoseObjectBeforeRecoveryCompletion");
+  loss_processed.get();
+  DrainIoContext();
+  ASSERT_FALSE(HasFatalFailure());
+  ASSERT_TRUE(recovery_result_delivered);
+
+  // Also accept recovery explicitly requeued by completion: model the next
+  // CoreWorker recovery tick instead of requiring a particular restart path.
+  const auto requeued = ref_counter_->FlushObjectsToRecover();
+  memory_store_->Delete(requeued);
+  for (const auto &lost_id : requeued) {
+    ASSERT_EQ(lost_id, object_id);
+    ASSERT_FALSE(manager_.RecoverObject(lost_id).has_value());
+  }
+  DrainIoContext();
+
+  const bool recovery_started = !object_directory_->callbacks.empty() ||
+                                !raylet_client_->callbacks.empty() ||
+                                task_manager_->num_tasks_resubmitted > 0;
+  const auto result = memory_store_->GetIfExists(object_id);
+  // A sentinel alone cannot resolve the new loss without a retained primary.
+  // The fixture records terminal recovery errors separately below.
+  const bool value_available =
+      result != nullptr && (!result->IsInPlasmaError() || !PinnedAt(object_id).IsNil());
+  const bool terminal_failure = failed_reconstructions_.count(object_id) != 0;
+  EXPECT_TRUE(recovery_started || value_available || terminal_failure)
+      << "New loss was forgotten after the old recovery completion: "
+      << "lookups after second loss=" << lookups_after_second_loss
+      << ", queued lookups=" << object_directory_->callbacks.size()
+      << ", queued pins=" << raylet_client_->callbacks.size()
+      << ", resubmissions=" << task_manager_->num_tasks_resubmitted
+      << ", requeued losses=" << requeued.size()
+      << ", memory entry=" << (result != nullptr)
+      << ", primary=" << PinnedAt(object_id)
+      << ", value available=" << value_available
+      << ", terminal failure=" << terminal_failure;
+}
+
 TEST_F(ObjectRecoveryManagerTest, TestReconstructionChain) {
   std::vector<ObjectID> object_ids;
   std::vector<ObjectID> dependencies;

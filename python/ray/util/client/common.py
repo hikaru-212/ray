@@ -5,7 +5,7 @@ import pickle
 import threading
 import uuid
 from collections import OrderedDict
-from concurrent.futures import Future
+from concurrent.futures import Future, InvalidStateError
 from dataclasses import dataclass
 from typing import Any, Callable, Dict, List, Optional, Tuple, Union
 
@@ -141,10 +141,15 @@ class ClientObjectRef(raylet.ObjectRef):
             """Schedules a callback to set the exception or result
             in the Future."""
 
-            if isinstance(data, Exception):
-                fut.set_exception(data)
-            else:
-                fut.set_result(data)
+            try:
+                if isinstance(data, Exception):
+                    fut.set_exception(data)
+                else:
+                    fut.set_result(data)
+            except InvalidStateError:
+                # Cancellation or completion can race with this data-thread callback.
+                # Checking fut.done() first would still leave a race before the setter.
+                pass
 
         self._on_completed(set_future)
 

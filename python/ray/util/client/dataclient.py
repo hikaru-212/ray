@@ -122,6 +122,7 @@ class ChunkCollector:
         self.data = bytearray()
         # The callback that will be called once all data is received
         self.callback = callback
+        self._callback_called = False
         # The id of the last chunk we've received, or -1 if haven't seen any yet
         self.last_seen_chunk = -1
         # The GetRequest that initiated the transfer. start_chunk_id will be
@@ -131,11 +132,11 @@ class ChunkCollector:
 
     def __call__(self, response: Union[ray_client_pb2.DataResponse, Exception]) -> bool:
         if isinstance(response, Exception):
-            self.callback(response)
+            self._call_callback(response)
             return True
         get_resp = response.get
         if not get_resp.valid:
-            self.callback(response)
+            self._call_callback(response)
             return True
         if get_resp.total_size > OBJECT_TRANSFER_WARNING_SIZE and log_once(
             "client_object_transfer_size_warning"
@@ -164,7 +165,7 @@ class ChunkCollector:
                 f"{self.last_seen_chunk + 1} for request {response.req_id}"
             )
             logger.warning(msg)
-            self.callback(RuntimeError(msg))
+            self._call_callback(RuntimeError(msg))
             return True
         else:
             # We received a chunk that've already seen before. Ignore, since
@@ -175,11 +176,16 @@ class ChunkCollector:
             )
 
         if get_resp.chunk_id == get_resp.total_chunks - 1:
-            self.callback(self.data)
+            self._call_callback(self.data)
             return True
         else:
             # Not done yet
             return False
+
+    def _call_callback(self, response):
+        # Mark terminal dispatch before invoking code that may raise.
+        self._callback_called = True
+        self.callback(response)
 
 
 class DataClient:
@@ -300,15 +306,18 @@ class DataClient:
                     can_remove = callback(response)
                 elif callback:
                     callback(response)
-                if can_remove:
-                    # NOTE: calling del self.asyncio_waiting_data results
-                    # in the destructor of ClientObjectRef running, which
-                    # calls ReleaseObject(). So self.asyncio_waiting_data
-                    # is accessed without holding self.lock. Holding the
-                    # lock shouldn't be necessary either.
-                    del self.asyncio_waiting_data[response.req_id]
             except Exception:
+                if isinstance(callback, ChunkCollector):
+                    # A collection error can leave the request incomplete.
+                    can_remove = callback._callback_called
                 logger.exception("Callback error:")
+            if can_remove:
+                # NOTE: calling del self.asyncio_waiting_data results
+                # in the destructor of ClientObjectRef running, which
+                # calls ReleaseObject(). So self.asyncio_waiting_data
+                # is accessed without holding self.lock. Holding the
+                # lock shouldn't be necessary either.
+                del self.asyncio_waiting_data[response.req_id]
             with self.lock:
                 # Update outstanding requests
                 if response.req_id in self.outstanding_requests and can_remove:
@@ -357,7 +366,10 @@ class DataClient:
             )
         for callback in callbacks:
             if callback:
-                callback(err)
+                try:
+                    callback(err)
+                except Exception:
+                    logger.exception("Callback error during shutdown:")
         # Since self._in_shutdown is set to True, no new item
         # will be added to self.asyncio_waiting_data
 

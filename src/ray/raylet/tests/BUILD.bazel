@@ -1,6 +1,20 @@
 load("//bazel:ray.bzl", "ray_cc_library", "ray_cc_test")
 
 ray_cc_library(
+    name = "cleanup_safety_raylet_client",
+    testonly = True,
+    hdrs = ["cleanup_safety_raylet_client.h"],
+    visibility = ["//src/ray/gcs/tests:__pkg__"],
+    deps = [
+        "//src/ray/asio:periodical_runner",
+        "//src/ray/observability:fake_metric",
+        "//src/ray/raylet:placement_group_resource_manager",
+        "//src/ray/raylet_rpc_client:fake_raylet_client",
+        "//src/ray/util:clock",
+    ],
+)
+
+ray_cc_library(
     name = "util",
     hdrs = ["util.h"],
     visibility = ["//src/ray/raylet/scheduling/tests:__pkg__"],

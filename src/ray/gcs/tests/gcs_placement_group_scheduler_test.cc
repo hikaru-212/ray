@@ -26,6 +26,7 @@
 #include "ray/common/test_utils.h"
 #include "ray/gcs/gcs_node_manager.h"
 #include "ray/gcs/gcs_placement_group.h"
+#include "ray/gcs/gcs_placement_group_manager.h"
 #include "ray/gcs/gcs_resource_manager.h"
 #include "ray/gcs/gcs_table_storage.h"
 #include "ray/gcs/store_client/in_memory_store_client.h"
@@ -34,6 +35,7 @@
 #include "ray/pubsub/fake_publisher.h"
 #include "ray/pubsub/gcs_publisher.h"
 #include "ray/raylet/scheduling/cluster_resource_scheduler.h"
+#include "ray/raylet/tests/cleanup_safety_raylet_client.h"
 #include "ray/raylet_rpc_client/fake_raylet_client.h"
 #include "ray/util/clock.h"
 #include "ray/util/counter_map.h"
@@ -315,6 +317,18 @@ class GcsPlacementGroupSchedulerTest : public ::testing::Test {
 
   bool HasOutstandingBundleCleanup() const {
     return !scheduler_->outstanding_bundle_cleanup_.empty();
+  }
+
+  bool HasOutstandingBundleCleanup(const PlacementGroupID &pg_id,
+                                   const NodeID &node_id,
+                                   const BundleID &bundle_id) const {
+    const auto &cleanup = scheduler_->outstanding_bundle_cleanup_;
+    auto pg = cleanup.find(pg_id);
+    if (pg == cleanup.end()) {
+      return false;
+    }
+    auto node = pg->second.find(node_id);
+    return node != pg->second.end() && node->second.contains(bundle_id);
   }
 
   bool GrantRemovePlacementGroupBundlesWithStatus(size_t raylet_index,
@@ -1218,6 +1232,185 @@ TEST_F(GcsPlacementGroupSchedulerTest, FailedCommitCleanupIsRetriedOnRemoval) {
   ASSERT_EQ(raylet_clients_[0]->num_remove_pg_bundles_requested, 6);
   ASSERT_EQ(raylet_clients_[1]->num_remove_pg_bundles_requested, 1);
 }
+
+// Drive the real GCS manager and scheduler on the test thread, with real raylet
+// resource-manager execution and controlled transport delivery. No final-removal
+// cleanup-progress implementation is needed by this case.
+enum class CleanupSafetyOrdering { SameNodeLateRemoval };
+
+class GcsPlacementGroupCleanupSafetyTest
+    : public GcsPlacementGroupSchedulerTest,
+      public ::testing::WithParamInterface<CleanupSafetyOrdering> {
+ public:
+  void SetUp() override {
+    GcsPlacementGroupSchedulerTest::SetUp();
+    // Drive both event loops on the test thread, keeping fake callbacks race-free.
+    io_service_.stop();
+    thread_io_service_->join();
+    io_service_.restart();
+    // Isolate scheduler work from the manager/resource manager's perpetual timers.
+    // Natural exhaustion of this context can then identify the end of retry work.
+    scheduler_ =
+        std::make_unique<GcsPlacementGroupScheduler>(cleanup_io_,
+                                                     *gcs_table_storage_,
+                                                     *gcs_node_manager_,
+                                                     *cluster_resource_scheduler_,
+                                                     *raylet_client_pool_);
+  }
+
+  void TearDown() override {
+    GcsPlacementGroupSchedulerTest::TearDown();
+    cleanup_io_.stop();
+    scheduler_.reset();
+  }
+
+  void PumpReadyWork() {
+    size_t handlers;
+    do {
+      io_service_.restart();
+      cleanup_io_.restart();
+      handlers = io_service_.poll() + cleanup_io_.poll();
+    } while (handlers != 0);
+  }
+
+ protected:
+  instrumented_io_context cleanup_io_;
+};
+
+TEST_P(GcsPlacementGroupCleanupSafetyTest, ObsoleteRemovalPreservesCurrentReservation) {
+  auto node_a = GenNodeInfo(0);
+  const auto node_a_id = NodeID::FromBinary(node_a->node_id());
+  auto raylet_a = std::make_shared<rpc::CleanupSafetyRayletClient>(node_a_id);
+  raylet_clients_[0] = raylet_a;
+  AddNode(node_a, /*cpu_num=*/2);
+
+  observability::FakeGauge pg_gauge;
+  observability::FakeGauge pg_count;
+  observability::FakeHistogram creation_latency;
+  observability::FakeHistogram scheduling_latency;
+  GcsPlacementGroupManager manager(io_service_,
+                                   scheduler_.get(),
+                                   gcs_table_storage_.get(),
+                                   *gcs_resource_manager_,
+                                   [](const JobID &) { return std::string(); },
+                                   pg_gauge,
+                                   creation_latency,
+                                   scheduling_latency,
+                                   pg_count,
+                                   clock_);
+  auto pg = MakeStrictPackPlacementGroup(/*bundles_count=*/1, /*cpu_per_bundle=*/1);
+  const auto pg_id = pg->GetPlacementGroupID();
+  const BundleID bundle_id{pg_id, 0};
+  bool registered = false;
+  manager.RegisterPlacementGroup(pg, [&registered](Status status) {
+    ASSERT_TRUE(status.ok());
+    registered = true;
+  });
+  PumpReadyWork();
+  ASSERT_TRUE(registered);
+  ASSERT_EQ(pg->GetPlacementGroupTableData().stats().scheduling_attempt(), 1);
+  ASSERT_EQ(raylet_a->last_prepare.size(), 1);
+  ASSERT_EQ(raylet_a->last_prepare[0]->BundleId(), bundle_id);
+  // Prepare selects the RPC endpoint before GCS writes the bundle node_id.
+  ASSERT_TRUE(raylet_a->last_prepare[0]->NodeId().IsNil());
+  ASSERT_TRUE(raylet_a->prepare_succeeded);
+  ASSERT_EQ(raylet_a->AvailableCpu(), 1);
+  ASSERT_EQ(raylet_a->BundleCpu(*raylet_a->last_prepare[0]), 0);
+  ASSERT_TRUE(raylet_a->GrantPrepareBundleResources(raylet_a->prepare_succeeded));
+  PumpReadyWork();
+  ASSERT_EQ(raylet_a->last_commit.size(), 1);
+  const auto old_bundle = raylet_a->last_commit[0];
+  ASSERT_EQ(old_bundle->BundleId(), bundle_id);
+  // CommitAllBundles routes by the prepared location's NodeID, not the bundle.
+  // The fixture maps node A's RPC port to the client that received this commit.
+  ASSERT_EQ(raylet_clients_.at(node_a->node_manager_port())->num_commit_requested, 1);
+  ASSERT_EQ(raylet_a->AvailableCpu(), 1);
+  ASSERT_EQ(raylet_a->BundleCpu(*old_bundle), 1);
+
+  // The real CommitBundles already executed. Only its reply appears failed.
+  ASSERT_TRUE(raylet_a->GrantCommitBundleResources(
+      Status::RpcError("commit response lost", grpc::StatusCode::UNAVAILABLE)));
+  ASSERT_EQ(pg->GetState(), rpc::PlacementGroupTableData::RESCHEDULING);
+  ASSERT_EQ(raylet_a->num_remove_pg_bundles_requested, 1);
+  ASSERT_TRUE(HasOutstandingBundleCleanup(pg_id, node_a_id, bundle_id));
+  raylet_a->RetainDelayedRemoval();
+  ASSERT_EQ(raylet_a->delayed_remove[0]->GetMessage().SerializeAsString(),
+            old_bundle->GetMessage().SerializeAsString());
+  for (int attempt = 1; attempt <= 5; ++attempt) {
+    ASSERT_EQ(raylet_a->num_remove_pg_bundles_requested, attempt);
+    ASSERT_EQ(raylet_a->remove_pg_bundles_callbacks.size(), 1);
+    ASSERT_TRUE(GrantRemovePlacementGroupBundlesWithStatus(
+        0, Status::RpcError("ambiguous or undelivered", grpc::StatusCode::UNAVAILABLE)));
+    cleanup_io_.restart();
+    ASSERT_EQ(cleanup_io_.run_one_for(timeout_ms_), 1);
+    ASSERT_EQ(raylet_a->AvailableCpu(), 1);
+    ASSERT_EQ(raylet_a->BundleCpu(*old_bundle), 1);
+    ASSERT_EQ(pg->GetPlacementGroupTableData().stats().scheduling_attempt(), 1);
+  }
+  ASSERT_EQ(raylet_a->executed_removals, 0);
+  ASSERT_TRUE(raylet_a->remove_pg_bundles_callbacks.empty());
+  ASSERT_TRUE(HasOutstandingBundleCleanup(pg_id, node_a_id, bundle_id));
+  ASSERT_EQ(raylet_a->delayed_remove.size(), 1);
+  ASSERT_TRUE(gcs_node_manager_->IsNodeAlive(node_a_id));
+  // One CPU remains in GCS's resource view, so the old live node is eligible.
+  ASSERT_EQ(GcsAvailableCpu(node_a_id), 1);
+
+  auto current_raylet = raylet_a;
+  auto current_node_id = node_a_id;
+  // The real failure callback released the manager gate and queued this attempt.
+  // There is no direct ScheduleUnplacedBundles call or manual node assignment.
+  PumpReadyWork();
+  ASSERT_EQ(pg->GetPlacementGroupTableData().stats().scheduling_attempt(), 2);
+  ASSERT_EQ(current_raylet->last_prepare.size(), 1);
+  ASSERT_EQ(current_raylet->last_prepare[0]->BundleId(), bundle_id);
+  ASSERT_TRUE(current_raylet->last_prepare[0]->NodeId().IsNil());
+  ASSERT_TRUE(current_raylet->prepare_succeeded);
+  ASSERT_EQ(current_raylet->AvailableCpu(), 1);
+  ASSERT_TRUE(current_raylet->GrantPrepareBundleResources(
+      current_raylet->prepare_succeeded));
+  PumpReadyWork();
+  ASSERT_TRUE(current_raylet->GrantCommitBundleResources());
+  PumpReadyWork();
+  ASSERT_EQ(pg->GetState(), rpc::PlacementGroupTableData::CREATED);
+  const auto current_bundle = current_raylet->last_commit[0];
+  ASSERT_EQ(current_bundle->BundleId(), bundle_id);
+  // Verify the selected client's commits; bundle snapshots do not encode routing.
+  ASSERT_EQ(current_raylet->num_commit_requested, 2);
+  ASSERT_EQ(current_raylet->AvailableCpu(), 1);
+  ASSERT_EQ(current_raylet->BundleCpu(*current_bundle), 1);
+  ASSERT_EQ(scheduler_->GetBundlesOnNode(current_node_id).at(pg_id),
+            std::vector<int64_t>{0});
+  ASSERT_TRUE(gcs_node_manager_->IsNodeAlive(node_a_id));
+
+  ASSERT_EQ(raylet_a->delayed_remove.size(), 1);
+  // Execute the original request, not a callback and not a new cleanup request.
+  // Its real response is discarded, just as GrpcClient's InFlight branch does.
+  ASSERT_TRUE(raylet_a->ExecuteDelayedRemoval().ok());
+  ASSERT_EQ(raylet_a->executed_removals, 1);
+  ASSERT_EQ(raylet_a->AvailableCpu(), 2);
+  ASSERT_EQ(raylet_a->BundleCpu(*old_bundle), 0);
+  ASSERT_TRUE(raylet_a->delayed_remove.empty());
+  ASSERT_EQ(pg->GetState(), rpc::PlacementGroupTableData::CREATED);
+  ASSERT_EQ(scheduler_->GetBundlesOnNode(current_node_id).at(pg_id),
+            std::vector<int64_t>{0});
+  RecordProperty("current_bundle_cpu_after_old_cleanup",
+                 std::to_string(current_raylet->BundleCpu(*current_bundle)));
+  RecordProperty("current_node_available_cpu_after_old_cleanup",
+                 std::to_string(current_raylet->AvailableCpu()));
+  EXPECT_EQ(current_raylet->BundleCpu(*current_bundle), 1)
+      << "An obsolete cleanup must not destroy a newer successful scheduling attempt's "
+         "reservation while GCS still owns the bundle on this live node.";
+  EXPECT_EQ(current_raylet->AvailableCpu(), 1)
+      << "The CPU must remain owned by the current placement group reservation.";
+}
+
+INSTANTIATE_TEST_SUITE_P(
+    ControlledOrderings,
+    GcsPlacementGroupCleanupSafetyTest,
+    ::testing::Values(CleanupSafetyOrdering::SameNodeLateRemoval),
+    [](const ::testing::TestParamInfo<CleanupSafetyOrdering> &) {
+      return "SameNodeLateRemoval";
+    });
 
 TEST_F(GcsPlacementGroupSchedulerTest, OutstandingCommitCleanupIsForgottenWhenNodeDies) {
   auto node = GenNodeInfo(0);

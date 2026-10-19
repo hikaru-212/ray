@@ -1,0 +1,82 @@
+--- a/python/ray/serve/tests/test_multiplex.py
++++ b/python/ray/serve/tests/test_multiplex.py
+@@ -1,5 +1,6 @@
+ import asyncio
+ import os
++from functools import wraps
+ from typing import List
+ 
+ import httpx
+@@ -27,6 +28,7 @@
+ 
+ @pytest.fixture()
+ def start_serve_with_context():
++    ray.init(include_dashboard=False)
+     serve.start()
+     ray.serve.context._set_internal_replica_context(
+         replica_id=ReplicaID(
+@@ -811,6 +813,64 @@
+     )
+ 
+ 
++def _multiplex_passthrough_decorator(func):
++    @wraps(func)
++    async def wrapper(*args, **kwargs):
++        return await func(*args, **kwargs)
++
++    return wrapper
++
++
++@pytest.mark.asyncio
++@pytest.mark.parametrize("num_outer_decorators", [1, 2])
++async def test_multiplexed_method_wrapped_by_other_decorators(
++    start_serve_with_context, num_outer_decorators
++):
++    class Handler:
++        def __init__(self, receiver):
++            self.receiver = receiver
++            self.load_count = 0
++
++        @serve.multiplexed(max_num_models_per_replica=2)
++        async def load_model(self, model_id):
++            self.load_count += 1
++            return f"{self.receiver}:{model_id}:{self.load_count}"
++
++    for _ in range(num_outer_decorators):
++        Handler.load_model = _multiplex_passthrough_decorator(Handler.load_model)
++
++    instance_a = Handler("A")
++    instance_b = Handler("B")
++    multiplex_attr = "__serve_multiplex_wrapper"
++
++    try:
++        assert await instance_a.load_model("X") == "A:X:1"
++        assert await instance_a.load_model("X") == "A:X:1"
++        assert await instance_b.load_model("X") == "B:X:1"
++
++        assert instance_a.load_count == 1
++        assert instance_b.load_count == 1
++
++        assert multiplex_attr in instance_a.__dict__
++        assert multiplex_attr in instance_b.__dict__
++        assert multiplex_attr not in Handler.__dict__
++
++        wrapper_a = instance_a.__dict__[multiplex_attr]
++        wrapper_b = instance_b.__dict__[multiplex_attr]
++        assert wrapper_a is not wrapper_b
++        assert wrapper_a.self_arg is instance_a
++        assert wrapper_b.self_arg is instance_b
++        assert wrapper_a.models is not wrapper_b.models
++        assert wrapper_a.models == {"X": "A:X:1"}
++        assert wrapper_b.models == {"X": "B:X:1"}
++    finally:
++        for instance in (instance_a, instance_b):
++            wrapper = instance.__dict__.get(multiplex_attr)
++            if wrapper is not None:
++                await wrapper.shutdown()
++                await wrapper.metrics_pusher.graceful_shutdown()
++
++
+ if __name__ == "__main__":
+     import sys
+ 

@@ -1,0 +1,13 @@
+{
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "platform": "Linux-6.8.0-147-generic-aarch64-with-glibc2.39",
+  "machine": "aarch64",
+  "ray_version": "3.0.0.dev0",
+  "native_commit": "05d07da40d2c62d803f08533db75a7f3e76f079f",
+  "numpy": "2.2.6",
+  "pyarrow": "23.0.1",
+  "pandas": "2.3.3",
+  "ray_path": "/tmp/ray-67192-phase2-sWeS1S/pr/ray/__init__.py",
+  "batcher_path": "/tmp/ray-67192-phase2-sWeS1S/pr/ray/data/_internal/batcher.py",
+  "batch_blocks_path": "/tmp/ray-67192-phase2-sWeS1S/pr/ray/data/_internal/block_batching/block_batching.py"
+}

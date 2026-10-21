@@ -1,0 +1,194 @@
+[
+  {
+    "case": "single",
+    "batch_size": null,
+    "variant": "parent",
+    "median_ms": 13.995960000102059,
+    "median_extra_peak_rss_mib": 122.1953125,
+    "min_ms": 12.806662999992113,
+    "max_ms": 16.617569000118237,
+    "counts": {
+      "arrow_slice_copy": 1,
+      "arrow_combine": 8,
+      "numpy_copy_calls": 1,
+      "numpy_arrays_copied": 8,
+      "numpy_copy_bytes": 64000000
+    }
+  },
+  {
+    "case": "single",
+    "batch_size": null,
+    "variant": "pr",
+    "median_ms": 4.568452000057732,
+    "median_extra_peak_rss_mib": 61.0,
+    "min_ms": 4.093574999842531,
+    "max_ms": 4.984999000043899,
+    "counts": {
+      "arrow_slice_copy": 0,
+      "arrow_combine": 0,
+      "numpy_copy_calls": 1,
+      "numpy_arrays_copied": 8,
+      "numpy_copy_bytes": 64000000
+    }
+  },
+  {
+    "case": "single",
+    "batch_size": 1000000,
+    "variant": "parent",
+    "median_ms": 12.896233999981632,
+    "median_extra_peak_rss_mib": 122.0703125,
+    "min_ms": 12.451015999886295,
+    "max_ms": 14.1367530000025,
+    "counts": {
+      "arrow_slice_copy": 1,
+      "arrow_combine": 8,
+      "numpy_copy_calls": 1,
+      "numpy_arrays_copied": 8,
+      "numpy_copy_bytes": 64000000
+    }
+  },
+  {
+    "case": "single",
+    "batch_size": 1000000,
+    "variant": "pr",
+    "median_ms": 4.846999000164942,
+    "median_extra_peak_rss_mib": 61.0,
+    "min_ms": 3.999866999947699,
+    "max_ms": 5.835167999975965,
+    "counts": {
+      "arrow_slice_copy": 0,
+      "arrow_combine": 0,
+      "numpy_copy_calls": 1,
+      "numpy_arrays_copied": 8,
+      "numpy_copy_bytes": 64000000
+    }
+  },
+  {
+    "case": "multi",
+    "batch_size": null,
+    "variant": "parent",
+    "median_ms": 15.188929000032658,
+    "median_extra_peak_rss_mib": 122.1484375,
+    "min_ms": 13.284585999826959,
+    "max_ms": 16.455439000310434,
+    "counts": {
+      "arrow_slice_copy": 1,
+      "arrow_combine": 8,
+      "numpy_copy_calls": 1,
+      "numpy_arrays_copied": 8,
+      "numpy_copy_bytes": 64000000
+    }
+  },
+  {
+    "case": "multi",
+    "batch_size": null,
+    "variant": "pr",
+    "median_ms": 15.526956000030623,
+    "median_extra_peak_rss_mib": 122.28125,
+    "min_ms": 12.746711999625404,
+    "max_ms": 17.9990300002828,
+    "counts": {
+      "arrow_slice_copy": 0,
+      "arrow_combine": 8,
+      "numpy_copy_calls": 1,
+      "numpy_arrays_copied": 8,
+      "numpy_copy_bytes": 64000000
+    }
+  },
+  {
+    "case": "multi",
+    "batch_size": 1000000,
+    "variant": "parent",
+    "median_ms": 14.65139000038107,
+    "median_extra_peak_rss_mib": 122.10546875,
+    "min_ms": 13.215295999998489,
+    "max_ms": 17.172656999719038,
+    "counts": {
+      "arrow_slice_copy": 1,
+      "arrow_combine": 8,
+      "numpy_copy_calls": 1,
+      "numpy_arrays_copied": 8,
+      "numpy_copy_bytes": 64000000
+    }
+  },
+  {
+    "case": "multi",
+    "batch_size": 1000000,
+    "variant": "pr",
+    "median_ms": 16.00935699980255,
+    "median_extra_peak_rss_mib": 122.28515625,
+    "min_ms": 12.140331999944465,
+    "max_ms": 17.967532000056963,
+    "counts": {
+      "arrow_slice_copy": 0,
+      "arrow_combine": 8,
+      "numpy_copy_calls": 1,
+      "numpy_arrays_copied": 8,
+      "numpy_copy_bytes": 64000000
+    }
+  },
+  {
+    "case": "mixed",
+    "batch_size": null,
+    "variant": "parent",
+    "median_ms": 21.059380999759014,
+    "median_extra_peak_rss_mib": 142.40234375,
+    "min_ms": 19.930145999751403,
+    "max_ms": 25.77663499960181,
+    "counts": {
+      "arrow_slice_copy": 1,
+      "arrow_combine": 9,
+      "numpy_copy_calls": 1,
+      "numpy_arrays_copied": 9,
+      "numpy_copy_bytes": 72000000
+    }
+  },
+  {
+    "case": "mixed",
+    "batch_size": null,
+    "variant": "pr",
+    "median_ms": 20.81245699991996,
+    "median_extra_peak_rss_mib": 142.52734375,
+    "min_ms": 19.453355000223382,
+    "max_ms": 22.776968000016495,
+    "counts": {
+      "arrow_slice_copy": 1,
+      "arrow_combine": 9,
+      "numpy_copy_calls": 1,
+      "numpy_arrays_copied": 9,
+      "numpy_copy_bytes": 72000000
+    }
+  },
+  {
+    "case": "mixed",
+    "batch_size": 1000000,
+    "variant": "parent",
+    "median_ms": 21.16734199989878,
+    "median_extra_peak_rss_mib": 142.40234375,
+    "min_ms": 19.77582400013489,
+    "max_ms": 26.952476000133174,
+    "counts": {
+      "arrow_slice_copy": 1,
+      "arrow_combine": 9,
+      "numpy_copy_calls": 1,
+      "numpy_arrays_copied": 9,
+      "numpy_copy_bytes": 72000000
+    }
+  },
+  {
+    "case": "mixed",
+    "batch_size": 1000000,
+    "variant": "pr",
+    "median_ms": 20.995635999952356,
+    "median_extra_peak_rss_mib": 142.53125,
+    "min_ms": 19.73330300006637,
+    "max_ms": 21.130416999767476,
+    "counts": {
+      "arrow_slice_copy": 1,
+      "arrow_combine": 9,
+      "numpy_copy_calls": 1,
+      "numpy_arrays_copied": 9,
+      "numpy_copy_bytes": 72000000
+    }
+  }
+]

@@ -1,0 +1,79 @@
+[
+  {
+    "file": "author-map-pr.xml",
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "file": "author-unit-pr.xml",
+    "tests": 21,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "file": "boundaries-pr-arrow26.xml",
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "file": "comparison-parent.xml",
+    "tests": 164,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "file": "independent-map-pr.xml",
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "file": "independent-unit-parent.xml",
+    "tests": 154,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "file": "independent-unit-pr.xml",
+    "tests": 154,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "file": "parent-arrow26-fixture-error.xml",
+    "tests": 174,
+    "failures": 0,
+    "errors": 10,
+    "skipped": 0
+  },
+  {
+    "file": "parent-arrow26.xml",
+    "tests": 174,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "file": "pr-arrow26.xml",
+    "tests": 185,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "file": "values-pr.xml",
+    "tests": 96,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+]

@@ -11,6 +11,7 @@ files, or Python environments.
 | [PR #67117](67117/) | Decorated multiplexed methods recover the correct receiver and keep model caches instance-local. | A test-only patch covering one and two outer decorators. |
 | [PR #66953](66953/) | A real gRPC Push deadline releases PushManager capacity and admits an already-queued independent Push. | A production-path C++ harness with same-binary finite and disabled deadline controls. |
 | [PR #67180](67180/) | A valid Ray Data output remains intact when its producer later fails while the output-read budget is zero. | Inline and threaded metadata modes on the verified baseline and PR HEAD; this is non-regression evidence. |
+| [PR #67192](67192/) | Writable NumPy batches remain source-isolated when a safe Arrow pre-copy is omitted. | Independent batching boundaries plus a fresh-process single/multi/mixed microbenchmark. |
 
 Each case must be run with a Ray development environment compatible with the
 specified source revision. The environment is deliberately not vendored here.

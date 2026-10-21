@@ -1,0 +1,40 @@
+{
+  "binary": "/tmp/ray-66953-p1-vomxHdFj/links/bin/src/ray/object_manager/tests/p1_deadline_integration_test",
+  "binary_sha256": "d99744ac758d4c0932edd0c85649f0c1d0bbbdd38a6da4dc8c63b0057430b08d",
+  "command": [
+    "/tmp/ray-66953-p1-vomxHdFj/links/bin/src/ray/object_manager/tests/p1_deadline_integration_test",
+    "--gtest_filter=ObjectManagerTest.P1RealDeadlineRestoresQueuedPushCapacity",
+    "--gtest_color=no"
+  ],
+  "only_arm_environment_difference": "P1_PUSH_DEADLINE_MS",
+  "fixed_environment": {
+    "TMPDIR": "/tmp/ray-66953-p1-vomxHdFj/run-tmp",
+    "TEST_TMPDIR": "/tmp/ray-66953-p1-vomxHdFj/run-tmp",
+    "RAY_BACKEND_LOG_LEVEL": "debug",
+    "RAY_USAGE_STATS_ENABLED": "0"
+  },
+  "results": [
+    {
+      "arm": "finite",
+      "deadline_ms": 3000,
+      "pid": 129970,
+      "returncode": 0,
+      "watchdog_fired": false,
+      "elapsed_s": 4.44320212599996,
+      "pass_marker": true,
+      "cleanup_marker": true,
+      "log": "/tmp/ray-66953-p1-vomxHdFj/logs/finite-v3.log"
+    },
+    {
+      "arm": "disabled",
+      "deadline_ms": -1,
+      "pid": 130026,
+      "returncode": 0,
+      "watchdog_fired": false,
+      "elapsed_s": 4.5112402400000065,
+      "pass_marker": true,
+      "cleanup_marker": true,
+      "log": "/tmp/ray-66953-p1-vomxHdFj/logs/disabled-v3.log"
+    }
+  ]
+}

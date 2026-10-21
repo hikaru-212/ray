@@ -1,0 +1,14 @@
+# Independent verification target. Append this block to
+# src/ray/object_manager/tests/BUILD.bazel in an isolated checkout/export.
+ray_cc_test(
+    name = "p1_deadline_integration_test",
+    size = "small",
+    srcs = ["p1_deadline_integration_test.cc"],
+    deps = [
+        "//src/ray/gcs_rpc_client:fake_gcs_client",
+        "//src/ray/object_manager",
+        "//src/ray/object_manager:fake_object_directory",
+        "//src/ray/object_manager/plasma:fake_plasma_client",
+        "//src/ray/object_manager_rpc_client:object_manager_client",
+    ],
+)

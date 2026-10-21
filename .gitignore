@@ -10,7 +10,16 @@ venv/
 *.dylib
 *.dll
 *.whl
+*.bin
+*.tar
+
+bazel-*
+build/
+dist/
 
 .env
 .env.*
-
+*.pem
+*.key
+credentials.json
+secrets.*

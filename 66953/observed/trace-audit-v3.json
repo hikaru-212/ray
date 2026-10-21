@@ -1,0 +1,328 @@
+[
+  {
+    "arm": "finite",
+    "checks_passed": true,
+    "events": [
+      {
+        "seq": 1,
+        "us": 364,
+        "event": "configuration",
+        "detail": "deadline_ms=3000 capacity=1 chunk_bytes=1 observation_ms=4000"
+      },
+      {
+        "seq": 2,
+        "us": 1928,
+        "event": "remote_server_started",
+        "detail": "port=38229"
+      },
+      {
+        "seq": 3,
+        "us": 2948,
+        "event": "real_client_created",
+        "detail": ""
+      },
+      {
+        "seq": 4,
+        "us": 3080,
+        "event": "A.admitted",
+        "detail": ""
+      },
+      {
+        "seq": 5,
+        "us": 3162,
+        "event": "A.real_client_dispatch",
+        "detail": ""
+      },
+      {
+        "seq": 6,
+        "us": 4061,
+        "event": "A.server_received",
+        "detail": "chunk=0 bytes=1 deadline_remaining_ms=2999"
+      },
+      {
+        "seq": 7,
+        "us": 4204,
+        "event": "A.occupies_capacity",
+        "detail": "flight=1 remaining=1 queued=0"
+      },
+      {
+        "seq": 8,
+        "us": 4295,
+        "event": "B.queued_before_A_completion",
+        "detail": ""
+      },
+      {
+        "seq": 9,
+        "us": 4366,
+        "event": "B.blocked",
+        "detail": "flight=1 remaining=2 queued=1"
+      },
+      {
+        "seq": 10,
+        "us": 3004082,
+        "event": "A.client_callback",
+        "detail": "status=TimedOut: RPC error: Deadline Exceeded"
+      },
+      {
+        "seq": 11,
+        "us": 3004144,
+        "event": "A.production_callback_forwarded",
+        "detail": ""
+      },
+      {
+        "seq": 12,
+        "us": 3004209,
+        "event": "A.main_completion_barrier",
+        "detail": ""
+      },
+      {
+        "seq": 13,
+        "us": 3004287,
+        "event": "B.real_client_dispatch",
+        "detail": ""
+      },
+      {
+        "seq": 14,
+        "us": 3005228,
+        "event": "B.server_received",
+        "detail": "chunk=0 bytes=1 deadline_remaining_ms=2999"
+      },
+      {
+        "seq": 15,
+        "us": 4004098,
+        "event": "observation_checkpoint",
+        "detail": ""
+      },
+      {
+        "seq": 16,
+        "us": 4004191,
+        "event": "checkpoint.finite",
+        "detail": "flight=1 remaining=1 queued=0"
+      },
+      {
+        "seq": 17,
+        "us": 4004228,
+        "event": "A.explicit_release",
+        "detail": ""
+      },
+      {
+        "seq": 18,
+        "us": 4004245,
+        "event": "B.explicit_release",
+        "detail": ""
+      },
+      {
+        "seq": 19,
+        "us": 4004298,
+        "event": "A.server_return",
+        "detail": ""
+      },
+      {
+        "seq": 20,
+        "us": 4004371,
+        "event": "B.server_return",
+        "detail": ""
+      },
+      {
+        "seq": 21,
+        "us": 4004754,
+        "event": "B.client_callback",
+        "detail": "status=OK"
+      },
+      {
+        "seq": 22,
+        "us": 4004786,
+        "event": "B.production_callback_forwarded",
+        "detail": ""
+      },
+      {
+        "seq": 23,
+        "us": 4004799,
+        "event": "B.main_completion_barrier",
+        "detail": ""
+      },
+      {
+        "seq": 24,
+        "us": 4004976,
+        "event": "all_completions_drained",
+        "detail": "flight=0 remaining=0 queued=0"
+      },
+      {
+        "seq": 25,
+        "us": 4007316,
+        "event": "cleanup_complete",
+        "detail": "application_threads_joined=true"
+      },
+      {
+        "seq": 26,
+        "us": 4007325,
+        "event": "PASS",
+        "detail": "callbacks_A=1 callbacks_B=1 flight=0 remaining=0 queued=0"
+      }
+    ],
+    "log_sha256": "584ab8b0fcdaeab9f85a4978f0277269bd1ee4532efa472a6acb301cfa5f5b44"
+  },
+  {
+    "arm": "disabled",
+    "checks_passed": true,
+    "events": [
+      {
+        "seq": 1,
+        "us": 347,
+        "event": "configuration",
+        "detail": "deadline_ms=-1 capacity=1 chunk_bytes=1 observation_ms=4000"
+      },
+      {
+        "seq": 2,
+        "us": 1515,
+        "event": "remote_server_started",
+        "detail": "port=33389"
+      },
+      {
+        "seq": 3,
+        "us": 2396,
+        "event": "real_client_created",
+        "detail": ""
+      },
+      {
+        "seq": 4,
+        "us": 2548,
+        "event": "A.admitted",
+        "detail": ""
+      },
+      {
+        "seq": 5,
+        "us": 2646,
+        "event": "A.real_client_dispatch",
+        "detail": ""
+      },
+      {
+        "seq": 6,
+        "us": 3624,
+        "event": "A.server_received",
+        "detail": "chunk=0 bytes=1 deadline_remaining_ms=7430811219842"
+      },
+      {
+        "seq": 7,
+        "us": 3715,
+        "event": "A.occupies_capacity",
+        "detail": "flight=1 remaining=1 queued=0"
+      },
+      {
+        "seq": 8,
+        "us": 4156,
+        "event": "B.queued_before_A_completion",
+        "detail": ""
+      },
+      {
+        "seq": 9,
+        "us": 4296,
+        "event": "B.blocked",
+        "detail": "flight=1 remaining=2 queued=1"
+      },
+      {
+        "seq": 10,
+        "us": 4003661,
+        "event": "observation_checkpoint",
+        "detail": ""
+      },
+      {
+        "seq": 11,
+        "us": 4003762,
+        "event": "checkpoint.disabled",
+        "detail": "flight=1 remaining=2 queued=1"
+      },
+      {
+        "seq": 12,
+        "us": 4003794,
+        "event": "A.explicit_release",
+        "detail": ""
+      },
+      {
+        "seq": 13,
+        "us": 4003878,
+        "event": "A.server_return",
+        "detail": ""
+      },
+      {
+        "seq": 14,
+        "us": 4004243,
+        "event": "A.client_callback",
+        "detail": "status=OK"
+      },
+      {
+        "seq": 15,
+        "us": 4004276,
+        "event": "A.production_callback_forwarded",
+        "detail": ""
+      },
+      {
+        "seq": 16,
+        "us": 4004299,
+        "event": "A.main_completion_barrier",
+        "detail": ""
+      },
+      {
+        "seq": 17,
+        "us": 4004372,
+        "event": "B.real_client_dispatch",
+        "detail": ""
+      },
+      {
+        "seq": 18,
+        "us": 4005195,
+        "event": "B.server_received",
+        "detail": "chunk=0 bytes=1 deadline_remaining_ms=7430811215841"
+      },
+      {
+        "seq": 19,
+        "us": 4005230,
+        "event": "B.explicit_release",
+        "detail": ""
+      },
+      {
+        "seq": 20,
+        "us": 4005324,
+        "event": "B.server_return",
+        "detail": ""
+      },
+      {
+        "seq": 21,
+        "us": 4005562,
+        "event": "B.client_callback",
+        "detail": "status=OK"
+      },
+      {
+        "seq": 22,
+        "us": 4005621,
+        "event": "B.production_callback_forwarded",
+        "detail": ""
+      },
+      {
+        "seq": 23,
+        "us": 4005639,
+        "event": "B.main_completion_barrier",
+        "detail": ""
+      },
+      {
+        "seq": 24,
+        "us": 4005716,
+        "event": "all_completions_drained",
+        "detail": "flight=0 remaining=0 queued=0"
+      },
+      {
+        "seq": 25,
+        "us": 4007769,
+        "event": "cleanup_complete",
+        "detail": "application_threads_joined=true"
+      },
+      {
+        "seq": 26,
+        "us": 4007774,
+        "event": "PASS",
+        "detail": "callbacks_A=1 callbacks_B=1 flight=0 remaining=0 queued=0"
+      }
+    ],
+    "log_sha256": "94927c33f464877b974a4b17d59e2e87c91f3cbe45becc99b3052a7bde32ed71"
+  }
+]

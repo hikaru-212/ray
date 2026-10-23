@@ -1,0 +1,37 @@
+{
+  "phase": "Historical Phase 2, not the packaged rerun",
+  "verified_from_original_files": true,
+  "source_artifact_sha256": {
+    "REPORT.zh-TW.md": "2ab5a916088ba43bcda686d34f45bf99bd35f02682076145904a7b6403e1fc04",
+    "test_independent.py": "0a1a08e49257957e4e845f438687daa8c5388c1a84025d83980586b25b4fef98",
+    "test_strict_invariant.py": "a9d0b4018c413d68b9181e54e81980101edd846a87fe18d585aa43786c598c7d",
+    "bootstrap.py": "f3cc855d442f619eeb16391e9c40495e1c4a5e1e16c4485b8de8c2ed4f4601f9",
+    "conftest.py": "c03ba4b8e4aca34154765ce3137ceceb29e749bffb72716dc2e53526a2264980",
+    "REPRODUCE.txt": "d09f8490319c7552c7b6dd9e4bab92e89f74efe0631df0692ffa8fc48df770d9",
+    "environment-lock.txt": "07016fac5f73911728fa2e3e97936a82be70aeb46df07bd22512f172695b5b7c",
+    "parent-independent-final.log": "d09b656cc01ee23eb2ffd4aabe858cb48f05e283adbddd68beb15badeb9a149e",
+    "head-independent-final.log": "c96ccfe68321e4992c2fac30dfe8b5ccfbc90b77855eac0055ff47fc5fd9004c",
+    "parent-strict-invariant.log": "63b70ba727c535b9e33f09d641008356bb8f9b53a08f28f50399d6aa35d2ef2f",
+    "head-strict-invariant.log": "cfd11af60b5dbdebf9bd7859cdd69e2e3e52506900acdf8e3aa747ce47f37a17",
+    "parent-author.log": "7a99bee91d2d0a6ed8651245b950097c7b00ee0e2354508b6a32db14d5d2b465",
+    "head-author.log": "36189a79db1aa64881f9829f790a72cc5556240e59650b477d0b934046953699",
+    "results-parent-final.jsonl": "3cd1fd362de372a1aa61662b734c01cfabd8cbafa9f16f9e5dcee89af7ab706c",
+    "results-head-final.jsonl": "988e02677dc7c9e9eae186d0103ef191ea9f27f141f78bd9be73d7d511befa59"
+  },
+  "pytest_summaries": {
+    "parent-independent-final.log": "32 failed, 214 passed, 1 warning in 2.73s",
+    "head-independent-final.log": "246 passed, 1 warning in 2.38s",
+    "parent-strict-invariant.log": "9 failed, 3 passed, 1 warning in 1.33s",
+    "head-strict-invariant.log": "3 failed, 9 passed, 1 warning in 1.33s",
+    "parent-author.log": "2 failed, 16 passed, 2 warnings in 1.23s",
+    "head-author.log": "18 passed, 2 warnings in 1.03s"
+  },
+  "adaptation": {
+    "test_repeater.py": "Pruned test_independent.py to 12 parameter sets. Retained replay, callback, mean, error, downstream state and warning assertions. Removed Recorder, extra kwargs and BayesOpt buffer probes.",
+    "probe_all_nan.py": "Pruned test_strict_invariant.py to HyperOpt/failure_missing_nan with orders 012 and 210; preserved the strict signature equality assertion.",
+    "bootstrap.py": "Reused exact-source MetaPathFinder; replaced local paths with runtime environment inputs.",
+    "conftest.py": "Reused production import/source audit and trainable fixture; removed hardcoded repository path and used portable provenance paths.",
+    "run_verification.py": "New export/execution/provenance runner; executed from the permanent package in Phase 3."
+  },
+  "omitted": "Full source snapshots, venv, full 246-case matrices, duplicate source reports, initial harness mistakes, bulk JSONL/trace logs, author test copy, global Git refs."
+}

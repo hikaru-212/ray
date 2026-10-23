@@ -1,0 +1,1160 @@
+{
+  "phase": "Phase 3 packaged rerun",
+  "started_utc": "2026-10-23T08:17:43.398547+00:00",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "commits": {
+    "parent": "e00c7f4bed3d92da863230c2dfdc3ea81eec1778",
+    "head": "8ffddc460b8b65da3930b2a789399aafe0282568"
+  },
+  "packages": {
+    "annotated-types": "0.8.0",
+    "attrs": "26.1.0",
+    "bayesian-optimization": "1.4.3",
+    "certifi": "2026.10.19",
+    "charset-normalizer": "3.5.2",
+    "click": "8.5.0",
+    "cloudpickle": "3.1.2",
+    "colorama": "0.4.6",
+    "filelock": "4.2.4",
+    "fsspec": "2026.9.0",
+    "future": "1.0.0",
+    "hyperopt": "0.2.7",
+    "idna": "3.20",
+    "iniconfig": "2.3.1",
+    "joblib": "1.6.0",
+    "jsonschema": "4.26.0",
+    "jsonschema-specifications": "2025.9.1",
+    "msgpack": "1.2.3",
+    "narwhals": "2.27.1",
+    "networkx": "3.7",
+    "numpy": "2.2.6",
+    "packaging": "26.3",
+    "pandas": "3.1.0",
+    "pluggy": "1.7.0",
+    "protobuf": "7.36.2",
+    "py4j": "0.10.9.9",
+    "pyarrow": "26.0.0",
+    "pydantic": "2.14.1",
+    "pydantic_core": "2.50.1",
+    "pytest": "7.4.4",
+    "python-dateutil": "3.0.0",
+    "PyYAML": "6.0.3",
+    "ray": "2.58.0",
+    "referencing": "0.37.0",
+    "requests": "2.34.2",
+    "rpds-py": "2026.9.1",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "setuptools": "80.10.2",
+    "six": "1.17.0",
+    "tensorboardX": "2.6.5",
+    "threadpoolctl": "3.7.0",
+    "tqdm": "4.70.1",
+    "typing-inspection": "0.4.4",
+    "typing_extensions": "4.16.0",
+    "tzdata": "2026.5",
+    "urllib3": "2.8.0"
+  },
+  "artifact_sha256": {
+    "bootstrap.py": "93f8d16d39a51d76a82b07b25ae6f4d258d5030806198a68957fd5ed24c9e1f7",
+    "conftest.py": "ef01559a97309f719e9ba349756fe24841b5e34c9b04d0100cb22ce97885e51b",
+    "environment-lock.txt": "07016fac5f73911728fa2e3e97936a82be70aeb46df07bd22512f172695b5b7c",
+    "probe_all_nan.py": "bae1e09098bbd3c3f901e9effab31a9e096294c588c5edd5bb9eecac66dd1d90",
+    "run_verification.py": "06b8455cf1145efb9d9701b4e8f8f6c050c455850db883555ae941c89a32a51c",
+    "test_repeater.py": "82280360d36f825d55720c307e00eb82898fb943a269ea9525584fead3ad488b"
+  },
+  "runs": [
+    {
+      "variant": "parent",
+      "suite": "core",
+      "exit_code": 1,
+      "passed": 8,
+      "failed": [
+        "test_completion_matrix[one_failure-012-bayesopt]",
+        "test_completion_matrix[one_failure-012-hyperopt]",
+        "test_completion_matrix[two_failures-012-bayesopt]",
+        "test_completion_matrix[two_failures-012-hyperopt]"
+      ],
+      "errors": [],
+      "skipped": [],
+      "expected_pattern_met": true,
+      "snapshot_files_verified": 242,
+      "import_audit": {
+        "variant": "parent",
+        "commit": "e00c7f4bed3d92da863230c2dfdc3ea81eec1778",
+        "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "modules": {
+          "ray.tune.search.searcher": {
+            "path": "ray/tune/search/searcher.py",
+            "sha256": "54bed8b8aef89bd07d74c593e023364bfcbc2ee5a4080d7963c83565be31be2c"
+          },
+          "ray.tune.search.repeater": {
+            "path": "ray/tune/search/repeater.py",
+            "sha256": "786ff9919033e535a93cecf208976d942f9de6e0537f404610de3704751c015f"
+          },
+          "ray.tune.search.search_generator": {
+            "path": "ray/tune/search/search_generator.py",
+            "sha256": "33cfe0aacbf4272a9cb4fcddc8771f95caf620be955f4213c07293987eac2db3"
+          },
+          "ray.tune.search.bayesopt.bayesopt_search": {
+            "path": "ray/tune/search/bayesopt/bayesopt_search.py",
+            "sha256": "3abc3a1d01c832be87cf4be99b2c70a0c2fa83b402c9833278abba1ca66f99cb"
+          },
+          "ray.tune.search.hyperopt.hyperopt_search": {
+            "path": "ray/tune/search/hyperopt/hyperopt_search.py",
+            "sha256": "e2164b64b7c4d1f7e1c4a89af3b7068873b440d730e0cbae6737c18269e9110c"
+          },
+          "ray.tune.search.util": {
+            "path": "ray/tune/search/util.py",
+            "sha256": "ff7d2c16e4caabda0ecfc7e93089b884a03fdb1e3129a6a3c23214f492402741"
+          },
+          "ray.tune.utils.util": {
+            "path": "ray/tune/utils/util.py",
+            "sha256": "fa94023d1aef4072aea93c49a0b0d5c2255c32c71214144b29b2d5d35cd731d5"
+          },
+          "ray.tune.experiment.trial": {
+            "path": "ray/tune/experiment/trial.py",
+            "sha256": "160791cee98dd6b82a104914712b0f4cdc774d50284f006001e9d6e62b3aeec2"
+          }
+        },
+        "packages": {
+          "ray": "2.58.0",
+          "numpy": "2.2.6",
+          "pytest": "7.4.4",
+          "bayesian-optimization": "1.4.3",
+          "hyperopt": "0.2.7",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1"
+        }
+      },
+      "executed_repeater_lines": [
+        160,
+        165,
+        166,
+        167,
+        169,
+        170,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177
+      ],
+      "outcomes": [
+        {
+          "case": "one_failure",
+          "backend": "bayesopt",
+          "order": [
+            0,
+            1,
+            2
+          ],
+          "mean": 3.0,
+          "error": true,
+          "kwargs": {
+            "error": true
+          },
+          "state": {
+            "buffer_count": 0,
+            "targets": []
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            5,
+            "NaN"
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "one_failure",
+          "backend": "hyperopt",
+          "order": [
+            0,
+            1,
+            2
+          ],
+          "mean": 3.0,
+          "error": true,
+          "kwargs": {
+            "error": true
+          },
+          "state": {
+            "error_metadata": true,
+            "job_state": 3,
+            "result": {
+              "status": "new"
+            },
+            "visible_trials": 0
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            5,
+            "NaN"
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "one_failure",
+          "backend": "bayesopt",
+          "order": [
+            2,
+            1,
+            0
+          ],
+          "mean": 3.0,
+          "error": false,
+          "kwargs": {
+            "error": false
+          },
+          "state": {
+            "buffer_count": 0,
+            "targets": [
+              3.0
+            ]
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            5,
+            "NaN"
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "one_failure",
+          "backend": "hyperopt",
+          "order": [
+            2,
+            1,
+            0
+          ],
+          "mean": 3.0,
+          "error": false,
+          "kwargs": {
+            "error": false
+          },
+          "state": {
+            "error_metadata": false,
+            "job_state": 2,
+            "result": {
+              "loss": -3.0,
+              "status": "ok"
+            },
+            "visible_trials": 1
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            5,
+            "NaN"
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "two_failures",
+          "backend": "bayesopt",
+          "order": [
+            0,
+            1,
+            2
+          ],
+          "mean": 1.0,
+          "error": true,
+          "kwargs": {
+            "error": true
+          },
+          "state": {
+            "buffer_count": 0,
+            "targets": []
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            "NaN",
+            "NaN"
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "two_failures",
+          "backend": "hyperopt",
+          "order": [
+            0,
+            1,
+            2
+          ],
+          "mean": 1.0,
+          "error": true,
+          "kwargs": {
+            "error": true
+          },
+          "state": {
+            "error_metadata": true,
+            "job_state": 3,
+            "result": {
+              "status": "new"
+            },
+            "visible_trials": 0
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            "NaN",
+            "NaN"
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "two_failures",
+          "backend": "bayesopt",
+          "order": [
+            2,
+            1,
+            0
+          ],
+          "mean": 1.0,
+          "error": false,
+          "kwargs": {
+            "error": false
+          },
+          "state": {
+            "buffer_count": 0,
+            "targets": [
+              1.0
+            ]
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            "NaN",
+            "NaN"
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "two_failures",
+          "backend": "hyperopt",
+          "order": [
+            2,
+            1,
+            0
+          ],
+          "mean": 1.0,
+          "error": false,
+          "kwargs": {
+            "error": false
+          },
+          "state": {
+            "error_metadata": false,
+            "job_state": 2,
+            "result": {
+              "loss": -1.0,
+              "status": "ok"
+            },
+            "visible_trials": 1
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            "NaN",
+            "NaN"
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "all_success",
+          "backend": "bayesopt",
+          "order": [
+            0,
+            1,
+            2
+          ],
+          "mean": 5.0,
+          "error": false,
+          "kwargs": {
+            "error": false
+          },
+          "state": {
+            "buffer_count": 0,
+            "targets": [
+              5.0
+            ]
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            5,
+            9
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "all_success",
+          "backend": "hyperopt",
+          "order": [
+            0,
+            1,
+            2
+          ],
+          "mean": 5.0,
+          "error": false,
+          "kwargs": {
+            "error": false
+          },
+          "state": {
+            "error_metadata": false,
+            "job_state": 2,
+            "result": {
+              "loss": -5.0,
+              "status": "ok"
+            },
+            "visible_trials": 1
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            5,
+            9
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "failure_missing_nan",
+          "backend": "hyperopt",
+          "order": [
+            0,
+            1,
+            2
+          ],
+          "mean": "NaN",
+          "error": false,
+          "kwargs": {
+            "error": false
+          },
+          "state": {
+            "error_metadata": false,
+            "job_state": 2,
+            "result": {
+              "loss": "NaN",
+              "status": "ok"
+            },
+            "visible_trials": 1
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            "NaN",
+            "NaN",
+            "NaN"
+          ],
+          "runtime_warnings": [
+            {
+              "category": "RuntimeWarning",
+              "message": "Mean of empty slice",
+              "source": "python/ray/tune/search/repeater.py",
+              "line": 176
+            }
+          ]
+        },
+        {
+          "case": "failure_missing_nan",
+          "backend": "hyperopt",
+          "order": [
+            2,
+            1,
+            0
+          ],
+          "mean": "NaN",
+          "error": true,
+          "kwargs": {
+            "error": true
+          },
+          "state": {
+            "error_metadata": true,
+            "job_state": 3,
+            "result": {
+              "status": "new"
+            },
+            "visible_trials": 0
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            "NaN",
+            "NaN",
+            "NaN"
+          ],
+          "runtime_warnings": [
+            {
+              "category": "RuntimeWarning",
+              "message": "Mean of empty slice",
+              "source": "python/ray/tune/search/repeater.py",
+              "line": 176
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "variant": "parent",
+      "suite": "all_nan_probe",
+      "exit_code": 1,
+      "passed": 0,
+      "failed": [
+        "test_same_outcomes_same_aggregate[hyperopt-failure_missing_nan]"
+      ],
+      "errors": [],
+      "skipped": [],
+      "expected_pattern_met": true,
+      "snapshot_files_verified": 242,
+      "import_audit": {
+        "variant": "parent",
+        "commit": "e00c7f4bed3d92da863230c2dfdc3ea81eec1778",
+        "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "modules": {
+          "ray.tune.search.searcher": {
+            "path": "ray/tune/search/searcher.py",
+            "sha256": "54bed8b8aef89bd07d74c593e023364bfcbc2ee5a4080d7963c83565be31be2c"
+          },
+          "ray.tune.search.repeater": {
+            "path": "ray/tune/search/repeater.py",
+            "sha256": "786ff9919033e535a93cecf208976d942f9de6e0537f404610de3704751c015f"
+          },
+          "ray.tune.search.search_generator": {
+            "path": "ray/tune/search/search_generator.py",
+            "sha256": "33cfe0aacbf4272a9cb4fcddc8771f95caf620be955f4213c07293987eac2db3"
+          },
+          "ray.tune.search.bayesopt.bayesopt_search": {
+            "path": "ray/tune/search/bayesopt/bayesopt_search.py",
+            "sha256": "3abc3a1d01c832be87cf4be99b2c70a0c2fa83b402c9833278abba1ca66f99cb"
+          },
+          "ray.tune.search.hyperopt.hyperopt_search": {
+            "path": "ray/tune/search/hyperopt/hyperopt_search.py",
+            "sha256": "e2164b64b7c4d1f7e1c4a89af3b7068873b440d730e0cbae6737c18269e9110c"
+          },
+          "ray.tune.search.util": {
+            "path": "ray/tune/search/util.py",
+            "sha256": "ff7d2c16e4caabda0ecfc7e93089b884a03fdb1e3129a6a3c23214f492402741"
+          },
+          "ray.tune.utils.util": {
+            "path": "ray/tune/utils/util.py",
+            "sha256": "fa94023d1aef4072aea93c49a0b0d5c2255c32c71214144b29b2d5d35cd731d5"
+          },
+          "ray.tune.experiment.trial": {
+            "path": "ray/tune/experiment/trial.py",
+            "sha256": "160791cee98dd6b82a104914712b0f4cdc774d50284f006001e9d6e62b3aeec2"
+          }
+        },
+        "packages": {
+          "ray": "2.58.0",
+          "numpy": "2.2.6",
+          "pytest": "7.4.4",
+          "bayesian-optimization": "1.4.3",
+          "hyperopt": "0.2.7",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1"
+        }
+      }
+    },
+    {
+      "variant": "head",
+      "suite": "core",
+      "exit_code": 0,
+      "passed": 12,
+      "failed": [],
+      "errors": [],
+      "skipped": [],
+      "expected_pattern_met": true,
+      "snapshot_files_verified": 242,
+      "import_audit": {
+        "variant": "head",
+        "commit": "8ffddc460b8b65da3930b2a789399aafe0282568",
+        "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "modules": {
+          "ray.tune.search.searcher": {
+            "path": "ray/tune/search/searcher.py",
+            "sha256": "54bed8b8aef89bd07d74c593e023364bfcbc2ee5a4080d7963c83565be31be2c"
+          },
+          "ray.tune.search.repeater": {
+            "path": "ray/tune/search/repeater.py",
+            "sha256": "2c1ce1648e5677aa94e34d1f8af82f1448a7f200c74342d9d696c62a380af712"
+          },
+          "ray.tune.search.search_generator": {
+            "path": "ray/tune/search/search_generator.py",
+            "sha256": "33cfe0aacbf4272a9cb4fcddc8771f95caf620be955f4213c07293987eac2db3"
+          },
+          "ray.tune.search.bayesopt.bayesopt_search": {
+            "path": "ray/tune/search/bayesopt/bayesopt_search.py",
+            "sha256": "3abc3a1d01c832be87cf4be99b2c70a0c2fa83b402c9833278abba1ca66f99cb"
+          },
+          "ray.tune.search.hyperopt.hyperopt_search": {
+            "path": "ray/tune/search/hyperopt/hyperopt_search.py",
+            "sha256": "e2164b64b7c4d1f7e1c4a89af3b7068873b440d730e0cbae6737c18269e9110c"
+          },
+          "ray.tune.search.util": {
+            "path": "ray/tune/search/util.py",
+            "sha256": "ff7d2c16e4caabda0ecfc7e93089b884a03fdb1e3129a6a3c23214f492402741"
+          },
+          "ray.tune.utils.util": {
+            "path": "ray/tune/utils/util.py",
+            "sha256": "fa94023d1aef4072aea93c49a0b0d5c2255c32c71214144b29b2d5d35cd731d5"
+          },
+          "ray.tune.experiment.trial": {
+            "path": "ray/tune/experiment/trial.py",
+            "sha256": "160791cee98dd6b82a104914712b0f4cdc774d50284f006001e9d6e62b3aeec2"
+          }
+        },
+        "packages": {
+          "ray": "2.58.0",
+          "numpy": "2.2.6",
+          "pytest": "7.4.4",
+          "bayesian-optimization": "1.4.3",
+          "hyperopt": "0.2.7",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1"
+        }
+      },
+      "executed_repeater_lines": [
+        164,
+        169,
+        170,
+        171,
+        173,
+        174,
+        176,
+        177,
+        178,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187
+      ],
+      "outcomes": [
+        {
+          "case": "one_failure",
+          "backend": "bayesopt",
+          "order": [
+            0,
+            1,
+            2
+          ],
+          "mean": 3.0,
+          "error": false,
+          "kwargs": {},
+          "state": {
+            "buffer_count": 0,
+            "targets": [
+              3.0
+            ]
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            5,
+            "NaN"
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "one_failure",
+          "backend": "hyperopt",
+          "order": [
+            0,
+            1,
+            2
+          ],
+          "mean": 3.0,
+          "error": false,
+          "kwargs": {},
+          "state": {
+            "error_metadata": false,
+            "job_state": 2,
+            "result": {
+              "loss": -3.0,
+              "status": "ok"
+            },
+            "visible_trials": 1
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            5,
+            "NaN"
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "one_failure",
+          "backend": "bayesopt",
+          "order": [
+            2,
+            1,
+            0
+          ],
+          "mean": 3.0,
+          "error": false,
+          "kwargs": {},
+          "state": {
+            "buffer_count": 0,
+            "targets": [
+              3.0
+            ]
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            5,
+            "NaN"
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "one_failure",
+          "backend": "hyperopt",
+          "order": [
+            2,
+            1,
+            0
+          ],
+          "mean": 3.0,
+          "error": false,
+          "kwargs": {},
+          "state": {
+            "error_metadata": false,
+            "job_state": 2,
+            "result": {
+              "loss": -3.0,
+              "status": "ok"
+            },
+            "visible_trials": 1
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            5,
+            "NaN"
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "two_failures",
+          "backend": "bayesopt",
+          "order": [
+            0,
+            1,
+            2
+          ],
+          "mean": 1.0,
+          "error": false,
+          "kwargs": {},
+          "state": {
+            "buffer_count": 0,
+            "targets": [
+              1.0
+            ]
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            "NaN",
+            "NaN"
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "two_failures",
+          "backend": "hyperopt",
+          "order": [
+            0,
+            1,
+            2
+          ],
+          "mean": 1.0,
+          "error": false,
+          "kwargs": {},
+          "state": {
+            "error_metadata": false,
+            "job_state": 2,
+            "result": {
+              "loss": -1.0,
+              "status": "ok"
+            },
+            "visible_trials": 1
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            "NaN",
+            "NaN"
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "two_failures",
+          "backend": "bayesopt",
+          "order": [
+            2,
+            1,
+            0
+          ],
+          "mean": 1.0,
+          "error": false,
+          "kwargs": {},
+          "state": {
+            "buffer_count": 0,
+            "targets": [
+              1.0
+            ]
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            "NaN",
+            "NaN"
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "two_failures",
+          "backend": "hyperopt",
+          "order": [
+            2,
+            1,
+            0
+          ],
+          "mean": 1.0,
+          "error": false,
+          "kwargs": {},
+          "state": {
+            "error_metadata": false,
+            "job_state": 2,
+            "result": {
+              "loss": -1.0,
+              "status": "ok"
+            },
+            "visible_trials": 1
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            "NaN",
+            "NaN"
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "all_success",
+          "backend": "bayesopt",
+          "order": [
+            0,
+            1,
+            2
+          ],
+          "mean": 5.0,
+          "error": false,
+          "kwargs": {},
+          "state": {
+            "buffer_count": 0,
+            "targets": [
+              5.0
+            ]
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            5,
+            9
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "all_success",
+          "backend": "hyperopt",
+          "order": [
+            0,
+            1,
+            2
+          ],
+          "mean": 5.0,
+          "error": false,
+          "kwargs": {},
+          "state": {
+            "error_metadata": false,
+            "job_state": 2,
+            "result": {
+              "loss": -5.0,
+              "status": "ok"
+            },
+            "visible_trials": 1
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            1,
+            5,
+            9
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "case": "failure_missing_nan",
+          "backend": "hyperopt",
+          "order": [
+            0,
+            1,
+            2
+          ],
+          "mean": "NaN",
+          "error": false,
+          "kwargs": {
+            "error": false
+          },
+          "state": {
+            "error_metadata": false,
+            "job_state": 2,
+            "result": {
+              "loss": "NaN",
+              "status": "ok"
+            },
+            "visible_trials": 1
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            "NaN",
+            "NaN",
+            "NaN"
+          ],
+          "runtime_warnings": [
+            {
+              "category": "RuntimeWarning",
+              "message": "Mean of empty slice",
+              "source": "python/ray/tune/search/repeater.py",
+              "line": 178
+            }
+          ]
+        },
+        {
+          "case": "failure_missing_nan",
+          "backend": "hyperopt",
+          "order": [
+            2,
+            1,
+            0
+          ],
+          "mean": "NaN",
+          "error": true,
+          "kwargs": {
+            "error": true
+          },
+          "state": {
+            "error_metadata": true,
+            "job_state": 3,
+            "result": {
+              "status": "new"
+            },
+            "visible_trials": 0
+          },
+          "callback_counts": [
+            0,
+            0,
+            1
+          ],
+          "primary_id_correct": true,
+          "scores_in_suggestion_order": [
+            "NaN",
+            "NaN",
+            "NaN"
+          ],
+          "runtime_warnings": [
+            {
+              "category": "RuntimeWarning",
+              "message": "Mean of empty slice",
+              "source": "python/ray/tune/search/repeater.py",
+              "line": 178
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "variant": "head",
+      "suite": "all_nan_probe",
+      "exit_code": 1,
+      "passed": 0,
+      "failed": [
+        "test_same_outcomes_same_aggregate[hyperopt-failure_missing_nan]"
+      ],
+      "errors": [],
+      "skipped": [],
+      "expected_pattern_met": true,
+      "snapshot_files_verified": 242,
+      "import_audit": {
+        "variant": "head",
+        "commit": "8ffddc460b8b65da3930b2a789399aafe0282568",
+        "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "modules": {
+          "ray.tune.search.searcher": {
+            "path": "ray/tune/search/searcher.py",
+            "sha256": "54bed8b8aef89bd07d74c593e023364bfcbc2ee5a4080d7963c83565be31be2c"
+          },
+          "ray.tune.search.repeater": {
+            "path": "ray/tune/search/repeater.py",
+            "sha256": "2c1ce1648e5677aa94e34d1f8af82f1448a7f200c74342d9d696c62a380af712"
+          },
+          "ray.tune.search.search_generator": {
+            "path": "ray/tune/search/search_generator.py",
+            "sha256": "33cfe0aacbf4272a9cb4fcddc8771f95caf620be955f4213c07293987eac2db3"
+          },
+          "ray.tune.search.bayesopt.bayesopt_search": {
+            "path": "ray/tune/search/bayesopt/bayesopt_search.py",
+            "sha256": "3abc3a1d01c832be87cf4be99b2c70a0c2fa83b402c9833278abba1ca66f99cb"
+          },
+          "ray.tune.search.hyperopt.hyperopt_search": {
+            "path": "ray/tune/search/hyperopt/hyperopt_search.py",
+            "sha256": "e2164b64b7c4d1f7e1c4a89af3b7068873b440d730e0cbae6737c18269e9110c"
+          },
+          "ray.tune.search.util": {
+            "path": "ray/tune/search/util.py",
+            "sha256": "ff7d2c16e4caabda0ecfc7e93089b884a03fdb1e3129a6a3c23214f492402741"
+          },
+          "ray.tune.utils.util": {
+            "path": "ray/tune/utils/util.py",
+            "sha256": "fa94023d1aef4072aea93c49a0b0d5c2255c32c71214144b29b2d5d35cd731d5"
+          },
+          "ray.tune.experiment.trial": {
+            "path": "ray/tune/experiment/trial.py",
+            "sha256": "160791cee98dd6b82a104914712b0f4cdc774d50284f006001e9d6e62b3aeec2"
+          }
+        },
+        "packages": {
+          "ray": "2.58.0",
+          "numpy": "2.2.6",
+          "pytest": "7.4.4",
+          "bayesian-optimization": "1.4.3",
+          "hyperopt": "0.2.7",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1"
+        }
+      }
+    }
+  ],
+  "ray_repository_unchanged": true,
+  "all_expected_patterns_met": true
+}

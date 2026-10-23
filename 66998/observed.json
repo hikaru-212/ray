@@ -1,0 +1,335 @@
+{
+  "phase": "Phase 3 packaged-code executions",
+  "date": "2026-10-23",
+  "timezone": "Asia/Taipei",
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux",
+    "architecture": "aarch64",
+    "ray": "2.58.0",
+    "ray_wheel_commit": "cec0a091b12675bbf101cf8a350c8706107baee1",
+    "pytest": "7.4.4",
+    "filelock": "3.29.0",
+    "protobuf": "6.33.6",
+    "installation": "Fresh venv with read-only reuse of existing installed dependencies; no wheel downloaded in this phase."
+  },
+  "command_template": "RAY_EVIDENCE_REVISION=<revision> python -B -m pytest -q -s -c <package>/pytest.ini <package>/test_uri_cache.py <package>/test_working_dir.py --tb=short",
+  "environment_variables": {
+    "RAY_SOURCE_REPO": "<Ray Git checkout containing all four pinned commits>",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1"
+  },
+  "provenance": {
+    "all_four_runs_checked_import_paths_and_git_bytes": true,
+    "all_four_runs_size_helper_ast_matches": true,
+    "all_four_runs_native_imported": true,
+    "shared_component_source_sha256": {
+      "ray._common.runtime_env_package": "95dd0d2ae105919d305e682209d4b14dffe5bb61f13ddab7fb4dff089330e96a",
+      "ray._common.runtime_env_uri": "13b96ae42cdb686377c5cc4eed253f62b2ac61a4234a2e904089041394e07d41",
+      "ray._private.runtime_env.conda_utils": "9ef3e4ce11979d9c1b835038b0465da807408d0ed327c918a79ed92273e6a35f",
+      "ray._private.runtime_env.constants": "9f9f40d2f27aa1a593e73ac45ee8c82dab6154d6856d6e305fbcc41c32b668a4",
+      "ray._private.runtime_env.context": "4c6934617819e2245b7bf16a73496139955542573cd4dfaf04d8fc6831f57607",
+      "ray._private.runtime_env.packaging": "d4bebc426466495722dca1e199706d7951c917c5629b4b849a7514e04e8425b9",
+      "ray._private.runtime_env.plugin": "37346e396603fb5b18ed365533274e9ac544026a173bc5e093550f4cd816a695",
+      "ray._private.runtime_env.protocol": "fce532dd2d952ec874f7cf146ebdeab71c6eea9b4ee7a7bfc5e1e2aedd61ec1b",
+      "ray._private.runtime_env.working_dir": "ae32d4a045b9f77493883237c695a2efc608f9db0fb346d1838913a171fef1bf"
+    }
+  },
+  "executed_files_sha256": {
+    "pytest.ini": "aaabed120d2fb059160bb38bf8843dc0bbb6abca5f013dffb5228bfffb9a3404",
+    "source_helpers.py": "754e7e6d875c14632da4a54a03c3d97edb94aa7a30411111d20e2476fd61eea1",
+    "test_uri_cache.py": "a393651b82ebfd1c9a99aa921f7d6464e739a821b91b03f889affa8ccb02d9e8",
+    "test_working_dir.py": "92c3e403992f2be4723871f74b15e19994e74918b03a08ae2602635919d9cee4"
+  },
+  "results": [
+    {
+      "revision": "baseline",
+      "sha": "de28d2005add958b576b0bf7d9da8d905c042bb7",
+      "cache_source_sha256": "93f248fe7578343bab222f95ce5bf5a5461cfb2d29c65620f93856c9cfeb6c92",
+      "pytest_exit": 1,
+      "passed": 0,
+      "tests": 5,
+      "failures": 5,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "name": "test_multiple_evictions_ignore_actual_return",
+          "outcome": "failed"
+        },
+        {
+          "name": "test_add_eviction_failure_mid_sequence_and_resume",
+          "outcome": "failed"
+        },
+        {
+          "name": "test_three_growing_directories",
+          "outcome": "failed"
+        },
+        {
+          "name": "test_real_delete_failure_and_redownload[before]",
+          "outcome": "failed"
+        },
+        {
+          "name": "test_real_delete_failure_and_redownload[partial]",
+          "outcome": "failed"
+        }
+      ],
+      "observations": [
+        {
+          "expected_total": 13,
+          "kind": "mid_eviction",
+          "total": 16
+        },
+        {
+          "kind": "three_directories",
+          "retained": 2,
+          "totals": [
+            -18,
+            -16,
+            -14
+          ]
+        },
+        {
+          "failure": "before",
+          "files_left": 2,
+          "kind": "physical_boundary",
+          "target_in_cache": false,
+          "total": 6
+        },
+        {
+          "failure": "partial",
+          "files_left": 1,
+          "kind": "physical_boundary",
+          "target_in_cache": false,
+          "total": 6
+        }
+      ]
+    },
+    {
+      "revision": "initial",
+      "sha": "337a326cabc5ae2d48a379fb4f59fd8fcc9a12b1",
+      "cache_source_sha256": "ed2d5a9185dbe1e693bbfe44e81ab4e28069017896103e296207b21bc22d652c",
+      "pytest_exit": 1,
+      "passed": 2,
+      "tests": 5,
+      "failures": 3,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "name": "test_multiple_evictions_ignore_actual_return",
+          "outcome": "passed"
+        },
+        {
+          "name": "test_add_eviction_failure_mid_sequence_and_resume",
+          "outcome": "failed"
+        },
+        {
+          "name": "test_three_growing_directories",
+          "outcome": "passed"
+        },
+        {
+          "name": "test_real_delete_failure_and_redownload[before]",
+          "outcome": "failed"
+        },
+        {
+          "name": "test_real_delete_failure_and_redownload[partial]",
+          "outcome": "failed"
+        }
+      ],
+      "observations": [
+        {
+          "expected_total": 13,
+          "kind": "mid_eviction",
+          "total": 16
+        },
+        {
+          "kind": "three_directories",
+          "retained": 0,
+          "totals": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "failure": "before",
+          "files_left": 2,
+          "kind": "physical_boundary",
+          "target_in_cache": false,
+          "total": 6
+        },
+        {
+          "failure": "partial",
+          "files_left": 1,
+          "kind": "physical_boundary",
+          "target_in_cache": false,
+          "total": 6
+        }
+      ]
+    },
+    {
+      "revision": "followup",
+      "sha": "451b8fa2354452236c96f0c0820c174c37df141c",
+      "cache_source_sha256": "b4cf9776d85c17427807c4ea01ae819c60f96e5f6b16e5a6516be66ad377830a",
+      "pytest_exit": 0,
+      "passed": 5,
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "name": "test_multiple_evictions_ignore_actual_return",
+          "outcome": "passed"
+        },
+        {
+          "name": "test_add_eviction_failure_mid_sequence_and_resume",
+          "outcome": "passed"
+        },
+        {
+          "name": "test_three_growing_directories",
+          "outcome": "passed"
+        },
+        {
+          "name": "test_real_delete_failure_and_redownload[before]",
+          "outcome": "passed"
+        },
+        {
+          "name": "test_real_delete_failure_and_redownload[partial]",
+          "outcome": "passed"
+        }
+      ],
+      "observations": [
+        {
+          "expected_total": 13,
+          "kind": "mid_eviction",
+          "total": 13
+        },
+        {
+          "kind": "three_directories",
+          "retained": 0,
+          "totals": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "failure": "before",
+          "files_left": 2,
+          "kind": "physical_boundary",
+          "target_in_cache": false,
+          "total": 1
+        },
+        {
+          "directory_exists": false,
+          "downloads": 2,
+          "failure": "before",
+          "kind": "recovery",
+          "total": 1
+        },
+        {
+          "failure": "partial",
+          "files_left": 1,
+          "kind": "physical_boundary",
+          "target_in_cache": false,
+          "total": 1
+        },
+        {
+          "directory_exists": false,
+          "downloads": 2,
+          "failure": "partial",
+          "kind": "recovery",
+          "total": 1
+        }
+      ]
+    },
+    {
+      "revision": "head",
+      "sha": "772d9c718608dccb82473d524c876be21bda9bfd",
+      "cache_source_sha256": "b4cf9776d85c17427807c4ea01ae819c60f96e5f6b16e5a6516be66ad377830a",
+      "pytest_exit": 0,
+      "passed": 5,
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "name": "test_multiple_evictions_ignore_actual_return",
+          "outcome": "passed"
+        },
+        {
+          "name": "test_add_eviction_failure_mid_sequence_and_resume",
+          "outcome": "passed"
+        },
+        {
+          "name": "test_three_growing_directories",
+          "outcome": "passed"
+        },
+        {
+          "name": "test_real_delete_failure_and_redownload[before]",
+          "outcome": "passed"
+        },
+        {
+          "name": "test_real_delete_failure_and_redownload[partial]",
+          "outcome": "passed"
+        }
+      ],
+      "observations": [
+        {
+          "expected_total": 13,
+          "kind": "mid_eviction",
+          "total": 13
+        },
+        {
+          "kind": "three_directories",
+          "retained": 0,
+          "totals": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "failure": "before",
+          "files_left": 2,
+          "kind": "physical_boundary",
+          "target_in_cache": false,
+          "total": 1
+        },
+        {
+          "directory_exists": false,
+          "downloads": 2,
+          "failure": "before",
+          "kind": "recovery",
+          "total": 1
+        },
+        {
+          "failure": "partial",
+          "files_left": 1,
+          "kind": "physical_boundary",
+          "target_in_cache": false,
+          "total": 1
+        },
+        {
+          "directory_exists": false,
+          "downloads": 2,
+          "failure": "partial",
+          "kind": "recovery",
+          "total": 1
+        }
+      ]
+    }
+  ],
+  "relocated_head_check": {
+    "tests": 5,
+    "passed": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "same_executed_file_hashes": true,
+    "standalone_cache_loader_did_not_import_ray": true
+  }
+}

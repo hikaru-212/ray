@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "baseline": "0a509f3448c1f3c71f80b80f46a6fb6a4df971ff",
+  "head": "7430fd6fecf4d2069421cd764ce3fa3128bc8af1",
+  "classification": "bounded component verification and non-regression evidence",
+  "wire": {
+    "revision": "7430fd6fecf4d2069421cd764ce3fa3128bc8af1",
+    "test": "Phase3Wire.ActualQueueToRealClient",
+    "tests": 1,
+    "failures": 0,
+    "unordered_observations": [
+      {"sequence": 1, "group": "g", "attempt": 0, "skip_queue": true, "client_processed_up_to": -1},
+      {"sequence": 2, "group": "g", "attempt": 0, "skip_queue": true, "client_processed_up_to": -1},
+      {"sequence": 0, "group": "g", "attempt": 0, "skip_queue": true, "client_processed_up_to": -1},
+      {"sequence": 3, "group": "g", "attempt": 1, "skip_queue": true, "client_processed_up_to": -1},
+      {"sequence": 0, "group": "h", "attempt": 0, "skip_queue": true, "client_processed_up_to": -1},
+      {"sequence": 4, "group": "g", "attempt": 0, "skip_queue": true, "client_processed_up_to": -1}
+    ],
+    "ordered_control": [
+      {"sequence": 0, "group": "ordered-control", "attempt": 0, "skip_queue": false, "client_processed_up_to": -1},
+      {"sequence": 1, "group": "ordered-control", "attempt": 0, "skip_queue": false, "client_processed_up_to": 0}
+    ]
+  },
+  "queue": {
+    "baseline": {"tests": 3, "failures": 0, "result": "PASS"},
+    "head": {"tests": 3, "failures": 0, "result": "PASS"},
+    "same_group": {"order": ["B", "C", "A"], "executed": [1, 1, 1], "canceled": [0, 0, 0], "completion_callbacks": [1, 1, 1]},
+    "separate_groups": {"order": ["B", "C", "A"], "executed": [1, 1, 1], "canceled": [0, 0, 0], "completion_callbacks": [1, 1, 1]},
+    "retry_early_ready": {"executed": [1, 1], "canceled": [0, 0], "completion_callbacks": [1, 1], "pending": false},
+    "retry_early_ready_explicit_cancel": {"executed": [0, 0], "canceled": [1, 1], "completion_callbacks": [1, 1], "pending": false}
+  },
+  "claim_boundary": {
+    "supported_nonnegative_unordered_producer_found": false,
+    "universal_unreachability": "unknown",
+    "original_production_bug_repair_established": false,
+    "full_matching_revision_integration_executed": false
+  }
+}

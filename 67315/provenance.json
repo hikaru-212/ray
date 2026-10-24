@@ -1,0 +1,58 @@
+{
+  "source_repository": "https://github.com/ray-project/ray",
+  "revisions": {
+    "parent": "4b067744d800b4961877501a2b07714d386556e3",
+    "head": "7ac19753f293035c8120a4a9497c771d95a980f3"
+  },
+  "historical_inputs": {
+    "phase2/harness/lease_identity_test.cc": {
+      "sha256": "3f42ef24c5cecda9153a38e185425333cf3a3d3b7e8f6780da2c731d50dc4df3",
+      "bytes": 16512
+    },
+    "phase2/logs/parent-author-cleanup.log": {
+      "sha256": "86f958527950048355825d26bfb4dd895d56ecca51bd33b9cc4eb8b65c8b3a1a",
+      "bytes": 2725
+    },
+    "phase2/logs/head-author-cleanup.log": {
+      "sha256": "047a8153f8934dfeacce46280997c317275c37e1221402a0f6f29552b0778b09",
+      "bytes": 2879
+    },
+    "issue-first/experiment-source/gcs_contract_test.cc": {
+      "sha256": "4676c8d338adcb5fbe359c0c2fa504fb012c1d1fc827ee031fd5bcfcabf5db8b",
+      "bytes": 16695
+    },
+    "issue-first/experiment-source/gcs_contract_test_v2.cc": {
+      "sha256": "8cfd43296f5fe2f6504c38421555247a34e2eced698b3059d5924e532bcb6174",
+      "bytes": 16695
+    },
+    "issue-first/experiment-source/raylet_resource_test.cc": {
+      "sha256": "73f1af2f975e4300572f8bb9bbdd60e693fc167c0f4c4cb7b80a378c0dd27686",
+      "bytes": 22616
+    },
+    "issue-first/experiment-build/parent-gcs_contract_test_v2.log": {
+      "sha256": "28b347b8ff4040bf65242500648a1b8dd91bec17a6ebbb96d7afc7afb6d8f6ef",
+      "bytes": 9156
+    },
+    "issue-first/experiment-build/head-gcs_contract_test_v2.log": {
+      "sha256": "6cd4db46d4db88a5d89884f45e468dc209ef5a0f2f406db05528e28f6e301c11",
+      "bytes": 9410
+    },
+    "issue-first/experiment-build/head-raylet_resource_test.log": {
+      "sha256": "ba8948a5469a389b1e514a71a09987e6c81b83179d719cfd54ccbe0b392a0b71",
+      "bytes": 682
+    },
+    "coordinator/valid-cpu/gcs_contract_valid_cpu.cc": {
+      "sha256": "c2505ddbefec395514e2c0ad984ad0e7e83961c01907354b75e415c61cfcce48",
+      "bytes": 16678
+    },
+    "coordinator/valid-cpu/parent.log": {
+      "sha256": "bc50275ade5e47559ed3cf71ff2add24d2f2dba197667a1443f5e23ad7b17b34",
+      "bytes": 5198
+    },
+    "coordinator/valid-cpu/head.log": {
+      "sha256": "183e54bc2fcea01ed8a903b38cb272ba40a16949dd77c3e88cfb88707d118847",
+      "bytes": 5454
+    }
+  },
+  "attribution": "Historical results are from archived original harnesses. Public derivatives and their new validation results are separately identified."
+}

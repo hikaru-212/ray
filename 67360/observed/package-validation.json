@@ -1,0 +1,34 @@
+{
+  "classification": "Fresh validation of public package during evidence preparation; separate from historical runs.",
+  "variants": {
+    "parent": {
+      "tests": 16,
+      "passed": 13,
+      "failed": 3,
+      "failed_cases": [
+        "test_retry_exhaustion_through_manager[10-5]",
+        "test_retry_exhaustion_through_manager[200-100]",
+        "test_legacy_migration_eventually_exhausts"
+      ],
+      "raw_log_sha256": "3b5bb72e4c43b192ec0e08d701ab75450f9201af915872eca72426478d8df2d1",
+      "xml_sha256": "b14df2bc975453dff17949c754f9507bbbeea43e72b21af698cd0d6d92d92da6",
+      "warnings": 6
+    },
+    "head": {
+      "tests": 16,
+      "passed": 16,
+      "failed": 0,
+      "failed_cases": [],
+      "raw_log_sha256": "f7ef0cdada6385291aa6ffd26396289c98f3b55175954254634974463843ea02",
+      "xml_sha256": "d3e9ac14ae6275783820367e74387c9b99cd0b8a83b2240b25603404c32494fb",
+      "warnings": 6
+    }
+  },
+  "method": "Portable launcher, suite all, exact exported Python source and per-revision generated protobuf; shared borrowed native import scaffold described in README.",
+  "legacy_fixture_regeneration": {
+    "result": "PASS",
+    "sha256": "c7f0060a45849b3aeda44726bbb1ad807b0763d0f116e5de922570b54f279b80",
+    "launch_id": "Pinned to the original synthetic fixture ID to make protobuf serialization reproducible.",
+    "raw_log_sha256": "727ba954134247f2da7aa295f5f8fff56ec18283b26de8857e7914b922d30301"
+  }
+}

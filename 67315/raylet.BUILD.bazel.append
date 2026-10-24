@@ -1,0 +1,22 @@
+ray_cc_test(
+    name = "independent_raylet_resource_test",
+    size = "small",
+    srcs = [
+        "raylet_resource_test.cc",
+    ],
+    tags = ["team:core"],
+    deps = [
+        "//src/ray/asio:periodical_runner",
+        "//src/ray/common:id",
+        "//src/ray/common:lease",
+        "//src/ray/common:task_common",
+        "//src/ray/common:test_utils",
+        "//src/ray/gcs_rpc_client:fake_gcs_client",
+        "//src/ray/observability:fake_metric",
+        "//src/ray/raylet/scheduling:cluster_lease_manager",
+        "//src/ray/raylet/scheduling:cluster_resource_scheduler",
+        "//src/ray/raylet/scheduling:local_lease_manager",
+        "//src/ray/raylet/tests:util",
+        "//src/ray/util:clock",
+    ],
+)

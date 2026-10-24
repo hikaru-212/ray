@@ -1,0 +1,124 @@
+{
+  "source_repository": "https://github.com/ray-project/ray",
+  "revisions": {
+    "parent": "3608367390ff80151fe0ab02a54d8e8223905146",
+    "head": "ad540e643022b8c449299653e476f20da35afd2d"
+  },
+  "historical_inputs": {
+    "phase2/test_phase2.py": {
+      "sha256": "f11d84a6493eab650b281b861fea60ad49dc89b476bd611404d06582abe50e88",
+      "bytes": 15902
+    },
+    "phase2/artifacts/results-summary.json": {
+      "sha256": "0aeb321d736f2f7281d0966a23aa359626633e3182bdf452abb920a25a6a46e5",
+      "bytes": 6307
+    },
+    "phase2/artifacts/legacy-parent-truncated.pb": {
+      "sha256": "c7f0060a45849b3aeda44726bbb1ad807b0763d0f116e5de922570b54f279b80",
+      "bytes": 154
+    },
+    "phase2/artifacts/legacy-parent-truncated.json": {
+      "sha256": "4eaceec99943be6d8c57381d5561bce6a2b5665c5e81b9470381c05c94724da9",
+      "bytes": 713
+    },
+    "issue-first/test_stage_c.py": {
+      "sha256": "58a8e566ee5ad8548710adf30509e8e29a227e405c32ecbcd2f4c17ac2117762",
+      "bytes": 12235
+    },
+    "issue-first/round1-details-failure/test_stage_c.py": {
+      "sha256": "cf0d6c88ef20606950924613eacd90153f81a9c1ad82d34ea7a6850390049a6a",
+      "bytes": 11666
+    },
+    "issue-first/logs/stage-c-parent.log": {
+      "sha256": "1427a6d9643becd35f4c892c6e3619f12af5880d941c4e869a0d1c0eae56a1cd",
+      "bytes": 23023
+    },
+    "issue-first/logs/stage-c-head.log": {
+      "sha256": "444d29605563726a876d26523bfe01b82b2f86a4bd1444eebf4c8ecd361bf2eb",
+      "bytes": 22995
+    },
+    "issue-first/logs/stage-c-recent-parent.log": {
+      "sha256": "1a864d2c1c20798bf3fc688fd58c56ad41b5c2e9c13e777d993f32c9096ae71f",
+      "bytes": 80166
+    },
+    "issue-first/logs/stage-c-recent-head.log": {
+      "sha256": "b372c92050cdb06df9331a38b8a458fc3627bf0f725c9dd556d7edbcb82a73fd",
+      "bytes": 80152
+    },
+    "issue-first/STAGE_C_REVISION.txt": {
+      "sha256": "d67ab569de2b70f35fd2ba1363503513e68a3d54b1b90ae7dc23e11be6506177",
+      "bytes": 1239
+    },
+    "phase2/logs/independent-parent.log": {
+      "sha256": "801a777ef6066f16be7c5664daef6227698175e4ba2faac161d88fa076600605",
+      "bytes": 304204
+    },
+    "phase2/logs/independent-head.log": {
+      "sha256": "949fef2c308de3fe7724dd48228fb2bb23bfd2b3e14111d4233a59dc6f8ee824",
+      "bytes": 273587
+    },
+    "phase2/logs/baseline-parent.log": {
+      "sha256": "c3783832b34227aaa8a5fdf486a8b22209b81d85368aa046c3ee79080110bec0",
+      "bytes": 13933
+    },
+    "phase2/logs/baseline-head.log": {
+      "sha256": "88f2d73637a5778085c647966ddae1be70e29a423024f3af1d75860096400347",
+      "bytes": 15134
+    },
+    "phase2/logs/build-runtime.log": {
+      "sha256": "1aab99761765c97b009a2eddd13af508a226b809963a8a767548f17955d29d5a",
+      "bytes": 6894
+    },
+    "issue-first/artifacts/parent-recent-failed.json": {
+      "sha256": "d85f02b23374f4f0387ac161fa4cc27ce0db7b8c82a5758a6ca94ef9d7f91769",
+      "bytes": 973
+    },
+    "issue-first/artifacts/parent-recent-allocated.json": {
+      "sha256": "bcc72e6204464237c822890161fd19e2af7e5ef47445617ade232079a052e564",
+      "bytes": 803
+    },
+    "issue-first/artifacts/parent-gc-churn.json": {
+      "sha256": "d3eb28a26569226747a8f8303f875c8309f7648d216d9b58d9becc109e1838cd",
+      "bytes": 2171
+    },
+    "issue-first/artifacts/head-recent-failed.json": {
+      "sha256": "a249fcb2dae679e5a3451471d7f537935949d9a1f63c76f615546529ebde88c9",
+      "bytes": 977
+    },
+    "issue-first/artifacts/head-recent-allocated.json": {
+      "sha256": "f3f1ee0c3fa5fe0ace61191faf457a1814b68368363c8863cca3a16d8bdae680",
+      "bytes": 807
+    },
+    "issue-first/artifacts/head-gc-churn.json": {
+      "sha256": "43397b4259485dd9d4ae3e5f5844ffcb9497df5ed6f4e705c5e3716980e44686",
+      "bytes": 2171
+    }
+  },
+  "attribution": "Historical results are from archived original harnesses. Public derivatives and their new validation results are separately identified.",
+  "source_files": {
+    "parent": {
+      "python/ray/autoscaler/v2/instance_manager/common.py": "eec04ccf6f88eeff7fb1c7d418dd7c7f770bf789cb80a65cae1867c36975f1bd",
+      "python/ray/autoscaler/v2/instance_manager/reconciler.py": "ea8b52546762237f4a2c20dd0fe0b2c6c23a6580a92546f822080341238a6ed4",
+      "python/ray/autoscaler/v2/instance_manager/instance_manager.py": "22bd9069f38066b58d12264b900d95d41f06b0768ba2c38a95fe60566a581d08",
+      "python/ray/autoscaler/v2/instance_manager/instance_storage.py": "ed8f17eecc8d18c59e92f92020bf0b03f3bac9d476f021db76ccb937d5fedb89",
+      "python/ray/autoscaler/v2/instance_manager/storage.py": "b289e468d6d02c0fca4fbb133b4f5123e7e3a482a0293e82e5aa34675e0c44bc",
+      "python/ray/autoscaler/v2/instance_manager/config.py": "65a3d0f6ed42af7189c22394163effd66adca68e6f6f518517bf7b8b35b727d4",
+      "src/ray/protobuf/instance_manager.proto": "9df63f59649ae268660899528ba5636a9456a342a6d52a511fb8c4ff1a784c8b"
+    },
+    "head": {
+      "python/ray/autoscaler/v2/instance_manager/common.py": "7c6974ec12e4bc172f1854b9db50e157e30714744f40fa9c5197e0e282662781",
+      "python/ray/autoscaler/v2/instance_manager/reconciler.py": "85e079a4a86397c21dd08b23683368367dc2e7a8bcd7aa21867d61d76435c213",
+      "python/ray/autoscaler/v2/instance_manager/instance_manager.py": "22bd9069f38066b58d12264b900d95d41f06b0768ba2c38a95fe60566a581d08",
+      "python/ray/autoscaler/v2/instance_manager/instance_storage.py": "ed8f17eecc8d18c59e92f92020bf0b03f3bac9d476f021db76ccb937d5fedb89",
+      "python/ray/autoscaler/v2/instance_manager/storage.py": "b289e468d6d02c0fca4fbb133b4f5123e7e3a482a0293e82e5aa34675e0c44bc",
+      "python/ray/autoscaler/v2/instance_manager/config.py": "65a3d0f6ed42af7189c22394163effd66adca68e6f6f518517bf7b8b35b727d4",
+      "src/ray/protobuf/instance_manager.proto": "c8a1583d84f3da0ee2ee91124597f11591cb0c0ad5655a4bedb8bd48b3991e23"
+    }
+  },
+  "source_audit": {
+    "parent_files_checked": 10465,
+    "head_files_checked": 10465,
+    "mismatches": 0,
+    "method": "Rehashed both original exports against their per-commit SHA256 source manifests."
+  }
+}

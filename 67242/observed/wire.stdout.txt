@@ -1,0 +1,19 @@
+Note: Google Test filter = Phase3Wire.ActualQueueToRealClient
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Phase3Wire
+[ RUN      ] Phase3Wire.ActualQueueToRealClient
+WIRE index=0 seq=1 watermark=-1 group=g attempt=0 skip=1
+WIRE index=1 seq=2 watermark=-1 group=g attempt=0 skip=1
+WIRE index=2 seq=0 watermark=-1 group=g attempt=0 skip=1
+WIRE index=3 seq=3 watermark=-1 group=g attempt=1 skip=1
+WIRE index=4 seq=0 watermark=-1 group=h attempt=0 skip=1
+WIRE index=5 seq=4 watermark=-1 group=g attempt=0 skip=1
+WIRE index=6 seq=0 watermark=-1 group=ordered-control attempt=0 skip=0
+WIRE index=7 seq=1 watermark=0 group=ordered-control attempt=0 skip=0
+[       OK ] Phase3Wire.ActualQueueToRealClient (9 ms)
+[----------] 1 test from Phase3Wire (9 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (9 ms total)
+[  PASSED  ] 1 test.

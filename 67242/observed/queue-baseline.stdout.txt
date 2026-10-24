@@ -1,0 +1,21 @@
+Note: Google Test filter = Phase3Queue.*
+[==========] Running 3 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 3 tests from Phase3Queue
+[ RUN      ] Phase3Queue.SameGroupMinusOne
+QUEUE groups=0 order=B,C,A executed=1,1,1 canceled=0,0,0 completed=1,1,1
+[       OK ] Phase3Queue.SameGroupMinusOne (0 ms)
+[ RUN      ] Phase3Queue.SeparateGroupsMinusOne
+[2026-10-24 15:31:22,568 I 75229 75229] (queue_test_B_v3) concurrency_group_manager.cc:98: Default executor is joining. If the 'Default executor is joined.' message is not printed after this, the worker is probably hanging because the actor task is running an infinite loop.
+[2026-10-24 15:31:22,568 I 75229 75229] (queue_test_B_v3) concurrency_group_manager.cc:102: Default executor is joined.
+QUEUE groups=1 order=B,C,A executed=1,1,1 canceled=0,0,0 completed=1,1,1
+[       OK ] Phase3Queue.SeparateGroupsMinusOne (1 ms)
+[ RUN      ] Phase3Queue.RetryEarlyReadyAndCancellationAccounting
+RETRY cancel=0 executed=1,1 canceled=0,0 completed=1,1 pending=false
+RETRY cancel=1 executed=0,0 canceled=1,1 completed=1,1 pending=false
+[       OK ] Phase3Queue.RetryEarlyReadyAndCancellationAccounting (0 ms)
+[----------] 3 tests from Phase3Queue (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 3 tests from 1 test suite ran. (1 ms total)
+[  PASSED  ] 3 tests.

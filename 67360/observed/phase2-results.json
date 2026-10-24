@@ -1,0 +1,274 @@
+{
+  "parent": {
+    "retry-cap10-limit0": {
+      "cap": 10,
+      "retry_limit": 0,
+      "expected_failure_attempt": 1,
+      "terminal_attempt": 1,
+      "observed_requests": 1,
+      "exact_timeout_boundary_unchanged": true
+    },
+    "retry-cap10-limit3": {
+      "cap": 10,
+      "retry_limit": 3,
+      "expected_failure_attempt": 4,
+      "terminal_attempt": 4,
+      "observed_requests": 4,
+      "exact_timeout_boundary_unchanged": true
+    },
+    "retry-cap10-limit5": {
+      "cap": 10,
+      "retry_limit": 5,
+      "expected_failure_attempt": 6,
+      "terminal_attempt": null,
+      "observed_requests": 11,
+      "exact_timeout_boundary_unchanged": true
+    },
+    "retry-cap200-limit100": {
+      "cap": 200,
+      "retry_limit": 100,
+      "expected_failure_attempt": 101,
+      "terminal_attempt": null,
+      "observed_requests": 106,
+      "exact_timeout_boundary_unchanged": true
+    },
+    "legacy-migration": {
+      "input_sha256": "c7f0060a45849b3aeda44726bbb1ad807b0763d0f116e5de922570b54f279b80",
+      "true_requests_before": 12,
+      "known_requests_before": 5,
+      "retry_limit": 7,
+      "terminal_after_additional_requests": null,
+      "observed_additional_requests": 10,
+      "final_status": "REQUESTED",
+      "true_total_at_terminal": null
+    },
+    "queue_tie": {
+      "input_order": [
+        "A",
+        "B"
+      ],
+      "selected_ids": [
+        "B"
+      ],
+      "expected_characterization": [
+        "B"
+      ]
+    },
+    "allocation_tie": {
+      "input_order": [
+        "A",
+        "B"
+      ],
+      "selected_ids": [
+        "B"
+      ],
+      "expected_characterization": [
+        "B"
+      ]
+    },
+    "queue_rollback": {
+      "input_order": [
+        "A",
+        "B"
+      ],
+      "selected_ids": [
+        "A"
+      ],
+      "expected_characterization": [
+        "A"
+      ]
+    },
+    "allocation_rollback": {
+      "input_order": [
+        "A",
+        "B"
+      ],
+      "selected_ids": [
+        "A"
+      ],
+      "expected_characterization": [
+        "A"
+      ]
+    },
+    "queue_distinct_first": {
+      "input_order": [
+        "A",
+        "B"
+      ],
+      "selected_ids": [
+        "A"
+      ],
+      "expected_characterization": [
+        "A"
+      ]
+    },
+    "allocation_distinct_first": {
+      "input_order": [
+        "A",
+        "B"
+      ],
+      "selected_ids": [
+        "A"
+      ],
+      "expected_characterization": [
+        "A"
+      ]
+    },
+    "atomicity-stale_at_entry": {
+      "rejected_status": 2,
+      "persisted_bytes_unchanged_after_rejection": true,
+      "initial_storage_version": 13,
+      "version_after_rejection": 13,
+      "final_storage_version": 14,
+      "notifications_after_rejection": 0,
+      "notifications_after_retry": 1,
+      "invalid_replay_unchanged": true
+    },
+    "atomicity-race_at_commit": {
+      "rejected_status": 2,
+      "persisted_bytes_unchanged_after_rejection": true,
+      "initial_storage_version": 13,
+      "version_after_rejection": 14,
+      "final_storage_version": 15,
+      "notifications_after_rejection": 0,
+      "notifications_after_retry": 1,
+      "invalid_replay_unchanged": true
+    }
+  },
+  "head": {
+    "retry-cap10-limit0": {
+      "cap": 10,
+      "retry_limit": 0,
+      "expected_failure_attempt": 1,
+      "terminal_attempt": 1,
+      "observed_requests": 1,
+      "exact_timeout_boundary_unchanged": true
+    },
+    "retry-cap10-limit3": {
+      "cap": 10,
+      "retry_limit": 3,
+      "expected_failure_attempt": 4,
+      "terminal_attempt": 4,
+      "observed_requests": 4,
+      "exact_timeout_boundary_unchanged": true
+    },
+    "retry-cap10-limit5": {
+      "cap": 10,
+      "retry_limit": 5,
+      "expected_failure_attempt": 6,
+      "terminal_attempt": 6,
+      "observed_requests": 6,
+      "exact_timeout_boundary_unchanged": true
+    },
+    "retry-cap200-limit100": {
+      "cap": 200,
+      "retry_limit": 100,
+      "expected_failure_attempt": 101,
+      "terminal_attempt": 101,
+      "observed_requests": 101,
+      "exact_timeout_boundary_unchanged": true
+    },
+    "legacy-migration": {
+      "input_sha256": "c7f0060a45849b3aeda44726bbb1ad807b0763d0f116e5de922570b54f279b80",
+      "true_requests_before": 12,
+      "known_requests_before": 5,
+      "retry_limit": 7,
+      "terminal_after_additional_requests": 3,
+      "observed_additional_requests": 3,
+      "final_status": "ALLOCATION_FAILED",
+      "true_total_at_terminal": 15
+    },
+    "queue_tie": {
+      "input_order": [
+        "A",
+        "B"
+      ],
+      "selected_ids": [
+        "A"
+      ],
+      "expected_characterization": [
+        "A"
+      ]
+    },
+    "allocation_tie": {
+      "input_order": [
+        "A",
+        "B"
+      ],
+      "selected_ids": [
+        "A"
+      ],
+      "expected_characterization": [
+        "A"
+      ]
+    },
+    "queue_rollback": {
+      "input_order": [
+        "A",
+        "B"
+      ],
+      "selected_ids": [
+        "A"
+      ],
+      "expected_characterization": [
+        "A"
+      ]
+    },
+    "allocation_rollback": {
+      "input_order": [
+        "A",
+        "B"
+      ],
+      "selected_ids": [
+        "B"
+      ],
+      "expected_characterization": [
+        "B"
+      ]
+    },
+    "queue_distinct_first": {
+      "input_order": [
+        "A",
+        "B"
+      ],
+      "selected_ids": [
+        "A"
+      ],
+      "expected_characterization": [
+        "A"
+      ]
+    },
+    "allocation_distinct_first": {
+      "input_order": [
+        "A",
+        "B"
+      ],
+      "selected_ids": [
+        "A"
+      ],
+      "expected_characterization": [
+        "A"
+      ]
+    },
+    "atomicity-stale_at_entry": {
+      "rejected_status": 2,
+      "persisted_bytes_unchanged_after_rejection": true,
+      "initial_storage_version": 13,
+      "version_after_rejection": 13,
+      "final_storage_version": 14,
+      "notifications_after_rejection": 0,
+      "notifications_after_retry": 1,
+      "invalid_replay_unchanged": true
+    },
+    "atomicity-race_at_commit": {
+      "rejected_status": 2,
+      "persisted_bytes_unchanged_after_rejection": true,
+      "initial_storage_version": 13,
+      "version_after_rejection": 14,
+      "final_storage_version": 15,
+      "notifications_after_rejection": 0,
+      "notifications_after_retry": 1,
+      "invalid_replay_unchanged": true
+    }
+  }
+}

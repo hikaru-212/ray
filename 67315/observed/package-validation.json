@@ -1,0 +1,102 @@
+{
+  "classification": "Fresh validation of public package during evidence preparation; separate from historical runs.",
+  "variants": {
+    "parent": {
+      "worker_cleanup_test": {
+        "tests": 3,
+        "failures": 2,
+        "cases": [
+          {
+            "name": "LeaseIdentityExperiment.CompatibleGrantUsesCurrentAttemptAndOwnResources",
+            "result": "FAIL"
+          },
+          {
+            "name": "LeaseIdentityExperiment.ObserveUnusedReplacementLeaseAtQuiescence",
+            "result": "PASS"
+          },
+          {
+            "name": "LeaseIdentityExperiment.AuthorCleanupWithoutRescheduling",
+            "result": "FAIL"
+          }
+        ],
+        "source_sha256": "70b72a96e4a5c609f78229bffd19453b95a05800f4ad91a7ea04f45724c00a97",
+        "raw_log_sha256": "cc6e813f2252a582b25d76bad4582ed9bbe884762499e1da07eaf9a95ba5fab5",
+        "xml_sha256": "bcf8537eb30e7bdee211b2c9f8ed5b1cb5b06a6410f9e815841625e2a2373df2",
+        "trace": [
+          "RESOURCE_TRACE current_attempt=1 adopted=W1 cpu_instance=0 quantity=4 creation_count=1 cleanup_W2=0",
+          "PENDING_TRACE alive_on=W1 pending_L2=true GCS_membership=false cancellation_L2=false"
+        ],
+        "scheduler_library_sha256": {
+          "libsrc_Sray_Sgcs_Sactor_Slibgcs_Uactor_Uscheduler.so": "62cd32ec74b8a568eb46822f0cc1d0eb8eba3bc9b3d9d4057012b301a113318d"
+        }
+      },
+      "raylet_resource_test": {
+        "tests": 1,
+        "failures": 0,
+        "cases": [
+          {
+            "name": "ClusterLeaseManagerTest.UnusedReplacementReservesResourcesWhileWaitingForWorker",
+            "result": "PASS"
+          }
+        ],
+        "source_sha256": "73f1af2f975e4300572f8bb9bbdd60e693fc167c0f4c4cb7b80a378c0dd27686",
+        "raw_log_sha256": "ba8948a5469a389b1e514a71a09987e6c81b83179d719cfd54ccbe0b392a0b71",
+        "xml_sha256": "0702e3d1afc5aed914b9004d02eff08a3feb6a871a04e38ac4f319ba0a63c5de",
+        "trace": [
+          "RAYLET_RESOURCE_TRACE total_cpu=8 W1_lifetime_cpu=4 pending_L2_reserved_cpu=4 available_cpu=0",
+          "RAYLET_RESOURCE_TRACE cancel_L2_available=4 release_W1_available=8"
+        ],
+        "scheduler_library_sha256": {}
+      }
+    },
+    "head": {
+      "worker_cleanup_test": {
+        "tests": 3,
+        "failures": 0,
+        "cases": [
+          {
+            "name": "LeaseIdentityExperiment.CompatibleGrantUsesCurrentAttemptAndOwnResources",
+            "result": "PASS"
+          },
+          {
+            "name": "LeaseIdentityExperiment.ObserveUnusedReplacementLeaseAtQuiescence",
+            "result": "PASS"
+          },
+          {
+            "name": "LeaseIdentityExperiment.AuthorCleanupWithoutRescheduling",
+            "result": "PASS"
+          }
+        ],
+        "source_sha256": "70b72a96e4a5c609f78229bffd19453b95a05800f4ad91a7ea04f45724c00a97",
+        "raw_log_sha256": "62c89babe3d2d98119e1ba651f934156af62d121d88606d9a1d45ef50d3299b0",
+        "xml_sha256": "ee39d96b550b2811fabd3a7681f96f476990dbe10cb9809b5587d0ca338d7451",
+        "trace": [
+          "RESOURCE_TRACE current_attempt=1 adopted=W1 cpu_instance=0 quantity=4 creation_count=1 cleanup_W2=1",
+          "PENDING_TRACE alive_on=W1 pending_L2=true GCS_membership=false cancellation_L2=false"
+        ],
+        "scheduler_library_sha256": {
+          "libsrc_Sray_Sgcs_Sactor_Slibgcs_Uactor_Uscheduler.so": "32086212af8ecb54d14443ffa9dc16c845f1bfb06ec09e64f07a08093e0a6789"
+        }
+      },
+      "raylet_resource_test": {
+        "tests": 1,
+        "failures": 0,
+        "cases": [
+          {
+            "name": "ClusterLeaseManagerTest.UnusedReplacementReservesResourcesWhileWaitingForWorker",
+            "result": "PASS"
+          }
+        ],
+        "source_sha256": "73f1af2f975e4300572f8bb9bbdd60e693fc167c0f4c4cb7b80a378c0dd27686",
+        "raw_log_sha256": "ba8948a5469a389b1e514a71a09987e6c81b83179d719cfd54ccbe0b392a0b71",
+        "xml_sha256": "ac5cc128e8db2ab4348e6329773112ad644bbfaaba731584db7d56bbb031b2f0",
+        "trace": [
+          "RAYLET_RESOURCE_TRACE total_cpu=8 W1_lifetime_cpu=4 pending_L2_reserved_cpu=4 available_cpu=0",
+          "RAYLET_RESOURCE_TRACE cancel_L2_available=4 release_W1_available=8"
+        ],
+        "scheduler_library_sha256": {}
+      }
+    }
+  },
+  "method": "GCC compile/link with preserved build commands and audited dynamic libraries; only the scheduler library changes for parent vs HEAD. Bazel reproduction commands were not executed."
+}

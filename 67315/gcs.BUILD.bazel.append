@@ -1,0 +1,20 @@
+ray_cc_test(
+    name = "independent_worker_cleanup_test",
+    srcs = ["worker_cleanup_test.cc"],
+    deps = [
+        "//src/ray/common:runtime_env",
+        "//src/ray/common:test_utils",
+        "//src/ray/core_worker_rpc_client:fake_core_worker_client",
+        "//src/ray/gcs:fake_gcs_kv_manager",
+        "//src/ray/gcs:gcs_function_manager",
+        "//src/ray/gcs:gcs_node_manager",
+        "//src/ray/gcs/actor:gcs_actor_manager",
+        "//src/ray/gcs/actor:gcs_actor_scheduler",
+        "//src/ray/gcs/store_client:in_memory_store_client",
+        "//src/ray/observability:fake_metric",
+        "//src/ray/observability:fake_ray_event_recorder",
+        "//src/ray/pubsub:fake_publisher",
+        "//src/ray/pubsub:gcs_publisher",
+        "//src/ray/raylet_rpc_client:fake_raylet_client",
+    ],
+)

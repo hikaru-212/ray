@@ -1,0 +1,454 @@
+{
+  "classification": "Historical Issue-first observations; corrected recent tests and original GC test are separate runs.",
+  "initial_suite": {
+    "parent": {
+      "passed": 1,
+      "failed": 2
+    },
+    "head": {
+      "passed": 1,
+      "failed": 2
+    },
+    "reason": "Both recent tests expected event details in status_history; details were already omitted on the first REQUESTED transition, before truncation, in both revisions."
+  },
+  "corrected_recent_suite": {
+    "parent": {
+      "passed": 2,
+      "deselected": 1
+    },
+    "head": {
+      "passed": 2,
+      "deselected": 1
+    }
+  },
+  "observations": {
+    "parent": {
+      "recent-failed": {
+        "samples": [
+          {
+            "attempt": 6,
+            "wire_bytes": 130,
+            "summary_bytes": 0,
+            "history_length": 10,
+            "visited_statuses": 2
+          },
+          {
+            "attempt": 51,
+            "wire_bytes": 140,
+            "summary_bytes": 0,
+            "history_length": 10,
+            "visited_statuses": 2
+          },
+          {
+            "attempt": 101,
+            "wire_bytes": 141,
+            "summary_bytes": 0,
+            "history_length": 10,
+            "visited_statuses": 2
+          }
+        ],
+        "final": {
+          "wire_bytes": 140,
+          "summary_bytes": 0,
+          "history_length": 10,
+          "visited_statuses": 3
+        },
+        "first_requested_ts": 2,
+        "latest_requested_ts": 302,
+        "committed_events": 203,
+        "observed": {
+          "start_ts": 302,
+          "failed_ts": 303,
+          "reason": "",
+          "event_reason": "launch failed with Failed to launch 1 nodes of type type-1 with request id fixed-request: capacity",
+          "intended_reason": "launch failed with Failed to launch 1 nodes of type type-1 with request id fixed-request: capacity"
+        }
+      },
+      "recent-allocated": {
+        "samples": [
+          {
+            "attempt": 6,
+            "wire_bytes": 130,
+            "summary_bytes": 0,
+            "history_length": 10,
+            "visited_statuses": 2
+          },
+          {
+            "attempt": 51,
+            "wire_bytes": 140,
+            "summary_bytes": 0,
+            "history_length": 10,
+            "visited_statuses": 2
+          },
+          {
+            "attempt": 101,
+            "wire_bytes": 141,
+            "summary_bytes": 0,
+            "history_length": 10,
+            "visited_statuses": 2
+          }
+        ],
+        "final": {
+          "wire_bytes": 153,
+          "summary_bytes": 0,
+          "history_length": 10,
+          "visited_statuses": 4
+        },
+        "first_requested_ts": 2,
+        "latest_requested_ts": 302,
+        "committed_events": 204,
+        "observed": {
+          "instance_id": "A",
+          "details": "",
+          "event_details": "latest-install-detail",
+          "intended_details": "latest-install-detail"
+        }
+      },
+      "gc-churn": {
+        "samples": [
+          {
+            "tick": 0,
+            "retained": 2,
+            "total_wire_bytes": 122
+          },
+          {
+            "tick": 1,
+            "retained": 4,
+            "total_wire_bytes": 244
+          },
+          {
+            "tick": 2,
+            "retained": 6,
+            "total_wire_bytes": 366
+          },
+          {
+            "tick": 3,
+            "retained": 6,
+            "total_wire_bytes": 366
+          },
+          {
+            "tick": 4,
+            "retained": 6,
+            "total_wire_bytes": 366
+          },
+          {
+            "tick": 5,
+            "retained": 6,
+            "total_wire_bytes": 366
+          },
+          {
+            "tick": 6,
+            "retained": 6,
+            "total_wire_bytes": 366
+          },
+          {
+            "tick": 7,
+            "retained": 6,
+            "total_wire_bytes": 366
+          },
+          {
+            "tick": 8,
+            "retained": 6,
+            "total_wire_bytes": 366
+          },
+          {
+            "tick": 9,
+            "retained": 6,
+            "total_wire_bytes": 366
+          },
+          {
+            "tick": 10,
+            "retained": 6,
+            "total_wire_bytes": 366
+          },
+          {
+            "tick": 11,
+            "retained": 6,
+            "total_wire_bytes": 366
+          },
+          {
+            "tick": 12,
+            "retained": 6,
+            "total_wire_bytes": 366
+          },
+          {
+            "tick": 13,
+            "retained": 6,
+            "total_wire_bytes": 366
+          },
+          {
+            "tick": 14,
+            "retained": 6,
+            "total_wire_bytes": 366
+          },
+          {
+            "tick": 15,
+            "retained": 6,
+            "total_wire_bytes": 366
+          },
+          {
+            "tick": 16,
+            "retained": 6,
+            "total_wire_bytes": 366
+          },
+          {
+            "tick": 17,
+            "retained": 6,
+            "total_wire_bytes": 366
+          },
+          {
+            "tick": 18,
+            "retained": 6,
+            "total_wire_bytes": 366
+          },
+          {
+            "tick": 19,
+            "retained": 6,
+            "total_wire_bytes": 366
+          }
+        ],
+        "race": {
+          "version_before": 62,
+          "version_after_rejection": 63,
+          "preserved_ids": [
+            "F0007",
+            "F0008",
+            "F0009",
+            "F0010",
+            "T0007",
+            "T0008",
+            "T0009",
+            "T0010"
+          ],
+          "notifications_after_rejection": 0,
+          "ids_after_retry": [
+            "F0008",
+            "F0009",
+            "F0010",
+            "T0008",
+            "T0009",
+            "T0010"
+          ],
+          "version_after_retry": 64
+        },
+        "created_terminal_records": 40,
+        "maximum_retained_after_gc": 6,
+        "exact_boundary_checked": true
+      }
+    },
+    "head": {
+      "recent-failed": {
+        "samples": [
+          {
+            "attempt": 6,
+            "wire_bytes": 164,
+            "summary_bytes": 34,
+            "history_length": 10,
+            "visited_statuses": 2
+          },
+          {
+            "attempt": 51,
+            "wire_bytes": 174,
+            "summary_bytes": 34,
+            "history_length": 10,
+            "visited_statuses": 2
+          },
+          {
+            "attempt": 101,
+            "wire_bytes": 175,
+            "summary_bytes": 34,
+            "history_length": 10,
+            "visited_statuses": 2
+          }
+        ],
+        "final": {
+          "wire_bytes": 192,
+          "summary_bytes": 52,
+          "history_length": 10,
+          "visited_statuses": 3
+        },
+        "first_requested_ts": 2,
+        "latest_requested_ts": 302,
+        "committed_events": 203,
+        "observed": {
+          "start_ts": 302,
+          "failed_ts": 303,
+          "reason": "",
+          "event_reason": "launch failed with Failed to launch 1 nodes of type type-1 with request id fixed-request: capacity",
+          "intended_reason": "launch failed with Failed to launch 1 nodes of type type-1 with request id fixed-request: capacity"
+        }
+      },
+      "recent-allocated": {
+        "samples": [
+          {
+            "attempt": 6,
+            "wire_bytes": 164,
+            "summary_bytes": 34,
+            "history_length": 10,
+            "visited_statuses": 2
+          },
+          {
+            "attempt": 51,
+            "wire_bytes": 174,
+            "summary_bytes": 34,
+            "history_length": 10,
+            "visited_statuses": 2
+          },
+          {
+            "attempt": 101,
+            "wire_bytes": 175,
+            "summary_bytes": 34,
+            "history_length": 10,
+            "visited_statuses": 2
+          }
+        ],
+        "final": {
+          "wire_bytes": 223,
+          "summary_bytes": 70,
+          "history_length": 10,
+          "visited_statuses": 4
+        },
+        "first_requested_ts": 2,
+        "latest_requested_ts": 302,
+        "committed_events": 204,
+        "observed": {
+          "instance_id": "A",
+          "details": "",
+          "event_details": "latest-install-detail",
+          "intended_details": "latest-install-detail"
+        }
+      },
+      "gc-churn": {
+        "samples": [
+          {
+            "tick": 0,
+            "retained": 2,
+            "total_wire_bytes": 212
+          },
+          {
+            "tick": 1,
+            "retained": 4,
+            "total_wire_bytes": 424
+          },
+          {
+            "tick": 2,
+            "retained": 6,
+            "total_wire_bytes": 636
+          },
+          {
+            "tick": 3,
+            "retained": 6,
+            "total_wire_bytes": 636
+          },
+          {
+            "tick": 4,
+            "retained": 6,
+            "total_wire_bytes": 636
+          },
+          {
+            "tick": 5,
+            "retained": 6,
+            "total_wire_bytes": 636
+          },
+          {
+            "tick": 6,
+            "retained": 6,
+            "total_wire_bytes": 636
+          },
+          {
+            "tick": 7,
+            "retained": 6,
+            "total_wire_bytes": 636
+          },
+          {
+            "tick": 8,
+            "retained": 6,
+            "total_wire_bytes": 636
+          },
+          {
+            "tick": 9,
+            "retained": 6,
+            "total_wire_bytes": 636
+          },
+          {
+            "tick": 10,
+            "retained": 6,
+            "total_wire_bytes": 636
+          },
+          {
+            "tick": 11,
+            "retained": 6,
+            "total_wire_bytes": 636
+          },
+          {
+            "tick": 12,
+            "retained": 6,
+            "total_wire_bytes": 636
+          },
+          {
+            "tick": 13,
+            "retained": 6,
+            "total_wire_bytes": 636
+          },
+          {
+            "tick": 14,
+            "retained": 6,
+            "total_wire_bytes": 636
+          },
+          {
+            "tick": 15,
+            "retained": 6,
+            "total_wire_bytes": 636
+          },
+          {
+            "tick": 16,
+            "retained": 6,
+            "total_wire_bytes": 636
+          },
+          {
+            "tick": 17,
+            "retained": 6,
+            "total_wire_bytes": 636
+          },
+          {
+            "tick": 18,
+            "retained": 6,
+            "total_wire_bytes": 636
+          },
+          {
+            "tick": 19,
+            "retained": 6,
+            "total_wire_bytes": 636
+          }
+        ],
+        "race": {
+          "version_before": 62,
+          "version_after_rejection": 63,
+          "preserved_ids": [
+            "F0007",
+            "F0008",
+            "F0009",
+            "F0010",
+            "T0007",
+            "T0008",
+            "T0009",
+            "T0010"
+          ],
+          "notifications_after_rejection": 0,
+          "ids_after_retry": [
+            "F0008",
+            "F0009",
+            "F0010",
+            "T0008",
+            "T0009",
+            "T0010"
+          ],
+          "version_after_retry": 64
+        },
+        "created_terminal_records": 40,
+        "maximum_retained_after_gc": 6,
+        "exact_boundary_checked": true
+      }
+    }
+  }
+}

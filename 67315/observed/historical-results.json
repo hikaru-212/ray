@@ -1,0 +1,91 @@
+{
+  "classification": "Historical observations from original harnesses; not outputs of the new combined public test.",
+  "variants": {
+    "parent": {
+      "isolated_cancellation": {
+        "tests": 1,
+        "failures": 1,
+        "cases": [
+          {
+            "name": "LeaseIdentityExperiment.AuthorCleanupWithoutRescheduling",
+            "result": "FAIL"
+          }
+        ],
+        "source": "phase2/logs/parent-author-cleanup.log",
+        "modeled_orphans": 1
+      },
+      "valid_same_node_restart": {
+        "tests": 1,
+        "failures": 1,
+        "cases": [
+          {
+            "name": "LeaseIdentityExperiment.CompatibleGrantUsesCurrentAttemptAndOwnResources",
+            "result": "FAIL"
+          }
+        ],
+        "source": "coordinator/valid-cpu/parent.log",
+        "trace": [
+          "RESOURCE_TRACE current_attempt=1 adopted=W1 cpu_instance=0 quantity=4 creation_count=1 cleanup_W2=0"
+        ]
+      },
+      "pending_L2": {
+        "source": "issue-first/experiment-build/parent-gcs_contract_test_v2.log",
+        "trace": [
+          "PENDING_TRACE alive_on=W1 pending_L2=true GCS_membership=false cancellation_L2=false"
+        ],
+        "classification": "Inherited follow-up observation; lifetime unknown. This historical run used an earlier synthetic CPU mapping; fresh package validation repeats it with the corrected mapping."
+      }
+    },
+    "head": {
+      "isolated_cancellation": {
+        "tests": 1,
+        "failures": 0,
+        "cases": [
+          {
+            "name": "LeaseIdentityExperiment.AuthorCleanupWithoutRescheduling",
+            "result": "PASS"
+          }
+        ],
+        "source": "phase2/logs/head-author-cleanup.log",
+        "modeled_orphans": 0
+      },
+      "valid_same_node_restart": {
+        "tests": 1,
+        "failures": 0,
+        "cases": [
+          {
+            "name": "LeaseIdentityExperiment.CompatibleGrantUsesCurrentAttemptAndOwnResources",
+            "result": "PASS"
+          }
+        ],
+        "source": "coordinator/valid-cpu/head.log",
+        "trace": [
+          "RESOURCE_TRACE current_attempt=1 adopted=W1 cpu_instance=0 quantity=4 creation_count=1 cleanup_W2=1"
+        ]
+      },
+      "pending_L2": {
+        "source": "issue-first/experiment-build/head-gcs_contract_test_v2.log",
+        "trace": [
+          "PENDING_TRACE alive_on=W1 pending_L2=true GCS_membership=false cancellation_L2=false"
+        ],
+        "classification": "Inherited follow-up observation; lifetime unknown. This historical run used an earlier synthetic CPU mapping; fresh package validation repeats it with the corrected mapping."
+      }
+    }
+  },
+  "raylet_resource_accounting": {
+    "variant": "head",
+    "source": "issue-first/experiment-build/head-raylet_resource_test.log",
+    "trace": [
+      "RAYLET_RESOURCE_TRACE total_cpu=8 W1_lifetime_cpu=4 pending_L2_reserved_cpu=4 available_cpu=0",
+      "RAYLET_RESOURCE_TRACE cancel_L2_available=4 release_W1_available=8"
+    ],
+    "result": "PASS",
+    "scope": "Separate real raylet resource accounting with a fake worker pool; not an integrated lifetime test."
+  },
+  "discarded_oracle": {
+    "name": "CanceledLeaseReplyAfterSameNodeRestart",
+    "parent_failures_in_repeat": 10,
+    "head_failures_in_repeat": 10,
+    "classification": "Overstrong W1-must-be-killed oracle, not a confirmed PR regression."
+  }
+}

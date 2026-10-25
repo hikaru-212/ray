@@ -1,0 +1,41 @@
+{
+  "classification": "Fresh execution of the portable public package during preparation; separate from historical results.json.",
+  "date": "2026-10-25",
+  "method": "Eight fresh child processes and private Ray clusters using the audited exact Parent/HEAD Ray Data overlays and the same shared Parent native runtime as the historical audit.",
+  "independent_native_build": false,
+  "logical_gpus": 2,
+  "cuda_used": false,
+  "revisions": {
+    "parent": "938ab39460b257374624479c6739fa80315939ea",
+    "head": "72f39680c62f3afe3ed437a74ae360417452f1d9",
+    "native": "938ab39460b257374624479c6739fa80315939ea"
+  },
+  "runner_sha256": {
+    "verify_none.py": "b8c1bb02961982cbc1bf1ac160407733475c0ed13746ca547266b59955ed4630",
+    "run_verification.py": "d9fce930e0251e7fb7fc9d2a61b859c8054279e16ae52961719348240f0e420a"
+  },
+  "expected_output": [
+    {"id": 2, "left": 20, "right": 200},
+    {"id": 3, "left": 30, "right": 300}
+  ],
+  "results": [
+    {"variant": "parent", "case": "omitted", "reservation": "enabled", "status": "PASS", "output_correct": true, "aggregator_gpu_requests": [0, 0]},
+    {"variant": "parent", "case": "zero", "reservation": "enabled", "status": "PASS", "output_correct": true, "aggregator_gpu_requests": [0, 0]},
+    {"variant": "parent", "case": "none", "reservation": "enabled", "status": "PASS", "output_correct": true, "aggregator_gpu_requests": [0, 0]},
+    {"variant": "head", "case": "omitted", "reservation": "enabled", "status": "PASS", "output_correct": true, "aggregator_gpu_requests": [0, 0]},
+    {"variant": "head", "case": "zero", "reservation": "enabled", "status": "PASS", "output_correct": true, "aggregator_gpu_requests": [0, 0]},
+    {"variant": "head", "case": "half", "reservation": "enabled", "status": "PASS", "output_correct": true, "aggregator_gpu_requests": [0.5, 0.5]},
+    {
+      "variant": "head",
+      "case": "none",
+      "reservation": "enabled",
+      "status": "EXPECTED_FAIL",
+      "returncode": 2,
+      "error_type": "TypeError",
+      "error": "unsupported operand type(s) for *: 'int' and 'NoneType'",
+      "failure_source": "ray/data/_internal/execution/operators/hash_shuffle.py:min_max_resource_requirements",
+      "aggregator_gpu_requests": []
+    },
+    {"variant": "head", "case": "none", "reservation": "disabled", "status": "PASS", "output_correct": true, "aggregator_gpu_requests": [0, 0]}
+  ]
+}

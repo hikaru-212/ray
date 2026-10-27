@@ -1,0 +1,165 @@
+{
+  "created_utc": "2026-10-27T13:32:32.129001+00:00",
+  "evidence_git": {
+    "branch": "review-evidence",
+    "git_metadata": {
+      "/home/researcher/oss/ray-review-evidence/.git/FETCH_HEAD": {
+        "bytes": 1742,
+        "kind": "file",
+        "mode": 436,
+        "sha256": "1e14d5bc5ba81c6877cf96da08b1d027c0523ba4e19fc8e9b6cfe47bddd003e6"
+      },
+      "/home/researcher/oss/ray-review-evidence/.git/HEAD": {
+        "bytes": 32,
+        "kind": "file",
+        "mode": 436,
+        "sha256": "10d3a8cdd87bc21fa493d5d1952a4efd21ec4d5a65236794a21a27ea9cb21fca"
+      },
+      "/home/researcher/oss/ray-review-evidence/.git/ORIG_HEAD": {
+        "bytes": 41,
+        "kind": "file",
+        "mode": 436,
+        "sha256": "13f84c29ea0a62d28f37e6139fe29b814bd4d15e45ada9b35af35a75b7702de5"
+      },
+      "/home/researcher/oss/ray-review-evidence/.git/index": {
+        "bytes": 10601,
+        "kind": "file",
+        "mode": 436,
+        "sha256": "95616e67c91d141ef5a18980dcde9a831216674317571c6a7a7fd0858a32bee4"
+      },
+      "/home/researcher/oss/ray-review-evidence/.git/logs": {
+        "entries": 15,
+        "inventory_sha256": "c6445a0380048b1652a58e822f746571ff4576892f2a97c8691c91d5144de114",
+        "regular_file_bytes": 7849
+      },
+      "/home/researcher/oss/ray-review-evidence/.git/refs": {
+        "entries": 14,
+        "inventory_sha256": "b588be5fca6d6f57f1218290b3fe2b795808b18e1661c44273efac9e50e36bf0",
+        "regular_file_bytes": 574
+      }
+    },
+    "head": "cbad7347b0e20c19fdd4b590334e10320835ca74",
+    "index_sha256": "95616e67c91d141ef5a18980dcde9a831216674317571c6a7a7fd0858a32bee4",
+    "refs_count": 14,
+    "refs_sha256": "c508c552a3884127ae459dfc980040a9f79b1dddedfafb7d3377845944f0627a",
+    "remotes": "origin\thttps://github.com/hikaru-212/ray.git (fetch)\norigin\thttps://github.com/hikaru-212/ray.git (push)\n",
+    "status": "?? 67455/20261027-3b45229e91/.gitignore\n?? 67455/20261027-3b45229e91/MANIFEST.sha256\n?? 67455/20261027-3b45229e91/PROVENANCE.json\n?? 67455/20261027-3b45229e91/PUBLICATION-ALLOWLIST.txt\n?? 67455/20261027-3b45229e91/PUBLICATION-AUDIT.md\n?? 67455/20261027-3b45229e91/README.md\n?? 67455/20261027-3b45229e91/REPRODUCTION.md\n?? 67455/20261027-3b45229e91/checks/adaptation-provenance.json\n?? 67455/20261027-3b45229e91/checks/git-isolation-final.json\n?? 67455/20261027-3b45229e91/checks/original-artifact-inventory.json\n?? 67455/20261027-3b45229e91/checks/preparation-baselines.json\n?? 67455/20261027-3b45229e91/checks/public-safety-scan.json\n?? 67455/20261027-3b45229e91/checks/result-summary.json\n?? 67455/20261027-3b45229e91/checks/source-verification.json\n?? 67455/20261027-3b45229e91/checks/verify_package.py\n?? 67455/20261027-3b45229e91/logs/head-A-quality-pytest.log\n?? 67455/20261027-3b45229e91/logs/head-ABC.redacted.log\n?? 67455/20261027-3b45229e91/logs/head-followup.log\n?? 67455/20261027-3b45229e91/logs/head-protoc-v3.log\n?? 67455/20261027-3b45229e91/logs/parent-A-quality-pytest.log\n?? 67455/20261027-3b45229e91/logs/parent-ABC.redacted.log\n?? 67455/20261027-3b45229e91/logs/parent-followup.log\n?? 67455/20261027-3b45229e91/logs/parent-protoc-v3.log\n?? 67455/20261027-3b45229e91/logs/parent-protoc.log\n?? 67455/20261027-3b45229e91/logs/setup-v3.redacted.log\n?? 67455/20261027-3b45229e91/metadata/environment.redacted.json\n?? 67455/20261027-3b45229e91/metadata/executed-test-commands.redacted.json\n?? 67455/20261027-3b45229e91/metadata/git-commit-tree-end.txt\n?? 67455/20261027-3b45229e91/metadata/git-identity-start.txt\n?? 67455/20261027-3b45229e91/metadata/git-status-end.txt\n?? 67455/20261027-3b45229e91/metadata/git-status-start.txt\n?? 67455/20261027-3b45229e91/metadata/head-import-provenance.redacted.json\n?? 67455/20261027-3b45229e91/metadata/parent-import-provenance.redacted.json\n?? 67455/20261027-3b45229e91/metadata/preservation-audit.json\n?? 67455/20261027-3b45229e91/reproducer/adapted/run_experiments.py\n?? 67455/20261027-3b45229e91/reproducer/adapted/run_followup.py\n?? 67455/20261027-3b45229e91/reproducer/adapted/test_candidate_a.py\n?? 67455/20261027-3b45229e91/reproducer/run_experiments.py\n?? 67455/20261027-3b45229e91/reproducer/run_followup.py\n?? 67455/20261027-3b45229e91/reproducer/setup/prepare_runtime_v3.redacted.py\n?? 67455/20261027-3b45229e91/reproducer/test_candidate_a.py\n?? 67455/20261027-3b45229e91/results/head-A.redacted.json\n?? 67455/20261027-3b45229e91/results/head-B.redacted.json\n?? 67455/20261027-3b45229e91/results/head-C.redacted.json\n?? 67455/20261027-3b45229e91/results/head-C_finite.json\n?? 67455/20261027-3b45229e91/results/head-D_distinct_unused_fallbacks.json\n?? 67455/20261027-3b45229e91/results/head-D_primary_only.json\n?? 67455/20261027-3b45229e91/results/head-D_same_unused_fallbacks.json\n?? 67455/20261027-3b45229e91/results/parent-A.redacted.json\n?? 67455/20261027-3b45229e91/results/parent-B.redacted.json\n?? 67455/20261027-3b45229e91/results/parent-C.redacted.json\n?? 67455/20261027-3b45229e91/results/parent-C_finite.json\n?? 67455/20261027-3b45229e91/results/parent-D_distinct_unused_fallbacks.json\n?? 67455/20261027-3b45229e91/results/parent-D_primary_only.json\n?? 67455/20261027-3b45229e91/results/parent-D_same_unused_fallbacks.json\n"
+  },
+  "evidence_reachable_commits": [
+    "cbad7347b0e20c19fdd4b590334e10320835ca74",
+    "e5eb5df62926c52e48d1b282099f11ac8b3ea01a",
+    "8083f989f44edbad0c4fcdc7260e3bcdb0f1da87",
+    "99fdb6908635f12b5b65021a17613997aff91610",
+    "c9bbb9510c43f945bbcb86d71c6a469f2e392644",
+    "9512548e5f1ff1f0900cefc240da236b2fbc8eaf",
+    "5b40ad43f957f9806b9b6a6bce40cacab0feaf7a",
+    "812f39d848cb2c8473d5f4a7a1662ef8795a3986",
+    "a441ab49b658416d355ed9ee3c732b965e70d990"
+  ],
+  "excluded_from_original_byte_inventory": [
+    "bazel-root",
+    "venv",
+    "bin"
+  ],
+  "original_experiment_files": {
+    "entries": 21180,
+    "inventory_sha256": "018614f1122d96389e04e3bf5c94f0059d487f1c51f53198e6851cbac0a58433",
+    "regular_file_bytes": 742477342
+  },
+  "pr67455_files": {
+    "entries": 55,
+    "inventory_sha256": "ad867f26be4dac3fb1d06405e7d2ce49acd0167d8ea1c53290ed1f450585dbac",
+    "regular_file_bytes": 1161843
+  },
+  "preexisting_evidence_files": {
+    "entries": 155,
+    "inventory_sha256": "27a77edb0803e74de6e29946aaa10559faa67ef6e9940d47db065b271b7c608b",
+    "regular_file_bytes": 1802778
+  },
+  "source_files": {
+    "entries": 10494,
+    "inventory_sha256": "5f8f32e0ade331e72b697c2e4eaf4b6a6bc12fe0d6a807b647d7e30df58dea75",
+    "regular_file_bytes": 370965342
+  },
+  "source_git": {
+    "branch": "review/pr-67424",
+    "git_metadata": {
+      "/home/researcher/oss/ray/.git/FETCH_HEAD": {
+        "bytes": 103,
+        "kind": "file",
+        "mode": 436,
+        "sha256": "80256cb69f557287aefd4abf36209e91e49e641dc4b6ac8dc53a29ae0a5c8593"
+      },
+      "/home/researcher/oss/ray/.git/HEAD": {
+        "bytes": 59,
+        "kind": "file",
+        "mode": 436,
+        "sha256": "d319ccc0c2e7e07b033a666b62a9c17ec79910d07dfd809b3d999722c1a22fb5"
+      },
+      "/home/researcher/oss/ray/.git/ORIG_HEAD": {
+        "bytes": 41,
+        "kind": "file",
+        "mode": 436,
+        "sha256": "96ebcc820795ae0bb8a14cf1a112ad099ee9c3880db5e301ce1222d85e80eb45"
+      },
+      "/home/researcher/oss/ray/.git/index": {
+        "bytes": 1278025,
+        "kind": "file",
+        "mode": 436,
+        "sha256": "67d15a260d5220b860effaeee2374eb8718b72bb892f7122ab1bd293cc515244"
+      },
+      "/home/researcher/oss/ray/.git/logs": {
+        "entries": 298,
+        "inventory_sha256": "a89c3cd0ed8b75e6bd4e2e477a045568655cb6fbf9323a62dfa62578957c3a3c",
+        "regular_file_bytes": 113077
+      },
+      "/home/researcher/oss/ray/.git/packed-refs": {
+        "bytes": 150913,
+        "kind": "file",
+        "mode": 436,
+        "sha256": "d8447d1fa1c17c35d7995349b2a5e7259e428b29e7f11833933a89b75c31a4ae"
+      },
+      "/home/researcher/oss/ray/.git/refs": {
+        "entries": 326,
+        "inventory_sha256": "9994f80d187ef98cdf36552182dd114ed42c74d3c8b43cca4c4b8a00fc8f8447",
+        "regular_file_bytes": 13357
+      },
+      "/home/researcher/oss/ray/.git/worktrees/ray-review-4/FETCH_HEAD": {
+        "bytes": 103,
+        "kind": "file",
+        "mode": 436,
+        "sha256": "6574d0d6e96c3b81096954cdcb7191d9444ae56eb99a218d8b5d5f09f65b04c4"
+      },
+      "/home/researcher/oss/ray/.git/worktrees/ray-review-4/HEAD": {
+        "bytes": 32,
+        "kind": "file",
+        "mode": 436,
+        "sha256": "55305301dcfe5a98d400acd21acab5c01feb328a7028c9b794db59886cdbfc19"
+      },
+      "/home/researcher/oss/ray/.git/worktrees/ray-review-4/ORIG_HEAD": {
+        "bytes": 41,
+        "kind": "file",
+        "mode": 436,
+        "sha256": "bff703dce9e965600266dfcc36f9b260a282cb913b3b71fe736da879642df15c"
+      },
+      "/home/researcher/oss/ray/.git/worktrees/ray-review-4/index": {
+        "bytes": 1289626,
+        "kind": "file",
+        "mode": 436,
+        "sha256": "02c0571094817b485fd658072e0fc8a32934538968f580f6de87eea1dd9690ee"
+      },
+      "/home/researcher/oss/ray/.git/worktrees/ray-review-4/logs": {
+        "entries": 1,
+        "inventory_sha256": "c59227524032c5628ed92634b5e4440951b1cd85236f13b7f57b2d4e5745ed79",
+        "regular_file_bytes": 1441
+      }
+    },
+    "head": "1c22b86fb5769f09a436bfdd4666aedef4a73847",
+    "index_sha256": "02c0571094817b485fd658072e0fc8a32934538968f580f6de87eea1dd9690ee",
+    "refs_count": 2080,
+    "refs_sha256": "d5a983d7db315a48101b77859d14a739438a46e753ee808c6683e42c3730bee3",
+    "remotes": "fork\thttps://github.com/hikaru-212/ray.git (fetch)\nfork\thttps://github.com/hikaru-212/ray.git (push)\norigin\thttps://github.com/ray-project/ray.git (fetch)\norigin\thttps://github.com/ray-project/ray.git (push)\n",
+    "status": ""
+  },
+  "target_initially_absent": true
+}

@@ -1,0 +1,27 @@
+{
+  "bazelrc_identical": true,
+  "build_visibility_fix": {
+    "head": {
+      "after_sha256": "17e3f956b0dbfe0dbbdf8d4bf084c50a1c333b701da22d62bfa6e7b40b80bbef",
+      "before_sha256": "86d701bf91eb95c165f0cdf7c20127b6aa784704de855fee6e72c8e50a2e3cc3",
+      "exact_single_dependency_removal": true
+    },
+    "parent": {
+      "after_sha256": "17e3f956b0dbfe0dbbdf8d4bf084c50a1c333b701da22d62bfa6e7b40b80bbef",
+      "before_sha256": "86d701bf91eb95c165f0cdf7c20127b6aa784704de855fee6e72c8e50a2e3cc3",
+      "exact_single_dependency_removal": true
+    },
+    "reason": "Remove only a redundant direct dependency in the temporary test target; core_worker_lib supplies CoreWorkerClient transitively. No production target visibility or linkage policy changed."
+  },
+  "final_build_files_identical": true,
+  "production_files_modified": false,
+  "same_a1_event_order": "Establish; idle poll; release Y/final lineage; observe; fresh OUT_OF_SCOPE request; test-only abort.",
+  "test_callback_fix": {
+    "after": "s.callback(rpc::PubMessage(msg));",
+    "after_sha256": "0783cc096ed4d0421c11ff472b54cfdb334ba00eb85382f14ed51ba5249b9b21",
+    "before": "s.callback(msg);",
+    "before_sha256": "93f483dc906cb0ab905228c31455a68d58e7b49f6ba8bd4a9db08087b5a79ede",
+    "exact_single_replacement": true,
+    "reason": "SubscriptionItemCallback accepts PubMessage&&. Copying the const publication into a temporary preserves its content and synchronous invocation order."
+  }
+}

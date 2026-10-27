@@ -1,0 +1,217 @@
+diff --git a/src/ray/core_worker/core_worker.cc b/src/ray/core_worker/core_worker.cc
+index 13c9f0e9d2..bbf9af6e95 100644
+--- a/src/ray/core_worker/core_worker.cc
++++ b/src/ray/core_worker/core_worker.cc
+@@ -488,6 +488,16 @@ CoreWorker::CoreWorker(
+     absl::MutexLock lock(&wait_async_->mu);
+     wait_async_->memory_store = memory_store_.get();
+   }
++  // Objects can go out of scope through internal reference-counter paths that
++  // have no caller to hand a `deleted` vector to (e.g. when a borrower drops the
++  // last reference and this owner is notified asynchronously). Let the reference
++  // counter delete those objects' in-process values itself so the memory-store
++  // entries do not leak. Capture the memory store by value so the callback stays
++  // valid for as long as the reference counter holds it.
++  reference_counter_->SetMemoryStoreDeleteCallback(
++      [memory_store = memory_store_](const std::vector<ObjectID> &deleted) {
++        memory_store->Delete(deleted);
++      });
+   RAY_CHECK(RayConfig::instance().max_free_local_objects_batch_size() > 0)
+       << "max_free_local_objects_batch_size must be positive, got "
+       << RayConfig::instance().max_free_local_objects_batch_size();
+diff --git a/src/ray/core_worker/core_worker.h b/src/ray/core_worker/core_worker.h
+index 6e2c83fc05..932d5b924b 100644
+--- a/src/ray/core_worker/core_worker.h
++++ b/src/ray/core_worker/core_worker.h
+@@ -455,8 +455,11 @@ class CoreWorker : public std::enable_shared_from_this<CoreWorker> {
+   void RemoveLocalReference(const ObjectID &object_id) {
+     std::vector<ObjectID> deleted;
+     reference_counter_->RemoveLocalReference(object_id, &deleted);
+-    // TODO(sang): This seems bad... We should delete the memory store
+-    // properly from reference counter.
++    // Delete the in-process value of objects that went out of scope on this
++    // call. Internal reference-counter paths that have no `deleted` vector to
++    // report through (e.g. a borrower dropping the last reference) clean up the
++    // memory store themselves via the callback registered in the CoreWorker
++    // constructor (see ReferenceCounter::SetMemoryStoreDeleteCallback).
+     memory_store_->Delete(deleted);
+   }
+ 
+diff --git a/src/ray/core_worker/reference_counter.cc b/src/ray/core_worker/reference_counter.cc
+index a2cbe3735f..c949452203 100644
+--- a/src/ray/core_worker/reference_counter.cc
++++ b/src/ray/core_worker/reference_counter.cc
+@@ -776,6 +776,12 @@ void ReferenceCounter::DeleteReferenceInternal(ReferenceTable::iterator it,
+     OnObjectOutOfScopeOrFreed(it);
+     if (deleted != nullptr) {
+       deleted->push_back(id);
++    } else if (delete_from_memory_store_ != nullptr) {
++      // There is no caller-provided vector to report this object through
++      // (e.g. a borrower dropped the last reference and we were notified
++      // asynchronously). Delete the object's in-process value directly so its
++      // memory-store entry does not leak.
++      delete_from_memory_store_({id});
+     }
+ 
+     auto index_it = reconstructable_owned_objects_index_.find(id);
+@@ -1471,6 +1477,12 @@ void ReferenceCounter::SetReleaseLineageCallback(
+   on_lineage_released_ = callback;
+ }
+ 
++void ReferenceCounter::SetMemoryStoreDeleteCallback(
++    std::function<void(const std::vector<ObjectID> &)> callback) {
++  RAY_CHECK(delete_from_memory_store_ == nullptr);
++  delete_from_memory_store_ = std::move(callback);
++}
++
+ bool ReferenceCounter::AddObjectLocation(const ObjectID &object_id,
+                                          const NodeID &node_id) {
+   absl::MutexLock lock(&mutex_);
+diff --git a/src/ray/core_worker/reference_counter.h b/src/ray/core_worker/reference_counter.h
+index ecd24b4155..9fdc79503b 100644
+--- a/src/ray/core_worker/reference_counter.h
++++ b/src/ray/core_worker/reference_counter.h
+@@ -168,6 +168,9 @@ class ReferenceCounter : public ReferenceCounterInterface,
+ 
+   void SetReleaseLineageCallback(const LineageReleasedCallback &callback) override;
+ 
++  void SetMemoryStoreDeleteCallback(
++      std::function<void(const std::vector<ObjectID> &)> callback) override;
++
+   void PublishRefRemoved(const ObjectID &object_id) override ABSL_LOCKS_EXCLUDED(mutex_);
+ 
+   size_t NumObjectIDsInScope() const override ABSL_LOCKS_EXCLUDED(mutex_);
+@@ -755,6 +758,12 @@ class ReferenceCounter : public ReferenceCounterInterface,
+   /// The object's Reference will be erased after this callback.
+   // Returns the amount of lineage in bytes released.
+   LineageReleasedCallback on_lineage_released_;
++  /// The callback to delete the in-process (memory store) value of objects that
++  /// go out of scope through internal paths that cannot report them through a
++  /// caller-provided `deleted` vector. Set by the core worker. It is not
++  /// guarded by a lock because it is set once during initialization, before any
++  /// object can go out of scope.
++  std::function<void(const std::vector<ObjectID> &)> delete_from_memory_store_;
+   /// Optional shutdown hook to call when all references have gone
+   /// out of scope.
+   std::function<void()> shutdown_hook_ ABSL_GUARDED_BY(mutex_) = nullptr;
+diff --git a/src/ray/core_worker/reference_counter_interface.h b/src/ray/core_worker/reference_counter_interface.h
+index cd123d8cc9..f7da0f622c 100644
+--- a/src/ray/core_worker/reference_counter_interface.h
++++ b/src/ray/core_worker/reference_counter_interface.h
+@@ -434,6 +434,25 @@ class ReferenceCounterInterface {
+    */
+   virtual void SetReleaseLineageCallback(const LineageReleasedCallback &callback) = 0;
+ 
++  /**
++   * @brief Set a callback that deletes the in-process (memory store) value of
++   * objects that go out of scope through internal code paths.
++   *
++   * Most public methods report out-of-scope objects through a caller-provided
++   * `deleted` vector, and the caller (the core worker) deletes those objects
++   * from its in-process memory store. Some objects, however, go out of scope
++   * through internal paths that have no caller to hand a `deleted` vector to,
++   * e.g. when a borrower drops the last reference and the owner is notified
++   * asynchronously. Without this callback, the owner's memory-store entry for
++   * such objects would leak. The core worker sets this callback so the
++   * reference counter can delete those entries itself.
++   *
++   * @param[in] callback Called with the IDs of objects that went out of scope
++   * and whose in-process values should be deleted.
++   */
++  virtual void SetMemoryStoreDeleteCallback(
++      std::function<void(const std::vector<ObjectID> &)> callback) = 0;
++
+   /**
+    * @brief Just calls PublishRefRemovedInternal with a lock.
+    */
+diff --git a/src/ray/core_worker/tests/reference_counter_test.cc b/src/ray/core_worker/tests/reference_counter_test.cc
+index 37652c52ae..fa96b3811d 100644
+--- a/src/ray/core_worker/tests/reference_counter_test.cc
++++ b/src/ray/core_worker/tests/reference_counter_test.cc
+@@ -14,6 +14,7 @@
+ 
+ #include "ray/core_worker/reference_counter.h"
+ 
++#include <algorithm>
+ #include <memory>
+ #include <string>
+ #include <utility>
+@@ -1316,6 +1317,78 @@ TEST(DistributedReferenceCountTest, TestSimpleBorrowerReferenceRemoved) {
+   ASSERT_FALSE(owner->rc_.HasReference(inner_id));
+ }
+ 
++// Regression test for a memory-store entry leak. When a borrower drops the last
++// reference to an object, the owner learns about it asynchronously through
++// CleanupBorrowersOnRefRemoved, which deletes the reference through an internal
++// path with no caller-provided `deleted` vector. The owner must still delete the
++// object's in-process (memory store) value via the memory-store delete callback,
++// otherwise its memory-store entry leaks.
++//
++// The setup mirrors TestSimpleBorrowerReferenceRemoved.
++TEST(DistributedReferenceCountTest, TestMemoryStoreDeletedWhenBorrowerReleasesLast) {
++  auto borrower = std::make_shared<FakeWorkerClient>("1");
++  auto owner = std::make_shared<FakeWorkerClient>(
++      "2", [&](const rpc::Address &addr) { return borrower; });
++
++  // Record the objects that the owner's reference counter deletes from its
++  // in-process memory store. Captured through a shared_ptr so it outlives the
++  // owner, whose destructor may still fire the callback.
++  auto memory_store_deleted = std::make_shared<std::vector<ObjectID>>();
++  owner->rc_.SetMemoryStoreDeleteCallback(
++      [memory_store_deleted](const std::vector<ObjectID> &deleted) {
++        memory_store_deleted->insert(
++            memory_store_deleted->end(), deleted.begin(), deleted.end());
++      });
++  auto count_deleted = [&](const ObjectID &id) {
++    return std::count(memory_store_deleted->begin(), memory_store_deleted->end(), id);
++  };
++
++  // The owner creates an inner object and wraps it.
++  auto inner_id = ObjectID::FromRandom();
++  auto outer_id = ObjectID::FromRandom();
++  owner->Put(inner_id);
++  owner->PutWrappedId(outer_id, inner_id);
++
++  // The owner submits a task that depends on the outer object. The task will be
++  // given a reference to inner_id.
++  auto return_id = owner->SubmitTaskWithArg(outer_id);
++  // The owner's local references go out of scope, but both objects stay pinned
++  // because the task is still borrowing them.
++  owner->rc_.RemoveLocalReference(outer_id, nullptr);
++  owner->rc_.RemoveLocalReference(inner_id, nullptr);
++  ASSERT_TRUE(owner->rc_.HasReference(outer_id));
++  ASSERT_TRUE(owner->rc_.HasReference(inner_id));
++
++  // The borrower is given a reference to the inner object.
++  borrower->ExecuteTaskWithArg(outer_id, inner_id, owner->address_);
++  ASSERT_TRUE(borrower->rc_.HasReference(inner_id));
++
++  // The borrower task returns to the owner while still using inner_id, and the
++  // owner merges the borrower's ref count into its own.
++  auto borrower_refs = borrower->FinishExecutingTask(outer_id, ObjectID::Nil());
++  owner->HandleSubmittedTaskFinished(
++      return_id, outer_id, {}, borrower->address_, borrower_refs);
++  ASSERT_TRUE(owner->rc_.HasReference(inner_id));
++  // inner_id is still borrowed, so it must not have been deleted from the
++  // owner's memory store yet.
++  ASSERT_EQ(count_deleted(inner_id), 0);
++
++  // The borrower drops the last reference to inner_id. The owner still holds its
++  // reference until it hears back from the borrower.
++  borrower->rc_.RemoveLocalReference(inner_id, nullptr);
++  ASSERT_TRUE(owner->rc_.HasReference(inner_id));
++  ASSERT_EQ(count_deleted(inner_id), 0);
++
++  // The borrower notifies the owner that it is no longer using inner_id. The
++  // owner's reference now goes out of scope through CleanupBorrowersOnRefRemoved.
++  borrower->FlushBorrowerCallbacks();
++  ASSERT_FALSE(owner->rc_.HasReference(inner_id));
++
++  // Even though the borrower released last, the owner must have deleted inner_id
++  // from its in-process memory store.
++  ASSERT_GT(count_deleted(inner_id), 0);
++}
++
+ // A borrower is given a reference to an object ID, passes the reference to
+ // another borrower by submitting a task, and does not wait for it to finish.
+ //

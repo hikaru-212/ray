@@ -1,0 +1,92 @@
+WARNING: Option 'local_ram_resources' is deprecated: --local_ram_resources is deprecated, please use --local_resources=memory= instead.
+WARNING: Option 'local_ram_resources' is deprecated: --local_ram_resources is deprecated, please use --local_resources=memory= instead.
+INFO: Analyzed target //src/ray/core_worker/tests:phase2_borrower_rpc_test (0 packages loaded, 0 targets configured).
+INFO: From Testing //src/ray/core_worker/tests:phase2_borrower_rpc_test:
+==================== Test output for //src/ray/core_worker/tests:phase2_borrower_rpc_test:
+Note: Google Test filter = Phase2.A*
+[==========] Running 5 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 5 tests from Phase2
+[ RUN      ] Phase2.A1DelayedStatusAndFinalLineageRelease
+[2026-10-27 12:15:10,881 I 72153 72153] (phase2_borrower_rpc_test) grpc_server.cc:144: worker server started, listening on port 42617.
+[2026-10-27 12:15:10,882 I 72153 72153] (phase2_borrower_rpc_test) core_worker.cc:671: Adjusted worker niceness to 15
+[2026-10-27 12:15:10,882 I 72153 72153] (phase2_borrower_rpc_test) grpc_server.cc:144: worker server started, listening on port 46613.
+OBS before_owner_release owner=1 store=1 pending=0 handler=0 reply=0 client_active=1 borrower_has_ref=1 local=1 submitted=0 borrowers=1 lineage=1 out_of_scope=0 should_delete=0
+OBS before_borrower_release owner=1 store=1 pending=0 handler=0 reply=0 client_active=1 borrower_has_ref=1 local=0 submitted=0 borrowers=1 lineage=1 out_of_scope=0 should_delete=0
+OBS after_borrower_release owner=1 store=0 pending=0 handler=0 reply=0 client_active=1 borrower_has_ref=0 local=0 submitted=0 borrowers=0 lineage=1 out_of_scope=1 should_delete=0
+OBS after_delayed_handler owner=1 store=0 pending=1 handler=1 reply=0 client_active=1 borrower_has_ref=0 local=0 submitted=0 borrowers=0 lineage=1 out_of_scope=1 should_delete=0
+OBS after_idle_poll owner=1 store=0 pending=1 handler=1 reply=0 client_active=1 borrower_has_ref=0 local=0 submitted=0 borrowers=0 lineage=1 out_of_scope=1 should_delete=0
+OBS after_final_lineage_release owner=0 store=0 pending=1 handler=1 reply=0 client_active=1 borrower_has_ref=0
+[2026-10-27 12:15:10,990 W 72153 72153] (phase2_borrower_rpc_test) future_resolver.cc:48: Failed to retrieve deserialized object value: Invalid: explicit test-only teardown object_id=03e8d92cd543f98ea80dfca3bfe88bd1ba3d57e50100000001000000
+[2026-10-27 12:15:10,990 I 72153 72153] (phase2_borrower_rpc_test) core_worker.cc:698: Core worker is destructed
+[2026-10-27 12:15:10,991 I 72153 72153] (phase2_borrower_rpc_test) core_worker.cc:698: Core worker is destructed
+[       OK ] Phase2.A1DelayedStatusAndFinalLineageRelease (114 ms)
+[ RUN      ] Phase2.A2TwoBorrowersActualMemoryStore
+[2026-10-27 12:15:10,994 I 72153 72153] (phase2_borrower_rpc_test) grpc_server.cc:144: worker server started, listening on port 41535.
+[2026-10-27 12:15:10,994 I 72153 72153] (phase2_borrower_rpc_test) grpc_server.cc:144: worker server started, listening on port 41089.
+[2026-10-27 12:15:10,994 I 72153 72153] (phase2_borrower_rpc_test) grpc_server.cc:144: worker server started, listening on port 33861.
+OBS A2_two_borrowers owner=1 store=1 pending=0 handler=0 reply=0 client_active=0 borrower_has_ref=1 local=0 submitted=0 borrowers=2 lineage=0 out_of_scope=0 should_delete=0
+OBS A2_one_borrower owner=1 store=1 pending=0 handler=0 reply=0 client_active=0 borrower_has_ref=1 local=0 submitted=0 borrowers=1 lineage=0 out_of_scope=0 should_delete=0
+OBS A2_last_borrower owner=0 store=0 pending=0 handler=0 reply=0 client_active=0 borrower_has_ref=0
+[2026-10-27 12:15:10,995 I 72153 72153] (phase2_borrower_rpc_test) core_worker.cc:698: Core worker is destructed
+[2026-10-27 12:15:10,995 I 72153 72153] (phase2_borrower_rpc_test) core_worker.cc:698: Core worker is destructed
+[2026-10-27 12:15:10,996 I 72153 72153] (phase2_borrower_rpc_test) core_worker.cc:698: Core worker is destructed
+[       OK ] Phase2.A2TwoBorrowersActualMemoryStore (4 ms)
+[ RUN      ] Phase2.A3ExplicitGrpcCancellationDoesNotCancelServerWaiter
+[2026-10-27 12:15:10,998 I 72153 72153] (phase2_borrower_rpc_test) grpc_server.cc:144: worker server started, listening on port 33837.
+[2026-10-27 12:15:10,999 I 72153 72153] (phase2_borrower_rpc_test) grpc_server.cc:144: worker server started, listening on port 34837.
+OBS before_owner_release owner=1 store=1 pending=0 handler=0 reply=0 client_active=1 borrower_has_ref=1 local=1 submitted=0 borrowers=1 lineage=1 out_of_scope=0 should_delete=0
+OBS before_borrower_release owner=1 store=1 pending=0 handler=0 reply=0 client_active=1 borrower_has_ref=1 local=0 submitted=0 borrowers=1 lineage=1 out_of_scope=0 should_delete=0
+OBS after_borrower_release owner=1 store=0 pending=0 handler=0 reply=0 client_active=1 borrower_has_ref=0 local=0 submitted=0 borrowers=0 lineage=1 out_of_scope=1 should_delete=0
+OBS after_delayed_handler owner=1 store=0 pending=1 handler=1 reply=0 client_active=1 borrower_has_ref=0 local=0 submitted=0 borrowers=0 lineage=1 out_of_scope=1 should_delete=0
+OBS A3_after_raw_client_cancel owner=1 store=0 pending=2 handler=2 reply=0 client_active=1 borrower_has_ref=0 local=0 submitted=0 borrowers=0 lineage=1 out_of_scope=1 should_delete=0
+OBS A3_after_lineage_removed owner=0 store=0 pending=2 handler=2 reply=0 client_active=1 borrower_has_ref=0
+[2026-10-27 12:15:11,003 W 72153 72153] (phase2_borrower_rpc_test) future_resolver.cc:48: Failed to retrieve deserialized object value: Invalid: explicit test-only teardown object_id=252c973e15340716c0c45e426e0d1cf03a9ab3260100000001000000
+[2026-10-27 12:15:11,003 I 72153 72153] (phase2_borrower_rpc_test) core_worker.cc:698: Core worker is destructed
+[2026-10-27 12:15:11,004 I 72153 72153] (phase2_borrower_rpc_test) core_worker.cc:698: Core worker is destructed
+[       OK ] Phase2.A3ExplicitGrpcCancellationDoesNotCancelServerWaiter (7 ms)
+[ RUN      ] Phase2.A3LegitimateNodeLossReconstructionCompletesStatus
+[2026-10-27 12:15:11,006 I 72153 72153] (phase2_borrower_rpc_test) grpc_server.cc:144: worker server started, listening on port 40629.
+[2026-10-27 12:15:11,006 I 72153 72153] (phase2_borrower_rpc_test) grpc_server.cc:144: worker server started, listening on port 39113.
+OBS before_owner_release owner=1 store=1 pending=0 handler=0 reply=0 client_active=1 borrower_has_ref=1 local=1 submitted=0 borrowers=1 lineage=1 out_of_scope=0 should_delete=0
+OBS before_borrower_release owner=1 store=1 pending=0 handler=0 reply=0 client_active=1 borrower_has_ref=1 local=0 submitted=0 borrowers=1 lineage=1 out_of_scope=0 should_delete=0
+OBS after_borrower_release owner=1 store=0 pending=0 handler=0 reply=0 client_active=1 borrower_has_ref=0 local=0 submitted=0 borrowers=0 lineage=1 out_of_scope=1 should_delete=0
+OBS after_delayed_handler owner=1 store=0 pending=1 handler=1 reply=0 client_active=1 borrower_has_ref=0 local=0 submitted=0 borrowers=0 lineage=1 out_of_scope=1 should_delete=0
+[2026-10-27 12:15:11,008 E 72153 72153] (phase2_borrower_rpc_test) core_worker.cc:619: :info_message: Attempting to recover 1 lost objects by resubmitting their tasks or setting a new primary location from existing copies. To disable object reconstruction, set @ray.remote(max_retries=0).
+[2026-10-27 12:15:11,008 E 72153 72153] (phase2_borrower_rpc_test) core_worker.cc:619: :info_message: Attempting to recover 1 lost objects by resubmitting their tasks or setting a new primary location from existing copies. To disable object reconstruction, set @ray.remote(max_retries=0).
+[2026-10-27 12:15:11,008 I 72153 72153] (phase2_borrower_rpc_test) task_manager.cc:526: Resubmitting task that produced lost plasma object, attempt #0: Type=NORMAL_TASK, Language=PYTHON, Resources: {}, function_descriptor={type=EmptyFunctionDescriptor}, task_id=e520138350548bac471529d5596ebd64c0308df501000000, task_name=, job_id=NIL_ID, num_args=1, num_returns=1, max_retries=0, depth=0, attempt_number=0, dependencies={8717411e9e00f95950b9b727fd198bca1b5a9e640100000001000000}
+[2026-10-27 12:15:11,008 I 72153 72153] (phase2_borrower_rpc_test) task_manager.cc:526: Resubmitting task that produced lost plasma object, attempt #0: Type=NORMAL_TASK, Language=PYTHON, Resources: {}, function_descriptor={type=EmptyFunctionDescriptor}, task_id=8717411e9e00f95950b9b727fd198bca1b5a9e6401000000, task_name=, job_id=NIL_ID, num_args=0, num_returns=1, max_retries=0, depth=0, attempt_number=0, dependencies={}
+OBS A3_reconstruction_started owner=1 store=0 pending=2 handler=1 reply=0 client_active=1 borrower_has_ref=0 local=0 submitted=1 borrowers=0 lineage=1 out_of_scope=0 should_delete=0
+OBS A3_value_deleted_before_posted_callbacks owner=1 store=0 pending=0 handler=1 reply=0 client_active=1 borrower_has_ref=0 local=0 submitted=0 borrowers=0 lineage=1 out_of_scope=1 should_delete=0
+[2026-10-27 12:15:11,008 I 72153 72153] (phase2_borrower_rpc_test) object_recovery_manager.cc:68: Recovery complete for object object_id=8717411e9e00f95950b9b727fd198bca1b5a9e640100000001000000
+[2026-10-27 12:15:11,008 I 72153 72153] (phase2_borrower_rpc_test) object_recovery_manager.cc:68: Recovery complete for object object_id=e520138350548bac471529d5596ebd64c0308df50100000001000000
+OBS A3_reconstruction_completed owner=1 store=0 pending=0 handler=1 reply=1 client_active=0 borrower_has_ref=0 local=0 submitted=0 borrowers=0 lineage=1 out_of_scope=1 should_delete=0
+[2026-10-27 12:15:11,009 I 72153 72153] (phase2_borrower_rpc_test) core_worker.cc:698: Core worker is destructed
+[2026-10-27 12:15:11,010 I 72153 72153] (phase2_borrower_rpc_test) core_worker.cc:698: Core worker is destructed
+[       OK ] Phase2.A3LegitimateNodeLossReconstructionCompletesStatus (6 ms)
+[ RUN      ] Phase2.A2OriginalPutNestedReturnTwoBorrowers
+[2026-10-27 12:15:11,012 I 72153 72153] (phase2_borrower_rpc_test) grpc_server.cc:144: worker server started, listening on port 35503.
+[2026-10-27 12:15:11,012 I 72153 72153] (phase2_borrower_rpc_test) grpc_server.cc:144: worker server started, listening on port 34185.
+[2026-10-27 12:15:11,013 I 72153 72153] (phase2_borrower_rpc_test) grpc_server.cc:144: worker server started, listening on port 43799.
+OBS A2_put_two_borrowers owner=1 store=1 pending=0 handler=0 reply=0 client_active=0 borrower_has_ref=1 local=0 submitted=0 borrowers=2 lineage=0 out_of_scope=0 should_delete=0
+OBS A2_put_one_borrower owner=1 store=1 pending=0 handler=0 reply=0 client_active=0 borrower_has_ref=1 local=0 submitted=0 borrowers=1 lineage=0 out_of_scope=0 should_delete=0
+OBS A2_put_last_borrower owner=0 store=0 pending=0 handler=0 reply=0 client_active=0 borrower_has_ref=0
+[2026-10-27 12:15:11,013 I 72153 72153] (phase2_borrower_rpc_test) core_worker.cc:698: Core worker is destructed
+[2026-10-27 12:15:11,013 I 72153 72153] (phase2_borrower_rpc_test) core_worker.cc:698: Core worker is destructed
+[2026-10-27 12:15:11,014 I 72153 72153] (phase2_borrower_rpc_test) core_worker.cc:698: Core worker is destructed
+[       OK ] Phase2.A2OriginalPutNestedReturnTwoBorrowers (3 ms)
+[----------] 5 tests from Phase2 (136 ms total)
+
+[----------] Global test environment tear-down
+[==========] 5 tests from 1 test suite ran. (136 ms total)
+[  PASSED  ] 5 tests.
+================================================================================
+INFO: Found 1 test target...
+Target //src/ray/core_worker/tests:phase2_borrower_rpc_test up-to-date:
+  bazel-bin/src/ray/core_worker/tests/phase2_borrower_rpc_test
+INFO: Elapsed time: 23.762s, Critical Path: 23.53s
+INFO: 4 processes: 1 internal, 3 processwrapper-sandbox.
+INFO: Build completed successfully, 4 total actions
+//src/ray/core_worker/tests:phase2_borrower_rpc_test                     PASSED in 0.7s
+
+Executed 1 out of 1 test: 1 test passes.

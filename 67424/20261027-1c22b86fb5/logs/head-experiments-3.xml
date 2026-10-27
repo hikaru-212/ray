@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="5" failures="0" disabled="0" errors="0" time="0.136" timestamp="2026-10-27T12:15:10.879" name="AllTests">
+  <testsuite name="Phase2" tests="5" failures="0" disabled="0" skipped="0" errors="0" time="0.136" timestamp="2026-10-27T12:15:10.879">
+    <testcase name="A1DelayedStatusAndFinalLineageRelease" file="src/ray/core_worker/tests/phase2_borrower_rpc_test.cc" line="665" status="run" result="completed" time="0.114" timestamp="2026-10-27T12:15:10.879" classname="Phase2" />
+    <testcase name="A2TwoBorrowersActualMemoryStore" file="src/ray/core_worker/tests/phase2_borrower_rpc_test.cc" line="693" status="run" result="completed" time="0.004" timestamp="2026-10-27T12:15:10.993" classname="Phase2" />
+    <testcase name="A3ExplicitGrpcCancellationDoesNotCancelServerWaiter" file="src/ray/core_worker/tests/phase2_borrower_rpc_test.cc" line="717" status="run" result="completed" time="0.007" timestamp="2026-10-27T12:15:10.998" classname="Phase2" />
+    <testcase name="A3LegitimateNodeLossReconstructionCompletesStatus" file="src/ray/core_worker/tests/phase2_borrower_rpc_test.cc" line="759" status="run" result="completed" time="0.006" timestamp="2026-10-27T12:15:11.005" classname="Phase2" />
+    <testcase name="A2OriginalPutNestedReturnTwoBorrowers" file="src/ray/core_worker/tests/phase2_borrower_rpc_test.cc" line="822" status="run" result="completed" time="0.003" timestamp="2026-10-27T12:15:11.011" classname="Phase2" />
+  </testsuite>
+</testsuites>

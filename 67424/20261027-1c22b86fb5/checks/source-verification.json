@@ -1,0 +1,34 @@
+{
+  "head": {
+    "changed_tracked_files": [
+      "src/ray/core_worker/tests/BUILD.bazel"
+    ],
+    "commit_parents": [
+      "ed1d83ac1f353aec7c0473bc46a57e04d8767ee2"
+    ],
+    "original_build_prefix_unchanged": true,
+    "production_source_changes": 0,
+    "source_sha": "1c22b86fb5769f09a436bfdd4666aedef4a73847",
+    "temporary_test_bytes": 35396,
+    "temporary_test_sha256": "0783cc096ed4d0421c11ff472b54cfdb334ba00eb85382f14ed51ba5249b9b21",
+    "tracked_files_verified": 10494,
+    "tracked_snapshot_sha256_inventory_digest": "4a61c869cbc2cf3163389ccbf48e8012eca5ae47e3ccc34c00548a0d372f670f",
+    "tree_sha": "775b872b8998322113269e985bf39617424bc5cc"
+  },
+  "parent": {
+    "changed_tracked_files": [
+      "src/ray/core_worker/tests/BUILD.bazel"
+    ],
+    "commit_parents": [
+      "c28b28164f44a166631eba7282792ec6c814499c"
+    ],
+    "original_build_prefix_unchanged": true,
+    "production_source_changes": 0,
+    "source_sha": "ed1d83ac1f353aec7c0473bc46a57e04d8767ee2",
+    "temporary_test_bytes": 35396,
+    "temporary_test_sha256": "0783cc096ed4d0421c11ff472b54cfdb334ba00eb85382f14ed51ba5249b9b21",
+    "tracked_files_verified": 10494,
+    "tracked_snapshot_sha256_inventory_digest": "4ac4cb0adee8fc5488fa739f09a553db92907167696980a7ae603b77ab2e5ff6",
+    "tree_sha": "0bf60311b228fe5674489bbfbb1b5ddacf817532"
+  }
+}

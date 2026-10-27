@@ -1,0 +1,2 @@
+# Keep the original raw test log visible despite the repository-wide *.log rule.
+!logs/*.log

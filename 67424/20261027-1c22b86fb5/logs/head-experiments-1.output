@@ -1,0 +1,10 @@
+WARNING: Option 'local_ram_resources' is deprecated: --local_ram_resources is deprecated, please use --local_resources=memory= instead.
+WARNING: Option 'local_ram_resources' is deprecated: --local_ram_resources is deprecated, please use --local_resources=memory= instead.
+WARNING: Build option --test_env has changed, discarding analysis cache (this can be expensive, see https://bazel.build/advanced/performance/iteration-speed).
+ERROR: /tmp/ray-pr67424-phase2-lgVIc0KN/head/src/ray/core_worker/tests/BUILD.bazel:254:12: in cc_test rule //src/ray/core_worker/tests:phase2_borrower_rpc_test: target '//src/ray/core_worker_rpc_client:core_worker_client' is not visible from target '//src/ray/core_worker/tests:phase2_borrower_rpc_test'. Check the visibility declaration of the former target if you think the dependency is legitimate
+ERROR: /tmp/ray-pr67424-phase2-lgVIc0KN/head/src/ray/core_worker/tests/BUILD.bazel:254:12: Analysis of target '//src/ray/core_worker/tests:phase2_borrower_rpc_test' failed
+ERROR: Analysis of target '//src/ray/core_worker/tests:phase2_borrower_rpc_test' failed; build aborted
+INFO: Elapsed time: 2.667s, Critical Path: 0.01s
+INFO: 1 process: 1 internal.
+ERROR: Build did NOT complete successfully
+ERROR: No test targets were found, yet testing was requested

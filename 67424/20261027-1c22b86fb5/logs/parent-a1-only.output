@@ -1,0 +1,37 @@
+WARNING: Option 'local_ram_resources' is deprecated: --local_ram_resources is deprecated, please use --local_resources=memory= instead.
+WARNING: Option 'local_ram_resources' is deprecated: --local_ram_resources is deprecated, please use --local_resources=memory= instead.
+INFO: Analyzed target //src/ray/core_worker/tests:phase2_borrower_rpc_test (0 packages loaded, 7 targets configured).
+INFO: From Testing //src/ray/core_worker/tests:phase2_borrower_rpc_test:
+==================== Test output for //src/ray/core_worker/tests:phase2_borrower_rpc_test:
+Note: Google Test filter = Phase2.A1DelayedStatusAndFinalLineageRelease
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Phase2
+[ RUN      ] Phase2.A1DelayedStatusAndFinalLineageRelease
+[2026-10-27 12:27:26,665 I 76997 76997] (phase2_borrower_rpc_test) grpc_server.cc:144: worker server started, listening on port 34465.
+[2026-10-27 12:27:26,666 I 76997 76997] (phase2_borrower_rpc_test) core_worker.cc:661: Adjusted worker niceness to 15
+[2026-10-27 12:27:26,666 I 76997 76997] (phase2_borrower_rpc_test) grpc_server.cc:144: worker server started, listening on port 44619.
+OBS before_owner_release owner=1 store=1 pending=0 handler=0 reply=0 client_active=1 borrower_has_ref=1 local=1 submitted=0 borrowers=1 lineage=1 out_of_scope=0 should_delete=0
+OBS before_borrower_release owner=1 store=1 pending=0 handler=0 reply=0 client_active=1 borrower_has_ref=1 local=0 submitted=0 borrowers=1 lineage=1 out_of_scope=0 should_delete=0
+OBS after_borrower_release owner=1 store=1 pending=0 handler=0 reply=0 client_active=1 borrower_has_ref=0 local=0 submitted=0 borrowers=0 lineage=1 out_of_scope=1 should_delete=0
+OBS after_delayed_handler owner=1 store=1 pending=0 handler=1 reply=1 client_active=0 borrower_has_ref=0 local=0 submitted=0 borrowers=0 lineage=1 out_of_scope=1 should_delete=0
+OBS after_idle_poll owner=1 store=1 pending=0 handler=1 reply=1 client_active=0 borrower_has_ref=0 local=0 submitted=0 borrowers=0 lineage=1 out_of_scope=1 should_delete=0
+OBS after_final_lineage_release owner=0 store=1 pending=0 handler=1 reply=1 client_active=0 borrower_has_ref=0
+[2026-10-27 12:27:26,771 I 76997 76997] (phase2_borrower_rpc_test) core_worker.cc:688: Core worker is destructed
+[2026-10-27 12:27:26,772 I 76997 76997] (phase2_borrower_rpc_test) core_worker.cc:688: Core worker is destructed
+[       OK ] Phase2.A1DelayedStatusAndFinalLineageRelease (111 ms)
+[----------] 1 test from Phase2 (111 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (111 ms total)
+[  PASSED  ] 1 test.
+================================================================================
+INFO: Found 1 test target...
+Target //src/ray/core_worker/tests:phase2_borrower_rpc_test up-to-date:
+  bazel-bin/src/ray/core_worker/tests/phase2_borrower_rpc_test
+INFO: Elapsed time: 2.445s, Critical Path: 0.68s
+INFO: 2 processes: 1 internal, 1 processwrapper-sandbox.
+INFO: Build completed successfully, 2 total actions
+//src/ray/core_worker/tests:phase2_borrower_rpc_test                     PASSED in 0.6s
+
+Executed 1 out of 1 test: 1 test passes.

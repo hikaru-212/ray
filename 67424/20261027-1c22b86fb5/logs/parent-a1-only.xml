@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="1" failures="0" disabled="0" errors="0" time="0.111" timestamp="2026-10-27T12:27:26.663" name="AllTests">
+  <testsuite name="Phase2" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0.111" timestamp="2026-10-27T12:27:26.663">
+    <testcase name="A1DelayedStatusAndFinalLineageRelease" file="src/ray/core_worker/tests/phase2_borrower_rpc_test.cc" line="665" status="run" result="completed" time="0.111" timestamp="2026-10-27T12:27:26.663" classname="Phase2" />
+  </testsuite>
+</testsuites>

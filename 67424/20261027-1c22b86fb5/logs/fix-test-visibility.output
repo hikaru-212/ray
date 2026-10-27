@@ -1,0 +1,1 @@
+Removed redundant direct dependency; CoreWorkerClient remains provided by core_worker_lib transitively.

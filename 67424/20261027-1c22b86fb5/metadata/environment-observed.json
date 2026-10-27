@@ -1,0 +1,28 @@
+{
+  "bazel_launcher_path": "/home/researcher/bin/bazel",
+  "bazel_launcher_sha256": "8cc337c69b6e6a71aac86c7e3514c29b2f18d384c0ed991fd3ea2ac7762584ee",
+  "bazel_version_command_run": false,
+  "captured_utc": "2026-10-27T13:36:51.586471+00:00",
+  "classification": "Observed during packaging, not a contemporaneous full environment capture",
+  "full_historical_environment": "not recorded; no current full environment or credentials exported",
+  "gcc_version": "13.3.0",
+  "historical_commands": "logs/*.command",
+  "historical_output_base_reused": true,
+  "historical_timestamps": "logs/*.start and *.end are preserved UTC; XML timestamps carry no explicit offset",
+  "machine_architecture": "aarch64",
+  "python_version_from_existing_venv": "3.12.3",
+  "reproduction_recommendation": "use separate output bases; not executed during packaging",
+  "snapshot_optional_bazelrc_currently_present": {
+    "head": {
+      ".llvm-local.bazelrc": false,
+      ".user.bazelrc": false
+    },
+    "parent": {
+      ".llvm-local.bazelrc": false,
+      ".user.bazelrc": false
+    }
+  },
+  "source_bazel_version_pin": "7.5.0",
+  "system_bazelrc_currently_present": false,
+  "user_bazelrc_currently_present": false
+}

@@ -1,0 +1,58 @@
+{
+  "upstream_pr": "https://github.com/ray-project/ray/pull/67406",
+  "original_issue": "https://github.com/ray-project/ray/issues/67318",
+  "source_evidence_label": "ray-67406-phase2-20261028",
+  "label_note": "The directory label is retained as supplied; it is not an independent assertion of execution time.",
+  "source_modules": {
+    "base": {
+      "revision": "8d53e59e3da91a39beb6b1b614265cf05d3d26a4",
+      "repository_path": "python/ray/data/_internal/datasource/sql_datasource.py",
+      "git_blob": "2168bd058932e3d25b6300ebb307cd9289ed58fd",
+      "sha256": "6ac6859a53b8097ac80ffb4e621983faf95b0456ec16df5bb42da0ca34ed012b",
+      "package_path": "scripts/sources/8d53e59e3da91a39beb6b1b614265cf05d3d26a4-sql_datasource.py"
+    },
+    "head": {
+      "revision": "c4ace0b69f82f66772d05c286ed29a52b6f73dc3",
+      "repository_path": "python/ray/data/_internal/datasource/sql_datasource.py",
+      "git_blob": "bb563c8a07e00ab50460c267350d296a0c86d4db",
+      "sha256": "f94f014ba391914742786885faead52fb742baf91b98517bef13e5888ba0b325",
+      "package_path": "scripts/sources/c4ace0b69f82f66772d05c286ed29a52b6f73dc3-sql_datasource.py"
+    }
+  },
+  "runtime_entry_point": {
+    "package_path": "scripts/sources/runtime-read_sql.py",
+    "sha256": "c5c291b385f9148ac60aff54ef9c80ac7a832b9f42153ac065a75df5413fa649",
+    "capture": "inspect.getsource of the installed ray.data.read_api.read_sql during the recorded run"
+  },
+  "environment": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "sqlite": "3.45.1",
+    "postgresql": "15.19 on aarch64-unknown-linux-musl, gcc (Alpine 15.2.0) 15.2.0, 64-bit",
+    "postgres_image": "sha256:fe0737ba566a2c5b2a28f34433c0a423261900ec17b9bf7ad115e1aae7e57f1b",
+    "postgres_image_downloaded": false,
+    "psycopg2": "2.9.13",
+    "pyarrow": "23.0.1",
+    "ray_runtime": "2.58.0",
+    "ray_runtime_commit": "cec0a091b12675bbf101cf8a350c8706107baee1"
+  },
+  "validation_scope": "Unmodified pinned SQLDatasource source modules loaded in memory; direct tasks use real databases. E2E uses installed, unmodified ray.data.read_sql and its scheduler/workers with read_api.SQLDatasource substituted with the pinned module. Entire repository revisions were not built.",
+  "classification": "VERIFIED: PR-introduced composite-column omission within the exact-source/common-runtime comparison.",
+  "not_established": [
+    "Full repository revision builds",
+    "Other PostgreSQL versions",
+    "Other Ray runtimes",
+    "Four simultaneous workers",
+    "Combined patches or proposed remediation",
+    "Performance"
+  ],
+  "packaging_checks": {
+    "experiments_rerun": false,
+    "source_objects_byte_identical": true,
+    "original_manifest_sha256": "216e420d04be9508edb19f896d576709f583f66022bc166f83053261b03a9857",
+    "original_manifest_entries_verified": 74,
+    "original_regular_files_hashed": 193,
+    "sanitized_runner_syntax_checked": true,
+    "sanitized_runner_rerun": false,
+    "counts_ids_values_tasks_and_worker_queries_cross_checked": true
+  }
+}

@@ -1,0 +1,616 @@
+{
+  "scope": "Only this package's listed files are approved as publication-safe copies or derivatives. No original raw archive is approved for publication.",
+  "original_evidence_label": "ray-67406-phase2-20261028",
+  "package": "67406/20261028-composite-null-shard",
+  "public_file_count": 17,
+  "files": [
+    {
+      "path": "README.md",
+      "kind": "editorial_documentation",
+      "sources": [
+        {
+          "path_in_original_evidence": "results/findings.json",
+          "sha256": "6294c5ba4942bc9c510eab08e13381199cf86dfa3f4a50cd0df4f11ab7c31a04"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-witness-psql.txt",
+          "sha256": "87277d963ee9906603c09e0b15a70d50d02a2c1e20e766f20449a87058d59753"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-source-rows.json",
+          "sha256": "93636a64d8b8f1d544f1b84cb321a7ea2f12e83f30ea2410bf3de52535424502"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-fixture-inspection.json",
+          "sha256": "14b9290adea73343d085ea1f2318da1f929d97f43764124a735a4b43612629dc"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-base-direct-tasks.json",
+          "sha256": "fc987c4321d3c86b4635b464bf192fa8d41a56ab039c5bde9df6b184fa9ed751"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-base-direct-result.json",
+          "sha256": "7815b70c642711fe19dbd6db49ada04b5ccce0739bca972ac3ddbd4b596dd97f"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-base-e2e-result.json",
+          "sha256": "81c28a44bcd9ab539f6e99824716759953936a6f917e7e7ed820deabf3f20a0b"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-head-direct-tasks.json",
+          "sha256": "7c4282680340bf53a3c29d5d11d4766cc36a42da45b15a78ba43bbd0d0518980"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-head-direct-result.json",
+          "sha256": "3189a7c7f11cada1fd5e96b96f9a5c3588d919299849165b5df444b37a1e0439"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-head-e2e-result.json",
+          "sha256": "febe30059b2007e5de247e389df273d0e8533ee1b5ee77df2021bd06228e3bc4"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-base-e2e-queries.jsonl",
+          "sha256": "eaf71e76627a677738658de34ba324ff060fe6999d5331d3f00b2fdcd0e11dc0"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-head-e2e-queries.jsonl",
+          "sha256": "9724cd6c410e495cdc4ae6ef47e695a442d26198ce71e1c2cc2df9881402e6cf"
+        },
+        {
+          "path_in_original_evidence": "logs/01_prepare.log",
+          "sha256": "55454d3057932effe81ad09635d999ff2a116aad02b26af041b26dda77e821ae"
+        },
+        {
+          "path_in_original_evidence": "logs/05_experiments_bc_direct.log",
+          "sha256": "094c8805a75f21b2da79a76f1912399135588c854d1e7ef4852a97b4b17df140"
+        },
+        {
+          "path_in_original_evidence": "logs/06_experiments_bc_e2e.log",
+          "sha256": "e555a76a20d8664ebbf3674e5fac40ecc05f27d2c2a1d706230d3f6d6b3cfddc"
+        },
+        {
+          "path_in_original_evidence": "experiment_bc.py",
+          "sha256": "f499ad3b6966e89b973b4c3c8d740939c266beed57361ddcdeff03a10234046e"
+        },
+        {
+          "path_in_original_evidence": "commands/01_prepare.sh",
+          "sha256": "f6a21a581ff929b3b07a0fc4393a943a90a2a4299742ac9e5a7557236cd30bdb"
+        },
+        {
+          "path_in_original_evidence": "commands/02_environment.sh",
+          "sha256": "f000c8876d825b5611cedfac39642b11405704a39b108b0dd8a79f1d52690e9e"
+        },
+        {
+          "path_in_original_evidence": "commands/03_postgres_start.sh",
+          "sha256": "a9ea40935a66ece543d64a7de0461240a3d0911476dafbead208f3cc9603200a"
+        },
+        {
+          "path_in_original_evidence": "commands/05_experiments_bc_direct.sh",
+          "sha256": "647cf967ae4fe122f6198b82c77ae8895d04de99887a25219cfca8d8f03b660f"
+        },
+        {
+          "path_in_original_evidence": "commands/06_experiments_bc_e2e.sh",
+          "sha256": "c9aa195e4c56df700c10288f0d4805a45c29226e41d38aa9568988896662248c"
+        },
+        {
+          "path_in_original_evidence": "commands/08_preserve_and_stop.sh",
+          "sha256": "836cfa77aaa361cefa88f871060fae01f0fa1e2ef70e84edb1951f3762bb0543"
+        }
+      ],
+      "transformations": [
+        "Editorial explanation of verified observed data, exact source/runtime boundary, and limitations.",
+        "README distinguishes source-inferred scalar-NULL mechanism from the observed composite regression.",
+        "REPRODUCE distinguishes historical parameterized commands from future setup instructions, which were not executed during packaging."
+      ]
+    },
+    {
+      "path": "REPRODUCE.md",
+      "kind": "editorial_documentation",
+      "sources": [
+        {
+          "path_in_original_evidence": "results/findings.json",
+          "sha256": "6294c5ba4942bc9c510eab08e13381199cf86dfa3f4a50cd0df4f11ab7c31a04"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-witness-psql.txt",
+          "sha256": "87277d963ee9906603c09e0b15a70d50d02a2c1e20e766f20449a87058d59753"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-source-rows.json",
+          "sha256": "93636a64d8b8f1d544f1b84cb321a7ea2f12e83f30ea2410bf3de52535424502"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-fixture-inspection.json",
+          "sha256": "14b9290adea73343d085ea1f2318da1f929d97f43764124a735a4b43612629dc"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-base-direct-tasks.json",
+          "sha256": "fc987c4321d3c86b4635b464bf192fa8d41a56ab039c5bde9df6b184fa9ed751"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-base-direct-result.json",
+          "sha256": "7815b70c642711fe19dbd6db49ada04b5ccce0739bca972ac3ddbd4b596dd97f"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-base-e2e-result.json",
+          "sha256": "81c28a44bcd9ab539f6e99824716759953936a6f917e7e7ed820deabf3f20a0b"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-head-direct-tasks.json",
+          "sha256": "7c4282680340bf53a3c29d5d11d4766cc36a42da45b15a78ba43bbd0d0518980"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-head-direct-result.json",
+          "sha256": "3189a7c7f11cada1fd5e96b96f9a5c3588d919299849165b5df444b37a1e0439"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-head-e2e-result.json",
+          "sha256": "febe30059b2007e5de247e389df273d0e8533ee1b5ee77df2021bd06228e3bc4"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-base-e2e-queries.jsonl",
+          "sha256": "eaf71e76627a677738658de34ba324ff060fe6999d5331d3f00b2fdcd0e11dc0"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-head-e2e-queries.jsonl",
+          "sha256": "9724cd6c410e495cdc4ae6ef47e695a442d26198ce71e1c2cc2df9881402e6cf"
+        },
+        {
+          "path_in_original_evidence": "logs/01_prepare.log",
+          "sha256": "55454d3057932effe81ad09635d999ff2a116aad02b26af041b26dda77e821ae"
+        },
+        {
+          "path_in_original_evidence": "logs/05_experiments_bc_direct.log",
+          "sha256": "094c8805a75f21b2da79a76f1912399135588c854d1e7ef4852a97b4b17df140"
+        },
+        {
+          "path_in_original_evidence": "logs/06_experiments_bc_e2e.log",
+          "sha256": "e555a76a20d8664ebbf3674e5fac40ecc05f27d2c2a1d706230d3f6d6b3cfddc"
+        },
+        {
+          "path_in_original_evidence": "experiment_bc.py",
+          "sha256": "f499ad3b6966e89b973b4c3c8d740939c266beed57361ddcdeff03a10234046e"
+        },
+        {
+          "path_in_original_evidence": "commands/01_prepare.sh",
+          "sha256": "f6a21a581ff929b3b07a0fc4393a943a90a2a4299742ac9e5a7557236cd30bdb"
+        },
+        {
+          "path_in_original_evidence": "commands/02_environment.sh",
+          "sha256": "f000c8876d825b5611cedfac39642b11405704a39b108b0dd8a79f1d52690e9e"
+        },
+        {
+          "path_in_original_evidence": "commands/03_postgres_start.sh",
+          "sha256": "a9ea40935a66ece543d64a7de0461240a3d0911476dafbead208f3cc9603200a"
+        },
+        {
+          "path_in_original_evidence": "commands/05_experiments_bc_direct.sh",
+          "sha256": "647cf967ae4fe122f6198b82c77ae8895d04de99887a25219cfca8d8f03b660f"
+        },
+        {
+          "path_in_original_evidence": "commands/06_experiments_bc_e2e.sh",
+          "sha256": "c9aa195e4c56df700c10288f0d4805a45c29226e41d38aa9568988896662248c"
+        },
+        {
+          "path_in_original_evidence": "commands/08_preserve_and_stop.sh",
+          "sha256": "836cfa77aaa361cefa88f871060fae01f0fa1e2ef70e84edb1951f3762bb0543"
+        }
+      ],
+      "transformations": [
+        "Editorial explanation of verified observed data, exact source/runtime boundary, and limitations.",
+        "README distinguishes source-inferred scalar-NULL mechanism from the observed composite regression.",
+        "REPRODUCE distinguishes historical parameterized commands from future setup instructions, which were not executed during packaging."
+      ]
+    },
+    {
+      "path": "observed/commands.json",
+      "kind": "derived",
+      "sources": [
+        {
+          "path_in_original_evidence": "commands/01_prepare.sh",
+          "sha256": "f6a21a581ff929b3b07a0fc4393a943a90a2a4299742ac9e5a7557236cd30bdb"
+        },
+        {
+          "path_in_original_evidence": "commands/02_environment.sh",
+          "sha256": "f000c8876d825b5611cedfac39642b11405704a39b108b0dd8a79f1d52690e9e"
+        },
+        {
+          "path_in_original_evidence": "commands/03_postgres_start.sh",
+          "sha256": "a9ea40935a66ece543d64a7de0461240a3d0911476dafbead208f3cc9603200a"
+        },
+        {
+          "path_in_original_evidence": "commands/05_experiments_bc_direct.sh",
+          "sha256": "647cf967ae4fe122f6198b82c77ae8895d04de99887a25219cfca8d8f03b660f"
+        },
+        {
+          "path_in_original_evidence": "commands/06_experiments_bc_e2e.sh",
+          "sha256": "c9aa195e4c56df700c10288f0d4805a45c29226e41d38aa9568988896662248c"
+        },
+        {
+          "path_in_original_evidence": "commands/08_preserve_and_stop.sh",
+          "sha256": "836cfa77aaa361cefa88f871060fae01f0fa1e2ef70e84edb1951f3762bb0543"
+        }
+      ],
+      "transformations": [
+        "Selected operations from executed command files; preserved command options, fixture/test modes, source revisions, and timeout.",
+        "Parameterized private paths, container identity, database address/name/user/password; quoted substituted path/configuration tokens.",
+        "Omitted shell tracing and unrelated operations; this is an annotated historical transcript, not a newly validated installation script."
+      ]
+    },
+    {
+      "path": "observed/fixture-inspection.json",
+      "kind": "derived",
+      "sources": [
+        {
+          "path_in_original_evidence": "results/postgres-fixture-inspection.json",
+          "sha256": "14b9290adea73343d085ea1f2318da1f929d97f43764124a735a4b43612629dc"
+        }
+      ],
+      "transformations": [
+        "Preserved inspection SQL and all 200 observed rows; factored the identical pair_key type into common_composite_type.",
+        "Added explicit column labels; no observed values altered."
+      ]
+    },
+    {
+      "path": "observed/output.txt",
+      "kind": "derived",
+      "sources": [
+        {
+          "path_in_original_evidence": "logs/01_prepare.log",
+          "sha256": "55454d3057932effe81ad09635d999ff2a116aad02b26af041b26dda77e821ae"
+        },
+        {
+          "path_in_original_evidence": "logs/05_experiments_bc_direct.log",
+          "sha256": "094c8805a75f21b2da79a76f1912399135588c854d1e7ef4852a97b4b17df140"
+        },
+        {
+          "path_in_original_evidence": "logs/06_experiments_bc_e2e.log",
+          "sha256": "e555a76a20d8664ebbf3674e5fac40ecc05f27d2c2a1d706230d3f6d6b3cfddc"
+        }
+      ],
+      "transformations": [
+        "Selected PostgreSQL result/SQL and environment lines with original line numbers and original log SHA-256.",
+        "Replaced the installed Ray absolute source path with a redaction marker in one environment line.",
+        "Replaced numeric worker PIDs with worker-1 in two retained output lines; labels still reflect original text.",
+        "Omitted shell tracing, progress bars, private runtime paths, repeated environment probe, and SQLite results."
+      ],
+      "selected_lines": [
+        {
+          "source": "logs/01_prepare.log",
+          "selected_line_numbers": [
+            23
+          ]
+        },
+        {
+          "source": "logs/05_experiments_bc_direct.log",
+          "selected_line_numbers": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25
+          ]
+        },
+        {
+          "source": "logs/06_experiments_bc_e2e.log",
+          "selected_line_numbers": [
+            9,
+            10,
+            11,
+            13,
+            14,
+            15,
+            17,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observed/provenance.json",
+      "kind": "derived",
+      "sources": [
+        {
+          "path_in_original_evidence": "results/findings.json",
+          "sha256": "6294c5ba4942bc9c510eab08e13381199cf86dfa3f4a50cd0df4f11ab7c31a04"
+        },
+        {
+          "path_in_original_evidence": "SHA256SUMS",
+          "sha256": "216e420d04be9508edb19f896d576709f583f66022bc166f83053261b03a9857"
+        },
+        {
+          "path_in_original_evidence": "experiment_bc.py",
+          "sha256": "f499ad3b6966e89b973b4c3c8d740939c266beed57361ddcdeff03a10234046e"
+        },
+        {
+          "path_in_original_evidence": "sources/runtime-read_sql.py",
+          "sha256": "c5c291b385f9148ac60aff54ef9c80ac7a832b9f42153ac065a75df5413fa649"
+        },
+        {
+          "path_in_original_evidence": "sources/8d53e59e3da91a39beb6b1b614265cf05d3d26a4-sql_datasource.py",
+          "sha256": "6ac6859a53b8097ac80ffb4e621983faf95b0456ec16df5bb42da0ca34ed012b"
+        },
+        {
+          "path_in_original_evidence": "sources/c4ace0b69f82f66772d05c286ed29a52b6f73dc3-sql_datasource.py",
+          "sha256": "f94f014ba391914742786885faead52fb742baf91b98517bef13e5888ba0b325"
+        },
+        {
+          "path_in_original_evidence": "logs/01_prepare.log",
+          "sha256": "55454d3057932effe81ad09635d999ff2a116aad02b26af041b26dda77e821ae"
+        },
+        {
+          "path_in_original_evidence": "logs/05_experiments_bc_direct.log",
+          "sha256": "094c8805a75f21b2da79a76f1912399135588c854d1e7ef4852a97b4b17df140"
+        },
+        {
+          "path_in_original_evidence": "logs/06_experiments_bc_e2e.log",
+          "sha256": "e555a76a20d8664ebbf3674e5fac40ecc05f27d2c2a1d706230d3f6d6b3cfddc"
+        },
+        {
+          "path_in_original_evidence": "logs/02_environment.log",
+          "sha256": "60f96f0c5f1552f4f6cdb4a6f2afea34d558031be900c8452b090b96ecfff610"
+        },
+        {
+          "path_in_original_evidence": "logs/03_postgres_start.log",
+          "sha256": "792704dbbb7e054ba9b47a118f2d01f6c23e34adeec07c1d5df443b9657a24a5"
+        }
+      ],
+      "transformations": [
+        "Selected PR #67406 revisions and environment; omitted private scope paths, other findings, and process IDs.",
+        "Added independently checked source-object hashes, public source paths, and explicit tested-boundary limitations.",
+        "Source evidence directory label retained without treating it as a verified timestamp."
+      ]
+    },
+    {
+      "path": "observed/results.json",
+      "kind": "derived",
+      "sources": [
+        {
+          "path_in_original_evidence": "results/postgres-source-rows.json",
+          "sha256": "93636a64d8b8f1d544f1b84cb321a7ea2f12e83f30ea2410bf3de52535424502"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-fixture-inspection.json",
+          "sha256": "14b9290adea73343d085ea1f2318da1f929d97f43764124a735a4b43612629dc"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-base-direct-tasks.json",
+          "sha256": "fc987c4321d3c86b4635b464bf192fa8d41a56ab039c5bde9df6b184fa9ed751"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-base-direct-result.json",
+          "sha256": "7815b70c642711fe19dbd6db49ada04b5ccce0739bca972ac3ddbd4b596dd97f"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-base-e2e-result.json",
+          "sha256": "81c28a44bcd9ab539f6e99824716759953936a6f917e7e7ed820deabf3f20a0b"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-head-direct-tasks.json",
+          "sha256": "7c4282680340bf53a3c29d5d11d4766cc36a42da45b15a78ba43bbd0d0518980"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-head-direct-result.json",
+          "sha256": "3189a7c7f11cada1fd5e96b96f9a5c3588d919299849165b5df444b37a1e0439"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-head-e2e-result.json",
+          "sha256": "febe30059b2007e5de247e389df273d0e8533ee1b5ee77df2021bd06228e3bc4"
+        }
+      ],
+      "transformations": [
+        "Derived counts and ID sets independently from actual row payloads; cross-checked task membership, null flags, and buckets.",
+        "Preserved returned IDs, missing IDs, duplicate-ID lists, and direct-task membership.",
+        "Omitted repeated row payloads, numeric process IDs, and SQL duplicated in worker-queries.json.",
+        "Added explicitly derived fixture-group counts and partition cross-check."
+      ]
+    },
+    {
+      "path": "observed/witness.txt",
+      "kind": "observed_or_source_copy",
+      "sources": [
+        {
+          "path_in_original_evidence": "results/postgres-witness-psql.txt",
+          "sha256": "87277d963ee9906603c09e0b15a70d50d02a2c1e20e766f20449a87058d59753"
+        }
+      ],
+      "transformations": [
+        "Byte-for-byte copy; no redactions."
+      ]
+    },
+    {
+      "path": "observed/worker-queries.json",
+      "kind": "derived",
+      "sources": [
+        {
+          "path_in_original_evidence": "results/postgres-base-e2e-queries.jsonl",
+          "sha256": "eaf71e76627a677738658de34ba324ff060fe6999d5331d3f00b2fdcd0e11dc0"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-head-e2e-queries.jsonl",
+          "sha256": "9724cd6c410e495cdc4ae6ef47e695a442d26198ce71e1c2cc2df9881402e6cf"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-base-e2e-result.json",
+          "sha256": "81c28a44bcd9ab539f6e99824716759953936a6f917e7e7ed820deabf3f20a0b"
+        },
+        {
+          "path_in_original_evidence": "results/postgres-head-e2e-result.json",
+          "sha256": "febe30059b2007e5de247e389df273d0e8533ee1b5ee77df2021bd06228e3bc4"
+        }
+      ],
+      "transformations": [
+        "Kept all PostgreSQL end-to-end events, their order, exact SQL, rowcount, and error fields.",
+        "Replaced numeric process IDs consistently with driver and worker-1; confirmed worker differs from driver.",
+        "No events from SQLite or the separate authorizer investigation included."
+      ]
+    },
+    {
+      "path": "scripts/experiment_bc.py",
+      "kind": "derived",
+      "sources": [
+        {
+          "path_in_original_evidence": "experiment_bc.py",
+          "sha256": "f499ad3b6966e89b973b4c3c8d740939c266beed57361ddcdeff03a10234046e"
+        }
+      ],
+      "transformations": [
+        "Replaced two host literals with REPRO_PG_HOST, two database-name literals with REPRO_PG_DATABASE, two user literals with REPRO_PG_USER, and two password literals with REPRO_PG_PASSWORD, all via os.environ.",
+        "Replaced the single private Ray temporary-directory literal with os.environ REPRO_RAY_TEMP_DIR.",
+        "Verified reversing only these nine substitutions restores original bytes. Syntax checked; not rerun.",
+        "Retained all original PostgreSQL and bundled SQLite logic, constants, source selection, port-file lookup, and assertions."
+      ]
+    },
+    {
+      "path": "scripts/postgres-fixture.sql",
+      "kind": "observed_or_source_copy",
+      "sources": [
+        {
+          "path_in_original_evidence": "sources/postgres-fixture.sql",
+          "sha256": "38aa17d4f8d2dda9e1322b7bc1bc76ab0cbe5eb65163b49affb8c9b1881bbce6"
+        }
+      ],
+      "transformations": [
+        "Byte-for-byte copy; no redactions."
+      ]
+    },
+    {
+      "path": "scripts/postgres-witness.sql",
+      "kind": "observed_or_source_copy",
+      "sources": [
+        {
+          "path_in_original_evidence": "sources/postgres-witness.sql",
+          "sha256": "e26960a4af1580d3db7d71b66e34033698a9fa676cbfc424cd5c130f907e6a0e"
+        }
+      ],
+      "transformations": [
+        "Byte-for-byte copy; no redactions."
+      ]
+    },
+    {
+      "path": "scripts/sources/8d53e59e3da91a39beb6b1b614265cf05d3d26a4-sql_datasource.py",
+      "kind": "observed_or_source_copy",
+      "sources": [
+        {
+          "path_in_original_evidence": "sources/8d53e59e3da91a39beb6b1b614265cf05d3d26a4-sql_datasource.py",
+          "sha256": "6ac6859a53b8097ac80ffb4e621983faf95b0456ec16df5bb42da0ca34ed012b"
+        }
+      ],
+      "transformations": [
+        "Byte-for-byte copy; no redactions."
+      ]
+    },
+    {
+      "path": "scripts/sources/c4ace0b69f82f66772d05c286ed29a52b6f73dc3-sql_datasource.py",
+      "kind": "observed_or_source_copy",
+      "sources": [
+        {
+          "path_in_original_evidence": "sources/c4ace0b69f82f66772d05c286ed29a52b6f73dc3-sql_datasource.py",
+          "sha256": "f94f014ba391914742786885faead52fb742baf91b98517bef13e5888ba0b325"
+        }
+      ],
+      "transformations": [
+        "Byte-for-byte copy; no redactions."
+      ]
+    },
+    {
+      "path": "scripts/sources/runtime-read_sql.py",
+      "kind": "observed_or_source_copy",
+      "sources": [
+        {
+          "path_in_original_evidence": "sources/runtime-read_sql.py",
+          "sha256": "c5c291b385f9148ac60aff54ef9c80ac7a832b9f42153ac065a75df5413fa649"
+        }
+      ],
+      "transformations": [
+        "Byte-for-byte copy; no redactions."
+      ]
+    },
+    {
+      "path": "PUBLICATION-ALLOWLIST.json",
+      "kind": "packaging_metadata",
+      "sources": [],
+      "transformations": [
+        "Enumerates all package files, source SHA-256 hashes, transformations, and exclusions. Derived during packaging; no experiment output asserted."
+      ]
+    },
+    {
+      "path": "SHA256SUMS",
+      "kind": "packaging_metadata",
+      "sources": [],
+      "transformations": [
+        "SHA-256 of every final public package file except SHA256SUMS itself; includes this allowlist."
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "materials": "Original raw archive as a whole and original SHA256SUMS",
+      "reason": "Archive is preserved privately. It contains materials outside this narrow publication scope; selected source hashes are recorded instead."
+    },
+    {
+      "materials": "Complete command files, full logs, runtime-logs, Ray session metadata, container logs and metadata, endpoint/address files",
+      "reason": "Contain private paths, local endpoints, credentials, process and machine identifiers, or unnecessary diagnostics. Only attributed excerpts and selected fields are published."
+    },
+    {
+      "materials": "Git status/remotes, archive command logs, local environment paths and user/account identifiers",
+      "reason": "Preservation evidence remains private; not required for the public regression witness."
+    },
+    {
+      "materials": "results/findings.json as a whole",
+      "reason": "Contains private paths and unrelated findings; only provenance and independently cross-checked relevant claims are derived."
+    },
+    {
+      "materials": "SQLite databases, PostgreSQL dump, complete repeated row/query payloads, build caches, bytecode, virtual environments and binary artifacts",
+      "reason": "Unnecessary or nonportable; the fixture SQL, observed values, ID sets, and selected query capture provide the needed evidence."
+    },
+    {
+      "materials": "Authorizer experiment A, PR #67437 source/test snapshots, its results and logs",
+      "reason": "Separate PR and finding; excluded from this PR #67406 package."
+    },
+    {
+      "materials": "SQLite experiment C observed results and logs",
+      "reason": "Pre-existing behavior outside this regression claim. Bundled runner code retained only to avoid rewriting historical test behavior."
+    },
+    {
+      "materials": "Unused full read_api.py snapshots and additional raw source snapshots",
+      "reason": "Only exact compared SQLDatasource modules and the captured runtime read_sql entry point are needed."
+    },
+    {
+      "materials": "All symlinks, special files, and files not enumerated here",
+      "reason": "Not part of the public package; no external file linkage is required."
+    }
+  ],
+  "root_index": "The evidence repository root README receives one concise entry under its existing table convention. It is outside this package's checksum scope.",
+  "checksum_policy": "SHA256SUMS covers all other enumerated files; no self-hash. Original-source hashes identify private originals and do not authorize publishing them."
+}

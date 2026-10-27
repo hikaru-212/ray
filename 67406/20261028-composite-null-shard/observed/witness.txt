@@ -1,0 +1,5 @@
+ id | composite_value | composite_type | hash_value | bucket | is_null | is_not_null | base_task_2 | head_task_0 | head_task_1 | head_task_2 | head_task_3 
+----+-----------------+----------------+------------+--------+---------+-------------+-------------+-------------+-------------+-------------+-------------
+  1 | (1,)            | pair_key       | 1072681338 |      2 | f       | f           | t           | f           | f           | f           | f
+(1 row)
+

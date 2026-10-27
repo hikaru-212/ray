@@ -1,0 +1,141 @@
+{
+  "process_identity": "Original numeric PIDs consistently replaced by driver and worker-1. One observed worker process is shared across both cases.",
+  "events": {
+    "base": [
+      {
+        "process_role": "driver",
+        "query": "SELECT COUNT(1) FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 0",
+        "rowcount": 1,
+        "error": null
+      },
+      {
+        "process_role": "driver",
+        "query": "SELECT COUNT(1) FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 0",
+        "rowcount": 1,
+        "error": null
+      },
+      {
+        "process_role": "driver",
+        "query": "SELECT COUNT(*) FROM (SELECT id, shard_key FROM events) as T",
+        "rowcount": 1,
+        "error": null
+      },
+      {
+        "process_role": "driver",
+        "query": "SELECT COUNT(1) FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 0",
+        "rowcount": 1,
+        "error": null
+      },
+      {
+        "process_role": "driver",
+        "query": "SELECT COUNT(*) FROM (SELECT id, shard_key FROM events) as T",
+        "rowcount": 1,
+        "error": null
+      },
+      {
+        "process_role": "driver",
+        "query": "SELECT COUNT(1) FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 0",
+        "rowcount": 1,
+        "error": null
+      },
+      {
+        "process_role": "driver",
+        "query": "SELECT COUNT(*) FROM (SELECT id, shard_key FROM events) as T",
+        "rowcount": 1,
+        "error": null
+      },
+      {
+        "process_role": "worker-1",
+        "query": "SELECT * FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 0",
+        "rowcount": 88,
+        "error": null
+      },
+      {
+        "process_role": "worker-1",
+        "query": "SELECT * FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 1",
+        "rowcount": 44,
+        "error": null
+      },
+      {
+        "process_role": "worker-1",
+        "query": "SELECT * FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 2",
+        "rowcount": 37,
+        "error": null
+      },
+      {
+        "process_role": "worker-1",
+        "query": "SELECT * FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 3",
+        "rowcount": 31,
+        "error": null
+      }
+    ],
+    "head": [
+      {
+        "process_role": "driver",
+        "query": "SELECT COUNT(1) FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 0",
+        "rowcount": 1,
+        "error": null
+      },
+      {
+        "process_role": "driver",
+        "query": "SELECT COUNT(1) FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 0",
+        "rowcount": 1,
+        "error": null
+      },
+      {
+        "process_role": "driver",
+        "query": "SELECT COUNT(*) FROM (SELECT id, shard_key FROM events) as T",
+        "rowcount": 1,
+        "error": null
+      },
+      {
+        "process_role": "driver",
+        "query": "SELECT COUNT(1) FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 0",
+        "rowcount": 1,
+        "error": null
+      },
+      {
+        "process_role": "driver",
+        "query": "SELECT COUNT(*) FROM (SELECT id, shard_key FROM events) as T",
+        "rowcount": 1,
+        "error": null
+      },
+      {
+        "process_role": "driver",
+        "query": "SELECT COUNT(1) FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 0",
+        "rowcount": 1,
+        "error": null
+      },
+      {
+        "process_role": "driver",
+        "query": "SELECT COUNT(*) FROM (SELECT id, shard_key FROM events) as T",
+        "rowcount": 1,
+        "error": null
+      },
+      {
+        "process_role": "worker-1",
+        "query": "SELECT * FROM (SELECT id, shard_key FROM events) AS T WHERE ((shard_key IS NULL) OR MOD(ABS(hash_record(shard_key)), 4) = 0)",
+        "rowcount": 88,
+        "error": null
+      },
+      {
+        "process_role": "worker-1",
+        "query": "SELECT * FROM (SELECT id, shard_key FROM events) AS T WHERE ((shard_key IS NOT NULL) AND MOD(ABS(hash_record(shard_key)), 4) = 1)",
+        "rowcount": 19,
+        "error": null
+      },
+      {
+        "process_role": "worker-1",
+        "query": "SELECT * FROM (SELECT id, shard_key FROM events) AS T WHERE ((shard_key IS NOT NULL) AND MOD(ABS(hash_record(shard_key)), 4) = 2)",
+        "rowcount": 13,
+        "error": null
+      },
+      {
+        "process_role": "worker-1",
+        "query": "SELECT * FROM (SELECT id, shard_key FROM events) AS T WHERE ((shard_key IS NOT NULL) AND MOD(ABS(hash_record(shard_key)), 4) = 3)",
+        "rowcount": 11,
+        "error": null
+      }
+    ]
+  }
+}

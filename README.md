@@ -16,6 +16,7 @@ files, or Python environments.
 | [PR #67242](67242/) | The inspected unordered actor submission path serializes `client_processed_up_to=-1`; a supported nonnegative producer remains unestablished. | Real-client loopback wire observations plus B/H PASS/PASS component non-regression tests; no original production bug repair is established. |
 | [PR #67315](67315/) | Canceled actor lease replies clean up unused workers while compatible W1 reuse remains valid. | Cancellation and W2 cleanup RED/GREEN, corrected CPU mapping, and separately scoped inherited pending-L2 observations. |
 | [PR #67360](67360/) | Lifetime retry accounting survives diagnostic history truncation within the information available. | Retry and legacy migration RED/GREEN, ordering/CAS characterization, and inherited details-loss limits. |
+| [PR #67406](67406/20261028-composite-null-shard/) | Every SQL source row belongs to exactly one shard, including composite keys with mixed NULL fields. | Real PostgreSQL witness and exact-datasource/read_sql Base 200 vs HEAD 131 comparison under a common Ray runtime. |
 
 Each case must be run with a Ray development environment compatible with the
 specified source revision. The environment is deliberately not vendored here.

@@ -1,0 +1,54 @@
+Historical output excerpts. Bracketed file/line labels and this header are editorial.
+Only the explicitly documented path/process redactions below alter retained output lines.
+No experiment was rerun during packaging.
+
+logs/01_prepare.log (original SHA-256 55454d3057932effe81ad09635d999ff2a116aad02b26af041b26dda77e821ae)
+[line 23] Ray 2.58.0 cec0a091b12675bbf101cf8a350c8706107baee1 [runtime source path redacted] Arrow 23.0.1
+
+logs/05_experiments_bc_direct.log (original SHA-256 094c8805a75f21b2da79a76f1912399135588c854d1e7ef4852a97b4b17df140)
+[line 3] Python: 3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]
+[line 4] SQLite: 3.45.1
+[line 5] psycopg2: 2.9.13 (dt dec pq3 ext lo64)
+[line 6] PostgreSQL: PostgreSQL 15.19 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+[line 7] POSTGRES WITNESS [id, key, type, hash, bucket, is_null, is_not_null]: (1, '(1,)', 'pair_key', 1072681338, 2, False, False)
+[line 8] Postgres source count: 200
+[line 11] Python: 3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]
+[line 12] SQLite: 3.45.1
+[line 13] psycopg2: 2.9.13 (dt dec pq3 ext lo64)
+[line 14] postgres-base-direct task counts: [88, 44, 37, 31]
+[line 15] postgres-base-direct count 200 missing IDs [] duplicate IDs []
+[line 16] postgres-base-direct SHARD SQL: SELECT * FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 0
+[line 17] postgres-base-direct SHARD SQL: SELECT * FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 1
+[line 18] postgres-base-direct SHARD SQL: SELECT * FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 2
+[line 19] postgres-base-direct SHARD SQL: SELECT * FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 3
+[line 20] postgres-head-direct task counts: [88, 19, 13, 11]
+[line 21] postgres-head-direct count 131 missing IDs [1, 4, 9, 16, 20, 21, 24, 25, 29, 32, 33, 36, 37, 45, 48, 52, 53, 57, 60, 61, 65, 69, 72, 73, 76, 80, 81, 84, 88, 89, 92, 93, 96, 97, 100, 101, 104, 105, 109, 112, 117, 120, 121, 124, 128, 133, 136, 137, 140, 144, 145, 148, 153, 156, 160, 161, 168, 169, 176, 177, 180, 181, 184, 185, 189, 192, 193, 196, 200] duplicate IDs []
+[line 22] postgres-head-direct SHARD SQL: SELECT * FROM (SELECT id, shard_key FROM events) AS T WHERE ((shard_key IS NOT NULL) AND MOD(ABS(hash_record(shard_key)), 4) = 1)
+[line 23] postgres-head-direct SHARD SQL: SELECT * FROM (SELECT id, shard_key FROM events) AS T WHERE ((shard_key IS NOT NULL) AND MOD(ABS(hash_record(shard_key)), 4) = 2)
+[line 24] postgres-head-direct SHARD SQL: SELECT * FROM (SELECT id, shard_key FROM events) AS T WHERE ((shard_key IS NOT NULL) AND MOD(ABS(hash_record(shard_key)), 4) = 3)
+[line 25] postgres-head-direct SHARD SQL: SELECT * FROM (SELECT id, shard_key FROM events) AS T WHERE ((shard_key IS NULL) OR MOD(ABS(hash_record(shard_key)), 4) = 0)
+
+logs/06_experiments_bc_e2e.log (original SHA-256 e555a76a20d8664ebbf3674e5fac40ecc05f27d2c2a1d706230d3f6d6b3cfddc)
+[line 9] Python: 3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]
+[line 10] SQLite: 3.45.1
+[line 11] psycopg2: 2.9.13 (dt dec pq3 ext lo64)
+[line 13] Runtime read_sql SHA256: c5c291b385f9148ac60aff54ef9c80ac7a832b9f42153ac065a75df5413fa649
+[line 14] Only read_api.SQLDatasource is substituted in memory with each exact pinned source module.
+[line 15] Unmodified Ray read_sql/read_datasource/planner/worker path is otherwise used.
+[line 17] E2E START: postgres-base-e2e datasource revision 8d53e59e3da91a39beb6b1b614265cf05d3d26a4
+[line 29] postgres-base-e2e output blocks: 4
+[line 30] postgres-base-e2e count 200 missing IDs [] duplicate IDs []
+[line 31] postgres-base-e2e SHARD SQL: SELECT * FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 0
+[line 32] postgres-base-e2e SHARD SQL: SELECT * FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 1
+[line 33] postgres-base-e2e SHARD SQL: SELECT * FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 2
+[line 34] postgres-base-e2e SHARD SQL: SELECT * FROM (SELECT id, shard_key FROM events) as T WHERE MOD(ABS(hash_record(shard_key)), 4) = 3
+[line 35] postgres-base-e2e worker pids: [worker-1]
+[line 36] E2E START: postgres-head-e2e datasource revision c4ace0b69f82f66772d05c286ed29a52b6f73dc3
+[line 47] postgres-head-e2e output blocks: 4
+[line 48] postgres-head-e2e count 131 missing IDs [1, 4, 9, 16, 20, 21, 24, 25, 29, 32, 33, 36, 37, 45, 48, 52, 53, 57, 60, 61, 65, 69, 72, 73, 76, 80, 81, 84, 88, 89, 92, 93, 96, 97, 100, 101, 104, 105, 109, 112, 117, 120, 121, 124, 128, 133, 136, 137, 140, 144, 145, 148, 153, 156, 160, 161, 168, 169, 176, 177, 180, 181, 184, 185, 189, 192, 193, 196, 200] duplicate IDs []
+[line 49] postgres-head-e2e SHARD SQL: SELECT * FROM (SELECT id, shard_key FROM events) AS T WHERE ((shard_key IS NOT NULL) AND MOD(ABS(hash_record(shard_key)), 4) = 1)
+[line 50] postgres-head-e2e SHARD SQL: SELECT * FROM (SELECT id, shard_key FROM events) AS T WHERE ((shard_key IS NOT NULL) AND MOD(ABS(hash_record(shard_key)), 4) = 2)
+[line 51] postgres-head-e2e SHARD SQL: SELECT * FROM (SELECT id, shard_key FROM events) AS T WHERE ((shard_key IS NOT NULL) AND MOD(ABS(hash_record(shard_key)), 4) = 3)
+[line 52] postgres-head-e2e SHARD SQL: SELECT * FROM (SELECT id, shard_key FROM events) AS T WHERE ((shard_key IS NULL) OR MOD(ABS(hash_record(shard_key)), 4) = 0)
+[line 53] postgres-head-e2e worker pids: [worker-1]
+

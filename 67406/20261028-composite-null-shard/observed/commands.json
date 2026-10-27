@@ -1,0 +1,60 @@
+{
+  "status": "Parameterized transcriptions of executed command excerpts, not byte-identical shell files or newly executed commands.",
+  "substitutions": {
+    "REVIEW_SOURCE": "original local review checkout",
+    "RUN_DIR": "original private experiment scratch directory",
+    "PYTHON": "original experiment virtual-environment interpreter",
+    "EXISTING_RAY_SITE_PACKAGES": "pre-existing installed Ray runtime reused by the virtual environment",
+    "PG_CONTAINER": "original disposable database container identity",
+    "REPRO_PG_HOST": "original local bind address",
+    "REPRO_PG_USER": "original disposable database user",
+    "REPRO_PG_PASSWORD": "original disposable database password",
+    "REPRO_PG_DATABASE": "original disposable database name"
+  },
+  "selection": "Only datasource extraction, environment construction, database start/version check, direct/e2e execution, and independent witness. Other source snapshots, status probes, readiness loop, archival/cleanup operations, and unrelated tests omitted.",
+  "execution_context": "Original shell files used set -euxo pipefail. Do not enable shell tracing when supplying private credentials. PostgreSQL was ready before fixture execution.",
+  "commands": [
+    {
+      "original_source": {
+        "path_in_original_evidence": "commands/01_prepare.sh",
+        "sha256": "f6a21a581ff929b3b07a0fc4393a943a90a2a4299742ac9e5a7557236cd30bdb"
+      },
+      "commands": "cd \"$REVIEW_SOURCE\"\nfor revision in 8d53e59e3da91a39beb6b1b614265cf05d3d26a4 c4ace0b69f82f66772d05c286ed29a52b6f73dc3; do\n    git show \"$revision:python/ray/data/_internal/datasource/sql_datasource.py\" > \"$RUN_DIR/sources/$revision-sql_datasource.py\"\ndone\n"
+    },
+    {
+      "original_source": {
+        "path_in_original_evidence": "commands/02_environment.sh",
+        "sha256": "f000c8876d825b5611cedfac39642b11405704a39b108b0dd8a79f1d52690e9e"
+      },
+      "commands": "python3 -m venv --without-pip \"$RUN_DIR/venv\"\nprintf '%s\\n' \"$EXISTING_RAY_SITE_PACKAGES\" > \"$RUN_DIR/venv/lib/python3.12/site-packages/reused-ray-runtime.pth\"\nUV_CACHE_DIR=\"$RUN_DIR/uv-cache\" uv pip install --python \"$PYTHON\" psycopg2-binary\n"
+    },
+    {
+      "original_source": {
+        "path_in_original_evidence": "commands/03_postgres_start.sh",
+        "sha256": "a9ea40935a66ece543d64a7de0461240a3d0911476dafbead208f3cc9603200a"
+      },
+      "commands": "docker run --detach --rm --pull=never --name \"$PG_CONTAINER\" --cpus=1 --memory=512m --tmpfs /var/lib/postgresql/data:rw,size=256m -e \"POSTGRES_USER=$REPRO_PG_USER\" -e \"POSTGRES_PASSWORD=$REPRO_PG_PASSWORD\" -e \"POSTGRES_DB=$REPRO_PG_DATABASE\" -p \"$REPRO_PG_HOST::5432\" sha256:fe0737ba566a2c5b2a28f34433c0a423261900ec17b9bf7ad115e1aae7e57f1b\ndocker port \"$PG_CONTAINER\" 5432/tcp > \"$RUN_DIR/results/postgres-address.txt\"\ndocker exec \"$PG_CONTAINER\" psql -U \"$REPRO_PG_USER\" -d \"$REPRO_PG_DATABASE\" -Atc 'SELECT version();'\n"
+    },
+    {
+      "original_source": {
+        "path_in_original_evidence": "commands/05_experiments_bc_direct.sh",
+        "sha256": "647cf967ae4fe122f6198b82c77ae8895d04de99887a25219cfca8d8f03b660f"
+      },
+      "commands": "cd \"$RUN_DIR\"\n\"$PYTHON\" -B experiment_bc.py fixture\n\"$PYTHON\" -B experiment_bc.py direct\n"
+    },
+    {
+      "original_source": {
+        "path_in_original_evidence": "commands/06_experiments_bc_e2e.sh",
+        "sha256": "c9aa195e4c56df700c10288f0d4805a45c29226e41d38aa9568988896662248c"
+      },
+      "commands": "cd \"$RUN_DIR\"\nexport PYTHONDONTWRITEBYTECODE=1\nexport RAY_USAGE_STATS_ENABLED=0\nexport RAY_DEDUP_LOGS=0\ntimeout --signal=TERM 180 \"$PYTHON\" -B -u experiment_bc.py e2e\n"
+    },
+    {
+      "original_source": {
+        "path_in_original_evidence": "commands/08_preserve_and_stop.sh",
+        "sha256": "836cfa77aaa361cefa88f871060fae01f0fa1e2ef70e84edb1951f3762bb0543"
+      },
+      "commands": "docker exec -i \"$PG_CONTAINER\" psql -X -v ON_ERROR_STOP=1 -U \"$REPRO_PG_USER\" -d \"$REPRO_PG_DATABASE\" -f - < sources/postgres-witness.sql > results/postgres-witness-psql.txt\n"
+    }
+  ]
+}

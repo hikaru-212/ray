@@ -1,0 +1,225 @@
+{
+  "scope": "Only the files listed here are approved for public publication for Ray PR #67437 Experiment A.",
+  "package_path": "67437/20261028-sqlite-authorizer-fallback",
+  "upstream_pr": "https://github.com/ray-project/ray/pull/67437",
+  "original_evidence": {
+    "label": "ray-67406-phase2-20261028",
+    "manifest_sha256": "216e420d04be9508edb19f896d576709f583f66022bc166f83053261b03a9857",
+    "manifest_entries_verified": 74,
+    "manifest_entries_failed": 0
+  },
+  "publication_rules": {
+    "allowlist_only": true,
+    "sha256sums_covers_all_package_files_except_itself": true,
+    "raw_runtime_logs_published": false,
+    "binary_files_published": false,
+    "symlinks_published": false,
+    "credentials_published": false
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "kind": "editorial_documentation",
+      "sources": [
+        {"path_in_original_evidence": "logs/04_experiment_a.log", "sha256": "5728bdef2e02e3c61d10e17d7e0c45483cb58640630e17ce07329bcef8d9c54d"},
+        {"path_in_original_evidence": "logs/07_experiment_a_test_matrix.log", "sha256": "fdbe2a6e2d2484cba9f08ce2f78a232ca0e576219bb0770379e7719b9a0b734e"},
+        {"path_in_original_evidence": "results/experiment-a.json", "sha256": "980fdff7f9cb8fc4d9e319b569838cbff3aefb2b38b936e624d63f2fb2c278ab"},
+        {"path_in_original_evidence": "results/experiment-a-original-test-matrix.json", "sha256": "4ed3f805bbc272e1d7748ff97b847289fca8ef2221601fd044499ee8abaceb68"},
+        {"path_in_original_evidence": "results/source-acquisition.json", "sha256": "7d440789dbb8a102345d11d214288f7f68add0420d7a5082479929fff4dc738d"}
+      ],
+      "transformations": [
+        "Focused the narrative on the single test-correctness finding.",
+        "Removed private paths, host/runtime identifiers, credentials, unrelated PR #67406 findings, and unsupported claims.",
+        "Distinguished observed execution, source provenance, common-runtime execution, and unexecuted full builds."
+      ]
+    },
+    {
+      "path": "REPRODUCE.md",
+      "kind": "editorial_documentation",
+      "sources": [
+        {"path_in_original_evidence": "commands/04_experiment_a.sh", "sha256": "8a034a16ae0ff8a32e9e768b9eee50c60f9b569008310a120177e99c0d569a09"},
+        {"path_in_original_evidence": "commands/07_experiment_a_test_matrix.sh", "sha256": "95cb217ff2efe0c723d186cced66128e69481ed20d737fe4d73654542304fad1"},
+        {"path_in_original_evidence": "experiment_a.py", "sha256": "fa4b8cddaa0bb6a0cbcb79a18ec4c7243b7d91e84591ef7bebf27597085bb0a6"},
+        {"path_in_original_evidence": "experiment_a_test_matrix.py", "sha256": "8baa7b6750e7710611e81668a2a02259f37ed0d76e3ce2f2534a6f1b846057d7"},
+        {"path_in_original_evidence": "experiment_bc.py", "sha256": "f499ad3b6966e89b973b4c3c8d740939c266beed57361ddcdeff03a10234046e"}
+      ],
+      "transformations": [
+        "Recorded historical commands with private paths parameterized.",
+        "Separated historical execution from future instructions.",
+        "Documented that transformed runners were not rerun."
+      ]
+    },
+    {
+      "path": "scripts/source_loader.py",
+      "kind": "derived_source",
+      "sources": [
+        {"path_in_original_evidence": "experiment_bc.py", "sha256": "f499ad3b6966e89b973b4c3c8d740939c266beed57361ddcdeff03a10234046e"}
+      ],
+      "transformations": [
+        "Extracted only load_source importlib/sys.modules/cloudpickle logic.",
+        "Replaced the private global ROOT with an explicit source_dir argument.",
+        "Added a defensive spec/loader check.",
+        "Excluded all PostgreSQL, SQLite fixture, credential, endpoint, and Experiment B/C logic.",
+        "Statically syntax-checked; not executed."
+      ]
+    },
+    {
+      "path": "scripts/authorizer_probe.py",
+      "kind": "derived_source",
+      "sources": [
+        {"path_in_original_evidence": "experiment_a.py", "sha256": "fa4b8cddaa0bb6a0cbcb79a18ec4c7243b7d91e84591ef7bebf27597085bb0a6"},
+        {"path_in_original_evidence": "experiment_bc.py", "sha256": "f499ad3b6966e89b973b4c3c8d740939c266beed57361ddcdeff03a10234046e"},
+        {"path_in_original_evidence": "sources/134e84169b605d67f36f99c7c841ba113f704356-test_sql.py", "sha256": "e425aeb397e8bfc8fdc039b0a2d23b1045288625355af8b56c2b4abfc3884f13"}
+      ],
+      "transformations": [
+        "Replaced private paths with source-dir and work-dir arguments.",
+        "Reads the separately published exact author-test excerpt.",
+        "Retained callback extraction, one-occurrence arg1-to-arg2 replacement, probes, SQL traces, and assertions.",
+        "Writes only to an operator-provided fresh scratch directory.",
+        "Statically syntax-checked; not executed."
+      ]
+    },
+    {
+      "path": "scripts/test_matrix.py",
+      "kind": "derived_source",
+      "sources": [
+        {"path_in_original_evidence": "experiment_a_test_matrix.py", "sha256": "8baa7b6750e7710611e81668a2a02259f37ed0d76e3ce2f2534a6f1b846057d7"},
+        {"path_in_original_evidence": "experiment_bc.py", "sha256": "f499ad3b6966e89b973b4c3c8d740939c266beed57361ddcdeff03a10234046e"},
+        {"path_in_original_evidence": "sources/134e84169b605d67f36f99c7c841ba113f704356-test_sql.py", "sha256": "e425aeb397e8bfc8fdc039b0a2d23b1045288625355af8b56c2b4abfc3884f13"}
+      ],
+      "transformations": [
+        "Replaced private paths and combined-runner import with explicit arguments and the minimal loader.",
+        "Reads the exact author-test excerpt and retains the single arg1-to-arg2 replacement.",
+        "Retained common Ray initialization, Base/HEAD module substitution, direct function invocation, expected ValueError, and four-case assertions.",
+        "Writes only to operator-provided fresh scratch paths.",
+        "Statically syntax-checked; not executed."
+      ]
+    },
+    {
+      "path": "observed/head-test-function.py.txt",
+      "kind": "exact_source_excerpt",
+      "sources": [
+        {
+          "path_in_original_evidence": "sources/134e84169b605d67f36f99c7c841ba113f704356-test_sql.py",
+          "sha256": "e425aeb397e8bfc8fdc039b0a2d23b1045288625355af8b56c2b4abfc3884f13",
+          "git_blob": "3d4d68408ffe38a0c4c4372a079d19f31ee1d65a",
+          "selected_lines": [216, 260]
+        }
+      ],
+      "transformations": [
+        "Exact lines 216 through 260 only; the function text is unchanged.",
+        "Omitted the rest of test_sql.py because it is unrelated and contains connection-information risk."
+      ]
+    },
+    {
+      "path": "observed/callback-observations.json",
+      "kind": "derived_observation",
+      "sources": [
+        {"path_in_original_evidence": "logs/04_experiment_a.log", "sha256": "5728bdef2e02e3c61d10e17d7e0c45483cb58640630e17ce07329bcef8d9c54d"},
+        {"path_in_original_evidence": "results/experiment-a.json", "sha256": "980fdff7f9cb8fc4d9e319b569838cbff3aefb2b38b936e624d63f2fb2c278ab"}
+      ],
+      "transformations": [
+        "Selected only callback arguments, MOD/percent outcomes, syntax selection, and probe SQL.",
+        "Removed filesystem paths and unrelated observations.",
+        "Normalized the authorization error to a non-sensitive outcome while retaining its class."
+      ]
+    },
+    {
+      "path": "observed/test-matrix.json",
+      "kind": "derived_observation",
+      "sources": [
+        {"path_in_original_evidence": "logs/07_experiment_a_test_matrix.log", "sha256": "fdbe2a6e2d2484cba9f08ce2f78a232ca0e576219bb0770379e7719b9a0b734e"},
+        {"path_in_original_evidence": "results/experiment-a-original-test-matrix.json", "sha256": "4ed3f805bbc272e1d7748ff97b847289fca8ef2221601fd044499ee8abaceb68"},
+        {"path_in_original_evidence": "experiment_a_test_matrix.py", "sha256": "8baa7b6750e7710611e81668a2a02259f37ed0d76e3ce2f2534a6f1b846057d7"}
+      ],
+      "transformations": [
+        "Preserved the four outcomes, rows/blocks assertions, runtime revision, exact callback delta, and execution method.",
+        "Removed private paths, dataset/session identifiers, timestamps, and progress output."
+      ]
+    },
+    {
+      "path": "observed/output.txt",
+      "kind": "derived_log_excerpt",
+      "sources": [
+        {"path_in_original_evidence": "logs/04_experiment_a.log", "sha256": "5728bdef2e02e3c61d10e17d7e0c45483cb58640630e17ce07329bcef8d9c54d"},
+        {"path_in_original_evidence": "logs/07_experiment_a_test_matrix.log", "sha256": "fdbe2a6e2d2484cba9f08ce2f78a232ca0e576219bb0770379e7719b9a0b734e"}
+      ],
+      "transformations": [
+        "Selected exact finding-relevant lines with original line numbers and log SHA-256 values.",
+        "Omitted shell tracing, timestamps, private paths, Ray progress, dataset IDs, process IDs, and session identifiers."
+      ]
+    },
+    {
+      "path": "observed/provenance.json",
+      "kind": "derived_provenance",
+      "sources": [
+        {"path_in_original_evidence": "results/source-acquisition.json", "sha256": "7d440789dbb8a102345d11d214288f7f68add0420d7a5082479929fff4dc738d"},
+        {"path_in_original_evidence": "results/source-metadata.json", "sha256": "b35848146e4d11afbd58931051f9dfced2a0e669c965bd29f59aca40c5778d31"},
+        {"path_in_original_evidence": "SHA256SUMS", "sha256": "216e420d04be9508edb19f896d576709f583f66022bc166f83053261b03a9857"}
+      ],
+      "transformations": [
+        "Retained only source revisions, repository paths, blob/SHA identities, runtime versions, integrity counts, and validation limits.",
+        "Removed account identity, home directory inventory, private paths, endpoints, container inventory, and unrelated PR metadata.",
+        "Explicitly records the absence of independent signatures and trusted timestamps."
+      ]
+    },
+    {
+      "path": "PUBLICATION-ALLOWLIST.json",
+      "kind": "publication_control",
+      "sources": [
+        {"path_in_original_evidence": "SHA256SUMS", "sha256": "216e420d04be9508edb19f896d576709f583f66022bc166f83053261b03a9857"}
+      ],
+      "transformations": [
+        "Enumerates every public package file and the separate root index update.",
+        "Records original file hashes, transformations, exclusions, and publication-safety rules."
+      ]
+    },
+    {
+      "path": "SHA256SUMS",
+      "kind": "integrity_manifest",
+      "sources": [],
+      "transformations": [
+        "Generated after publication audit.",
+        "Covers every regular package file except SHA256SUMS itself."
+      ]
+    }
+  ],
+  "repository_index_update": {
+    "repository_path": "README.md",
+    "transformation": "Added one PR #67437 index row; no other root content changed."
+  },
+  "excluded_original_material": [
+    {
+      "path": "experiment_bc.py",
+      "reason": "Contains unrelated Experiment B/C logic and credential/endpoint material; only the minimal source loader was extracted."
+    },
+    {
+      "path": "results/source-metadata.json",
+      "reason": "Contains host inventory, private paths, VM username, endpoints, and unrelated PR metadata; a minimal provenance record replaces it."
+    },
+    {
+      "path": "sources/134e84169b605d67f36f99c7c841ba113f704356-test_sql.py",
+      "reason": "The complete file is unnecessary and includes unrelated connection-information risk; only the exact target function is published."
+    },
+    {
+      "path": "sources/*-sql_datasource.py",
+      "reason": "The public package uses explicit revision, SHA-256, and Git-blob references instead of copying production source snapshots."
+    },
+    {
+      "path": "sources/runtime-read_sql.py",
+      "reason": "The hash and runtime boundary are documented; the full entry-point snapshot is unnecessary for the narrow finding."
+    },
+    {
+      "path": "runtime-logs/**",
+      "reason": "All 117 files were outside the original checksum manifest and contain paths, endpoints, and process/node/session identifiers."
+    },
+    {
+      "path": "results/*.sqlite",
+      "reason": "Binary databases are unnecessary; scripts, structured observations, and checksum-verified log excerpts establish the finding."
+    },
+    {
+      "path": "all other original evidence files",
+      "reason": "Not required for the single test-correctness finding or contain unrelated/private material."
+    }
+  ]
+}

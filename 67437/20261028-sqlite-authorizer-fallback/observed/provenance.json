@@ -1,0 +1,94 @@
+{
+  "upstream_pr": "https://github.com/ray-project/ray/pull/67437",
+  "source_evidence_label": "ray-67406-phase2-20261028",
+  "label_note": "The source directory label is retained as supplied; it is not an independently trusted execution timestamp.",
+  "source_revisions": {
+    "base": {
+      "revision": "88f1ffefc6b5a88507fbfdb448edecc44664cefa",
+      "repository_path": "python/ray/data/_internal/datasource/sql_datasource.py",
+      "sha256": "6ac6859a53b8097ac80ffb4e621983faf95b0456ec16df5bb42da0ca34ed012b",
+      "git_blob": "2168bd058932e3d25b6300ebb307cd9289ed58fd",
+      "local_commit_object_available_during_packaging": true,
+      "local_git_bytes_match_preserved_snapshot": true,
+      "published_as_snapshot": false,
+      "public_source_reference": "REPRODUCE.md"
+    },
+    "head_datasource": {
+      "revision": "134e84169b605d67f36f99c7c841ba113f704356",
+      "repository_path": "python/ray/data/_internal/datasource/sql_datasource.py",
+      "sha256": "7f5d3d43bc3eec591cbf971434e83806834a00a48ff51930608bbd81e445f20d",
+      "git_blob": "61d24da3295534df392750a56dd56ad4b88a13f9",
+      "local_commit_object_available_during_packaging": false,
+      "blob_matches_preserved_acquisition_record": true,
+      "published_as_snapshot": false,
+      "public_source_reference": "REPRODUCE.md"
+    },
+    "head_test": {
+      "revision": "134e84169b605d67f36f99c7c841ba113f704356",
+      "repository_path": "python/ray/data/tests/datasource/test_sql.py",
+      "sha256": "e425aeb397e8bfc8fdc039b0a2d23b1045288625355af8b56c2b4abfc3884f13",
+      "git_blob": "3d4d68408ffe38a0c4c4372a079d19f31ee1d65a",
+      "local_commit_object_available_during_packaging": false,
+      "blob_matches_preserved_acquisition_record": true,
+      "published_as_snapshot": false,
+      "published_exact_function_excerpt": "observed/head-test-function.py.txt"
+    }
+  },
+  "acquisition_record": {
+    "path_in_original_evidence": "results/source-acquisition.json",
+    "sha256": "7d440789dbb8a102345d11d214288f7f68add0420d7a5082479929fff4dc738d",
+    "independently_signed": false,
+    "trusted_timestamp": false
+  },
+  "runtime_entry_point": {
+    "capture": "inspect.getsource of the installed ray.data.read_api.read_sql during the recorded experiment",
+    "path_in_original_evidence": "sources/runtime-read_sql.py",
+    "sha256": "c5c291b385f9148ac60aff54ef9c80ac7a832b9f42153ac065a75df5413fa649",
+    "published": false,
+    "exclusion_reason": "Not necessary for the narrow finding; behavior and hash are documented without publishing another large source excerpt."
+  },
+  "environment": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "sqlite": "3.45.1",
+    "ray_runtime": "2.58.0",
+    "ray_runtime_commit": "cec0a091b12675bbf101cf8a350c8706107baee1"
+  },
+  "original_integrity": {
+    "manifest_path": "SHA256SUMS",
+    "manifest_sha256": "216e420d04be9508edb19f896d576709f583f66022bc166f83053261b03a9857",
+    "entries": 74,
+    "verified_ok_during_packaging": 74,
+    "verified_failed_during_packaging": 0,
+    "signed": false,
+    "externally_timestamped": false
+  },
+  "original_primary_files": {
+    "experiment_a.py": "fa4b8cddaa0bb6a0cbcb79a18ec4c7243b7d91e84591ef7bebf27597085bb0a6",
+    "experiment_a_test_matrix.py": "8baa7b6750e7710611e81668a2a02259f37ed0d76e3ce2f2534a6f1b846057d7",
+    "experiment_bc.py": "f499ad3b6966e89b973b4c3c8d740939c266beed57361ddcdeff03a10234046e",
+    "commands/04_experiment_a.sh": "8a034a16ae0ff8a32e9e768b9eee50c60f9b569008310a120177e99c0d569a09",
+    "commands/07_experiment_a_test_matrix.sh": "95cb217ff2efe0c723d186cced66128e69481ed20d737fe4d73654542304fad1",
+    "logs/04_experiment_a.log": "5728bdef2e02e3c61d10e17d7e0c45483cb58640630e17ce07329bcef8d9c54d",
+    "logs/07_experiment_a_test_matrix.log": "fdbe2a6e2d2484cba9f08ce2f78a232ca0e576219bb0770379e7719b9a0b734e",
+    "results/experiment-a.json": "980fdff7f9cb8fc4d9e319b569838cbff3aefb2b38b936e624d63f2fb2c278ab",
+    "results/experiment-a-original-test-matrix.json": "4ed3f805bbc272e1d7748ff97b847289fca8ef2221601fd044499ee8abaceb68",
+    "results/source-metadata.json": "b35848146e4d11afbd58931051f9dfced2a0e669c965bd29f59aca40c5778d31"
+  },
+  "packaging_checks": {
+    "experiments_rerun": false,
+    "pytest_run": false,
+    "full_revision_builds": false,
+    "public_runners_rerun": false,
+    "public_runner_static_syntax_check": true,
+    "exact_test_excerpt_compared_to_preserved_source": true,
+    "matrix_cross_checked_against_original_log_and_json": true
+  },
+  "validation_scope": "SQLite callback behavior and the exact author-test Base/HEAD matrix using pinned SQLDatasource modules inside one common installed Ray runtime.",
+  "not_established": [
+    "Production fallback correctness across supported databases",
+    "Full Base or HEAD repository builds",
+    "Pytest collection, fixtures, or complete suite behavior",
+    "Other Ray, Python, or SQLite versions",
+    "Authenticity from an independent signature or trusted timestamp"
+  ]
+}

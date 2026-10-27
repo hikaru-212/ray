@@ -1,0 +1,55 @@
+{
+  "classification": "runtime_observation_from_preserved_original_execution",
+  "sqlite_version": "3.45.1",
+  "official_contract": {
+    "url": "https://www.sqlite.org/c3ref/c_alter_table.html",
+    "action": 31,
+    "action_name": "SQLITE_FUNCTION",
+    "arg1": null,
+    "arg2": "Function Name"
+  },
+  "original_callback_condition": "action == sqlite3.SQLITE_FUNCTION and str(arg1).lower() == \"mod\"",
+  "experimental_callback_condition": "action == sqlite3.SQLITE_FUNCTION and str(arg2).lower() == \"mod\"",
+  "original_arg1": {
+    "observed_callback": [31, null, "mod", null, null],
+    "mod_query": {
+      "sql": "SELECT MOD(5,2)",
+      "value": [1.0],
+      "denied": false
+    },
+    "percent_query": {
+      "sql": "SELECT 5 % 2",
+      "value": [1]
+    },
+    "supports_sharding_4": true,
+    "selected_syntax": "MOD",
+    "probe_sql": "SELECT COUNT(1) FROM (SELECT * FROM events) as T WHERE MOD(ABS(unicode(key)), 4) = 0"
+  },
+  "experimental_arg2": {
+    "observed_callback": [31, null, "mod", null, null],
+    "mod_query": {
+      "sql": "SELECT MOD(5,2)",
+      "error_type": "OperationalError",
+      "outcome": "not authorized",
+      "denied": true
+    },
+    "percent_query": {
+      "sql": "SELECT 5 % 2",
+      "value": [1]
+    },
+    "supports_sharding_4": true,
+    "selected_syntax": "%",
+    "probe_sql": "SELECT COUNT(1) FROM (SELECT * FROM events) as T WHERE (ABS(unicode(key)) % 4) = 0"
+  },
+  "sources": [
+    {
+      "path_in_original_evidence": "logs/04_experiment_a.log",
+      "sha256": "5728bdef2e02e3c61d10e17d7e0c45483cb58640630e17ce07329bcef8d9c54d",
+      "selected_lines": [10, 14, 15, 16, 17, 22, 23, 24, 25, 26, 32, 33, 34]
+    },
+    {
+      "path_in_original_evidence": "results/experiment-a.json",
+      "sha256": "980fdff7f9cb8fc4d9e319b569838cbff3aefb2b38b936e624d63f2fb2c278ab"
+    }
+  ]
+}

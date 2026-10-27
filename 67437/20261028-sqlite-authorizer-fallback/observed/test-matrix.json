@@ -1,0 +1,67 @@
+{
+  "classification": "runtime_observation_from_preserved_original_execution",
+  "test_function": "test_read_sql_falls_back_to_percent_when_mod_denied",
+  "execution_method": "The exact extracted function was compiled and directly called; pytest was not invoked.",
+  "common_runtime": {
+    "ray_version": "2.58.0",
+    "ray_commit": "cec0a091b12675bbf101cf8a350c8706107baee1"
+  },
+  "source_substitution": "Only ray.data.read_api.SQLDatasource was replaced in memory with the selected pinned source module.",
+  "callback_delta": {
+    "occurrences_replaced": 1,
+    "from": "str(arg1).lower()",
+    "to": "str(arg2).lower()",
+    "other_test_source_changes": false
+  },
+  "cases": {
+    "original_arg1-base": {
+      "revision": "88f1ffefc6b5a88507fbfdb448edecc44664cefa",
+      "function_invoked": true,
+      "outcome": "PASS",
+      "asserted_rows": 500,
+      "asserted_blocks": 4
+    },
+    "original_arg1-head": {
+      "revision": "134e84169b605d67f36f99c7c841ba113f704356",
+      "function_invoked": true,
+      "outcome": "PASS",
+      "asserted_rows": 500,
+      "asserted_blocks": 4
+    },
+    "experimental_arg2-base": {
+      "revision": "88f1ffefc6b5a88507fbfdb448edecc44664cefa",
+      "function_invoked": true,
+      "outcome": "expected ValueError",
+      "error_classification": "Database does not support sharding",
+      "dataset_executed": false
+    },
+    "experimental_arg2-head": {
+      "revision": "134e84169b605d67f36f99c7c841ba113f704356",
+      "function_invoked": true,
+      "outcome": "PASS",
+      "asserted_rows": 500,
+      "asserted_blocks": 4
+    }
+  },
+  "sources": [
+    {
+      "path_in_original_evidence": "logs/07_experiment_a_test_matrix.log",
+      "sha256": "fdbe2a6e2d2484cba9f08ce2f78a232ca0e576219bb0770379e7719b9a0b734e",
+      "selected_lines": [12, 14, 15, 17, 29, 30, 41, 42, 43, 44, 55, 56]
+    },
+    {
+      "path_in_original_evidence": "results/experiment-a-original-test-matrix.json",
+      "sha256": "4ed3f805bbc272e1d7748ff97b847289fca8ef2221601fd044499ee8abaceb68"
+    },
+    {
+      "path_in_original_evidence": "experiment_a_test_matrix.py",
+      "sha256": "8baa7b6750e7710611e81668a2a02259f37ed0d76e3ce2f2534a6f1b846057d7"
+    }
+  ],
+  "not_claimed": [
+    "pytest execution",
+    "full Base or HEAD repository build",
+    "full test suite",
+    "production fallback correctness across databases"
+  ]
+}

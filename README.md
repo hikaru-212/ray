@@ -17,6 +17,7 @@ files, or Python environments.
 | [PR #67315](67315/) | Canceled actor lease replies clean up unused workers while compatible W1 reuse remains valid. | Cancellation and W2 cleanup RED/GREEN, corrected CPU mapping, and separately scoped inherited pending-L2 observations. |
 | [PR #67360](67360/) | Lifetime retry accounting survives diagnostic history truncation within the information available. | Retry and legacy migration RED/GREEN, ordering/CAS characterization, and inherited details-loss limits. |
 | [PR #67406](67406/20261028-composite-null-shard/) | Every SQL source row belongs to exactly one shard, including composite keys with mixed NULL fields. | Real PostgreSQL witness and exact-datasource/read_sql Base 200 vs HEAD 131 comparison under a common Ray runtime. |
+| [PR #67437](67437/20261028-sqlite-authorizer-fallback/) | An authorizer-based test must actually deny `MOD()` before it can verify the `%` fallback. | Native SQLite callback observation plus an exact-author-test Base/HEAD matrix under a common Ray runtime. |
 
 Each case must be run with a Ray development environment compatible with the
 specified source revision. The environment is deliberately not vendored here.

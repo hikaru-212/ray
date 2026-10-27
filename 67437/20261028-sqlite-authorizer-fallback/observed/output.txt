@@ -1,0 +1,31 @@
+Selected lines from checksum-verified original logs. Lines not needed for the finding were omitted. No execution occurred during packaging.
+
+SOURCE logs/04_experiment_a.log
+SHA256 5728bdef2e02e3c61d10e17d7e0c45483cb58640630e17ce07329bcef8d9c54d
+L10:     if action == sqlite3.SQLITE_FUNCTION and str(arg1).lower() == "mod":
+L14: Unrestricted SELECT MOD(5,2): (1.0,)
+L15: original_arg1 SQLITE_FUNCTION: [31, None, 'mod', None, None]
+L16: original_arg1 SELECT MOD(5,2) => (1.0,)
+L17: original_arg1 SELECT 5 % 2 => (1,)
+L22: original_arg1 supports_sharding: True selected syntax: MOD
+L23: original_arg1 executed SQL: ["SELECT MOD(5,2)", "SELECT 5 % 2", "SELECT COUNT(1) FROM (SELECT * FROM events) as T WHERE MOD(ABS(unicode(key)), 4) = 0"]
+L24: experimental_arg2 SQLITE_FUNCTION: [31, None, 'mod', None, None]
+L25: experimental_arg2 SELECT MOD(5,2) => OperationalError not authorized to use function: MOD
+L26: experimental_arg2 SELECT 5 % 2 => (1,)
+L32: experimental_arg2 supports_sharding: True selected syntax: %
+L33: experimental_arg2 executed SQL: ["SELECT 5 % 2", "SELECT COUNT(1) FROM (SELECT * FROM events) as T WHERE (ABS(unicode(key)) % 4) = 0"]
+
+SOURCE logs/07_experiment_a_test_matrix.log
+SHA256 fdbe2a6e2d2484cba9f08ce2f78a232ca0e576219bb0770379e7719b9a0b734e
+L12: Ray: 2.58.0 cec0a091b12675bbf101cf8a350c8706107baee1
+L14: Baseline: 88f1ffefc6b5a88507fbfdb448edecc44664cefa Head: 134e84169b605d67f36f99c7c841ba113f704356
+L15: Only the experimental variant changes str(arg1).lower() to str(arg2).lower().
+L17: RUN original_arg1-base expected PASS
+L29: original_arg1-base PASS original test assertions (4 blocks; all 500 rows)
+L30: RUN original_arg1-head expected PASS
+L41: original_arg1-head PASS original test assertions (4 blocks; all 500 rows)
+L42: RUN experimental_arg2-base expected unsupported-sharding ValueError
+L43: experimental_arg2-base EXPECTED ValueError: Database does not support sharding. Please set override_num_blocks to 1.
+L44: RUN experimental_arg2-head expected PASS
+L55: experimental_arg2-head PASS original test assertions (4 blocks; all 500 rows)
+L56: VERIFIED: the current PR test passes on Base; correcting only arg2 makes it fail on Base and pass on Head.

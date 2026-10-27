@@ -1,0 +1,27 @@
+Summary-line excerpts from the original pytest logs; no tests were rerun during packaging or documentation finalization.
+Complete logs remain in the private archive. The source paths below are relative to that archive's root.
+
+logs/parent-pytest.log
+SHA-256: f28abfb55f2c52b17afa1bf1cd60b0d60b6bfaec161d00e699e61f27cf5864ae
+========================= 9 failed, 20 passed in 1.07s =========================
+
+logs/parent-long-pytest.log
+SHA-256: b07b0a15c241a2330fc60c2ca661a064448769b727d897d4642027ce619b2432
+============================== 8 failed in 0.69s ===============================
+
+logs/old-pytest.log
+SHA-256: d4933d66e424b5ca8a8b455819b1178f4efee9c7b3a65c08c0fe7818990c39b2
+============================== 29 passed in 0.78s ==============================
+
+logs/old-long-pytest.log
+SHA-256: 34f94a7e8c70edba161d5460938dce20ac1818ee99ba6aef1405b8b98bcfcc57
+============================== 8 passed in 0.72s ===============================
+
+logs/new-pytest.log
+SHA-256: 627da462bae25f5e3c60c6d315c15d943d54f7cec4567ba3305f4e537c0c1469
+============================== 29 passed in 0.78s ==============================
+
+logs/new-long-pytest.log
+SHA-256: 1003ff140e712010eef0cc5e425634f6cd086af06d33da245360816888554f69
+============================== 8 passed in 0.68s ===============================
+

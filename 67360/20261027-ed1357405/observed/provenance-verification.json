@@ -1,0 +1,69 @@
+{
+  "source_files_unchanged": {
+    "parent": {
+      "files": 5454,
+      "failures": []
+    },
+    "old": {
+      "files": 5454,
+      "failures": []
+    },
+    "new": {
+      "files": 5454,
+      "failures": []
+    }
+  },
+  "local_git_verification": {
+    "parent": {
+      "files": 5454,
+      "mismatches": [],
+      "sets_equal": true
+    },
+    "old": {
+      "files": 5454,
+      "mismatches": [],
+      "sets_equal": true
+    }
+  },
+  "new_vs_github_compare": {
+    "all_exported_blobs_match": true,
+    "changed_files": [
+      "python/ray/autoscaler/v2/instance_manager/common.py",
+      "python/ray/autoscaler/v2/instance_manager/instance_manager.py",
+      "python/ray/autoscaler/v2/instance_manager/reconciler.py",
+      "python/ray/autoscaler/v2/tests/test_instance_manager.py",
+      "python/ray/autoscaler/v2/tests/test_instance_util.py",
+      "python/ray/autoscaler/v2/tests/test_reconciler.py",
+      "src/ray/protobuf/instance_manager.proto"
+    ],
+    "expected_head": "ed1357405af868d81389047835e3562b29ca2751",
+    "parent": "ad540e643022b8c449299653e476f20da35afd2d"
+  },
+  "loaded_modules": {
+    "parent": {
+      "source_modules_checked": 229,
+      "failures": []
+    },
+    "old": {
+      "source_modules_checked": 229,
+      "failures": []
+    },
+    "new": {
+      "source_modules_checked": 229,
+      "failures": []
+    }
+  },
+  "compatibility": {
+    "new_set_status_keywords": {},
+    "pr67381_set_status_keywords": {
+      "details": "update.details"
+    },
+    "summary_transition_attributes": [
+      "instance_status",
+      "timestamp_ns"
+    ],
+    "sha67381": "c17420b096e539dd28094b4087539ec13bba8bd2",
+    "production_sources_modified": false,
+    "combined_tests_run": false
+  }
+}

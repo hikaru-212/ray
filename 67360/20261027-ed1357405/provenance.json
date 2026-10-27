@@ -1,0 +1,552 @@
+{
+  "schema_version": 1,
+  "pr": "https://github.com/ray-project/ray/pull/67360",
+  "verification_date": "2026-10-27",
+  "revisions": {
+    "parent": "3608367390ff80151fe0ab02a54d8e8223905146",
+    "old": "ad540e643022b8c449299653e476f20da35afd2d",
+    "new": "ed1357405af868d81389047835e3562b29ca2751"
+  },
+  "related_pr67381_sha": "c17420b096e539dd28094b4087539ec13bba8bd2",
+  "publication_scope": "Existing completed Python component experiments; preparation only, no new runtime execution.",
+  "archive_manifest": {
+    "file": "SHA256SUMS.json",
+    "sha256": "6e25d471b7f5fdc2643e37933d70e5198e614249a3beb2e0128a52239a1ade1e",
+    "files": 17679,
+    "rehashed_during_preparation": true,
+    "public_archive_complete": false
+  },
+  "byte_identical_public_copies": {
+    "tests/test_behavior.py": "tests/test_behavior.py",
+    "tests/conftest.py": "tests/conftest.py",
+    "tests_followup/test_long_history_failures.py": "tests_followup/test_long_history_failures.py",
+    "tests_followup/conftest.py": "tests_followup/conftest.py",
+    "scripts/run_matrix.py": "scripts/run_matrix.py",
+    "scripts/run_followup.py": "scripts/run_followup.py",
+    "observed/summary.json": "artifacts/summary.json",
+    "observed/provenance-verification.json": "artifacts/provenance-verification.json",
+    "observed/preservation-result.json": "artifacts/preservation-result.json"
+  },
+  "adapted_scripts": {
+    "scripts/prepare_runtime.py": {
+      "original": "scripts/prepare_runtime.py",
+      "changes": [
+        "Added provenance docstring.",
+        "Replaced fixed native package path with pathlib.Path(os.environ[\"AUDIT_NATIVE_RAY\"]).resolve()."
+      ],
+      "public_derivative_executed": false
+    }
+  },
+  "new_scripts": {
+    "scripts/check_sources.py": {
+      "purpose": "Check only selected published source hashes in a fresh reproduction root.",
+      "executed_in_reproduction_environment": false
+    }
+  },
+  "derived_files": {
+    "observed/cases.json": "Selected nodeid, phase outcomes, observations from six original result files; add explicit category/scope; omit trace paths and failure traceback.",
+    "observed/commands.json": "Four command record files combined; only the three documented absolute path prefixes replaced.",
+    "observed/pytest-summary.txt": "Final pytest summary line from each of six original logs, with original input hash. Only the two introductory documentation lines were translated into English; all log paths, result lines, timings, and original log hashes are unchanged. This assembled excerpt is not listed as a byte-identical original copy.",
+    "README.md": "Editorial documentation of archived results and pinned source findings, translated from Traditional Chinese into English during documentation finalization. Not original experiment output or new experimental evidence.",
+    "REPRODUCE.md": "Editorial reproduction guidance translated into English. Original shell examples are unchanged and remain unexecuted public examples; historical command records and executed test runners are unchanged."
+  },
+  "environment": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "platform": "Linux-6.8.0-147-generic-aarch64-with-glibc2.39",
+    "selected_dependencies": [
+      {
+        "name": "PyYAML",
+        "version": "6.0.3"
+      },
+      {
+        "name": "aiohttp",
+        "version": "3.14.3"
+      },
+      {
+        "name": "click",
+        "version": "8.3.2"
+      },
+      {
+        "name": "cloudpickle",
+        "version": "3.1.1"
+      },
+      {
+        "name": "filelock",
+        "version": "3.29.0"
+      },
+      {
+        "name": "grpcio",
+        "version": "1.75.0"
+      },
+      {
+        "name": "grpcio-tools",
+        "version": "1.75.0"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.24.1"
+      },
+      {
+        "name": "msgpack",
+        "version": "1.1.2"
+      },
+      {
+        "name": "numpy",
+        "version": "2.2.6"
+      },
+      {
+        "name": "packaging",
+        "version": "26.1"
+      },
+      {
+        "name": "prometheus_client",
+        "version": "0.25.0"
+      },
+      {
+        "name": "protobuf",
+        "version": "6.33.6"
+      },
+      {
+        "name": "psutil",
+        "version": "5.9.8"
+      },
+      {
+        "name": "pydantic",
+        "version": "2.12.3"
+      },
+      {
+        "name": "pytest",
+        "version": "7.4.4"
+      },
+      {
+        "name": "ray",
+        "version": "2.58.0"
+      },
+      {
+        "name": "requests",
+        "version": "2.33.1"
+      },
+      {
+        "name": "virtualenv",
+        "version": "21.2.4"
+      }
+    ],
+    "dependency_list_complete": false,
+    "native_reuse": {
+      "distribution": "ray",
+      "version": "2.58.0",
+      "sha256": "af46848e8b413a027aa17b958d1dd1bf93f41c4a55b9009002ce7e1112ef6ec0",
+      "native_build_performed": false
+    },
+    "protobuf_generation": {
+      "files_per_revision": 52,
+      "reporter": "Wheel bindings retained; reporter.proto excluded.",
+      "source_modules_verified_per_revision": 229
+    },
+    "live_cluster_gcs_cloud_tests": false,
+    "combined_67360_67381_tests": false,
+    "fresh_venv_install_example_executed": false
+  },
+  "critical_source_files": {
+    "parent": {
+      "python/ray/__init__.py": {
+        "bytes": 7559,
+        "git_blob": "35b1dfee8ed25d8b2c18a79b2ad2724653b6ac4d",
+        "sha256": "a3845ca44927ca669778ca7489a522f4f5138e8303c7efe6818a193e1b15d376"
+      },
+      "python/ray/autoscaler/v2/instance_manager/common.py": {
+        "bytes": 22518,
+        "git_blob": "9a0bff73040163adfe68675006d22bf4ed377073",
+        "sha256": "eec04ccf6f88eeff7fb1c7d418dd7c7f770bf789cb80a65cae1867c36975f1bd"
+      },
+      "python/ray/autoscaler/v2/instance_manager/instance_manager.py": {
+        "bytes": 10679,
+        "git_blob": "2ce927091ed51d8710faeeb38f19ea667653034c",
+        "sha256": "22bd9069f38066b58d12264b900d95d41f06b0768ba2c38a95fe60566a581d08"
+      },
+      "python/ray/autoscaler/v2/instance_manager/instance_storage.py": {
+        "bytes": 5701,
+        "git_blob": "bad58e039a9f20e8909e79391a32e56ba9ef3085",
+        "sha256": "ed8f17eecc8d18c59e92f92020bf0b03f3bac9d476f021db76ccb937d5fedb89"
+      },
+      "python/ray/autoscaler/v2/instance_manager/storage.py": {
+        "bytes": 6755,
+        "git_blob": "40447bf796962de488a8f11add7f3f0786dace3a",
+        "sha256": "b289e468d6d02c0fca4fbb133b4f5123e7e3a482a0293e82e5aa34675e0c44bc"
+      },
+      "python/ray/autoscaler/v2/instance_manager/reconciler.py": {
+        "bytes": 79581,
+        "git_blob": "beb6e8d85edc123ed21c531f3debf008e5b16997",
+        "sha256": "ea8b52546762237f4a2c20dd0fe0b2c6c23a6580a92546f822080341238a6ed4"
+      },
+      "python/ray/autoscaler/v2/instance_manager/config.py": {
+        "bytes": 22721,
+        "git_blob": "24b20101d8ddc00e74eaa1d674b7e1a19e90df28",
+        "sha256": "65a3d0f6ed42af7189c22394163effd66adca68e6f6f518517bf7b8b35b727d4"
+      },
+      "python/ray/autoscaler/v2/instance_manager/node_provider.py": {
+        "bytes": 18648,
+        "git_blob": "61e870e44c3c7b2a679355ed3dfefeb813befe00",
+        "sha256": "720b688d9bbee45ea05b729336374fb6eec6ceab9ae018ea17d165d93c54edbf"
+      },
+      "python/ray/autoscaler/v2/autoscaler.py": {
+        "bytes": 9294,
+        "git_blob": "69a17c8dfc4aedfb839165eb0b3e6d4eb9dcb033",
+        "sha256": "b23e82cc3b5ebd5a3577496a05cfab19a356920f30f98d60dd63f41df11c40d0"
+      },
+      "src/ray/protobuf/instance_manager.proto": {
+        "bytes": 9118,
+        "git_blob": "e43cfe5cbaf7bbe5828c38acb27c1368e2419203",
+        "sha256": "9df63f59649ae268660899528ba5636a9456a342a6d52a511fb8c4ff1a784c8b"
+      }
+    },
+    "old": {
+      "python/ray/__init__.py": {
+        "bytes": 7559,
+        "git_blob": "35b1dfee8ed25d8b2c18a79b2ad2724653b6ac4d",
+        "sha256": "a3845ca44927ca669778ca7489a522f4f5138e8303c7efe6818a193e1b15d376"
+      },
+      "python/ray/autoscaler/v2/instance_manager/common.py": {
+        "bytes": 24839,
+        "git_blob": "f06f35d6b094797cc6a9f4c1145408aed393bb6e",
+        "sha256": "7c6974ec12e4bc172f1854b9db50e157e30714744f40fa9c5197e0e282662781"
+      },
+      "python/ray/autoscaler/v2/instance_manager/instance_manager.py": {
+        "bytes": 10679,
+        "git_blob": "2ce927091ed51d8710faeeb38f19ea667653034c",
+        "sha256": "22bd9069f38066b58d12264b900d95d41f06b0768ba2c38a95fe60566a581d08"
+      },
+      "python/ray/autoscaler/v2/instance_manager/instance_storage.py": {
+        "bytes": 5701,
+        "git_blob": "bad58e039a9f20e8909e79391a32e56ba9ef3085",
+        "sha256": "ed8f17eecc8d18c59e92f92020bf0b03f3bac9d476f021db76ccb937d5fedb89"
+      },
+      "python/ray/autoscaler/v2/instance_manager/storage.py": {
+        "bytes": 6755,
+        "git_blob": "40447bf796962de488a8f11add7f3f0786dace3a",
+        "sha256": "b289e468d6d02c0fca4fbb133b4f5123e7e3a482a0293e82e5aa34675e0c44bc"
+      },
+      "python/ray/autoscaler/v2/instance_manager/reconciler.py": {
+        "bytes": 79519,
+        "git_blob": "4edaa96d2d2b7a3b646a1795a8ce3dd1bc474357",
+        "sha256": "85e079a4a86397c21dd08b23683368367dc2e7a8bcd7aa21867d61d76435c213"
+      },
+      "python/ray/autoscaler/v2/instance_manager/config.py": {
+        "bytes": 22721,
+        "git_blob": "24b20101d8ddc00e74eaa1d674b7e1a19e90df28",
+        "sha256": "65a3d0f6ed42af7189c22394163effd66adca68e6f6f518517bf7b8b35b727d4"
+      },
+      "python/ray/autoscaler/v2/instance_manager/node_provider.py": {
+        "bytes": 18648,
+        "git_blob": "61e870e44c3c7b2a679355ed3dfefeb813befe00",
+        "sha256": "720b688d9bbee45ea05b729336374fb6eec6ceab9ae018ea17d165d93c54edbf"
+      },
+      "python/ray/autoscaler/v2/autoscaler.py": {
+        "bytes": 9294,
+        "git_blob": "69a17c8dfc4aedfb839165eb0b3e6d4eb9dcb033",
+        "sha256": "b23e82cc3b5ebd5a3577496a05cfab19a356920f30f98d60dd63f41df11c40d0"
+      },
+      "src/ray/protobuf/instance_manager.proto": {
+        "bytes": 9505,
+        "git_blob": "564b6383a5d644c73d62b1ba263f3456ae94e30d",
+        "sha256": "c8a1583d84f3da0ee2ee91124597f11591cb0c0ad5655a4bedb8bd48b3991e23"
+      }
+    },
+    "new": {
+      "python/ray/__init__.py": {
+        "bytes": 7559,
+        "git_blob": "35b1dfee8ed25d8b2c18a79b2ad2724653b6ac4d",
+        "sha256": "a3845ca44927ca669778ca7489a522f4f5138e8303c7efe6818a193e1b15d376"
+      },
+      "python/ray/autoscaler/v2/instance_manager/common.py": {
+        "bytes": 22471,
+        "git_blob": "26281ff62c4aa4943b0b68dea1f8df4cb2a7c151",
+        "sha256": "758278cfdff3f86d4ddf8a532a0cd891be9085460b9c823f320fbde4ba9d7d7d"
+      },
+      "python/ray/autoscaler/v2/instance_manager/instance_manager.py": {
+        "bytes": 13936,
+        "git_blob": "aa58181295b7dc6461024cf4c6eaccb7d5e4fc8f",
+        "sha256": "167a9897232e24749d5250f1abd22625334ec8e309fc387e4d7f2212cfd2e497"
+      },
+      "python/ray/autoscaler/v2/instance_manager/instance_storage.py": {
+        "bytes": 5701,
+        "git_blob": "bad58e039a9f20e8909e79391a32e56ba9ef3085",
+        "sha256": "ed8f17eecc8d18c59e92f92020bf0b03f3bac9d476f021db76ccb937d5fedb89"
+      },
+      "python/ray/autoscaler/v2/instance_manager/storage.py": {
+        "bytes": 6755,
+        "git_blob": "40447bf796962de488a8f11add7f3f0786dace3a",
+        "sha256": "b289e468d6d02c0fca4fbb133b4f5123e7e3a482a0293e82e5aa34675e0c44bc"
+      },
+      "python/ray/autoscaler/v2/instance_manager/reconciler.py": {
+        "bytes": 79780,
+        "git_blob": "bffceacb92b6b4eabf4467ccd0642b449896cc2f",
+        "sha256": "dca1b7c2c8f368452fb56053d6cb5ecf871d4a7e7e33db65aa8c5d052a8e9879"
+      },
+      "python/ray/autoscaler/v2/instance_manager/config.py": {
+        "bytes": 22721,
+        "git_blob": "24b20101d8ddc00e74eaa1d674b7e1a19e90df28",
+        "sha256": "65a3d0f6ed42af7189c22394163effd66adca68e6f6f518517bf7b8b35b727d4"
+      },
+      "python/ray/autoscaler/v2/instance_manager/node_provider.py": {
+        "bytes": 18648,
+        "git_blob": "61e870e44c3c7b2a679355ed3dfefeb813befe00",
+        "sha256": "720b688d9bbee45ea05b729336374fb6eec6ceab9ae018ea17d165d93c54edbf"
+      },
+      "python/ray/autoscaler/v2/autoscaler.py": {
+        "bytes": 9294,
+        "git_blob": "69a17c8dfc4aedfb839165eb0b3e6d4eb9dcb033",
+        "sha256": "b23e82cc3b5ebd5a3577496a05cfab19a356920f30f98d60dd63f41df11c40d0"
+      },
+      "src/ray/protobuf/instance_manager.proto": {
+        "bytes": 9118,
+        "git_blob": "e43cfe5cbaf7bbe5828c38acb27c1368e2419203",
+        "sha256": "9df63f59649ae268660899528ba5636a9456a342a6d52a511fb8c4ff1a784c8b"
+      }
+    }
+  },
+  "original_input_files": {
+    "COMMANDS.txt": {
+      "sha256": "9d869ed5d1b7be39ed30592a0f4f9c12a48c00d25f432842befd2ab16745f446",
+      "bytes": 1490
+    },
+    "ENTRYPOINTS.txt": {
+      "sha256": "6524cc3ccffb49eaabbe20c015f80e7b0f11829b98196f7930347b2484804a43",
+      "bytes": 4053
+    },
+    "SHA256SUMS.json": {
+      "sha256": "6e25d471b7f5fdc2643e37933d70e5198e614249a3beb2e0128a52239a1ade1e",
+      "bytes": 3203120
+    },
+    "artifacts/acquisition-commands.json": {
+      "sha256": "d253aa40c30b17af036dbde90e9ca47a92760f1b02f2b087c7b0928c9699b2df",
+      "bytes": 635
+    },
+    "artifacts/all-protobuf-commands.json": {
+      "sha256": "3da4ef1cef684f8286d3a9752598ca56001f1e90edab712a13a809a7e8c34661",
+      "bytes": 10841
+    },
+    "artifacts/compatibility/findings.json": {
+      "sha256": "b19ea846656d4d8c2154dd02c8c8495234389f1c0c0b80491a76650a1c531036",
+      "bytes": 320
+    },
+    "artifacts/followup-commands.json": {
+      "sha256": "c4ba68354fb46f129693a6218c0cec7e4a9fa8f5db85dce8409b4a99d038d6ee",
+      "bytes": 4880
+    },
+    "artifacts/github-67381-diff.json": {
+      "sha256": "9f3fca7cd323de91b816ab94d2487fb15f67bcfbf3f70a6190cdd69616c6b6e9",
+      "bytes": 6658
+    },
+    "artifacts/github-old-new-diff.json": {
+      "sha256": "3bbd0645711184894402ef57dfeadf95a56de03c477553f2f9828666d08917ec",
+      "bytes": 54070
+    },
+    "artifacts/native-reuse.json": {
+      "sha256": "d277c54f8cb8e3d7c2bf8a467c95706c9eb90444cb03b33e3fa2edb5b00fcbf6",
+      "bytes": 233
+    },
+    "artifacts/new-environment.json": {
+      "sha256": "0ba64217a5e8f200cf905204bda509753dcd301814f8a1feb419e7cea6ff2f2a",
+      "bytes": 153699
+    },
+    "artifacts/new-github-commit.json": {
+      "sha256": "80224606a711ea31f4f3a814957abdc1f95852a3d295ad24a10319787f3c9dd6",
+      "bytes": 2931
+    },
+    "artifacts/new-long-environment.json": {
+      "sha256": "2fc1ef765225d3dfb05b72b8274da8a5b39d6679125b5bcec93801e76ccb8be7",
+      "bytes": 153910
+    },
+    "artifacts/new-long-results.json": {
+      "sha256": "1342cf70eb83de761d96a9eb16e0a4e6b25da6edd0fadd4968f5a6ea3e313a4b",
+      "bytes": 4911
+    },
+    "artifacts/new-long.xml": {
+      "sha256": "cb2872d3a49f35234902058e2572a59a620e77b84ef4f50345f21149eec7367f",
+      "bytes": 1177
+    },
+    "artifacts/new-results.json": {
+      "sha256": "65a05eff717c55daf80c56da877191447984e9b71fcea30e5e65abdb0ffcf12e",
+      "bytes": 20607
+    },
+    "artifacts/new-source-manifest.json": {
+      "sha256": "2ca034c9ca9913420299d95c68d075479a6477d42ff8d4e067ca5ababe42d6f3",
+      "bytes": 1246817
+    },
+    "artifacts/new.xml": {
+      "sha256": "9412ed631956dc35a55dc10f3fea7d9563150e9775857a51ae4cfd9d7a4dc5eb",
+      "bytes": 2926
+    },
+    "artifacts/old-environment.json": {
+      "sha256": "779573bf8584a259a3dfac276df2abad3ea99395bc2eb7c675567a6e296f0271",
+      "bytes": 153699
+    },
+    "artifacts/old-long-environment.json": {
+      "sha256": "59ee78ad25eaf89e056eb55626ddd8e0e1bea57f0a8ff2818a38a84327410142",
+      "bytes": 153910
+    },
+    "artifacts/old-long-results.json": {
+      "sha256": "3edccc8bcd0abfa5cadf7916afc42ff589975a26a21399243835b5c87c9839ee",
+      "bytes": 4911
+    },
+    "artifacts/old-long.xml": {
+      "sha256": "07b8cb30d6285c6592badffa44640a8f3d5b9037892e21a6da2c47ba118ff19e",
+      "bytes": 1177
+    },
+    "artifacts/old-results.json": {
+      "sha256": "d8b68347e614ce6e0e3274fcdc46efe4fdd666bd19e0573c20f9cbf05cfd3058",
+      "bytes": 20149
+    },
+    "artifacts/old-source-manifest.json": {
+      "sha256": "7a55cc8fbe8112e260e7b3090022798866ecb6774f356127511c86ec7b58ec7f",
+      "bytes": 1246817
+    },
+    "artifacts/old.xml": {
+      "sha256": "f5b5cdc77b0afaa87de290611329785bb10a56af278b707c8fe81f0bc514b784",
+      "bytes": 2926
+    },
+    "artifacts/parent-environment.json": {
+      "sha256": "27ed54f385faada9d91493b24a728f108e162d4d9f4da67d923719abb0f89a3b",
+      "bytes": 155277
+    },
+    "artifacts/parent-long-environment.json": {
+      "sha256": "cc7588c3eac9456c1315c502a883e9eca87216220a00a81b3e3e52c0e94fae80",
+      "bytes": 155488
+    },
+    "artifacts/parent-long-results.json": {
+      "sha256": "ff4af6d2ae19b39864b3e1f5a0a838ec2d35da1af968ede8be4d0956750a1d2a",
+      "bytes": 168706
+    },
+    "artifacts/parent-long.xml": {
+      "sha256": "b4829f6fe6dc33a605ca028b6ffbcae57a14e3ebfee9f183bf1cd83c89a60ea3",
+      "bytes": 296561
+    },
+    "artifacts/parent-results.json": {
+      "sha256": "ae3bbbcaa246860ca47d076d9a763b70f21e493ec5864b87a0adfe534f765ac3",
+      "bytes": 38986
+    },
+    "artifacts/parent-source-manifest.json": {
+      "sha256": "91e312ffc84a6e95aca996737835dc240d1a63fa431b2a6624662121d34b6ee6",
+      "bytes": 1246817
+    },
+    "artifacts/parent.xml": {
+      "sha256": "f6cfaea2de5c002d84891da899d09a18c96ba77cf87a2502e373a2804e6553a4",
+      "bytes": 24435
+    },
+    "artifacts/preservation-result.json": {
+      "sha256": "5acb9c7d35623060f9db429a73baaf926cf9269946095673b1d6c6d0963bea44",
+      "bytes": 101
+    },
+    "artifacts/provenance-verification.json": {
+      "sha256": "ec455820481b2562315846747fb4576a1f6e375ae7cba808d86fb6f9de06505d",
+      "bytes": 1725
+    },
+    "artifacts/revisions.json": {
+      "sha256": "1c7a23da164fc6b20bfe31265cddc80ab37f5227460b61e6b7aed2a41a14e9a8",
+      "bytes": 164
+    },
+    "artifacts/seal.json": {
+      "sha256": "ae456bc6b7dbf62bd7789e86dc0f5a747b6ab97e6601e21a64078df2dadfe949",
+      "bytes": 308
+    },
+    "artifacts/summary.json": {
+      "sha256": "44b928b797bb3c777c8d83d5f7725605c1db5fd2ab264bf94184c661d6597ceb",
+      "bytes": 13065
+    },
+    "artifacts/test-commands.json": {
+      "sha256": "aeeaae376ad8e79e5cceeaabceae1e49ad33f802077163fc661c0ab362a0e9fd",
+      "bytes": 4453
+    },
+    "logs/new-long-pytest.log": {
+      "sha256": "1003ff140e712010eef0cc5e425634f6cd086af06d33da245360816888554f69",
+      "bytes": 2278
+    },
+    "logs/new-pytest.log": {
+      "sha256": "627da462bae25f5e3c60c6d315c15d943d54f7cec4567ba3305f4e537c0c1469",
+      "bytes": 5610
+    },
+    "logs/old-long-pytest.log": {
+      "sha256": "34f94a7e8c70edba161d5460938dce20ac1818ee99ba6aef1405b8b98bcfcc57",
+      "bytes": 2278
+    },
+    "logs/old-pytest.log": {
+      "sha256": "d4933d66e424b5ca8a8b455819b1178f4efee9c7b3a65c08c0fe7818990c39b2",
+      "bytes": 5610
+    },
+    "logs/parent-long-pytest.log": {
+      "sha256": "b07b0a15c241a2330fc60c2ca661a064448769b727d897d4642027ce619b2432",
+      "bytes": 426043
+    },
+    "logs/parent-pytest.log": {
+      "sha256": "f28abfb55f2c52b17afa1bf1cd60b0d60b6bfaec161d00e699e61f27cf5864ae",
+      "bytes": 281169
+    },
+    "scripts/acquire.py": {
+      "sha256": "61a30f0ddda65d780bc0914ebd840466d576a7dc42eadbd38b77d566c524b352",
+      "bytes": 2370
+    },
+    "scripts/prepare_runtime.py": {
+      "sha256": "469d9245cb60f716ac1a83f01d722d0b330cae1e1892041169162635f28d0b69",
+      "bytes": 2360
+    },
+    "scripts/prepare_runtime_new.py": {
+      "sha256": "4e03e4488ac4a9d2b36f86646cef03b7688d4fc1c0e8c805aff9d9243cc88023",
+      "bytes": 2360
+    },
+    "scripts/run_followup.py": {
+      "sha256": "85ce13a9ea9cf99ce4342ace811048407b2df4e9428a31fd730db70e23387c33",
+      "bytes": 1482
+    },
+    "scripts/run_matrix.py": {
+      "sha256": "844da3673c8c583db8670d644f6f5c430126373556ce43e4a161586472004550",
+      "bytes": 1440
+    },
+    "scripts/summarize.py": {
+      "sha256": "783473a06a0a17600740588af2428f5f6d0d9a2337e7856a227b5c3e9ea36ca3",
+      "bytes": 4373
+    },
+    "scripts/verify_provenance.py": {
+      "sha256": "3f6f0a0f55fb4c98fbf1d1a53ac734d0ee4ae68b27c5897fe2c4483127e616b1",
+      "bytes": 4928
+    },
+    "tests/conftest.py": {
+      "sha256": "a2650d8391662679fd2fd644ec6e9397a452a3f08882d29efb68e8aeab82f84b",
+      "bytes": 1840
+    },
+    "tests/test_behavior.py": {
+      "sha256": "696f65ca9c0b6e394af8c8eaa553c832aaabe0008f355875ab83af8730f2709b",
+      "bytes": 18830
+    },
+    "tests_followup/conftest.py": {
+      "sha256": "a2650d8391662679fd2fd644ec6e9397a452a3f08882d29efb68e8aeab82f84b",
+      "bytes": 1840
+    },
+    "tests_followup/test_long_history_failures.py": {
+      "sha256": "6a767107c5768156d6ffccfcf614471ef12e283db0ade4e37cef6801d43227b7",
+      "bytes": 2153
+    }
+  },
+  "preservation_scope": "The copied preservation result is the historical runtime worktree audit. This packaging task did not operate source/review worktrees.",
+  "limitations": [
+    "No complete native build at tested revisions.",
+    "No live cluster, GCS, or cloud-provider E2E.",
+    "Manager reconstruction loses truncated lifetime data in New at component level; no production retained-storage replacement path found.",
+    "No complete environment lockfile; fresh setup and helper are unexecuted derivatives.",
+    "Private hashes identify retained inputs but do not make unpublished inputs independently inspectable."
+  ],
+  "documentation_revision": {
+    "scope": "English documentation finalization only.",
+    "translated_files": [
+      "README.md",
+      "REPRODUCE.md",
+      "observed/pytest-summary.txt"
+    ],
+    "runtime_execution_performed": false,
+    "executed_artifacts_and_observed_json_changed": false,
+    "reproduction_shell_blocks_changed": false,
+    "historical_input_hashes_changed": false,
+    "byte_identical_copy_declarations_changed": false,
+    "integrity_manifest": "SHA256SUMS covers all other public files, including provenance.json, and excludes itself. This metadata does not record the public manifest hash; original_input_files hashes refer to private archived inputs."
+  }
+}

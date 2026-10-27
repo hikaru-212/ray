@@ -1,0 +1,2705 @@
+{
+  "derivation": "Selected fields from six archived result files; full tracebacks and absolute trace paths omitted. No outcomes changed.",
+  "cases": [
+    {
+      "nodeid": "::test_retry_exact_boundary[3-10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "attempt": 4,
+        "outcomes": [
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "ALLOCATION_FAILED"
+        ],
+        "cap": 10,
+        "limit": 3,
+        "committed_requested_events": 4
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "retry_boundary",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_retry_exact_boundary[3-200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "attempt": 4,
+        "outcomes": [
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "ALLOCATION_FAILED"
+        ],
+        "cap": 200,
+        "limit": 3,
+        "committed_requested_events": 4
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "retry_boundary",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_retry_exact_boundary[100-10]",
+      "setup": "passed",
+      "call": "failed",
+      "teardown": "passed",
+      "observations": {
+        "attempt": 101,
+        "outcomes": [
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED"
+        ],
+        "cap": 10,
+        "limit": 100,
+        "committed_requested_events": 101
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "retry_boundary",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_retry_exact_boundary[100-200]",
+      "setup": "passed",
+      "call": "failed",
+      "teardown": "passed",
+      "observations": {
+        "attempt": 101,
+        "outcomes": [
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED"
+        ],
+        "cap": 200,
+        "limit": 100,
+        "committed_requested_events": 101
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "retry_boundary",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_bounded_history_roundtrips[10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "history_length": 10,
+        "requested_commits": 120,
+        "visible_requests": 5,
+        "committed_requested_events": 120
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "bounded_history",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_bounded_history_roundtrips[200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "history_length": 200,
+        "requested_commits": 120,
+        "visible_requests": 100,
+        "committed_requested_events": 120
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "bounded_history",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[request_version-warm]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "failure": "request_version",
+        "cold": false,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[request_version-cold]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "failure": "request_version",
+        "cold": true,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[write_version-warm]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "failure": "write_version",
+        "cold": false,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[write_version-cold]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "failure": "write_version",
+        "cold": true,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[write_failure-warm]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "failure": "write_failure",
+        "cold": false,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[write_failure-cold]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "failure": "write_failure",
+        "cold": true,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_lazy_seed_before_failed_commit_preserves_available_history",
+      "setup": "passed",
+      "call": "failed",
+      "teardown": "passed",
+      "observations": {
+        "requested_commits": 101,
+        "outcome": "QUEUED",
+        "committed_requested_events": 101
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "lazy_initialization",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_failed_deletion_retains_summary[version]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "committed_requested_events": 3
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "delete_recreate",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_failed_deletion_retains_summary[unknown]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "committed_requested_events": 3
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "delete_recreate",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_delete_recreate_same_id_resets_counts_and_order",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "recreated_time_ns": 404000000000,
+        "new_lifetime_requests": 2,
+        "selected": "older-survivor",
+        "committed_requested_events": 102
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "delete_recreate",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_oldest_after_history_trimming[queued-10]",
+      "setup": "passed",
+      "call": "failed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "queued",
+        "selected": [
+          "newer"
+        ],
+        "original_timestamp_ns": 1000000000,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "ordering_trimmed",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_oldest_after_history_trimming[queued-200]",
+      "setup": "passed",
+      "call": "failed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "queued",
+        "selected": [
+          "newer"
+        ],
+        "original_timestamp_ns": 1000000000,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "ordering_trimmed",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_oldest_after_history_trimming[requested-10]",
+      "setup": "passed",
+      "call": "failed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "requested",
+        "selected": [
+          "newer"
+        ],
+        "original_timestamp_ns": 1000000000,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "ordering_trimmed",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_oldest_after_history_trimming[requested-200]",
+      "setup": "passed",
+      "call": "failed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "requested",
+        "selected": [
+          "newer"
+        ],
+        "original_timestamp_ns": 1000000000,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "ordering_trimmed",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_timestamp_zero_survives_trimming[queued]",
+      "setup": "passed",
+      "call": "failed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "queued",
+        "selected": [
+          "newer"
+        ],
+        "original_timestamp_ns": 0,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "ordering_zero",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_timestamp_zero_survives_trimming[requested]",
+      "setup": "passed",
+      "call": "failed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "requested",
+        "selected": [
+          "newer"
+        ],
+        "original_timestamp_ns": 0,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "ordering_zero",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_ordering_characterization[ties-queued]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "queued",
+        "scenario": "ties",
+        "selected": [
+          "a"
+        ],
+        "committed_requested_events": 0
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "ordering_characterization",
+      "contract_group": "characterization",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_ordering_characterization[ties-requested]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "requested",
+        "scenario": "ties",
+        "selected": [
+          "a"
+        ],
+        "committed_requested_events": 0
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "ordering_characterization",
+      "contract_group": "characterization",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_ordering_characterization[rollback-queued]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "queued",
+        "scenario": "rollback",
+        "selected": [
+          "a"
+        ],
+        "committed_requested_events": 0
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "ordering_characterization",
+      "contract_group": "characterization",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_ordering_characterization[rollback-requested]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "requested",
+        "scenario": "rollback",
+        "selected": [
+          "b"
+        ],
+        "committed_requested_events": 0
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "ordering_characterization",
+      "contract_group": "characterization",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_clock_rollback_timeout_boundary",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "committed_requested_events": 1
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "timeout_rollback",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_reconstruction_component_boundary[10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "before_decision": "QUEUED",
+        "after_decision": "QUEUED",
+        "retained_requests": 5,
+        "additional_requests": 102,
+        "final_status": "QUEUED",
+        "scope": "component-only; no production reachability established",
+        "committed_requested_events": 203
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "reconstruction_boundary",
+      "contract_group": "component_boundary",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_reconstruction_component_boundary[200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "before_decision": "QUEUED",
+        "after_decision": "QUEUED",
+        "retained_requests": 100,
+        "additional_requests": 102,
+        "final_status": "QUEUED",
+        "scope": "component-only; no production reachability established",
+        "committed_requested_events": 203
+      },
+      "variant": "parent",
+      "suite": "main",
+      "category": "reconstruction_boundary",
+      "contract_group": "component_boundary",
+      "source_result": "artifacts/parent-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[write_version-10]",
+      "setup": "passed",
+      "call": "failed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "failure": "write_version",
+        "request121": "QUEUED",
+        "request122": "QUEUED",
+        "committed_requested_events": 122
+      },
+      "variant": "parent",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[write_version-200]",
+      "setup": "passed",
+      "call": "failed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "failure": "write_version",
+        "request121": "QUEUED",
+        "request122": "QUEUED",
+        "committed_requested_events": 122
+      },
+      "variant": "parent",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[write_failure-10]",
+      "setup": "passed",
+      "call": "failed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "failure": "write_failure",
+        "request121": "QUEUED",
+        "request122": "QUEUED",
+        "committed_requested_events": 122
+      },
+      "variant": "parent",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[write_failure-200]",
+      "setup": "passed",
+      "call": "failed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "failure": "write_failure",
+        "request121": "QUEUED",
+        "request122": "QUEUED",
+        "committed_requested_events": 122
+      },
+      "variant": "parent",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[delete_version-10]",
+      "setup": "passed",
+      "call": "failed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "failure": "delete_version",
+        "request121": "QUEUED",
+        "request122": "QUEUED",
+        "committed_requested_events": 122
+      },
+      "variant": "parent",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[delete_version-200]",
+      "setup": "passed",
+      "call": "failed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "failure": "delete_version",
+        "request121": "QUEUED",
+        "request122": "QUEUED",
+        "committed_requested_events": 122
+      },
+      "variant": "parent",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[delete_failure-10]",
+      "setup": "passed",
+      "call": "failed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "failure": "delete_failure",
+        "request121": "QUEUED",
+        "request122": "QUEUED",
+        "committed_requested_events": 122
+      },
+      "variant": "parent",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[delete_failure-200]",
+      "setup": "passed",
+      "call": "failed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "failure": "delete_failure",
+        "request121": "QUEUED",
+        "request122": "QUEUED",
+        "committed_requested_events": 122
+      },
+      "variant": "parent",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/parent-long-results.json"
+    },
+    {
+      "nodeid": "::test_retry_exact_boundary[3-10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "attempt": 4,
+        "outcomes": [
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "ALLOCATION_FAILED"
+        ],
+        "cap": 10,
+        "limit": 3,
+        "committed_requested_events": 4
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "retry_boundary",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_retry_exact_boundary[3-200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "attempt": 4,
+        "outcomes": [
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "ALLOCATION_FAILED"
+        ],
+        "cap": 200,
+        "limit": 3,
+        "committed_requested_events": 4
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "retry_boundary",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_retry_exact_boundary[100-10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "attempt": 101,
+        "outcomes": [
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "ALLOCATION_FAILED"
+        ],
+        "cap": 10,
+        "limit": 100,
+        "committed_requested_events": 101
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "retry_boundary",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_retry_exact_boundary[100-200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "attempt": 101,
+        "outcomes": [
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "ALLOCATION_FAILED"
+        ],
+        "cap": 200,
+        "limit": 100,
+        "committed_requested_events": 101
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "retry_boundary",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_bounded_history_roundtrips[10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "history_length": 10,
+        "requested_commits": 120,
+        "visible_requests": 5,
+        "committed_requested_events": 120
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "bounded_history",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_bounded_history_roundtrips[200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "history_length": 200,
+        "requested_commits": 120,
+        "visible_requests": 100,
+        "committed_requested_events": 120
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "bounded_history",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[request_version-warm]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "failure": "request_version",
+        "cold": false,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[request_version-cold]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "failure": "request_version",
+        "cold": true,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[write_version-warm]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "failure": "write_version",
+        "cold": false,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[write_version-cold]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "failure": "write_version",
+        "cold": true,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[write_failure-warm]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "failure": "write_failure",
+        "cold": false,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[write_failure-cold]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "failure": "write_failure",
+        "cold": true,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_lazy_seed_before_failed_commit_preserves_available_history",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "requested_commits": 101,
+        "outcome": "ALLOCATION_FAILED",
+        "committed_requested_events": 101
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "lazy_initialization",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_failed_deletion_retains_summary[version]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "committed_requested_events": 3
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "delete_recreate",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_failed_deletion_retains_summary[unknown]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "committed_requested_events": 3
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "delete_recreate",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_delete_recreate_same_id_resets_counts_and_order",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "recreated_time_ns": 404000000000,
+        "new_lifetime_requests": 2,
+        "selected": "older-survivor",
+        "committed_requested_events": 102
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "delete_recreate",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_oldest_after_history_trimming[queued-10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "queued",
+        "selected": [
+          "older"
+        ],
+        "original_timestamp_ns": 1000000000,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "ordering_trimmed",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_oldest_after_history_trimming[queued-200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "queued",
+        "selected": [
+          "older"
+        ],
+        "original_timestamp_ns": 1000000000,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "ordering_trimmed",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_oldest_after_history_trimming[requested-10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "requested",
+        "selected": [
+          "older"
+        ],
+        "original_timestamp_ns": 1000000000,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "ordering_trimmed",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_oldest_after_history_trimming[requested-200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "requested",
+        "selected": [
+          "older"
+        ],
+        "original_timestamp_ns": 1000000000,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "ordering_trimmed",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_timestamp_zero_survives_trimming[queued]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "queued",
+        "selected": [
+          "older"
+        ],
+        "original_timestamp_ns": 0,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "ordering_zero",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_timestamp_zero_survives_trimming[requested]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "requested",
+        "selected": [
+          "older"
+        ],
+        "original_timestamp_ns": 0,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "ordering_zero",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_ordering_characterization[ties-queued]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "queued",
+        "scenario": "ties",
+        "selected": [
+          "b"
+        ],
+        "committed_requested_events": 0
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "ordering_characterization",
+      "contract_group": "characterization",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_ordering_characterization[ties-requested]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "requested",
+        "scenario": "ties",
+        "selected": [
+          "b"
+        ],
+        "committed_requested_events": 0
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "ordering_characterization",
+      "contract_group": "characterization",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_ordering_characterization[rollback-queued]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "queued",
+        "scenario": "rollback",
+        "selected": [
+          "a"
+        ],
+        "committed_requested_events": 0
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "ordering_characterization",
+      "contract_group": "characterization",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_ordering_characterization[rollback-requested]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "requested",
+        "scenario": "rollback",
+        "selected": [
+          "a"
+        ],
+        "committed_requested_events": 0
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "ordering_characterization",
+      "contract_group": "characterization",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_clock_rollback_timeout_boundary",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "committed_requested_events": 1
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "timeout_rollback",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_reconstruction_component_boundary[10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "before_decision": "ALLOCATION_FAILED",
+        "after_decision": "ALLOCATION_FAILED",
+        "retained_requests": 5,
+        "additional_requests": 0,
+        "final_status": "ALLOCATION_FAILED",
+        "scope": "component-only; no production reachability established",
+        "committed_requested_events": 101
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "reconstruction_boundary",
+      "contract_group": "component_boundary",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_reconstruction_component_boundary[200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "before_decision": "ALLOCATION_FAILED",
+        "after_decision": "ALLOCATION_FAILED",
+        "retained_requests": 100,
+        "additional_requests": 0,
+        "final_status": "ALLOCATION_FAILED",
+        "scope": "component-only; no production reachability established",
+        "committed_requested_events": 101
+      },
+      "variant": "old",
+      "suite": "main",
+      "category": "reconstruction_boundary",
+      "contract_group": "component_boundary",
+      "source_result": "artifacts/old-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[write_version-10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "failure": "write_version",
+        "request121": "QUEUED",
+        "request122": "ALLOCATION_FAILED",
+        "committed_requested_events": 122
+      },
+      "variant": "old",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[write_version-200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "failure": "write_version",
+        "request121": "QUEUED",
+        "request122": "ALLOCATION_FAILED",
+        "committed_requested_events": 122
+      },
+      "variant": "old",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[write_failure-10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "failure": "write_failure",
+        "request121": "QUEUED",
+        "request122": "ALLOCATION_FAILED",
+        "committed_requested_events": 122
+      },
+      "variant": "old",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[write_failure-200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "failure": "write_failure",
+        "request121": "QUEUED",
+        "request122": "ALLOCATION_FAILED",
+        "committed_requested_events": 122
+      },
+      "variant": "old",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[delete_version-10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "failure": "delete_version",
+        "request121": "QUEUED",
+        "request122": "ALLOCATION_FAILED",
+        "committed_requested_events": 122
+      },
+      "variant": "old",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[delete_version-200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "failure": "delete_version",
+        "request121": "QUEUED",
+        "request122": "ALLOCATION_FAILED",
+        "committed_requested_events": 122
+      },
+      "variant": "old",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[delete_failure-10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "failure": "delete_failure",
+        "request121": "QUEUED",
+        "request122": "ALLOCATION_FAILED",
+        "committed_requested_events": 122
+      },
+      "variant": "old",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[delete_failure-200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "failure": "delete_failure",
+        "request121": "QUEUED",
+        "request122": "ALLOCATION_FAILED",
+        "committed_requested_events": 122
+      },
+      "variant": "old",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/old-long-results.json"
+    },
+    {
+      "nodeid": "::test_retry_exact_boundary[3-10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "attempt": 4,
+        "outcomes": [
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "ALLOCATION_FAILED"
+        ],
+        "cap": 10,
+        "limit": 3,
+        "committed_requested_events": 4
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "retry_boundary",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_retry_exact_boundary[3-200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "attempt": 4,
+        "outcomes": [
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "ALLOCATION_FAILED"
+        ],
+        "cap": 200,
+        "limit": 3,
+        "committed_requested_events": 4
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "retry_boundary",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_retry_exact_boundary[100-10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "attempt": 101,
+        "outcomes": [
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "ALLOCATION_FAILED"
+        ],
+        "cap": 10,
+        "limit": 100,
+        "committed_requested_events": 101
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "retry_boundary",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_retry_exact_boundary[100-200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "attempt": 101,
+        "outcomes": [
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "QUEUED",
+          "ALLOCATION_FAILED"
+        ],
+        "cap": 200,
+        "limit": 100,
+        "committed_requested_events": 101
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "retry_boundary",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_bounded_history_roundtrips[10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "history_length": 10,
+        "requested_commits": 120,
+        "visible_requests": 5,
+        "committed_requested_events": 120
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "bounded_history",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_bounded_history_roundtrips[200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "history_length": 200,
+        "requested_commits": 120,
+        "visible_requests": 100,
+        "committed_requested_events": 120
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "bounded_history",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[request_version-warm]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cache_ids_after_failure": [
+          "second",
+          "subject"
+        ],
+        "failure": "request_version",
+        "cold": false,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[request_version-cold]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cache_ids_after_failure": [],
+        "failure": "request_version",
+        "cold": true,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[write_version-warm]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cache_ids_after_failure": [
+          "second",
+          "subject"
+        ],
+        "failure": "write_version",
+        "cold": false,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[write_version-cold]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cache_ids_after_failure": [
+          "second",
+          "subject"
+        ],
+        "failure": "write_version",
+        "cold": true,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[write_failure-warm]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cache_ids_after_failure": [
+          "second",
+          "subject"
+        ],
+        "failure": "write_failure",
+        "cold": false,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_failed_batch_and_exactly_once_retry[write_failure-cold]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cache_ids_after_failure": [
+          "second",
+          "subject"
+        ],
+        "failure": "write_failure",
+        "cold": true,
+        "failed_candidate_persisted": false,
+        "request3": "QUEUED",
+        "request4": "ALLOCATION_FAILED",
+        "committed_requested_events": 4
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "commit_failure_and_retry",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_lazy_seed_before_failed_commit_preserves_available_history",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "requested_commits": 101,
+        "outcome": "ALLOCATION_FAILED",
+        "committed_requested_events": 101
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "lazy_initialization",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_failed_deletion_retains_summary[version]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "committed_requested_events": 3
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "delete_recreate",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_failed_deletion_retains_summary[unknown]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "committed_requested_events": 3
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "delete_recreate",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_delete_recreate_same_id_resets_counts_and_order",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "recreated_time_ns": 404000000000,
+        "new_lifetime_requests": 2,
+        "selected": "older-survivor",
+        "committed_requested_events": 102
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "delete_recreate",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_oldest_after_history_trimming[queued-10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "queued",
+        "selected": [
+          "older"
+        ],
+        "original_timestamp_ns": 1000000000,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "ordering_trimmed",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_oldest_after_history_trimming[queued-200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "queued",
+        "selected": [
+          "older"
+        ],
+        "original_timestamp_ns": 1000000000,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "ordering_trimmed",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_oldest_after_history_trimming[requested-10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "requested",
+        "selected": [
+          "older"
+        ],
+        "original_timestamp_ns": 1000000000,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "ordering_trimmed",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_oldest_after_history_trimming[requested-200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "requested",
+        "selected": [
+          "older"
+        ],
+        "original_timestamp_ns": 1000000000,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "ordering_trimmed",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_timestamp_zero_survives_trimming[queued]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "queued",
+        "selected": [
+          "older"
+        ],
+        "original_timestamp_ns": 0,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "ordering_zero",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_timestamp_zero_survives_trimming[requested]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "requested",
+        "selected": [
+          "older"
+        ],
+        "original_timestamp_ns": 0,
+        "original_timestamp_trimmed": true,
+        "committed_requested_events": 0
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "ordering_zero",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_ordering_characterization[ties-queued]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "queued",
+        "scenario": "ties",
+        "selected": [
+          "b"
+        ],
+        "committed_requested_events": 0
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "ordering_characterization",
+      "contract_group": "characterization",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_ordering_characterization[ties-requested]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "requested",
+        "scenario": "ties",
+        "selected": [
+          "b"
+        ],
+        "committed_requested_events": 0
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "ordering_characterization",
+      "contract_group": "characterization",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_ordering_characterization[rollback-queued]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "queued",
+        "scenario": "rollback",
+        "selected": [
+          "a"
+        ],
+        "committed_requested_events": 0
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "ordering_characterization",
+      "contract_group": "characterization",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_ordering_characterization[rollback-requested]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "kind": "requested",
+        "scenario": "rollback",
+        "selected": [
+          "a"
+        ],
+        "committed_requested_events": 0
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "ordering_characterization",
+      "contract_group": "characterization",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_clock_rollback_timeout_boundary",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "committed_requested_events": 1
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "timeout_rollback",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_reconstruction_component_boundary[10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "before_decision": "ALLOCATION_FAILED",
+        "after_decision": "QUEUED",
+        "retained_requests": 5,
+        "additional_requests": 96,
+        "final_status": "ALLOCATION_FAILED",
+        "scope": "component-only; no production reachability established",
+        "committed_requested_events": 197
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "reconstruction_boundary",
+      "contract_group": "component_boundary",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_reconstruction_component_boundary[200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "before_decision": "ALLOCATION_FAILED",
+        "after_decision": "QUEUED",
+        "retained_requests": 100,
+        "additional_requests": 1,
+        "final_status": "ALLOCATION_FAILED",
+        "scope": "component-only; no production reachability established",
+        "committed_requested_events": 102
+      },
+      "variant": "new",
+      "suite": "main",
+      "category": "reconstruction_boundary",
+      "contract_group": "component_boundary",
+      "source_result": "artifacts/new-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[write_version-10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "failure": "write_version",
+        "request121": "QUEUED",
+        "request122": "ALLOCATION_FAILED",
+        "committed_requested_events": 122
+      },
+      "variant": "new",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[write_version-200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "failure": "write_version",
+        "request121": "QUEUED",
+        "request122": "ALLOCATION_FAILED",
+        "committed_requested_events": 122
+      },
+      "variant": "new",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[write_failure-10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "failure": "write_failure",
+        "request121": "QUEUED",
+        "request122": "ALLOCATION_FAILED",
+        "committed_requested_events": 122
+      },
+      "variant": "new",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[write_failure-200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "failure": "write_failure",
+        "request121": "QUEUED",
+        "request122": "ALLOCATION_FAILED",
+        "committed_requested_events": 122
+      },
+      "variant": "new",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[delete_version-10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "failure": "delete_version",
+        "request121": "QUEUED",
+        "request122": "ALLOCATION_FAILED",
+        "committed_requested_events": 122
+      },
+      "variant": "new",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[delete_version-200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "failure": "delete_version",
+        "request121": "QUEUED",
+        "request122": "ALLOCATION_FAILED",
+        "committed_requested_events": 122
+      },
+      "variant": "new",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[delete_failure-10]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 10,
+        "failure": "delete_failure",
+        "request121": "QUEUED",
+        "request122": "ALLOCATION_FAILED",
+        "committed_requested_events": 122
+      },
+      "variant": "new",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-long-results.json"
+    },
+    {
+      "nodeid": "::test_failure_preserves_full_lifetime_after_truncation[delete_failure-200]",
+      "setup": "passed",
+      "call": "passed",
+      "teardown": "passed",
+      "observations": {
+        "cap": 200,
+        "failure": "delete_failure",
+        "request121": "QUEUED",
+        "request122": "ALLOCATION_FAILED",
+        "committed_requested_events": 122
+      },
+      "variant": "new",
+      "suite": "followup",
+      "category": "failures_after_truncation",
+      "contract_group": "common_behavioral_invariant",
+      "source_result": "artifacts/new-long-results.json"
+    }
+  ]
+}

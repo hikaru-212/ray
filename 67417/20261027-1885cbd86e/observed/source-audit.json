@@ -1,0 +1,21 @@
+{
+  "head": {
+    "sha": "1885cbd86ef61cd93890de804c64feaeb3f4ed9f",
+    "tracked_blobs_checked": 10471,
+    "changed_files": [
+      "src/ray/gcs/tests/gcs_node_manager_test.cc"
+    ],
+    "production_unchanged": true
+  },
+  "parent": {
+    "sha": "0a509f3448c1f3c71f80b80f46a6fb6a4df971ff",
+    "tracked_blobs_checked": 10471,
+    "changed_files": [
+      "src/ray/gcs/tests/gcs_node_manager_test.cc",
+      "src/ray/gcs_rpc_client/tests/gcs_client_test.cc"
+    ],
+    "production_unchanged": true
+  },
+  "test_sources_identical": true,
+  "workspace_status": ""
+}

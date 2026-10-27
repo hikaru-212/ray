@@ -1,0 +1,3 @@
+# Preserve selected Bazel test logs despite the repository-level *.log rule.
+!observed/head/*.log
+!observed/parent/*.log

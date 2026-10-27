@@ -1,0 +1,57 @@
+exec ${PAGER:-/usr/bin/less} "$0" || exit 1
+Executing tests from //src/ray/gcs/tests:gcs_node_manager_test
+-----------------------------------------------------------------------------
+Note: Google Test filter = GcsNodeManagerTest.TestRestoredHeadRegistrationReplayHasNoDeathSideEffects:GcsNodeManagerTest.TestInitializeDoesNotNotifyNodeAddedListeners:*TestReregisterSameHeadNode*:*TestRegisterHeadNode*:*TestGcsTableReload*
+[==========] Running 2 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 2 tests from GcsNodeManagerTest
+[ RUN      ] GcsNodeManagerTest.TestRestoredHeadRegistrationReplayHasNoDeathSideEffects
+[2026-10-27 20:00:08,685 I 61136 61136] (gcs_node_manager_test) gcs_node_manager.cc:111: Registering new node. node_id=f24b7eb8ceedcb8158cf225c0e3643b9ef9d1610146a9acd1b6da08f node_name=Mocker_node node_address=127.0.0.1
+[2026-10-27 20:00:08,686 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:48: Loading job table data.
+[2026-10-27 20:00:08,686 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:58: Loading node table data.
+[2026-10-27 20:00:08,686 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:78: Loading actor table data.
+[2026-10-27 20:00:08,686 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:89: Loading actor task spec table data.
+[2026-10-27 20:00:08,686 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:68: Loading placement group table data.
+[2026-10-27 20:00:08,686 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:99: Loading worker table data.
+[2026-10-27 20:00:08,686 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:52: Finished loading job table data, size = 0
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:62: Finished loading node table data, size = 1
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:83: Finished loading actor table data, size = 0
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:93: Finished loading actor task spec table data, size = 0
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:72: Finished loading placement group table data, size = 0
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:103: Finished loading worker table data, size = 0
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_node_manager_test.cc:162: RECOVERY_REPLAY phase=restored alive=1 dead=0 stored=ALIVE
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_node_manager.cc:111: Registering new node. node_id=f24b7eb8ceedcb8158cf225c0e3643b9ef9d1610146a9acd1b6da08f node_name=Mocker_node node_address=127.0.0.1
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_node_manager_test.cc:174: RECOVERY_REPLAY phase=handler_return alive=1 dead=0
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:48: Loading job table data.
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:58: Loading node table data.
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:78: Loading actor table data.
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:89: Loading actor task spec table data.
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:68: Loading placement group table data.
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:99: Loading worker table data.
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:52: Finished loading job table data, size = 0
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:62: Finished loading node table data, size = 1
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:83: Finished loading actor table data, size = 0
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:93: Finished loading actor task spec table data, size = 0
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:72: Finished loading placement group table data, size = 0
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:103: Finished loading worker table data, size = 0
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_node_manager_test.cc:206: RECOVERY_REPLAY phase=complete alive=1 dead=0 stored=ALIVE removed=0 added=0 dead_info=0 dead_liveness=0 alive_info=1 alive_liveness=1
+[       OK ] GcsNodeManagerTest.TestRestoredHeadRegistrationReplayHasNoDeathSideEffects (2 ms)
+[ RUN      ] GcsNodeManagerTest.TestInitializeDoesNotNotifyNodeAddedListeners
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:48: Loading job table data.
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:58: Loading node table data.
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:78: Loading actor table data.
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:89: Loading actor task spec table data.
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:68: Loading placement group table data.
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:99: Loading worker table data.
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:52: Finished loading job table data, size = 0
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:62: Finished loading node table data, size = 1
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:83: Finished loading actor table data, size = 0
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:93: Finished loading actor task spec table data, size = 0
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:72: Finished loading placement group table data, size = 0
+[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_init_data.cc:103: Finished loading worker table data, size = 0
+[       OK ] GcsNodeManagerTest.TestInitializeDoesNotNotifyNodeAddedListeners (0 ms)
+[----------] 2 tests from GcsNodeManagerTest (2 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test suite ran. (2 ms total)
+[  PASSED  ] 2 tests.

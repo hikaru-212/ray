@@ -1,0 +1,30 @@
+{
+  "classification": "INDEPENDENT VERIFICATION",
+  "fixture": "GcsNodeManagerTest",
+  "new_test": "TestRestoredHeadRegistrationReplayHasNoDeathSideEffects",
+  "first_registration": "Real HandleRegisterNode writes serialized ALIVE data; original manager is destroyed after its callbacks complete.",
+  "restore": "New manager caches are asserted empty; existing LoadInitData calls GcsInitData::AsyncLoad; production Initialize restores the head.",
+  "replay": "Same serialized RegisterNodeRequest; same node lifetime and ID; no cache mutations by test.",
+  "publication_observer": "Production GcsPublisher using existing FakePublisher, recording both node channels.",
+  "storage_backend": "Existing InMemoryStoreClient retained across manager lifetimes; GcsTableStorage wrapper retained.",
+  "limitations": [
+    "No physical GCS process crash or disk/Redis recovery in new unit test.",
+    "No transport-level lost reply or automatic gRPC retry injection.",
+    "No real raylet, health checker, subscriber delivery or NodeRemoved fatal execution in new unit test.",
+    "No concurrent independent death/write-completion race injection.",
+    "No exactly-once notification guarantee: one ALIVE publication per channel was observed on replay in both variants.",
+    "TestGcsTableReload/1 returns early for memory; its PASS is not a recovery exercise.",
+    "Redis TestGcsTableReload/0 and registration tests execute real GCS client/server paths, but do not combine a lost reply with recovery replay."
+  ],
+  "unexpected_failures": [],
+  "parent_expected_failures": [
+    "recovery regression (six assertions)",
+    "TestReregisterSameHeadNode/0 (nodes.size() == 2)",
+    "TestReregisterSameHeadNode/1 (nodes.size() == 2)"
+  ],
+  "phase1_race": "Remains a hypothesis; not tested or attributed to this PR.",
+  "production_changes": false,
+  "github_modifications": false,
+  "commits_or_pushes": false,
+  "permanent_worktrees_created": false
+}

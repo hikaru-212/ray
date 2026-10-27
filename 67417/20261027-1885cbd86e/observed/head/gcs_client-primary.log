@@ -1,0 +1,1988 @@
+exec ${PAGER:-/usr/bin/less} "$0" || exit 1
+Executing tests from //src/ray/gcs_rpc_client/tests:gcs_client_test
+-----------------------------------------------------------------------------
+Note: Google Test filter = GcsNodeManagerTest.TestRestoredHeadRegistrationReplayHasNoDeathSideEffects:GcsNodeManagerTest.TestInitializeDoesNotNotifyNodeAddedListeners:*TestReregisterSameHeadNode*:*TestRegisterHeadNode*:*TestGcsTableReload*
+[==========] Running 6 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 6 tests from RedisMigration/GcsClientTest
+[ RUN      ] RedisMigration/GcsClientTest.TestGcsTableReload/0
+[2026-10-27 20:00:13,915 I 61197 61197] (gcs_client_test) test_utils.cc:137: Start redis command is: 'external/redis_linux_arm64/redis-server' --loglevel warning --save  --appendonly no --port 3537
+[2026-10-27 20:00:13,942 I 61197 61197] (gcs_client_test) gcs_server.cc:195: GCS storage type is StorageType::REDIS_PERSIST
+[2026-10-27 20:00:13,942 I 61197 61197] (gcs_client_test) gcs_server.cc:196: GCS node ID initialized from config node_id=NIL_ID
+[2026-10-27 20:00:13,944 I 61197 61197] (gcs_client_test) redis_context.cc:1102: Resolve Redis address to 127.0.0.1
+[2026-10-27 20:00:13,944 I 61197 61197] (gcs_client_test) redis_context.cc:782: Attempting to connect to address 127.0.0.1:3537.
+[2026-10-27 20:00:13,944 I 61197 61197] (gcs_client_test) redis_context.cc:651: Enabled TCP keepalive on the Redis connection to 127.0.0.1:3537: idle=30s, probe interval=30s, probes=3 (idle, unresponsive connection detected after ~120s).
+[2026-10-27 20:00:13,944 I 61197 61197] (gcs_client_test) redis_context.cc:782: Attempting to connect to address 127.0.0.1:3537.
+[2026-10-27 20:00:13,944 I 61197 61197] (gcs_client_test) redis_context.cc:651: Enabled TCP keepalive on the Redis connection to 127.0.0.1:3537: idle=30s, probe interval=30s, probes=3 (idle, unresponsive connection detected after ~120s).
+[2026-10-27 20:00:13,944 I 61197 61197] (gcs_client_test) redis_context.cc:925: Connect to Redis Cluster
+[2026-10-27 20:00:13,944 I 61197 61197] (gcs_client_test) redis_context.cc:965: Redis cluster leader is 127.0.0.1:3537
+[2026-10-27 20:00:13,945 I 61197 61197] (gcs_client_test) redis_context.cc:1102: Resolve Redis address to 127.0.0.1
+[2026-10-27 20:00:13,945 I 61197 61197] (gcs_client_test) redis_context.cc:782: Attempting to connect to address 127.0.0.1:3537.
+[2026-10-27 20:00:13,945 I 61197 61197] (gcs_client_test) redis_context.cc:651: Enabled TCP keepalive on the Redis connection to 127.0.0.1:3537: idle=30s, probe interval=30s, probes=3 (idle, unresponsive connection detected after ~120s).
+[2026-10-27 20:00:13,945 I 61197 61197] (gcs_client_test) redis_context.cc:782: Attempting to connect to address 127.0.0.1:3537.
+[2026-10-27 20:00:13,945 I 61197 61197] (gcs_client_test) redis_context.cc:651: Enabled TCP keepalive on the Redis connection to 127.0.0.1:3537: idle=30s, probe interval=30s, probes=3 (idle, unresponsive connection detected after ~120s).
+[2026-10-27 20:00:13,945 I 61197 61197] (gcs_client_test) redis_context.cc:925: Connect to Redis Cluster
+[2026-10-27 20:00:13,945 I 61197 61197] (gcs_client_test) redis_context.cc:965: Redis cluster leader is 127.0.0.1:3537
+[2026-10-27 20:00:13,945 I 61197 61197] (gcs_client_test) gcs_init_data.cc:48: Loading job table data.
+[2026-10-27 20:00:13,945 I 61197 61197] (gcs_client_test) gcs_init_data.cc:58: Loading node table data.
+[2026-10-27 20:00:13,945 I 61197 61197] (gcs_client_test) gcs_init_data.cc:78: Loading actor table data.
+[2026-10-27 20:00:13,945 I 61197 61197] (gcs_client_test) gcs_init_data.cc:89: Loading actor task spec table data.
+[2026-10-27 20:00:13,945 I 61197 61197] (gcs_client_test) gcs_init_data.cc:68: Loading placement group table data.
+[2026-10-27 20:00:13,945 I 61197 61197] (gcs_client_test) gcs_init_data.cc:99: Loading worker table data.
+[2026-10-27 20:00:13,946 I 61197 61225] (gcs_client_test) gcs_init_data.cc:52: Finished loading job table data, size = 0
+[2026-10-27 20:00:13,946 I 61197 61225] (gcs_client_test) gcs_init_data.cc:62: Finished loading node table data, size = 0
+[2026-10-27 20:00:13,946 I 61197 61225] (gcs_client_test) gcs_init_data.cc:83: Finished loading actor table data, size = 0
+[2026-10-27 20:00:13,946 I 61197 61225] (gcs_client_test) gcs_init_data.cc:93: Finished loading actor task spec table data, size = 0
+[2026-10-27 20:00:13,946 I 61197 61225] (gcs_client_test) gcs_init_data.cc:72: Finished loading placement group table data, size = 0
+[2026-10-27 20:00:13,946 I 61197 61225] (gcs_client_test) gcs_init_data.cc:103: Finished loading worker table data, size = 0
+[2026-10-27 20:00:13,946 I 61197 61225] (gcs_client_test) gcs_server.cc:387: Generated new cluster ID. cluster_id=966af307597b71393d2f0d46fe658b141b520a2d081817bca91659c7
+[2026-10-27 20:00:13,948 I 61197 61225] (gcs_client_test) gcs_server.cc:1156: Autoscaler V2 enabled: 0
+[2026-10-27 20:00:13,951 I 61197 61225] (gcs_client_test) grpc_server.cc:144: MockedGcsServer server started, listening on port 5397.
+[2026-10-27 20:00:13,958 I 61197 61225] (gcs_client_test) gcs_server.cc:1323: Gcs Debug state:
+
+GcsNodeManager:
+- RegisterNode request count: 0
+- DrainNode request count: 0
+- GetAllNodeInfo request count: 0
+
+GcsActorManager:
+- RegisterActor request count: 0
+- CreateActor request count: 0
+- GetActorInfo request count: 0
+- GetNamedActorInfo request count: 0
+- GetAllActorInfo request count: 0
+- KillActor request count: 0
+- ListNamedActors request count: 0
+- Registered actors count: 0
+- Destroyed actors count: 0
+- Named actors count: 0
+- Unresolved actors count: 0
+- Pending actors count: 0
+- Created actors count: 0
+- owners_: 0
+- actor_to_register_callbacks_: 0
+- actor_to_restart_for_lineage_reconstruction_callbacks_: 0
+- actor_to_create_callbacks_: 0
+- sorted_destroyed_actor_list_: 0
+
+GcsResourceManager:
+- GetAllAvailableResources request count: 0
+- GetAllTotalResources request count: 0
+- GetAllResourceUsage request count: 0
+
+GcsPlacementGroupManager:
+- CreatePlacementGroup request count: 0
+- RemovePlacementGroup request count: 0
+- GetPlacementGroup request count: 0
+- GetAllPlacementGroup request count: 0
+- WaitPlacementGroupUntilReady request count: 0
+- GetNamedPlacementGroup request count: 0
+- Scheduling pending placement group count: 0
+- Registered placement groups count: 0
+- Named placement group count: 0
+- Pending placement groups count: 0
+- Infeasible placement groups count: 0
+
+Publisher:
+- current long-polling subscribers: 0
+GCS_NODE_INFO_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_JOB_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_NODE_ADDRESS_AND_LIVENESS_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_ACTOR_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_WORKER_DELTA_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+
+Publisher:
+- current long-polling subscribers: 0
+RAY_ERROR_INFO_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+RAY_NODE_RESOURCE_USAGE_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+RAY_LOG_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+
+[runtime env manager] ID to URIs table:
+[runtime env manager] URIs reference table:
+
+GcsTaskManager:
+-Total num task events reported: 0
+-Total num status task events dropped: 0
+-Total num profile events dropped: 0
+-Current num of task events stored: 0
+-Total num of actor creation tasks: 0
+-Total num of actor tasks: 0
+-Total num of normal tasks: 0
+-Total num of driver tasks: 0
+
+GcsAutoscalerStateManager:
+- last_seen_autoscaler_state_version_: 0
+- last_cluster_resource_state_version_: 0
+- pending demands:
+
+
+
+[2026-10-27 20:00:13,958 I 61197 61225] (gcs_client_test) gcs_server.cc:1338: Main service Event stats:
+
+
+Global stats: 33 total (3 active)
+Queueing time: mean = 0.42ms, max = 9.68ms, min = 0.00ms, total = 13.96ms
+Execution time:  mean = 0.66ms, total = 21.83ms
+Event stats:
+	RedisAsyncContext.addWrite - 7 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.30ms, max = 0.37ms, min = 0.00ms, total = 2.13ms
+	RedisRequestContext.Callback - 7 total (0 active), Execution time: mean = 0.01ms, total = 0.07ms, Queueing time: mean = 0.04ms, max = 0.07ms, min = 0.01ms, total = 0.27ms
+	RedisStoreClient.RedisScanner.Scan - 6 total (0 active), Execution time: mean = 0.01ms, total = 0.06ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 3 total (2 active, 1 running), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.52ms, max = 1.57ms, min = 1.57ms, total = 1.57ms
+	RedisStoreClient.AsyncPut - 3 total (0 active), Execution time: mean = 3.61ms, total = 10.82ms, Queueing time: mean = 3.30ms, max = 9.68ms, min = 0.03ms, total = 9.91ms
+	RedisAsyncContext.addRead - 2 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	RedisStoreClient.AsyncCheckHealth - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	GCSServer.redis_health_check - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	RedisStoreClient.AsyncGet - 1 total (0 active), Execution time: mean = 0.04ms, total = 0.04ms, Queueing time: mean = 0.08ms, max = 0.08ms, min = 0.08ms, total = 0.08ms
+	GcsServer.GetOrGenerateClusterId.continuation - 1 total (0 active), Execution time: mean = 10.81ms, total = 10.81ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	GcsInitData::AsyncLoad - 1 total (0 active), Execution time: mean = 0.02ms, total = 0.02ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+
+
+[2026-10-27 20:00:13,958 I 61197 61225] (gcs_client_test) gcs_server.cc:1342: task_io_context Event stats:
+
+
+Global stats: 5 total (2 active)
+Queueing time: mean = 0.02ms, max = 0.05ms, min = 0.00ms, total = 0.09ms
+Execution time:  mean = 0.01ms, total = 0.04ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.02ms, total = 0.03ms, Queueing time: mean = 0.03ms, max = 0.05ms, min = 0.00ms, total = 0.05ms
+	GcsTaskManager.GcJobSummary - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.04ms, max = 0.04ms, min = 0.04ms, total = 0.04ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:13,958 I 61197 61225] (gcs_client_test) gcs_server.cc:1342: pubsub_io_context Event stats:
+
+
+Global stats: 5 total (2 active)
+Queueing time: mean = 0.02ms, max = 0.05ms, min = 0.00ms, total = 0.10ms
+Execution time:  mean = 0.09ms, total = 0.44ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.02ms, total = 0.03ms, Queueing time: mean = 0.03ms, max = 0.05ms, min = 0.00ms, total = 0.05ms
+	Publisher.CheckDeadSubscribers - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.41ms, total = 0.41ms, Queueing time: mean = 0.05ms, max = 0.05ms, min = 0.05ms, total = 0.05ms
+
+
+[2026-10-27 20:00:13,958 I 61197 61225] (gcs_client_test) gcs_server.cc:1342: observability_pubsub_io_context Event stats:
+
+
+Global stats: 5 total (2 active)
+Queueing time: mean = 0.06ms, max = 0.22ms, min = 0.00ms, total = 0.28ms
+Execution time:  mean = 0.05ms, total = 0.25ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.03ms, Queueing time: mean = 0.03ms, max = 0.05ms, min = 0.00ms, total = 0.06ms
+	Publisher.CheckDeadSubscribers - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.22ms, total = 0.22ms, Queueing time: mean = 0.22ms, max = 0.22ms, min = 0.22ms, total = 0.22ms
+
+
+[2026-10-27 20:00:13,958 I 61197 61225] (gcs_client_test) gcs_server.cc:1342: ray_syncer_io_context Event stats:
+
+
+Global stats: 5 total (1 active)
+Queueing time: mean = 0.04ms, max = 0.12ms, min = 0.00ms, total = 0.20ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	RaySyncerRegister - 2 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.06ms, max = 0.12ms, min = 0.00ms, total = 0.12ms
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.04ms, max = 0.07ms, min = 0.00ms, total = 0.07ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:13,958 I 61197 61225] (gcs_client_test) gcs_server.cc:1342: ray_event_io_context Event stats:
+
+
+Global stats: 3 total (1 active)
+Queueing time: mean = 0.01ms, max = 0.04ms, min = 0.00ms, total = 0.04ms
+Execution time:  mean = 0.01ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.02ms, max = 0.04ms, min = 0.00ms, total = 0.04ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:13,958 I 61197 61225] (gcs_client_test) gcs_server.cc:1342: internal_kv_io_context Event stats:
+
+
+Global stats: 19 total (1 active)
+Queueing time: mean = 0.01ms, max = 0.07ms, min = 0.00ms, total = 0.28ms
+Execution time:  mean = 0.00ms, total = 0.06ms
+Event stats:
+	RedisAsyncContext.addRead - 8 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	RedisAsyncContext.addWrite - 4 total (0 active), Execution time: mean = 0.00ms, total = 0.01ms, Queueing time: mean = 0.05ms, max = 0.07ms, min = 0.04ms, total = 0.20ms
+	RedisRequestContext.Callback - 4 total (0 active), Execution time: mean = 0.00ms, total = 0.01ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.01ms
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.02ms, total = 0.03ms, Queueing time: mean = 0.04ms, max = 0.07ms, min = 0.00ms, total = 0.07ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:13,958 I 61197 61225] (gcs_client_test) gcs_server.cc:1342: node_manager_io_context Event stats:
+
+
+Global stats: 3 total (1 active)
+Queueing time: mean = 0.03ms, max = 0.09ms, min = 0.00ms, total = 0.09ms
+Execution time:  mean = 0.03ms, total = 0.09ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.05ms, total = 0.09ms, Queueing time: mean = 0.04ms, max = 0.09ms, min = 0.00ms, total = 0.09ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:13,958 I 61197 61225] (gcs_client_test) gcs_server.cc:1342: resource_load_pull_io_context Event stats:
+
+
+Global stats: 5 total (1 active)
+Queueing time: mean = 0.02ms, max = 0.06ms, min = 0.00ms, total = 0.10ms
+Execution time:  mean = 0.02ms, total = 0.08ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.04ms, total = 0.07ms, Queueing time: mean = 0.03ms, max = 0.06ms, min = 0.00ms, total = 0.06ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.03ms, max = 0.03ms, min = 0.03ms, total = 0.03ms
+	io_context_monitor_probe - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.01ms, max = 0.01ms, min = 0.01ms, total = 0.01ms
+	RayletLoadPulled - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:13,969 I 61197 61217] (gcs_client_test) gcs_node_manager.cc:111: Registering new node. node_id=fef6b7a1cc1543e7825a77549c703565257aca97b372ba5df47dcf1e node_name=Mocker_node node_address=127.0.0.1
+[2026-10-27 20:00:13,969 W 61197 61225] (gcs_client_test) gcs_resource_manager.cc:245: The registered node doesn't set the total resources. node_id=fef6b7a1cc1543e7825a77549c703565257aca97b372ba5df47dcf1e
+[2026-10-27 20:00:13,969 I 61197 61197] (gcs_client_test) gcs_client_test.cc:176: Stopping GCS service, port = 5397
+[2026-10-27 20:00:13,969 I 61197 61197] (gcs_client_test) gcs_server.cc:645: Stopping GCS server.
+[2026-10-27 20:00:13,970 I 61197 61197] (gcs_client_test) ray_event_recorder_base.cc:69: Stopping RayEventRecorder and flushing remaining events.
+[2026-10-27 20:00:13,972 I 61197 61197] (gcs_client_test) gcs_server.cc:675: GCS server stopped.
+[2026-10-27 20:00:13,973 I 61197 61197] (gcs_client_test) gcs_client_test.cc:182: Finished stopping GCS service.
+[2026-10-27 20:00:13,973 I 61197 61197] (gcs_client_test) gcs_server.cc:195: GCS storage type is StorageType::REDIS_PERSIST
+[2026-10-27 20:00:13,973 I 61197 61197] (gcs_client_test) gcs_server.cc:196: GCS node ID initialized from config node_id=NIL_ID
+[2026-10-27 20:00:13,973 I 61197 61197] (gcs_client_test) redis_context.cc:1102: Resolve Redis address to 127.0.0.1
+[2026-10-27 20:00:13,973 I 61197 61197] (gcs_client_test) redis_context.cc:782: Attempting to connect to address 127.0.0.1:3537.
+[2026-10-27 20:00:13,973 I 61197 61197] (gcs_client_test) redis_context.cc:651: Enabled TCP keepalive on the Redis connection to 127.0.0.1:3537: idle=30s, probe interval=30s, probes=3 (idle, unresponsive connection detected after ~120s).
+[2026-10-27 20:00:13,973 I 61197 61197] (gcs_client_test) redis_context.cc:782: Attempting to connect to address 127.0.0.1:3537.
+[2026-10-27 20:00:13,973 I 61197 61197] (gcs_client_test) redis_context.cc:651: Enabled TCP keepalive on the Redis connection to 127.0.0.1:3537: idle=30s, probe interval=30s, probes=3 (idle, unresponsive connection detected after ~120s).
+[2026-10-27 20:00:13,973 I 61197 61197] (gcs_client_test) redis_context.cc:925: Connect to Redis Cluster
+[2026-10-27 20:00:13,974 I 61197 61197] (gcs_client_test) redis_context.cc:965: Redis cluster leader is 127.0.0.1:3537
+[2026-10-27 20:00:13,974 I 61197 61197] (gcs_client_test) redis_context.cc:1102: Resolve Redis address to 127.0.0.1
+[2026-10-27 20:00:13,974 I 61197 61197] (gcs_client_test) redis_context.cc:782: Attempting to connect to address 127.0.0.1:3537.
+[2026-10-27 20:00:13,974 I 61197 61197] (gcs_client_test) redis_context.cc:651: Enabled TCP keepalive on the Redis connection to 127.0.0.1:3537: idle=30s, probe interval=30s, probes=3 (idle, unresponsive connection detected after ~120s).
+[2026-10-27 20:00:13,974 I 61197 61197] (gcs_client_test) redis_context.cc:782: Attempting to connect to address 127.0.0.1:3537.
+[2026-10-27 20:00:13,974 I 61197 61197] (gcs_client_test) redis_context.cc:651: Enabled TCP keepalive on the Redis connection to 127.0.0.1:3537: idle=30s, probe interval=30s, probes=3 (idle, unresponsive connection detected after ~120s).
+[2026-10-27 20:00:13,974 I 61197 61197] (gcs_client_test) redis_context.cc:925: Connect to Redis Cluster
+[2026-10-27 20:00:13,974 I 61197 61197] (gcs_client_test) redis_context.cc:965: Redis cluster leader is 127.0.0.1:3537
+[2026-10-27 20:00:13,974 I 61197 61197] (gcs_client_test) gcs_init_data.cc:48: Loading job table data.
+[2026-10-27 20:00:13,974 I 61197 61197] (gcs_client_test) gcs_init_data.cc:58: Loading node table data.
+[2026-10-27 20:00:13,974 I 61197 61197] (gcs_client_test) gcs_init_data.cc:78: Loading actor table data.
+[2026-10-27 20:00:13,974 I 61197 61197] (gcs_client_test) gcs_init_data.cc:89: Loading actor task spec table data.
+[2026-10-27 20:00:13,974 I 61197 61197] (gcs_client_test) gcs_init_data.cc:68: Loading placement group table data.
+[2026-10-27 20:00:13,974 I 61197 61197] (gcs_client_test) gcs_init_data.cc:99: Loading worker table data.
+[2026-10-27 20:00:13,974 W 61197 61252] (gcs_client_test) gcs_server.cc:1075: Failed to put the GCS pid in the kv store. GCS process metrics will not be emitted.
+[2026-10-27 20:00:13,974 I 61197 61252] (gcs_client_test) gcs_init_data.cc:52: Finished loading job table data, size = 0
+[2026-10-27 20:00:13,975 I 61197 61252] (gcs_client_test) gcs_init_data.cc:62: Finished loading node table data, size = 1
+[2026-10-27 20:00:13,975 I 61197 61252] (gcs_client_test) gcs_init_data.cc:83: Finished loading actor table data, size = 0
+[2026-10-27 20:00:13,975 I 61197 61252] (gcs_client_test) gcs_init_data.cc:93: Finished loading actor task spec table data, size = 0
+[2026-10-27 20:00:13,975 I 61197 61252] (gcs_client_test) gcs_init_data.cc:72: Finished loading placement group table data, size = 0
+[2026-10-27 20:00:13,975 I 61197 61252] (gcs_client_test) gcs_init_data.cc:103: Finished loading worker table data, size = 0
+[2026-10-27 20:00:13,975 W 61197 61197] (gcs_client_test) gcs_client_test.cc:246: Unable to reach GCS: 14 failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:5397: Failed to connect to remote host: Connection refused
+[2026-10-27 20:00:13,975 I 61197 61252] (gcs_client_test) gcs_server.cc:359: Using existing cluster ID from external storage. cluster_id=966af307597b71393d2f0d46fe658b141b520a2d081817bca91659c7
+[2026-10-27 20:00:13,975 W 61197 61252] (gcs_client_test) gcs_resource_manager.cc:245: The registered node doesn't set the total resources. node_id=fef6b7a1cc1543e7825a77549c703565257aca97b372ba5df47dcf1e
+[2026-10-27 20:00:13,975 I 61197 61252] (gcs_client_test) gcs_server.cc:1156: Autoscaler V2 enabled: 0
+[2026-10-27 20:00:13,975 W 61197 61197] (gcs_client_test) gcs_client_test.cc:246: Unable to reach GCS: 14 failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:5397: Failed to connect to remote host: Connection refused
+[2026-10-27 20:00:13,975 I 61197 61252] (gcs_client_test) grpc_server.cc:144: MockedGcsServer server started, listening on port 5397.
+[2026-10-27 20:00:13,976 W 61197 61197] (gcs_client_test) gcs_client_test.cc:246: Unable to reach GCS: 14 failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:5397: Failed to connect to remote host: Connection refused
+[2026-10-27 20:00:13,976 W 61197 61248] (gcs_client_test) gcs_resource_load_puller.cc:55: [1] Failed to get the resource load: RpcError: RPC error: failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:0: Failed to connect to remote host: Connection refused rpc_code: 14
+[2026-10-27 20:00:13,981 W 61197 61252] (gcs_client_test) raylet_client.cc:214: Error releasing workers from raylet, the raylet may have died:RpcError: RPC error: failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:0: Failed to connect to remote host: Connection refused rpc_code: 14
+[2026-10-27 20:00:13,981 I 61197 61252] (gcs_client_test) gcs_server.cc:1323: Gcs Debug state:
+
+GcsNodeManager:
+- RegisterNode request count: 0
+- DrainNode request count: 0
+- GetAllNodeInfo request count: 0
+
+GcsActorManager:
+- RegisterActor request count: 0
+- CreateActor request count: 0
+- GetActorInfo request count: 0
+- GetNamedActorInfo request count: 0
+- GetAllActorInfo request count: 0
+- KillActor request count: 0
+- ListNamedActors request count: 0
+- Registered actors count: 0
+- Destroyed actors count: 0
+- Named actors count: 0
+- Unresolved actors count: 0
+- Pending actors count: 0
+- Created actors count: 0
+- owners_: 0
+- actor_to_register_callbacks_: 0
+- actor_to_restart_for_lineage_reconstruction_callbacks_: 0
+- actor_to_create_callbacks_: 0
+- sorted_destroyed_actor_list_: 0
+
+GcsResourceManager:
+- GetAllAvailableResources request count: 0
+- GetAllTotalResources request count: 0
+- GetAllResourceUsage request count: 0
+
+GcsPlacementGroupManager:
+- CreatePlacementGroup request count: 0
+- RemovePlacementGroup request count: 0
+- GetPlacementGroup request count: 0
+- GetAllPlacementGroup request count: 0
+- WaitPlacementGroupUntilReady request count: 0
+- GetNamedPlacementGroup request count: 0
+- Scheduling pending placement group count: 0
+- Registered placement groups count: 0
+- Named placement group count: 0
+- Pending placement groups count: 0
+- Infeasible placement groups count: 0
+
+Publisher:
+- current long-polling subscribers: 0
+GCS_NODE_INFO_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_ACTOR_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_WORKER_DELTA_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_JOB_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_NODE_ADDRESS_AND_LIVENESS_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+
+Publisher:
+- current long-polling subscribers: 0
+RAY_LOG_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+RAY_ERROR_INFO_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+RAY_NODE_RESOURCE_USAGE_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+
+[runtime env manager] ID to URIs table:
+[runtime env manager] URIs reference table:
+
+GcsTaskManager:
+-Total num task events reported: 0
+-Total num status task events dropped: 0
+-Total num profile events dropped: 0
+-Current num of task events stored: 0
+-Total num of actor creation tasks: 0
+-Total num of actor tasks: 0
+-Total num of normal tasks: 0
+-Total num of driver tasks: 0
+
+GcsAutoscalerStateManager:
+- last_seen_autoscaler_state_version_: 0
+- last_cluster_resource_state_version_: 0
+- pending demands:
+
+
+
+[2026-10-27 20:00:13,982 I 61197 61252] (gcs_client_test) gcs_server.cc:1338: Main service Event stats:
+
+
+Global stats: 40 total (4 active)
+Queueing time: mean = 0.65ms, max = 6.24ms, min = 0.00ms, total = 26.10ms
+Execution time:  mean = 0.35ms, total = 13.86ms
+Event stats:
+	RedisRequestContext.Callback - 7 total (0 active), Execution time: mean = 0.01ms, total = 0.04ms, Queueing time: mean = 0.02ms, max = 0.04ms, min = 0.01ms, total = 0.16ms
+	RedisAsyncContext.addWrite - 7 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.09ms, max = 0.11ms, min = 0.00ms, total = 0.60ms
+	RedisStoreClient.RedisScanner.Scan - 6 total (0 active), Execution time: mean = 0.01ms, total = 0.03ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 3 total (2 active, 1 running), Execution time: mean = 0.00ms, total = 0.01ms, Queueing time: mean = 0.17ms, max = 0.51ms, min = 0.51ms, total = 0.51ms
+	RedisStoreClient.AsyncPut - 2 total (0 active), Execution time: mean = 0.03ms, total = 0.06ms, Queueing time: mean = 3.07ms, max = 6.13ms, min = 0.00ms, total = 6.14ms
+	RedisAsyncContext.addRead - 2 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	NodeManagerService.grpc_client.ReleaseUnusedBundles - 1 total (0 active), Execution time: mean = 0.16ms, total = 0.16ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	NodeManagerService.grpc_client.NotifyGCSRestart.OnReplyReceived - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 6.24ms, max = 6.24ms, min = 6.24ms, total = 6.24ms
+	RedisStoreClient.AsyncGet - 1 total (0 active), Execution time: mean = 6.52ms, total = 6.52ms, Queueing time: mean = 0.04ms, max = 0.04ms, min = 0.04ms, total = 0.04ms
+	GCSServer.redis_health_check - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	RedisStoreClient.AsyncCheckHealth - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	GcsHealthCheckManager::AddNode - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	GcsInitData::AsyncLoad - 1 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	GcsServer.GetOrGenerateClusterId.continuation - 1 total (0 active), Execution time: mean = 6.50ms, total = 6.50ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	NodeManagerService.grpc_client.NotifyGCSRestart - 1 total (0 active), Execution time: mean = 0.31ms, total = 0.31ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	NodeManagerService.grpc_client.ReleaseUnusedBundles.OnReplyReceived - 1 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 6.22ms, max = 6.22ms, min = 6.22ms, total = 6.22ms
+	NodeManagerService.grpc_client.ReleaseUnusedActorWorkers.OnReplyReceived - 1 total (0 active), Execution time: mean = 0.04ms, total = 0.04ms, Queueing time: mean = 6.19ms, max = 6.19ms, min = 6.19ms, total = 6.19ms
+	NodeManagerService.grpc_client.ReleaseUnusedActorWorkers - 1 total (0 active), Execution time: mean = 0.14ms, total = 0.14ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:13,983 I 61197 61252] (gcs_client_test) gcs_server.cc:1342: task_io_context Event stats:
+
+
+Global stats: 5 total (2 active)
+Queueing time: mean = 0.03ms, max = 0.07ms, min = 0.00ms, total = 0.14ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.03ms, max = 0.07ms, min = 0.00ms, total = 0.07ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.07ms, max = 0.07ms, min = 0.07ms, total = 0.07ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	GcsTaskManager.GcJobSummary - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:13,983 I 61197 61252] (gcs_client_test) gcs_server.cc:1342: pubsub_io_context Event stats:
+
+
+Global stats: 5 total (2 active)
+Queueing time: mean = 0.02ms, max = 0.07ms, min = 0.00ms, total = 0.10ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.03ms, max = 0.07ms, min = 0.00ms, total = 0.07ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.03ms, max = 0.03ms, min = 0.03ms, total = 0.03ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	Publisher.CheckDeadSubscribers - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:13,983 I 61197 61252] (gcs_client_test) gcs_server.cc:1342: observability_pubsub_io_context Event stats:
+
+
+Global stats: 5 total (1 active)
+Queueing time: mean = 0.02ms, max = 0.05ms, min = 0.00ms, total = 0.12ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.02ms, max = 0.04ms, min = 0.00ms, total = 0.04ms
+	Publisher.CheckDeadSubscribers - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	io_context_monitor_probe - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.03ms, max = 0.03ms, min = 0.03ms, total = 0.03ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.05ms, max = 0.05ms, min = 0.05ms, total = 0.05ms
+
+
+[2026-10-27 20:00:13,983 I 61197 61252] (gcs_client_test) gcs_server.cc:1342: ray_syncer_io_context Event stats:
+
+
+Global stats: 5 total (1 active)
+Queueing time: mean = 0.10ms, max = 0.23ms, min = 0.00ms, total = 0.50ms
+Execution time:  mean = 0.00ms, total = 0.01ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.02ms, max = 0.04ms, min = 0.00ms, total = 0.04ms
+	RaySyncerRegister - 2 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.23ms, max = 0.23ms, min = 0.23ms, total = 0.46ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:13,983 I 61197 61252] (gcs_client_test) gcs_server.cc:1342: ray_event_io_context Event stats:
+
+
+Global stats: 3 total (1 active)
+Queueing time: mean = 0.03ms, max = 0.08ms, min = 0.00ms, total = 0.08ms
+Execution time:  mean = 0.00ms, total = 0.01ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.00ms, total = 0.01ms, Queueing time: mean = 0.04ms, max = 0.08ms, min = 0.00ms, total = 0.08ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:13,983 I 61197 61252] (gcs_client_test) gcs_server.cc:1342: internal_kv_io_context Event stats:
+
+
+Global stats: 19 total (0 active)
+Queueing time: mean = 0.01ms, max = 0.09ms, min = 0.00ms, total = 0.26ms
+Execution time:  mean = 0.00ms, total = 0.04ms
+Event stats:
+	RedisAsyncContext.addRead - 8 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	RedisAsyncContext.addWrite - 4 total (0 active), Execution time: mean = 0.00ms, total = 0.01ms, Queueing time: mean = 0.03ms, max = 0.04ms, min = 0.01ms, total = 0.11ms
+	RedisRequestContext.Callback - 4 total (0 active), Execution time: mean = 0.00ms, total = 0.01ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.01ms
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.05ms, max = 0.09ms, min = 0.00ms, total = 0.10ms
+	io_context_monitor_probe - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.05ms, max = 0.05ms, min = 0.05ms, total = 0.05ms
+
+
+[2026-10-27 20:00:13,983 I 61197 61252] (gcs_client_test) gcs_server.cc:1342: node_manager_io_context Event stats:
+
+
+Global stats: 5 total (1 active)
+Queueing time: mean = 0.02ms, max = 0.04ms, min = 0.00ms, total = 0.08ms
+Execution time:  mean = 0.01ms, total = 0.03ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.02ms, max = 0.04ms, min = 0.00ms, total = 0.04ms
+	NodeInfoGcsService.grpc_server.CheckAlive - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	io_context_monitor_probe - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.04ms, max = 0.04ms, min = 0.04ms, total = 0.04ms
+	NodeInfoGcsService.grpc_server.CheckAlive.HandleRequestImpl - 1 total (0 active), Execution time: mean = 0.02ms, total = 0.02ms, Queueing time: mean = 0.01ms, max = 0.01ms, min = 0.01ms, total = 0.01ms
+
+
+[2026-10-27 20:00:13,983 I 61197 61252] (gcs_client_test) gcs_server.cc:1342: resource_load_pull_io_context Event stats:
+
+
+Global stats: 7 total (2 active)
+Queueing time: mean = 0.02ms, max = 0.05ms, min = 0.00ms, total = 0.11ms
+Execution time:  mean = 0.13ms, total = 0.92ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.03ms, max = 0.05ms, min = 0.00ms, total = 0.06ms
+	NodeManagerService.grpc_client.GetResourceLoad - 1 total (0 active), Execution time: mean = 0.25ms, total = 0.25ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	NodeManagerService.grpc_client.GetResourceLoad.OnReplyReceived - 1 total (0 active), Execution time: mean = 0.04ms, total = 0.04ms, Queueing time: mean = 0.02ms, max = 0.02ms, min = 0.02ms, total = 0.02ms
+	RayletLoadPulled - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.61ms, total = 0.61ms, Queueing time: mean = 0.03ms, max = 0.03ms, min = 0.03ms, total = 0.03ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:13,983 I 61197 61197] (gcs_client_test) gcs_client_test.cc:252: GCS service restarted, port = 5397
+[2026-10-27 20:00:13,984 I 61197 61197] (gcs_client_test) gcs_server.cc:645: Stopping GCS server.
+[2026-10-27 20:00:13,984 I 61197 61197] (gcs_client_test) ray_event_recorder_base.cc:69: Stopping RayEventRecorder and flushing remaining events.
+[2026-10-27 20:00:13,987 I 61197 61197] (gcs_client_test) gcs_server.cc:675: GCS server stopped.
+[2026-10-27 20:00:13,987 I 61197 61197] (gcs_client_test) test_utils.cc:183: Cleaning up redis with command: 'external/redis_linux_arm64/redis-cli' -p 3537 flushall
+OK
+[2026-10-27 20:00:14,101 I 61197 61197] (gcs_client_test) test_utils.cc:157: Stop redis command is: 'external/redis_linux_arm64/redis-cli' -p 3537 shutdown
+61204:M 27 Oct 2026 20:00:14.107 # Redis is now ready to exit, bye bye...
+[       OK ] RedisMigration/GcsClientTest.TestGcsTableReload/0 (293 ms)
+[ RUN      ] RedisMigration/GcsClientTest.TestGcsTableReload/1
+[2026-10-27 20:00:14,209 I 61197 61197] (gcs_client_test) gcs_server.cc:195: GCS storage type is StorageType::IN_MEMORY
+[2026-10-27 20:00:14,209 I 61197 61197] (gcs_client_test) gcs_server.cc:196: GCS node ID initialized from config node_id=NIL_ID
+[2026-10-27 20:00:14,209 I 61197 61197] (gcs_client_test) gcs_init_data.cc:48: Loading job table data.
+[2026-10-27 20:00:14,209 I 61197 61197] (gcs_client_test) gcs_init_data.cc:58: Loading node table data.
+[2026-10-27 20:00:14,209 I 61197 61197] (gcs_client_test) gcs_init_data.cc:78: Loading actor table data.
+[2026-10-27 20:00:14,209 I 61197 61197] (gcs_client_test) gcs_init_data.cc:89: Loading actor task spec table data.
+[2026-10-27 20:00:14,209 I 61197 61197] (gcs_client_test) gcs_init_data.cc:68: Loading placement group table data.
+[2026-10-27 20:00:14,209 I 61197 61197] (gcs_client_test) gcs_init_data.cc:99: Loading worker table data.
+[2026-10-27 20:00:14,209 I 61197 61276] (gcs_client_test) gcs_init_data.cc:52: Finished loading job table data, size = 0
+[2026-10-27 20:00:14,209 I 61197 61276] (gcs_client_test) gcs_init_data.cc:62: Finished loading node table data, size = 0
+[2026-10-27 20:00:14,209 I 61197 61276] (gcs_client_test) gcs_init_data.cc:83: Finished loading actor table data, size = 0
+[2026-10-27 20:00:14,209 I 61197 61276] (gcs_client_test) gcs_init_data.cc:93: Finished loading actor task spec table data, size = 0
+[2026-10-27 20:00:14,209 I 61197 61276] (gcs_client_test) gcs_init_data.cc:72: Finished loading placement group table data, size = 0
+[2026-10-27 20:00:14,209 I 61197 61276] (gcs_client_test) gcs_init_data.cc:103: Finished loading worker table data, size = 0
+[2026-10-27 20:00:14,209 I 61197 61276] (gcs_client_test) gcs_server.cc:387: Generated new cluster ID. cluster_id=944897a3b47d1cd3e87de0ab880ab1ee42e559235f9fd2898f3de84a
+[2026-10-27 20:00:14,209 I 61197 61276] (gcs_client_test) gcs_server.cc:1156: Autoscaler V2 enabled: 0
+[2026-10-27 20:00:14,209 I 61197 61276] (gcs_client_test) grpc_server.cc:144: MockedGcsServer server started, listening on port 5397.
+[2026-10-27 20:00:14,214 I 61197 61276] (gcs_client_test) gcs_server.cc:1323: Gcs Debug state:
+
+GcsNodeManager:
+- RegisterNode request count: 0
+- DrainNode request count: 0
+- GetAllNodeInfo request count: 0
+
+GcsActorManager:
+- RegisterActor request count: 0
+- CreateActor request count: 0
+- GetActorInfo request count: 0
+- GetNamedActorInfo request count: 0
+- GetAllActorInfo request count: 0
+- KillActor request count: 0
+- ListNamedActors request count: 0
+- Registered actors count: 0
+- Destroyed actors count: 0
+- Named actors count: 0
+- Unresolved actors count: 0
+- Pending actors count: 0
+- Created actors count: 0
+- owners_: 0
+- actor_to_register_callbacks_: 0
+- actor_to_restart_for_lineage_reconstruction_callbacks_: 0
+- actor_to_create_callbacks_: 0
+- sorted_destroyed_actor_list_: 0
+
+GcsResourceManager:
+- GetAllAvailableResources request count: 0
+- GetAllTotalResources request count: 0
+- GetAllResourceUsage request count: 0
+
+GcsPlacementGroupManager:
+- CreatePlacementGroup request count: 0
+- RemovePlacementGroup request count: 0
+- GetPlacementGroup request count: 0
+- GetAllPlacementGroup request count: 0
+- WaitPlacementGroupUntilReady request count: 0
+- GetNamedPlacementGroup request count: 0
+- Scheduling pending placement group count: 0
+- Registered placement groups count: 0
+- Named placement group count: 0
+- Pending placement groups count: 0
+- Infeasible placement groups count: 0
+
+Publisher:
+- current long-polling subscribers: 0
+GCS_ACTOR_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_JOB_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_NODE_INFO_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_WORKER_DELTA_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_NODE_ADDRESS_AND_LIVENESS_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+
+Publisher:
+- current long-polling subscribers: 0
+RAY_ERROR_INFO_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+RAY_LOG_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+RAY_NODE_RESOURCE_USAGE_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+
+[runtime env manager] ID to URIs table:
+[runtime env manager] URIs reference table:
+
+GcsTaskManager:
+-Total num task events reported: 0
+-Total num status task events dropped: 0
+-Total num profile events dropped: 0
+-Current num of task events stored: 0
+-Total num of actor creation tasks: 0
+-Total num of actor tasks: 0
+-Total num of normal tasks: 0
+-Total num of driver tasks: 0
+
+GcsAutoscalerStateManager:
+- last_seen_autoscaler_state_version_: 0
+- last_cluster_resource_state_version_: 0
+- pending demands:
+
+
+
+[2026-10-27 20:00:14,215 I 61197 61276] (gcs_client_test) gcs_server.cc:1338: Main service Event stats:
+
+
+Global stats: 15 total (3 active)
+Queueing time: mean = 0.40ms, max = 5.28ms, min = 0.00ms, total = 5.94ms
+Execution time:  mean = 0.72ms, total = 10.78ms
+Event stats:
+	GcsInMemoryStore.GetAll - 6 total (0 active), Execution time: mean = 0.00ms, total = 0.03ms, Queueing time: mean = 0.10ms, max = 0.10ms, min = 0.09ms, total = 0.57ms
+	GcsInMemoryStore.Put - 3 total (0 active), Execution time: mean = 1.79ms, total = 5.38ms, Queueing time: mean = 1.79ms, max = 5.28ms, min = 0.00ms, total = 5.37ms
+	PeriodicalRunner.RunFnPeriodically - 2 total (2 active, 1 running), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	GcsInMemoryStore.Get - 1 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	GcsServer.GetOrGenerateClusterId.continuation - 1 total (0 active), Execution time: mean = 5.36ms, total = 5.36ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	GcsInitData::AsyncLoad - 1 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,215 I 61197 61276] (gcs_client_test) gcs_server.cc:1342: task_io_context Event stats:
+
+
+Global stats: 5 total (2 active)
+Queueing time: mean = 0.03ms, max = 0.08ms, min = 0.00ms, total = 0.14ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.04ms, max = 0.08ms, min = 0.00ms, total = 0.08ms
+	GcsTaskManager.GcJobSummary - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.07ms, max = 0.07ms, min = 0.07ms, total = 0.07ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,215 I 61197 61276] (gcs_client_test) gcs_server.cc:1342: pubsub_io_context Event stats:
+
+
+Global stats: 5 total (2 active)
+Queueing time: mean = 0.02ms, max = 0.06ms, min = 0.00ms, total = 0.11ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.03ms, max = 0.05ms, min = 0.00ms, total = 0.05ms
+	Publisher.CheckDeadSubscribers - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.06ms, max = 0.06ms, min = 0.06ms, total = 0.06ms
+
+
+[2026-10-27 20:00:14,215 I 61197 61276] (gcs_client_test) gcs_server.cc:1342: observability_pubsub_io_context Event stats:
+
+
+Global stats: 5 total (2 active)
+Queueing time: mean = 0.03ms, max = 0.10ms, min = 0.00ms, total = 0.16ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.05ms, max = 0.10ms, min = 0.00ms, total = 0.10ms
+	Publisher.CheckDeadSubscribers - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.06ms, max = 0.06ms, min = 0.06ms, total = 0.06ms
+
+
+[2026-10-27 20:00:14,215 I 61197 61276] (gcs_client_test) gcs_server.cc:1342: ray_syncer_io_context Event stats:
+
+
+Global stats: 5 total (1 active)
+Queueing time: mean = 0.04ms, max = 0.16ms, min = 0.00ms, total = 0.22ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.08ms, max = 0.16ms, min = 0.00ms, total = 0.16ms
+	RaySyncerRegister - 2 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.03ms, max = 0.04ms, min = 0.03ms, total = 0.07ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,215 I 61197 61276] (gcs_client_test) gcs_server.cc:1342: ray_event_io_context Event stats:
+
+
+Global stats: 3 total (1 active)
+Queueing time: mean = 0.05ms, max = 0.13ms, min = 0.01ms, total = 0.14ms
+Execution time:  mean = 0.00ms, total = 0.01ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.00ms, total = 0.01ms, Queueing time: mean = 0.07ms, max = 0.13ms, min = 0.01ms, total = 0.14ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,215 I 61197 61276] (gcs_client_test) gcs_server.cc:1342: internal_kv_io_context Event stats:
+
+
+Global stats: 3 total (0 active)
+Queueing time: mean = 0.04ms, max = 0.10ms, min = 0.00ms, total = 0.12ms
+Execution time:  mean = 0.03ms, total = 0.10ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.05ms, total = 0.10ms, Queueing time: mean = 0.05ms, max = 0.10ms, min = 0.00ms, total = 0.10ms
+	io_context_monitor_probe - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.02ms, max = 0.02ms, min = 0.02ms, total = 0.02ms
+
+
+[2026-10-27 20:00:14,215 I 61197 61276] (gcs_client_test) gcs_server.cc:1342: node_manager_io_context Event stats:
+
+
+Global stats: 3 total (1 active)
+Queueing time: mean = 0.03ms, max = 0.10ms, min = 0.00ms, total = 0.10ms
+Execution time:  mean = 0.05ms, total = 0.15ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.08ms, total = 0.15ms, Queueing time: mean = 0.05ms, max = 0.10ms, min = 0.00ms, total = 0.10ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,215 I 61197 61276] (gcs_client_test) gcs_server.cc:1342: resource_load_pull_io_context Event stats:
+
+
+Global stats: 5 total (1 active)
+Queueing time: mean = 0.05ms, max = 0.19ms, min = 0.00ms, total = 0.24ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.10ms, max = 0.19ms, min = 0.00ms, total = 0.19ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.03ms, max = 0.03ms, min = 0.03ms, total = 0.03ms
+	io_context_monitor_probe - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.02ms, max = 0.02ms, min = 0.02ms, total = 0.02ms
+	RayletLoadPulled - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,224 I 61197 61197] (gcs_client_test) gcs_server.cc:645: Stopping GCS server.
+[2026-10-27 20:00:14,224 I 61197 61197] (gcs_client_test) ray_event_recorder_base.cc:69: Stopping RayEventRecorder and flushing remaining events.
+[2026-10-27 20:00:14,227 I 61197 61197] (gcs_client_test) gcs_server.cc:675: GCS server stopped.
+[       OK ] RedisMigration/GcsClientTest.TestGcsTableReload/1 (19 ms)
+[ RUN      ] RedisMigration/GcsClientTest.TestRegisterHeadNode/0
+[2026-10-27 20:00:14,227 I 61197 61197] (gcs_client_test) test_utils.cc:137: Start redis command is: 'external/redis_linux_arm64/redis-server' --loglevel warning --save  --appendonly no --port 5281
+[2026-10-27 20:00:14,244 I 61197 61197] (gcs_client_test) gcs_server.cc:195: GCS storage type is StorageType::REDIS_PERSIST
+[2026-10-27 20:00:14,244 I 61197 61197] (gcs_client_test) gcs_server.cc:196: GCS node ID initialized from config node_id=NIL_ID
+[2026-10-27 20:00:14,244 I 61197 61197] (gcs_client_test) redis_context.cc:1102: Resolve Redis address to 127.0.0.1
+[2026-10-27 20:00:14,244 I 61197 61197] (gcs_client_test) redis_context.cc:782: Attempting to connect to address 127.0.0.1:5281.
+[2026-10-27 20:00:14,244 I 61197 61197] (gcs_client_test) redis_context.cc:651: Enabled TCP keepalive on the Redis connection to 127.0.0.1:5281: idle=30s, probe interval=30s, probes=3 (idle, unresponsive connection detected after ~120s).
+[2026-10-27 20:00:14,244 I 61197 61197] (gcs_client_test) redis_context.cc:782: Attempting to connect to address 127.0.0.1:5281.
+[2026-10-27 20:00:14,244 I 61197 61197] (gcs_client_test) redis_context.cc:651: Enabled TCP keepalive on the Redis connection to 127.0.0.1:5281: idle=30s, probe interval=30s, probes=3 (idle, unresponsive connection detected after ~120s).
+[2026-10-27 20:00:14,245 I 61197 61197] (gcs_client_test) redis_context.cc:925: Connect to Redis Cluster
+[2026-10-27 20:00:14,245 I 61197 61197] (gcs_client_test) redis_context.cc:965: Redis cluster leader is 127.0.0.1:5281
+[2026-10-27 20:00:14,245 I 61197 61197] (gcs_client_test) redis_context.cc:1102: Resolve Redis address to 127.0.0.1
+[2026-10-27 20:00:14,245 I 61197 61197] (gcs_client_test) redis_context.cc:782: Attempting to connect to address 127.0.0.1:5281.
+[2026-10-27 20:00:14,245 I 61197 61197] (gcs_client_test) redis_context.cc:651: Enabled TCP keepalive on the Redis connection to 127.0.0.1:5281: idle=30s, probe interval=30s, probes=3 (idle, unresponsive connection detected after ~120s).
+[2026-10-27 20:00:14,245 I 61197 61197] (gcs_client_test) redis_context.cc:782: Attempting to connect to address 127.0.0.1:5281.
+[2026-10-27 20:00:14,245 I 61197 61197] (gcs_client_test) redis_context.cc:651: Enabled TCP keepalive on the Redis connection to 127.0.0.1:5281: idle=30s, probe interval=30s, probes=3 (idle, unresponsive connection detected after ~120s).
+[2026-10-27 20:00:14,245 I 61197 61197] (gcs_client_test) redis_context.cc:925: Connect to Redis Cluster
+[2026-10-27 20:00:14,245 I 61197 61197] (gcs_client_test) redis_context.cc:965: Redis cluster leader is 127.0.0.1:5281
+[2026-10-27 20:00:14,245 I 61197 61197] (gcs_client_test) gcs_init_data.cc:48: Loading job table data.
+[2026-10-27 20:00:14,245 I 61197 61197] (gcs_client_test) gcs_init_data.cc:58: Loading node table data.
+[2026-10-27 20:00:14,245 I 61197 61197] (gcs_client_test) gcs_init_data.cc:78: Loading actor table data.
+[2026-10-27 20:00:14,245 I 61197 61197] (gcs_client_test) gcs_init_data.cc:89: Loading actor task spec table data.
+[2026-10-27 20:00:14,245 I 61197 61197] (gcs_client_test) gcs_init_data.cc:68: Loading placement group table data.
+[2026-10-27 20:00:14,245 I 61197 61197] (gcs_client_test) gcs_init_data.cc:99: Loading worker table data.
+[2026-10-27 20:00:14,246 I 61197 61304] (gcs_client_test) gcs_init_data.cc:52: Finished loading job table data, size = 0
+[2026-10-27 20:00:14,246 I 61197 61304] (gcs_client_test) gcs_init_data.cc:62: Finished loading node table data, size = 0
+[2026-10-27 20:00:14,246 I 61197 61304] (gcs_client_test) gcs_init_data.cc:83: Finished loading actor table data, size = 0
+[2026-10-27 20:00:14,246 I 61197 61304] (gcs_client_test) gcs_init_data.cc:93: Finished loading actor task spec table data, size = 0
+[2026-10-27 20:00:14,246 I 61197 61304] (gcs_client_test) gcs_init_data.cc:72: Finished loading placement group table data, size = 0
+[2026-10-27 20:00:14,246 I 61197 61304] (gcs_client_test) gcs_init_data.cc:103: Finished loading worker table data, size = 0
+[2026-10-27 20:00:14,246 I 61197 61304] (gcs_client_test) gcs_server.cc:387: Generated new cluster ID. cluster_id=d2c22b51d96e29ce19f13311d1038b6d85766ce02832e455cf887d8d
+[2026-10-27 20:00:14,246 I 61197 61304] (gcs_client_test) gcs_server.cc:1156: Autoscaler V2 enabled: 0
+[2026-10-27 20:00:14,247 I 61197 61304] (gcs_client_test) grpc_server.cc:144: MockedGcsServer server started, listening on port 5397.
+[2026-10-27 20:00:14,251 I 61197 61304] (gcs_client_test) gcs_server.cc:1323: Gcs Debug state:
+
+GcsNodeManager:
+- RegisterNode request count: 0
+- DrainNode request count: 0
+- GetAllNodeInfo request count: 0
+
+GcsActorManager:
+- RegisterActor request count: 0
+- CreateActor request count: 0
+- GetActorInfo request count: 0
+- GetNamedActorInfo request count: 0
+- GetAllActorInfo request count: 0
+- KillActor request count: 0
+- ListNamedActors request count: 0
+- Registered actors count: 0
+- Destroyed actors count: 0
+- Named actors count: 0
+- Unresolved actors count: 0
+- Pending actors count: 0
+- Created actors count: 0
+- owners_: 0
+- actor_to_register_callbacks_: 0
+- actor_to_restart_for_lineage_reconstruction_callbacks_: 0
+- actor_to_create_callbacks_: 0
+- sorted_destroyed_actor_list_: 0
+
+GcsResourceManager:
+- GetAllAvailableResources request count: 0
+- GetAllTotalResources request count: 0
+- GetAllResourceUsage request count: 0
+
+GcsPlacementGroupManager:
+- CreatePlacementGroup request count: 0
+- RemovePlacementGroup request count: 0
+- GetPlacementGroup request count: 0
+- GetAllPlacementGroup request count: 0
+- WaitPlacementGroupUntilReady request count: 0
+- GetNamedPlacementGroup request count: 0
+- Scheduling pending placement group count: 0
+- Registered placement groups count: 0
+- Named placement group count: 0
+- Pending placement groups count: 0
+- Infeasible placement groups count: 0
+
+Publisher:
+- current long-polling subscribers: 0
+GCS_ACTOR_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_JOB_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_NODE_INFO_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_WORKER_DELTA_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_NODE_ADDRESS_AND_LIVENESS_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+
+Publisher:
+- current long-polling subscribers: 0
+RAY_LOG_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+RAY_ERROR_INFO_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+RAY_NODE_RESOURCE_USAGE_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+
+[runtime env manager] ID to URIs table:
+[runtime env manager] URIs reference table:
+
+GcsTaskManager:
+-Total num task events reported: 0
+-Total num status task events dropped: 0
+-Total num profile events dropped: 0
+-Current num of task events stored: 0
+-Total num of actor creation tasks: 0
+-Total num of actor tasks: 0
+-Total num of normal tasks: 0
+-Total num of driver tasks: 0
+
+GcsAutoscalerStateManager:
+- last_seen_autoscaler_state_version_: 0
+- last_cluster_resource_state_version_: 0
+- pending demands:
+
+
+
+[2026-10-27 20:00:14,252 I 61197 61304] (gcs_client_test) gcs_server.cc:1338: Main service Event stats:
+
+
+Global stats: 34 total (4 active)
+Queueing time: mean = 0.19ms, max = 5.05ms, min = 0.00ms, total = 6.62ms
+Execution time:  mean = 0.33ms, total = 11.12ms
+Event stats:
+	RedisAsyncContext.addWrite - 7 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.10ms, max = 0.13ms, min = 0.00ms, total = 0.67ms
+	RedisRequestContext.Callback - 7 total (0 active), Execution time: mean = 0.03ms, total = 0.18ms, Queueing time: mean = 0.04ms, max = 0.19ms, min = 0.01ms, total = 0.30ms
+	RedisStoreClient.RedisScanner.Scan - 6 total (0 active), Execution time: mean = 0.03ms, total = 0.18ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 3 total (2 active, 1 running), Execution time: mean = 0.00ms, total = 0.01ms, Queueing time: mean = 0.17ms, max = 0.50ms, min = 0.50ms, total = 0.50ms
+	RedisStoreClient.AsyncPut - 3 total (0 active), Execution time: mean = 1.76ms, total = 5.28ms, Queueing time: mean = 1.70ms, max = 5.05ms, min = 0.03ms, total = 5.11ms
+	RedisAsyncContext.addRead - 2 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	RedisStoreClient.AsyncCheckHealth - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	GCSServer.redis_health_check - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	RedisStoreClient.AsyncGet - 1 total (0 active), Execution time: mean = 0.03ms, total = 0.03ms, Queueing time: mean = 0.04ms, max = 0.04ms, min = 0.04ms, total = 0.04ms
+	GcsServer.GetOrGenerateClusterId.continuation - 1 total (0 active), Execution time: mean = 5.27ms, total = 5.27ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	GcsInitData::AsyncLoad - 1 total (0 active), Execution time: mean = 0.16ms, total = 0.16ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,252 I 61197 61304] (gcs_client_test) gcs_server.cc:1342: task_io_context Event stats:
+
+
+Global stats: 5 total (2 active)
+Queueing time: mean = 0.03ms, max = 0.11ms, min = 0.00ms, total = 0.17ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.03ms, max = 0.06ms, min = 0.00ms, total = 0.07ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.11ms, max = 0.11ms, min = 0.11ms, total = 0.11ms
+	GcsTaskManager.GcJobSummary - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,252 I 61197 61304] (gcs_client_test) gcs_server.cc:1342: pubsub_io_context Event stats:
+
+
+Global stats: 5 total (2 active)
+Queueing time: mean = 0.05ms, max = 0.19ms, min = 0.00ms, total = 0.23ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.10ms, max = 0.19ms, min = 0.00ms, total = 0.20ms
+	Publisher.CheckDeadSubscribers - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.03ms, max = 0.03ms, min = 0.03ms, total = 0.03ms
+
+
+[2026-10-27 20:00:14,252 I 61197 61304] (gcs_client_test) gcs_server.cc:1342: observability_pubsub_io_context Event stats:
+
+
+Global stats: 4 total (1 active)
+Queueing time: mean = 0.06ms, max = 0.18ms, min = 0.00ms, total = 0.24ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.09ms, max = 0.18ms, min = 0.00ms, total = 0.18ms
+	Publisher.CheckDeadSubscribers - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.06ms, max = 0.06ms, min = 0.06ms, total = 0.06ms
+
+
+[2026-10-27 20:00:14,252 I 61197 61304] (gcs_client_test) gcs_server.cc:1342: ray_syncer_io_context Event stats:
+
+
+Global stats: 4 total (0 active)
+Queueing time: mean = 0.07ms, max = 0.13ms, min = 0.00ms, total = 0.26ms
+Execution time:  mean = 0.01ms, total = 0.03ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.03ms, Queueing time: mean = 0.06ms, max = 0.13ms, min = 0.00ms, total = 0.13ms
+	RaySyncerRegister - 2 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.07ms, max = 0.07ms, min = 0.07ms, total = 0.14ms
+
+
+[2026-10-27 20:00:14,252 I 61197 61304] (gcs_client_test) gcs_server.cc:1342: ray_event_io_context Event stats:
+
+
+Global stats: 2 total (0 active)
+Queueing time: mean = 0.07ms, max = 0.15ms, min = 0.00ms, total = 0.15ms
+Execution time:  mean = 0.00ms, total = 0.01ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.00ms, total = 0.01ms, Queueing time: mean = 0.07ms, max = 0.15ms, min = 0.00ms, total = 0.15ms
+
+
+[2026-10-27 20:00:14,252 I 61197 61304] (gcs_client_test) gcs_server.cc:1342: internal_kv_io_context Event stats:
+
+
+Global stats: 18 total (0 active)
+Queueing time: mean = 0.04ms, max = 0.46ms, min = 0.00ms, total = 0.64ms
+Execution time:  mean = 0.00ms, total = 0.04ms
+Event stats:
+	RedisAsyncContext.addRead - 8 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	RedisAsyncContext.addWrite - 4 total (0 active), Execution time: mean = 0.00ms, total = 0.01ms, Queueing time: mean = 0.04ms, max = 0.06ms, min = 0.03ms, total = 0.18ms
+	RedisRequestContext.Callback - 4 total (0 active), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.01ms
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.23ms, max = 0.46ms, min = 0.00ms, total = 0.46ms
+
+
+[2026-10-27 20:00:14,252 I 61197 61304] (gcs_client_test) gcs_server.cc:1342: node_manager_io_context Event stats:
+
+
+Global stats: 2 total (0 active)
+Queueing time: mean = 0.06ms, max = 0.12ms, min = 0.00ms, total = 0.12ms
+Execution time:  mean = 0.01ms, total = 0.01ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.06ms, max = 0.12ms, min = 0.00ms, total = 0.12ms
+
+
+[2026-10-27 20:00:14,252 I 61197 61304] (gcs_client_test) gcs_server.cc:1342: resource_load_pull_io_context Event stats:
+
+
+Global stats: 4 total (1 active)
+Queueing time: mean = 0.08ms, max = 0.23ms, min = 0.00ms, total = 0.30ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.00ms, total = 0.01ms, Queueing time: mean = 0.12ms, max = 0.23ms, min = 0.00ms, total = 0.23ms
+	RayletLoadPulled - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.07ms, max = 0.07ms, min = 0.07ms, total = 0.07ms
+
+
+[2026-10-27 20:00:14,260 I 61197 61299] (gcs_client_test) gcs_node_manager.cc:111: Registering new node. node_id=ed091d6c9814144e9fa70cb5447b0c3b912ef16f0badd7eaba311e0a node_name=Mocker_node node_address=127.0.0.1
+[2026-10-27 20:00:14,261 W 61197 61304] (gcs_client_test) gcs_resource_manager.cc:245: The registered node doesn't set the total resources. node_id=ed091d6c9814144e9fa70cb5447b0c3b912ef16f0badd7eaba311e0a
+[2026-10-27 20:00:14,261 I 61197 61304] (gcs_client_test) gcs_server.cc:1243: Metrics agent not available. To enable metrics, install Ray with dashboard support: `pip install 'ray[default]'`.
+[2026-10-27 20:00:14,264 I 61197 61299] (gcs_client_test) gcs_node_manager.cc:111: Registering new node. node_id=4a2f8baf6d412bbc62f2a0b8501ddaf802c50751faa8d99a0cefa00c node_name=Mocker_node node_address=127.0.0.1
+[2026-10-27 20:00:14,264 W 61197 61304] (gcs_client_test) gcs_resource_manager.cc:245: The registered node doesn't set the total resources. node_id=4a2f8baf6d412bbc62f2a0b8501ddaf802c50751faa8d99a0cefa00c
+[2026-10-27 20:00:14,265 I 61197 61299] (gcs_client_test) gcs_node_manager.cc:111: Registering new node. node_id=332f6a58c912f5ccc70bbf99ac00efe155e79a5b4bde226e7f65d7a5 node_name=Mocker_node node_address=127.0.0.1
+[2026-10-27 20:00:14,265 I 61197 61299] (gcs_client_test) gcs_node_manager.cc:734: , death reason = UNEXPECTED_TERMINATION, death message = health check failed due to missing too many heartbeats node_id=ed091d6c9814144e9fa70cb5447b0c3b912ef16f0badd7eaba311e0a node_name=Mocker_node
+[2026-10-27 20:00:14,265 W 61197 61299] (gcs_client_test) gcs_node_manager.cc:761: The node with node id: ed091d6c9814144e9fa70cb5447b0c3b912ef16f0badd7eaba311e0a and address: 127.0.0.1 and node name: Mocker_node has been marked dead because the detector has missed too many heartbeats from it. This can happen when a 	(1) raylet crashes unexpectedly (OOM, etc.)
+	(2) raylet has lagging heartbeats due to slow network or busy workload.
+[2026-10-27 20:00:14,265 I 61197 61304] (gcs_client_test) gcs_placement_group_manager.cc:691: Node is dead, rescheduling the placement groups on the dead node. node_id=ed091d6c9814144e9fa70cb5447b0c3b912ef16f0badd7eaba311e0a
+[2026-10-27 20:00:14,265 I 61197 61304] (gcs_client_test) gcs_job_manager.cc:480: Node is dead, marking all jobs with drivers on this node as finished. node_id=ed091d6c9814144e9fa70cb5447b0c3b912ef16f0badd7eaba311e0a
+[2026-10-27 20:00:14,266 W 61197 61304] (gcs_client_test) gcs_resource_manager.cc:245: The registered node doesn't set the total resources. node_id=332f6a58c912f5ccc70bbf99ac00efe155e79a5b4bde226e7f65d7a5
+[2026-10-27 20:00:14,266 I 61197 61304] (gcs_client_test) gcs_server.cc:1243: Metrics agent not available. To enable metrics, install Ray with dashboard support: `pip install 'ray[default]'`.
+[2026-10-27 20:00:14,267 I 61197 61197] (gcs_client_test) gcs_server.cc:645: Stopping GCS server.
+[2026-10-27 20:00:14,267 I 61197 61197] (gcs_client_test) ray_event_recorder_base.cc:69: Stopping RayEventRecorder and flushing remaining events.
+[2026-10-27 20:00:14,270 I 61197 61197] (gcs_client_test) gcs_server.cc:675: GCS server stopped.
+[2026-10-27 20:00:14,270 I 61197 61197] (gcs_client_test) test_utils.cc:183: Cleaning up redis with command: 'external/redis_linux_arm64/redis-cli' -p 5281 flushall
+OK
+[2026-10-27 20:00:14,379 I 61197 61197] (gcs_client_test) test_utils.cc:157: Stop redis command is: 'external/redis_linux_arm64/redis-cli' -p 5281 shutdown
+61286:M 27 Oct 2026 20:00:14.386 # Redis is now ready to exit, bye bye...
+[       OK ] RedisMigration/GcsClientTest.TestRegisterHeadNode/0 (260 ms)
+[ RUN      ] RedisMigration/GcsClientTest.TestRegisterHeadNode/1
+[2026-10-27 20:00:14,489 I 61197 61197] (gcs_client_test) gcs_server.cc:195: GCS storage type is StorageType::IN_MEMORY
+[2026-10-27 20:00:14,489 I 61197 61197] (gcs_client_test) gcs_server.cc:196: GCS node ID initialized from config node_id=NIL_ID
+[2026-10-27 20:00:14,489 I 61197 61197] (gcs_client_test) gcs_init_data.cc:48: Loading job table data.
+[2026-10-27 20:00:14,489 I 61197 61197] (gcs_client_test) gcs_init_data.cc:58: Loading node table data.
+[2026-10-27 20:00:14,489 I 61197 61197] (gcs_client_test) gcs_init_data.cc:78: Loading actor table data.
+[2026-10-27 20:00:14,489 I 61197 61197] (gcs_client_test) gcs_init_data.cc:89: Loading actor task spec table data.
+[2026-10-27 20:00:14,489 I 61197 61197] (gcs_client_test) gcs_init_data.cc:68: Loading placement group table data.
+[2026-10-27 20:00:14,489 I 61197 61197] (gcs_client_test) gcs_init_data.cc:99: Loading worker table data.
+[2026-10-27 20:00:14,489 I 61197 61329] (gcs_client_test) gcs_init_data.cc:52: Finished loading job table data, size = 0
+[2026-10-27 20:00:14,489 I 61197 61329] (gcs_client_test) gcs_init_data.cc:62: Finished loading node table data, size = 0
+[2026-10-27 20:00:14,489 I 61197 61329] (gcs_client_test) gcs_init_data.cc:83: Finished loading actor table data, size = 0
+[2026-10-27 20:00:14,489 I 61197 61329] (gcs_client_test) gcs_init_data.cc:93: Finished loading actor task spec table data, size = 0
+[2026-10-27 20:00:14,489 I 61197 61329] (gcs_client_test) gcs_init_data.cc:72: Finished loading placement group table data, size = 0
+[2026-10-27 20:00:14,489 I 61197 61329] (gcs_client_test) gcs_init_data.cc:103: Finished loading worker table data, size = 0
+[2026-10-27 20:00:14,489 I 61197 61329] (gcs_client_test) gcs_server.cc:387: Generated new cluster ID. cluster_id=d28832d1e2ac729e79b320c854a6e8ef208307474a95ec9a247ae889
+[2026-10-27 20:00:14,489 I 61197 61329] (gcs_client_test) gcs_server.cc:1156: Autoscaler V2 enabled: 0
+[2026-10-27 20:00:14,489 I 61197 61329] (gcs_client_test) grpc_server.cc:144: MockedGcsServer server started, listening on port 5397.
+[2026-10-27 20:00:14,494 I 61197 61329] (gcs_client_test) gcs_server.cc:1323: Gcs Debug state:
+
+GcsNodeManager:
+- RegisterNode request count: 0
+- DrainNode request count: 0
+- GetAllNodeInfo request count: 0
+
+GcsActorManager:
+- RegisterActor request count: 0
+- CreateActor request count: 0
+- GetActorInfo request count: 0
+- GetNamedActorInfo request count: 0
+- GetAllActorInfo request count: 0
+- KillActor request count: 0
+- ListNamedActors request count: 0
+- Registered actors count: 0
+- Destroyed actors count: 0
+- Named actors count: 0
+- Unresolved actors count: 0
+- Pending actors count: 0
+- Created actors count: 0
+- owners_: 0
+- actor_to_register_callbacks_: 0
+- actor_to_restart_for_lineage_reconstruction_callbacks_: 0
+- actor_to_create_callbacks_: 0
+- sorted_destroyed_actor_list_: 0
+
+GcsResourceManager:
+- GetAllAvailableResources request count: 0
+- GetAllTotalResources request count: 0
+- GetAllResourceUsage request count: 0
+
+GcsPlacementGroupManager:
+- CreatePlacementGroup request count: 0
+- RemovePlacementGroup request count: 0
+- GetPlacementGroup request count: 0
+- GetAllPlacementGroup request count: 0
+- WaitPlacementGroupUntilReady request count: 0
+- GetNamedPlacementGroup request count: 0
+- Scheduling pending placement group count: 0
+- Registered placement groups count: 0
+- Named placement group count: 0
+- Pending placement groups count: 0
+- Infeasible placement groups count: 0
+
+Publisher:
+- current long-polling subscribers: 0
+GCS_ACTOR_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_JOB_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_NODE_INFO_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_WORKER_DELTA_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_NODE_ADDRESS_AND_LIVENESS_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+
+Publisher:
+- current long-polling subscribers: 0
+RAY_LOG_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+RAY_ERROR_INFO_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+RAY_NODE_RESOURCE_USAGE_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+
+[runtime env manager] ID to URIs table:
+[runtime env manager] URIs reference table:
+
+GcsTaskManager:
+-Total num task events reported: 0
+-Total num status task events dropped: 0
+-Total num profile events dropped: 0
+-Current num of task events stored: 0
+-Total num of actor creation tasks: 0
+-Total num of actor tasks: 0
+-Total num of normal tasks: 0
+-Total num of driver tasks: 0
+
+GcsAutoscalerStateManager:
+- last_seen_autoscaler_state_version_: 0
+- last_cluster_resource_state_version_: 0
+- pending demands:
+
+
+
+[2026-10-27 20:00:14,494 I 61197 61329] (gcs_client_test) gcs_server.cc:1338: Main service Event stats:
+
+
+Global stats: 15 total (3 active)
+Queueing time: mean = 0.38ms, max = 5.16ms, min = 0.00ms, total = 5.69ms
+Execution time:  mean = 0.70ms, total = 10.57ms
+Event stats:
+	GcsInMemoryStore.GetAll - 6 total (0 active), Execution time: mean = 0.01ms, total = 0.03ms, Queueing time: mean = 0.08ms, max = 0.08ms, min = 0.07ms, total = 0.46ms
+	GcsInMemoryStore.Put - 3 total (0 active), Execution time: mean = 1.75ms, total = 5.26ms, Queueing time: mean = 1.74ms, max = 5.16ms, min = 0.00ms, total = 5.23ms
+	PeriodicalRunner.RunFnPeriodically - 2 total (2 active, 1 running), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	GcsServer.GetOrGenerateClusterId.continuation - 1 total (0 active), Execution time: mean = 5.25ms, total = 5.25ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	GcsInitData::AsyncLoad - 1 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	GcsInMemoryStore.Get - 1 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,494 I 61197 61329] (gcs_client_test) gcs_server.cc:1342: task_io_context Event stats:
+
+
+Global stats: 5 total (2 active)
+Queueing time: mean = 0.02ms, max = 0.04ms, min = 0.00ms, total = 0.08ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.02ms, max = 0.04ms, min = 0.00ms, total = 0.04ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.04ms, max = 0.04ms, min = 0.04ms, total = 0.04ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	GcsTaskManager.GcJobSummary - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,494 I 61197 61329] (gcs_client_test) gcs_server.cc:1342: pubsub_io_context Event stats:
+
+
+Global stats: 5 total (2 active)
+Queueing time: mean = 0.03ms, max = 0.08ms, min = 0.00ms, total = 0.14ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.04ms, max = 0.08ms, min = 0.00ms, total = 0.08ms
+	Publisher.CheckDeadSubscribers - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.06ms, max = 0.06ms, min = 0.06ms, total = 0.06ms
+
+
+[2026-10-27 20:00:14,494 I 61197 61329] (gcs_client_test) gcs_server.cc:1342: observability_pubsub_io_context Event stats:
+
+
+Global stats: 5 total (2 active)
+Queueing time: mean = 0.03ms, max = 0.11ms, min = 0.00ms, total = 0.17ms
+Execution time:  mean = 0.01ms, total = 0.03ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.03ms, Queueing time: mean = 0.06ms, max = 0.11ms, min = 0.00ms, total = 0.11ms
+	Publisher.CheckDeadSubscribers - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.06ms, max = 0.06ms, min = 0.06ms, total = 0.06ms
+
+
+[2026-10-27 20:00:14,494 I 61197 61329] (gcs_client_test) gcs_server.cc:1342: ray_syncer_io_context Event stats:
+
+
+Global stats: 5 total (0 active)
+Queueing time: mean = 0.05ms, max = 0.11ms, min = 0.00ms, total = 0.26ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	RaySyncerRegister - 2 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.05ms, max = 0.06ms, min = 0.04ms, total = 0.10ms
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.06ms, max = 0.11ms, min = 0.00ms, total = 0.11ms
+	io_context_monitor_probe - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.04ms, max = 0.04ms, min = 0.04ms, total = 0.04ms
+
+
+[2026-10-27 20:00:14,494 I 61197 61329] (gcs_client_test) gcs_server.cc:1342: ray_event_io_context Event stats:
+
+
+Global stats: 3 total (1 active)
+Queueing time: mean = 0.03ms, max = 0.09ms, min = 0.00ms, total = 0.09ms
+Execution time:  mean = 0.00ms, total = 0.01ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.05ms, max = 0.09ms, min = 0.00ms, total = 0.09ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,494 I 61197 61329] (gcs_client_test) gcs_server.cc:1342: internal_kv_io_context Event stats:
+
+
+Global stats: 3 total (0 active)
+Queueing time: mean = 0.04ms, max = 0.09ms, min = 0.00ms, total = 0.12ms
+Execution time:  mean = 0.00ms, total = 0.01ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.05ms, max = 0.09ms, min = 0.00ms, total = 0.10ms
+	io_context_monitor_probe - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.02ms, max = 0.02ms, min = 0.02ms, total = 0.02ms
+
+
+[2026-10-27 20:00:14,494 I 61197 61329] (gcs_client_test) gcs_server.cc:1342: node_manager_io_context Event stats:
+
+
+Global stats: 3 total (1 active)
+Queueing time: mean = 0.03ms, max = 0.09ms, min = 0.00ms, total = 0.09ms
+Execution time:  mean = 0.00ms, total = 0.01ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.00ms, total = 0.01ms, Queueing time: mean = 0.05ms, max = 0.09ms, min = 0.00ms, total = 0.09ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,494 I 61197 61329] (gcs_client_test) gcs_server.cc:1342: resource_load_pull_io_context Event stats:
+
+
+Global stats: 5 total (2 active)
+Queueing time: mean = 0.04ms, max = 0.14ms, min = 0.00ms, total = 0.18ms
+Execution time:  mean = 0.01ms, total = 0.03ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.07ms, max = 0.14ms, min = 0.00ms, total = 0.14ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.04ms, max = 0.04ms, min = 0.04ms, total = 0.04ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	RayletLoadPulled - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,504 I 61197 61324] (gcs_client_test) gcs_node_manager.cc:111: Registering new node. node_id=29fdb29b5a9724f13e125171a83060cb2117e25a55120da468cf217b node_name=Mocker_node node_address=127.0.0.1
+[2026-10-27 20:00:14,505 W 61197 61329] (gcs_client_test) gcs_resource_manager.cc:245: The registered node doesn't set the total resources. node_id=29fdb29b5a9724f13e125171a83060cb2117e25a55120da468cf217b
+[2026-10-27 20:00:14,505 I 61197 61329] (gcs_client_test) gcs_server.cc:1243: Metrics agent not available. To enable metrics, install Ray with dashboard support: `pip install 'ray[default]'`.
+[2026-10-27 20:00:14,508 I 61197 61324] (gcs_client_test) gcs_node_manager.cc:111: Registering new node. node_id=999bc500f3b058b7fece5dfa4f36ae2af3905daf0026784e9658957d node_name=Mocker_node node_address=127.0.0.1
+[2026-10-27 20:00:14,508 W 61197 61329] (gcs_client_test) gcs_resource_manager.cc:245: The registered node doesn't set the total resources. node_id=999bc500f3b058b7fece5dfa4f36ae2af3905daf0026784e9658957d
+[2026-10-27 20:00:14,508 I 61197 61324] (gcs_client_test) gcs_node_manager.cc:111: Registering new node. node_id=5557f6a2fb38907f554cf50b83dc9093a726bed574338e767a967f66 node_name=Mocker_node node_address=127.0.0.1
+[2026-10-27 20:00:14,508 I 61197 61324] (gcs_client_test) gcs_node_manager.cc:734: , death reason = UNEXPECTED_TERMINATION, death message = health check failed due to missing too many heartbeats node_id=29fdb29b5a9724f13e125171a83060cb2117e25a55120da468cf217b node_name=Mocker_node
+[2026-10-27 20:00:14,508 W 61197 61324] (gcs_client_test) gcs_node_manager.cc:761: The node with node id: 29fdb29b5a9724f13e125171a83060cb2117e25a55120da468cf217b and address: 127.0.0.1 and node name: Mocker_node has been marked dead because the detector has missed too many heartbeats from it. This can happen when a 	(1) raylet crashes unexpectedly (OOM, etc.)
+	(2) raylet has lagging heartbeats due to slow network or busy workload.
+[2026-10-27 20:00:14,508 I 61197 61329] (gcs_client_test) gcs_placement_group_manager.cc:691: Node is dead, rescheduling the placement groups on the dead node. node_id=29fdb29b5a9724f13e125171a83060cb2117e25a55120da468cf217b
+[2026-10-27 20:00:14,508 I 61197 61329] (gcs_client_test) gcs_job_manager.cc:480: Node is dead, marking all jobs with drivers on this node as finished. node_id=29fdb29b5a9724f13e125171a83060cb2117e25a55120da468cf217b
+[2026-10-27 20:00:14,509 W 61197 61329] (gcs_client_test) gcs_resource_manager.cc:245: The registered node doesn't set the total resources. node_id=5557f6a2fb38907f554cf50b83dc9093a726bed574338e767a967f66
+[2026-10-27 20:00:14,509 I 61197 61329] (gcs_client_test) gcs_server.cc:1243: Metrics agent not available. To enable metrics, install Ray with dashboard support: `pip install 'ray[default]'`.
+[2026-10-27 20:00:14,510 I 61197 61197] (gcs_client_test) gcs_server.cc:645: Stopping GCS server.
+[2026-10-27 20:00:14,510 I 61197 61197] (gcs_client_test) ray_event_recorder_base.cc:69: Stopping RayEventRecorder and flushing remaining events.
+[2026-10-27 20:00:14,513 I 61197 61197] (gcs_client_test) gcs_server.cc:675: GCS server stopped.
+[       OK ] RedisMigration/GcsClientTest.TestRegisterHeadNode/1 (25 ms)
+[ RUN      ] RedisMigration/GcsClientTest.TestReregisterSameHeadNode/0
+[2026-10-27 20:00:14,514 I 61197 61197] (gcs_client_test) test_utils.cc:137: Start redis command is: 'external/redis_linux_arm64/redis-server' --loglevel warning --save  --appendonly no --port 3615
+[2026-10-27 20:00:14,533 I 61197 61197] (gcs_client_test) gcs_server.cc:195: GCS storage type is StorageType::REDIS_PERSIST
+[2026-10-27 20:00:14,533 I 61197 61197] (gcs_client_test) gcs_server.cc:196: GCS node ID initialized from config node_id=NIL_ID
+[2026-10-27 20:00:14,533 I 61197 61197] (gcs_client_test) redis_context.cc:1102: Resolve Redis address to 127.0.0.1
+[2026-10-27 20:00:14,533 I 61197 61197] (gcs_client_test) redis_context.cc:782: Attempting to connect to address 127.0.0.1:3615.
+[2026-10-27 20:00:14,533 I 61197 61197] (gcs_client_test) redis_context.cc:651: Enabled TCP keepalive on the Redis connection to 127.0.0.1:3615: idle=30s, probe interval=30s, probes=3 (idle, unresponsive connection detected after ~120s).
+[2026-10-27 20:00:14,533 I 61197 61197] (gcs_client_test) redis_context.cc:782: Attempting to connect to address 127.0.0.1:3615.
+[2026-10-27 20:00:14,533 I 61197 61197] (gcs_client_test) redis_context.cc:651: Enabled TCP keepalive on the Redis connection to 127.0.0.1:3615: idle=30s, probe interval=30s, probes=3 (idle, unresponsive connection detected after ~120s).
+[2026-10-27 20:00:14,534 I 61197 61197] (gcs_client_test) redis_context.cc:925: Connect to Redis Cluster
+[2026-10-27 20:00:14,534 I 61197 61197] (gcs_client_test) redis_context.cc:965: Redis cluster leader is 127.0.0.1:3615
+[2026-10-27 20:00:14,534 I 61197 61197] (gcs_client_test) redis_context.cc:1102: Resolve Redis address to 127.0.0.1
+[2026-10-27 20:00:14,534 I 61197 61197] (gcs_client_test) redis_context.cc:782: Attempting to connect to address 127.0.0.1:3615.
+[2026-10-27 20:00:14,534 I 61197 61197] (gcs_client_test) redis_context.cc:651: Enabled TCP keepalive on the Redis connection to 127.0.0.1:3615: idle=30s, probe interval=30s, probes=3 (idle, unresponsive connection detected after ~120s).
+[2026-10-27 20:00:14,534 I 61197 61197] (gcs_client_test) redis_context.cc:782: Attempting to connect to address 127.0.0.1:3615.
+[2026-10-27 20:00:14,534 I 61197 61197] (gcs_client_test) redis_context.cc:651: Enabled TCP keepalive on the Redis connection to 127.0.0.1:3615: idle=30s, probe interval=30s, probes=3 (idle, unresponsive connection detected after ~120s).
+[2026-10-27 20:00:14,534 I 61197 61197] (gcs_client_test) redis_context.cc:925: Connect to Redis Cluster
+[2026-10-27 20:00:14,534 I 61197 61197] (gcs_client_test) redis_context.cc:965: Redis cluster leader is 127.0.0.1:3615
+[2026-10-27 20:00:14,534 I 61197 61197] (gcs_client_test) gcs_init_data.cc:48: Loading job table data.
+[2026-10-27 20:00:14,534 I 61197 61197] (gcs_client_test) gcs_init_data.cc:58: Loading node table data.
+[2026-10-27 20:00:14,534 I 61197 61197] (gcs_client_test) gcs_init_data.cc:78: Loading actor table data.
+[2026-10-27 20:00:14,534 I 61197 61197] (gcs_client_test) gcs_init_data.cc:89: Loading actor task spec table data.
+[2026-10-27 20:00:14,534 I 61197 61197] (gcs_client_test) gcs_init_data.cc:68: Loading placement group table data.
+[2026-10-27 20:00:14,534 I 61197 61197] (gcs_client_test) gcs_init_data.cc:99: Loading worker table data.
+[2026-10-27 20:00:14,534 I 61197 61357] (gcs_client_test) gcs_init_data.cc:52: Finished loading job table data, size = 0
+[2026-10-27 20:00:14,534 I 61197 61357] (gcs_client_test) gcs_init_data.cc:62: Finished loading node table data, size = 0
+[2026-10-27 20:00:14,534 I 61197 61357] (gcs_client_test) gcs_init_data.cc:83: Finished loading actor table data, size = 0
+[2026-10-27 20:00:14,534 I 61197 61357] (gcs_client_test) gcs_init_data.cc:93: Finished loading actor task spec table data, size = 0
+[2026-10-27 20:00:14,534 I 61197 61357] (gcs_client_test) gcs_init_data.cc:72: Finished loading placement group table data, size = 0
+[2026-10-27 20:00:14,534 I 61197 61357] (gcs_client_test) gcs_init_data.cc:103: Finished loading worker table data, size = 0
+[2026-10-27 20:00:14,535 I 61197 61357] (gcs_client_test) gcs_server.cc:387: Generated new cluster ID. cluster_id=e0366621a86a6596eaf5cdb34cef84d94d3d6e8a35ef6a386c493a62
+[2026-10-27 20:00:14,535 I 61197 61357] (gcs_client_test) gcs_server.cc:1156: Autoscaler V2 enabled: 0
+[2026-10-27 20:00:14,535 I 61197 61357] (gcs_client_test) grpc_server.cc:144: MockedGcsServer server started, listening on port 5397.
+[2026-10-27 20:00:14,540 I 61197 61357] (gcs_client_test) gcs_server.cc:1323: Gcs Debug state:
+
+GcsNodeManager:
+- RegisterNode request count: 0
+- DrainNode request count: 0
+- GetAllNodeInfo request count: 0
+
+GcsActorManager:
+- RegisterActor request count: 0
+- CreateActor request count: 0
+- GetActorInfo request count: 0
+- GetNamedActorInfo request count: 0
+- GetAllActorInfo request count: 0
+- KillActor request count: 0
+- ListNamedActors request count: 0
+- Registered actors count: 0
+- Destroyed actors count: 0
+- Named actors count: 0
+- Unresolved actors count: 0
+- Pending actors count: 0
+- Created actors count: 0
+- owners_: 0
+- actor_to_register_callbacks_: 0
+- actor_to_restart_for_lineage_reconstruction_callbacks_: 0
+- actor_to_create_callbacks_: 0
+- sorted_destroyed_actor_list_: 0
+
+GcsResourceManager:
+- GetAllAvailableResources request count: 0
+- GetAllTotalResources request count: 0
+- GetAllResourceUsage request count: 0
+
+GcsPlacementGroupManager:
+- CreatePlacementGroup request count: 0
+- RemovePlacementGroup request count: 0
+- GetPlacementGroup request count: 0
+- GetAllPlacementGroup request count: 0
+- WaitPlacementGroupUntilReady request count: 0
+- GetNamedPlacementGroup request count: 0
+- Scheduling pending placement group count: 0
+- Registered placement groups count: 0
+- Named placement group count: 0
+- Pending placement groups count: 0
+- Infeasible placement groups count: 0
+
+Publisher:
+- current long-polling subscribers: 0
+GCS_ACTOR_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_JOB_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_NODE_INFO_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_WORKER_DELTA_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_NODE_ADDRESS_AND_LIVENESS_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+
+Publisher:
+- current long-polling subscribers: 0
+RAY_ERROR_INFO_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+RAY_LOG_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+RAY_NODE_RESOURCE_USAGE_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+
+[runtime env manager] ID to URIs table:
+[runtime env manager] URIs reference table:
+
+GcsTaskManager:
+-Total num task events reported: 0
+-Total num status task events dropped: 0
+-Total num profile events dropped: 0
+-Current num of task events stored: 0
+-Total num of actor creation tasks: 0
+-Total num of actor tasks: 0
+-Total num of normal tasks: 0
+-Total num of driver tasks: 0
+
+GcsAutoscalerStateManager:
+- last_seen_autoscaler_state_version_: 0
+- last_cluster_resource_state_version_: 0
+- pending demands:
+
+
+
+[2026-10-27 20:00:14,540 I 61197 61357] (gcs_client_test) gcs_server.cc:1338: Main service Event stats:
+
+
+Global stats: 34 total (4 active)
+Queueing time: mean = 0.17ms, max = 4.79ms, min = 0.00ms, total = 5.93ms
+Execution time:  mean = 0.30ms, total = 10.32ms
+Event stats:
+	RedisAsyncContext.addWrite - 7 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.07ms, max = 0.10ms, min = 0.00ms, total = 0.51ms
+	RedisRequestContext.Callback - 7 total (0 active), Execution time: mean = 0.01ms, total = 0.05ms, Queueing time: mean = 0.03ms, max = 0.05ms, min = 0.01ms, total = 0.18ms
+	RedisStoreClient.RedisScanner.Scan - 6 total (0 active), Execution time: mean = 0.01ms, total = 0.04ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 3 total (2 active, 1 running), Execution time: mean = 0.00ms, total = 0.01ms, Queueing time: mean = 0.11ms, max = 0.33ms, min = 0.33ms, total = 0.33ms
+	RedisStoreClient.AsyncPut - 3 total (0 active), Execution time: mean = 1.69ms, total = 5.08ms, Queueing time: mean = 1.63ms, max = 4.79ms, min = 0.02ms, total = 4.89ms
+	RedisAsyncContext.addRead - 2 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	RedisStoreClient.AsyncCheckHealth - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	GCSServer.redis_health_check - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	RedisStoreClient.AsyncGet - 1 total (0 active), Execution time: mean = 0.03ms, total = 0.03ms, Queueing time: mean = 0.02ms, max = 0.02ms, min = 0.02ms, total = 0.02ms
+	GcsServer.GetOrGenerateClusterId.continuation - 1 total (0 active), Execution time: mean = 5.07ms, total = 5.07ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	GcsInitData::AsyncLoad - 1 total (0 active), Execution time: mean = 0.02ms, total = 0.02ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,540 I 61197 61357] (gcs_client_test) gcs_server.cc:1342: task_io_context Event stats:
+
+
+Global stats: 5 total (1 active)
+Queueing time: mean = 0.03ms, max = 0.08ms, min = 0.00ms, total = 0.15ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.02ms, max = 0.04ms, min = 0.00ms, total = 0.04ms
+	io_context_monitor_probe - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.03ms, max = 0.03ms, min = 0.03ms, total = 0.03ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.08ms, max = 0.08ms, min = 0.08ms, total = 0.08ms
+	GcsTaskManager.GcJobSummary - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,540 I 61197 61357] (gcs_client_test) gcs_server.cc:1342: pubsub_io_context Event stats:
+
+
+Global stats: 5 total (2 active)
+Queueing time: mean = 0.02ms, max = 0.06ms, min = 0.00ms, total = 0.09ms
+Execution time:  mean = 0.01ms, total = 0.03ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.03ms, Queueing time: mean = 0.03ms, max = 0.06ms, min = 0.00ms, total = 0.06ms
+	Publisher.CheckDeadSubscribers - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.03ms, max = 0.03ms, min = 0.03ms, total = 0.03ms
+
+
+[2026-10-27 20:00:14,540 I 61197 61357] (gcs_client_test) gcs_server.cc:1342: observability_pubsub_io_context Event stats:
+
+
+Global stats: 5 total (2 active)
+Queueing time: mean = 0.03ms, max = 0.07ms, min = 0.00ms, total = 0.16ms
+Execution time:  mean = 0.01ms, total = 0.03ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.04ms, max = 0.07ms, min = 0.00ms, total = 0.07ms
+	Publisher.CheckDeadSubscribers - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	io_context_monitor_probe - 1 total (1 active, 1 running), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.03ms, max = 0.03ms, min = 0.03ms, total = 0.03ms
+
+
+[2026-10-27 20:00:14,540 I 61197 61357] (gcs_client_test) gcs_server.cc:1342: ray_syncer_io_context Event stats:
+
+
+Global stats: 5 total (1 active)
+Queueing time: mean = 0.03ms, max = 0.05ms, min = 0.00ms, total = 0.13ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.03ms, max = 0.05ms, min = 0.00ms, total = 0.05ms
+	RaySyncerRegister - 2 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.04ms, max = 0.04ms, min = 0.04ms, total = 0.08ms
+	io_context_monitor_probe - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,540 I 61197 61357] (gcs_client_test) gcs_server.cc:1342: ray_event_io_context Event stats:
+
+
+Global stats: 3 total (0 active)
+Queueing time: mean = 0.04ms, max = 0.06ms, min = 0.00ms, total = 0.11ms
+Execution time:  mean = 0.01ms, total = 0.03ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.02ms, total = 0.03ms, Queueing time: mean = 0.02ms, max = 0.05ms, min = 0.00ms, total = 0.05ms
+	io_context_monitor_probe - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.06ms, max = 0.06ms, min = 0.06ms, total = 0.06ms
+
+
+[2026-10-27 20:00:14,540 I 61197 61357] (gcs_client_test) gcs_server.cc:1342: internal_kv_io_context Event stats:
+
+
+Global stats: 19 total (0 active)
+Queueing time: mean = 0.01ms, max = 0.05ms, min = 0.00ms, total = 0.23ms
+Execution time:  mean = 0.00ms, total = 0.04ms
+Event stats:
+	RedisAsyncContext.addRead - 8 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	RedisAsyncContext.addWrite - 4 total (0 active), Execution time: mean = 0.00ms, total = 0.01ms, Queueing time: mean = 0.04ms, max = 0.05ms, min = 0.02ms, total = 0.14ms
+	RedisRequestContext.Callback - 4 total (0 active), Execution time: mean = 0.00ms, total = 0.02ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.01ms
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.02ms, max = 0.04ms, min = 0.00ms, total = 0.04ms
+	io_context_monitor_probe - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.04ms, max = 0.04ms, min = 0.04ms, total = 0.04ms
+
+
+[2026-10-27 20:00:14,540 I 61197 61357] (gcs_client_test) gcs_server.cc:1342: node_manager_io_context Event stats:
+
+
+Global stats: 3 total (0 active)
+Queueing time: mean = 0.03ms, max = 0.04ms, min = 0.00ms, total = 0.08ms
+Execution time:  mean = 0.00ms, total = 0.01ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.02ms, max = 0.03ms, min = 0.00ms, total = 0.03ms
+	io_context_monitor_probe - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.04ms, max = 0.04ms, min = 0.04ms, total = 0.04ms
+
+
+[2026-10-27 20:00:14,540 I 61197 61357] (gcs_client_test) gcs_server.cc:1342: resource_load_pull_io_context Event stats:
+
+
+Global stats: 5 total (1 active)
+Queueing time: mean = 0.03ms, max = 0.07ms, min = 0.00ms, total = 0.17ms
+Execution time:  mean = 0.01ms, total = 0.03ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.03ms, max = 0.06ms, min = 0.00ms, total = 0.06ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.07ms, max = 0.07ms, min = 0.07ms, total = 0.07ms
+	io_context_monitor_probe - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.04ms, max = 0.04ms, min = 0.04ms, total = 0.04ms
+	RayletLoadPulled - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,545 I 61197 61352] (gcs_client_test) gcs_node_manager.cc:111: Registering new node. node_id=836ad6109a3c357bb07e70f8299f139586f4104aeb75dba7c94f0b5b node_name=Mocker_node node_address=127.0.0.1
+[2026-10-27 20:00:14,546 W 61197 61357] (gcs_client_test) gcs_resource_manager.cc:245: The registered node doesn't set the total resources. node_id=836ad6109a3c357bb07e70f8299f139586f4104aeb75dba7c94f0b5b
+[2026-10-27 20:00:14,546 I 61197 61357] (gcs_client_test) gcs_server.cc:1243: Metrics agent not available. To enable metrics, install Ray with dashboard support: `pip install 'ray[default]'`.
+[2026-10-27 20:00:14,549 I 61197 61352] (gcs_client_test) gcs_node_manager.cc:111: Registering new node. node_id=836ad6109a3c357bb07e70f8299f139586f4104aeb75dba7c94f0b5b node_name=Mocker_node node_address=127.0.0.1
+[2026-10-27 20:00:14,551 I 61197 61197] (gcs_client_test) gcs_server.cc:645: Stopping GCS server.
+[2026-10-27 20:00:14,551 I 61197 61197] (gcs_client_test) ray_event_recorder_base.cc:69: Stopping RayEventRecorder and flushing remaining events.
+[2026-10-27 20:00:14,554 I 61197 61197] (gcs_client_test) gcs_server.cc:675: GCS server stopped.
+[2026-10-27 20:00:14,554 I 61197 61197] (gcs_client_test) test_utils.cc:183: Cleaning up redis with command: 'external/redis_linux_arm64/redis-cli' -p 3615 flushall
+OK
+[2026-10-27 20:00:14,663 I 61197 61197] (gcs_client_test) test_utils.cc:157: Stop redis command is: 'external/redis_linux_arm64/redis-cli' -p 3615 shutdown
+61339:M 27 Oct 2026 20:00:14.670 # Redis is now ready to exit, bye bye...
+[       OK ] RedisMigration/GcsClientTest.TestReregisterSameHeadNode/0 (256 ms)
+[ RUN      ] RedisMigration/GcsClientTest.TestReregisterSameHeadNode/1
+[2026-10-27 20:00:14,771 I 61197 61197] (gcs_client_test) gcs_server.cc:195: GCS storage type is StorageType::IN_MEMORY
+[2026-10-27 20:00:14,771 I 61197 61197] (gcs_client_test) gcs_server.cc:196: GCS node ID initialized from config node_id=NIL_ID
+[2026-10-27 20:00:14,771 I 61197 61197] (gcs_client_test) gcs_init_data.cc:48: Loading job table data.
+[2026-10-27 20:00:14,771 I 61197 61197] (gcs_client_test) gcs_init_data.cc:58: Loading node table data.
+[2026-10-27 20:00:14,771 I 61197 61197] (gcs_client_test) gcs_init_data.cc:78: Loading actor table data.
+[2026-10-27 20:00:14,771 I 61197 61197] (gcs_client_test) gcs_init_data.cc:89: Loading actor task spec table data.
+[2026-10-27 20:00:14,771 I 61197 61197] (gcs_client_test) gcs_init_data.cc:68: Loading placement group table data.
+[2026-10-27 20:00:14,771 I 61197 61197] (gcs_client_test) gcs_init_data.cc:99: Loading worker table data.
+[2026-10-27 20:00:14,771 I 61197 61382] (gcs_client_test) gcs_init_data.cc:52: Finished loading job table data, size = 0
+[2026-10-27 20:00:14,771 I 61197 61382] (gcs_client_test) gcs_init_data.cc:62: Finished loading node table data, size = 0
+[2026-10-27 20:00:14,771 I 61197 61382] (gcs_client_test) gcs_init_data.cc:83: Finished loading actor table data, size = 0
+[2026-10-27 20:00:14,771 I 61197 61382] (gcs_client_test) gcs_init_data.cc:93: Finished loading actor task spec table data, size = 0
+[2026-10-27 20:00:14,771 I 61197 61382] (gcs_client_test) gcs_init_data.cc:72: Finished loading placement group table data, size = 0
+[2026-10-27 20:00:14,772 I 61197 61382] (gcs_client_test) gcs_init_data.cc:103: Finished loading worker table data, size = 0
+[2026-10-27 20:00:14,772 I 61197 61382] (gcs_client_test) gcs_server.cc:387: Generated new cluster ID. cluster_id=bdce5042cab53b65e5db7f61bf7184aeaf4910a51eb06ec779569c6b
+[2026-10-27 20:00:14,772 I 61197 61382] (gcs_client_test) gcs_server.cc:1156: Autoscaler V2 enabled: 0
+[2026-10-27 20:00:14,772 I 61197 61382] (gcs_client_test) grpc_server.cc:144: MockedGcsServer server started, listening on port 5397.
+[2026-10-27 20:00:14,777 I 61197 61382] (gcs_client_test) gcs_server.cc:1323: Gcs Debug state:
+
+GcsNodeManager:
+- RegisterNode request count: 0
+- DrainNode request count: 0
+- GetAllNodeInfo request count: 0
+
+GcsActorManager:
+- RegisterActor request count: 0
+- CreateActor request count: 0
+- GetActorInfo request count: 0
+- GetNamedActorInfo request count: 0
+- GetAllActorInfo request count: 0
+- KillActor request count: 0
+- ListNamedActors request count: 0
+- Registered actors count: 0
+- Destroyed actors count: 0
+- Named actors count: 0
+- Unresolved actors count: 0
+- Pending actors count: 0
+- Created actors count: 0
+- owners_: 0
+- actor_to_register_callbacks_: 0
+- actor_to_restart_for_lineage_reconstruction_callbacks_: 0
+- actor_to_create_callbacks_: 0
+- sorted_destroyed_actor_list_: 0
+
+GcsResourceManager:
+- GetAllAvailableResources request count: 0
+- GetAllTotalResources request count: 0
+- GetAllResourceUsage request count: 0
+
+GcsPlacementGroupManager:
+- CreatePlacementGroup request count: 0
+- RemovePlacementGroup request count: 0
+- GetPlacementGroup request count: 0
+- GetAllPlacementGroup request count: 0
+- WaitPlacementGroupUntilReady request count: 0
+- GetNamedPlacementGroup request count: 0
+- Scheduling pending placement group count: 0
+- Registered placement groups count: 0
+- Named placement group count: 0
+- Pending placement groups count: 0
+- Infeasible placement groups count: 0
+
+Publisher:
+- current long-polling subscribers: 0
+GCS_ACTOR_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_JOB_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_NODE_INFO_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_WORKER_DELTA_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+GCS_NODE_ADDRESS_AND_LIVENESS_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+
+Publisher:
+- current long-polling subscribers: 0
+RAY_LOG_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+RAY_ERROR_INFO_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+RAY_NODE_RESOURCE_USAGE_CHANNEL
+- cumulative published messages: 0
+- cumulative published bytes: 0
+- current buffered bytes: 0
+- current all-entity subscribers: 0
+- current keyed subscription keys: 0
+- current keyed subscribers: 0
+
+[runtime env manager] ID to URIs table:
+[runtime env manager] URIs reference table:
+
+GcsTaskManager:
+-Total num task events reported: 0
+-Total num status task events dropped: 0
+-Total num profile events dropped: 0
+-Current num of task events stored: 0
+-Total num of actor creation tasks: 0
+-Total num of actor tasks: 0
+-Total num of normal tasks: 0
+-Total num of driver tasks: 0
+
+GcsAutoscalerStateManager:
+- last_seen_autoscaler_state_version_: 0
+- last_cluster_resource_state_version_: 0
+- pending demands:
+
+
+
+[2026-10-27 20:00:14,777 I 61197 61382] (gcs_client_test) gcs_server.cc:1338: Main service Event stats:
+
+
+Global stats: 14 total (2 active)
+Queueing time: mean = 0.44ms, max = 5.67ms, min = 0.00ms, total = 6.19ms
+Execution time:  mean = 0.82ms, total = 11.53ms
+Event stats:
+	GcsInMemoryStore.GetAll - 6 total (0 active), Execution time: mean = 0.01ms, total = 0.03ms, Queueing time: mean = 0.07ms, max = 0.08ms, min = 0.07ms, total = 0.45ms
+	GcsInMemoryStore.Put - 3 total (0 active), Execution time: mean = 1.91ms, total = 5.74ms, Queueing time: mean = 1.91ms, max = 5.67ms, min = 0.00ms, total = 5.74ms
+	PeriodicalRunner.RunFnPeriodically - 2 total (2 active, 1 running), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	GcsInitData::AsyncLoad - 1 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	GcsServer.GetOrGenerateClusterId.continuation - 1 total (0 active), Execution time: mean = 5.74ms, total = 5.74ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+	GcsInMemoryStore.Get - 1 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.00ms, max = 0.00ms, min = 0.00ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,777 I 61197 61382] (gcs_client_test) gcs_server.cc:1342: task_io_context Event stats:
+
+
+Global stats: 4 total (1 active)
+Queueing time: mean = 0.02ms, max = 0.06ms, min = 0.00ms, total = 0.10ms
+Execution time:  mean = 0.01ms, total = 0.03ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.02ms, max = 0.04ms, min = 0.00ms, total = 0.04ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.06ms, max = 0.06ms, min = 0.06ms, total = 0.06ms
+	GcsTaskManager.GcJobSummary - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,777 I 61197 61382] (gcs_client_test) gcs_server.cc:1342: pubsub_io_context Event stats:
+
+
+Global stats: 4 total (1 active)
+Queueing time: mean = 0.02ms, max = 0.05ms, min = 0.00ms, total = 0.08ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.02ms, max = 0.03ms, min = 0.00ms, total = 0.03ms
+	Publisher.CheckDeadSubscribers - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.05ms, max = 0.05ms, min = 0.05ms, total = 0.05ms
+
+
+[2026-10-27 20:00:14,777 I 61197 61382] (gcs_client_test) gcs_server.cc:1342: observability_pubsub_io_context Event stats:
+
+
+Global stats: 4 total (1 active)
+Queueing time: mean = 0.05ms, max = 0.14ms, min = 0.00ms, total = 0.22ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.07ms, max = 0.14ms, min = 0.00ms, total = 0.14ms
+	Publisher.CheckDeadSubscribers - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.07ms, max = 0.07ms, min = 0.07ms, total = 0.07ms
+
+
+[2026-10-27 20:00:14,777 I 61197 61382] (gcs_client_test) gcs_server.cc:1342: ray_syncer_io_context Event stats:
+
+
+Global stats: 4 total (0 active)
+Queueing time: mean = 0.05ms, max = 0.13ms, min = 0.00ms, total = 0.20ms
+Execution time:  mean = 0.00ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.07ms, max = 0.13ms, min = 0.00ms, total = 0.14ms
+	RaySyncerRegister - 2 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.03ms, max = 0.04ms, min = 0.03ms, total = 0.06ms
+
+
+[2026-10-27 20:00:14,777 I 61197 61382] (gcs_client_test) gcs_server.cc:1342: ray_event_io_context Event stats:
+
+
+Global stats: 2 total (0 active)
+Queueing time: mean = 0.04ms, max = 0.08ms, min = 0.00ms, total = 0.08ms
+Execution time:  mean = 0.01ms, total = 0.01ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.04ms, max = 0.08ms, min = 0.00ms, total = 0.08ms
+
+
+[2026-10-27 20:00:14,777 I 61197 61382] (gcs_client_test) gcs_server.cc:1342: internal_kv_io_context Event stats:
+
+
+Global stats: 2 total (0 active)
+Queueing time: mean = 0.02ms, max = 0.04ms, min = 0.00ms, total = 0.05ms
+Execution time:  mean = 0.01ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.02ms, max = 0.04ms, min = 0.00ms, total = 0.05ms
+
+
+[2026-10-27 20:00:14,777 I 61197 61382] (gcs_client_test) gcs_server.cc:1342: node_manager_io_context Event stats:
+
+
+Global stats: 2 total (0 active)
+Queueing time: mean = 0.02ms, max = 0.03ms, min = 0.00ms, total = 0.03ms
+Execution time:  mean = 0.01ms, total = 0.01ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.01ms, Queueing time: mean = 0.02ms, max = 0.03ms, min = 0.00ms, total = 0.03ms
+
+
+[2026-10-27 20:00:14,777 I 61197 61382] (gcs_client_test) gcs_server.cc:1342: resource_load_pull_io_context Event stats:
+
+
+Global stats: 4 total (1 active)
+Queueing time: mean = 0.03ms, max = 0.09ms, min = 0.00ms, total = 0.13ms
+Execution time:  mean = 0.01ms, total = 0.02ms
+Event stats:
+	event_loop_lag_probe - 2 total (0 active), Execution time: mean = 0.01ms, total = 0.02ms, Queueing time: mean = 0.04ms, max = 0.09ms, min = 0.00ms, total = 0.09ms
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.05ms, max = 0.05ms, min = 0.05ms, total = 0.05ms
+	RayletLoadPulled - 1 total (1 active), Execution time: mean = 0.00ms, total = 0.00ms, Queueing time: mean = 0.00ms, max = -0.00ms, min = 9223372036854.78ms, total = 0.00ms
+
+
+[2026-10-27 20:00:14,788 I 61197 61377] (gcs_client_test) gcs_node_manager.cc:111: Registering new node. node_id=7a8c59b13ad472adc4e9de1ea55ec8007f7be43aeec4a8039747a431 node_name=Mocker_node node_address=127.0.0.1
+[2026-10-27 20:00:14,788 W 61197 61382] (gcs_client_test) gcs_resource_manager.cc:245: The registered node doesn't set the total resources. node_id=7a8c59b13ad472adc4e9de1ea55ec8007f7be43aeec4a8039747a431
+[2026-10-27 20:00:14,788 I 61197 61382] (gcs_client_test) gcs_server.cc:1243: Metrics agent not available. To enable metrics, install Ray with dashboard support: `pip install 'ray[default]'`.
+[2026-10-27 20:00:14,789 I 61197 61377] (gcs_client_test) gcs_node_manager.cc:111: Registering new node. node_id=7a8c59b13ad472adc4e9de1ea55ec8007f7be43aeec4a8039747a431 node_name=Mocker_node node_address=127.0.0.1
+[2026-10-27 20:00:14,790 I 61197 61197] (gcs_client_test) gcs_server.cc:645: Stopping GCS server.
+[2026-10-27 20:00:14,790 I 61197 61197] (gcs_client_test) ray_event_recorder_base.cc:69: Stopping RayEventRecorder and flushing remaining events.
+[2026-10-27 20:00:14,793 I 61197 61197] (gcs_client_test) gcs_server.cc:675: GCS server stopped.
+[       OK ] RedisMigration/GcsClientTest.TestReregisterSameHeadNode/1 (22 ms)
+[----------] 6 tests from RedisMigration/GcsClientTest (878 ms total)
+
+[----------] Global test environment tear-down
+[==========] 6 tests from 1 test suite ran. (878 ms total)
+[  PASSED  ] 6 tests.

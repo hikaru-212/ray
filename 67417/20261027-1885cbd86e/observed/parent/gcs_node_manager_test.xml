@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="2" failures="1" disabled="0" errors="0" time="0.001" timestamp="2026-10-27T20:01:11.501" name="AllTests">
+  <testsuite name="GcsNodeManagerTest" tests="2" failures="1" disabled="0" skipped="0" errors="0" time="0.001" timestamp="2026-10-27T20:01:11.501">
+    <testcase name="TestRestoredHeadRegistrationReplayHasNoDeathSideEffects" file="src/ray/gcs/tests/gcs_node_manager_test.cc" line="97" status="run" result="completed" time="0.001" timestamp="2026-10-27T20:01:11.501" classname="GcsNodeManagerTest">
+      <failure message="src/ray/gcs/tests/gcs_node_manager_test.cc:216&#x0A;Value of: restored_manager-&gt;GetAllDeadNodes().empty()&#x0A;  Actual: false&#x0A;Expected: true&#x0A;" type=""><![CDATA[src/ray/gcs/tests/gcs_node_manager_test.cc:216
+Value of: restored_manager->GetAllDeadNodes().empty()
+  Actual: false
+Expected: true
+]]></failure>
+      <failure message="src/ray/gcs/tests/gcs_node_manager_test.cc:217&#x0A;Value of: restored_manager-&gt;IsNodeDead(id)&#x0A;  Actual: true&#x0A;Expected: false&#x0A;" type=""><![CDATA[src/ray/gcs/tests/gcs_node_manager_test.cc:217
+Value of: restored_manager->IsNodeDead(id)
+  Actual: true
+Expected: false
+]]></failure>
+      <failure message="src/ray/gcs/tests/gcs_node_manager_test.cc:218&#x0A;Value of: removed.empty()&#x0A;  Actual: false&#x0A;Expected: true&#x0A;" type=""><![CDATA[src/ray/gcs/tests/gcs_node_manager_test.cc:218
+Value of: removed.empty()
+  Actual: false
+Expected: true
+]]></failure>
+      <failure message="src/ray/gcs/tests/gcs_node_manager_test.cc:219&#x0A;Expected equality of these values:&#x0A;  added&#x0A;    Which is: 1&#x0A;  0&#x0A;" type=""><![CDATA[src/ray/gcs/tests/gcs_node_manager_test.cc:219
+Expected equality of these values:
+  added
+    Which is: 1
+  0
+]]></failure>
+      <failure message="src/ray/gcs/tests/gcs_node_manager_test.cc:220&#x0A;Expected equality of these values:&#x0A;  dead_info&#x0A;    Which is: 1&#x0A;  0&#x0A;" type=""><![CDATA[src/ray/gcs/tests/gcs_node_manager_test.cc:220
+Expected equality of these values:
+  dead_info
+    Which is: 1
+  0
+]]></failure>
+      <failure message="src/ray/gcs/tests/gcs_node_manager_test.cc:221&#x0A;Expected equality of these values:&#x0A;  dead_liveness&#x0A;    Which is: 1&#x0A;  0&#x0A;" type=""><![CDATA[src/ray/gcs/tests/gcs_node_manager_test.cc:221
+Expected equality of these values:
+  dead_liveness
+    Which is: 1
+  0
+]]></failure>
+    </testcase>
+    <testcase name="TestInitializeDoesNotNotifyNodeAddedListeners" file="src/ray/gcs/tests/gcs_node_manager_test.cc" line="526" status="run" result="completed" time="0." timestamp="2026-10-27T20:01:11.502" classname="GcsNodeManagerTest" />
+  </testsuite>
+</testsuites>

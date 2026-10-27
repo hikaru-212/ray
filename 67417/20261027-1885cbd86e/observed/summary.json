@@ -1,0 +1,300 @@
+{
+  "head-primary": {
+    "cases": [
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestGcsTableReload/0",
+        "status": "PASS",
+        "time": "0.293",
+        "failures": [],
+        "xml": "observed/head/gcs_client-primary.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestGcsTableReload/1",
+        "status": "PASS",
+        "time": "0.019",
+        "failures": [],
+        "xml": "observed/head/gcs_client-primary.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestRegisterHeadNode/0",
+        "status": "PASS",
+        "time": "0.26",
+        "failures": [],
+        "xml": "observed/head/gcs_client-primary.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestRegisterHeadNode/1",
+        "status": "PASS",
+        "time": "0.025",
+        "failures": [],
+        "xml": "observed/head/gcs_client-primary.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestReregisterSameHeadNode/0",
+        "status": "PASS",
+        "time": "0.256",
+        "failures": [],
+        "xml": "observed/head/gcs_client-primary.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestReregisterSameHeadNode/1",
+        "status": "PASS",
+        "time": "0.022",
+        "failures": [],
+        "xml": "observed/head/gcs_client-primary.xml"
+      },
+      {
+        "suite": "GcsNodeManagerTest",
+        "name": "TestRestoredHeadRegistrationReplayHasNoDeathSideEffects",
+        "status": "PASS",
+        "time": "0.002",
+        "failures": [],
+        "xml": "observed/head/gcs_node_manager_test.xml"
+      },
+      {
+        "suite": "GcsNodeManagerTest",
+        "name": "TestInitializeDoesNotNotifyNodeAddedListeners",
+        "status": "PASS",
+        "time": "0.",
+        "failures": [],
+        "xml": "observed/head/gcs_node_manager_test.xml"
+      }
+    ],
+    "passed": 8,
+    "failed": 0,
+    "skipped": 0
+  },
+  "head-neighbors": {
+    "cases": [
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestCheckAlive/0",
+        "status": "PASS",
+        "time": "0.246",
+        "failures": [],
+        "xml": "observed/head/gcs_client-neighbors.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestCheckAlive/1",
+        "status": "PASS",
+        "time": "0.02",
+        "failures": [],
+        "xml": "observed/head/gcs_client-neighbors.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestGcsClientCheckAlive/0",
+        "status": "PASS",
+        "time": "0.253",
+        "failures": [],
+        "xml": "observed/head/gcs_client-neighbors.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestGcsClientCheckAlive/1",
+        "status": "PASS",
+        "time": "0.02",
+        "failures": [],
+        "xml": "observed/head/gcs_client-neighbors.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestNodeInfo/0",
+        "status": "PASS",
+        "time": "1.506",
+        "failures": [],
+        "xml": "observed/head/gcs_client-neighbors.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestNodeInfo/1",
+        "status": "PASS",
+        "time": "1.286",
+        "failures": [],
+        "xml": "observed/head/gcs_client-neighbors.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestUnregisterNode/0",
+        "status": "PASS",
+        "time": "1.341",
+        "failures": [],
+        "xml": "observed/head/gcs_client-neighbors.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestUnregisterNode/1",
+        "status": "PASS",
+        "time": "1.104",
+        "failures": [],
+        "xml": "observed/head/gcs_client-neighbors.xml"
+      }
+    ],
+    "passed": 8,
+    "failed": 0,
+    "skipped": 0
+  },
+  "parent": {
+    "cases": [
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestCheckAlive/0",
+        "status": "PASS",
+        "time": "0.245",
+        "failures": [],
+        "xml": "observed/parent/gcs_client_test.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestCheckAlive/1",
+        "status": "PASS",
+        "time": "0.021",
+        "failures": [],
+        "xml": "observed/parent/gcs_client_test.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestGcsClientCheckAlive/0",
+        "status": "PASS",
+        "time": "0.248",
+        "failures": [],
+        "xml": "observed/parent/gcs_client_test.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestGcsClientCheckAlive/1",
+        "status": "PASS",
+        "time": "0.022",
+        "failures": [],
+        "xml": "observed/parent/gcs_client_test.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestNodeInfo/0",
+        "status": "PASS",
+        "time": "1.51",
+        "failures": [],
+        "xml": "observed/parent/gcs_client_test.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestNodeInfo/1",
+        "status": "PASS",
+        "time": "1.274",
+        "failures": [],
+        "xml": "observed/parent/gcs_client_test.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestUnregisterNode/0",
+        "status": "PASS",
+        "time": "1.337",
+        "failures": [],
+        "xml": "observed/parent/gcs_client_test.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestUnregisterNode/1",
+        "status": "PASS",
+        "time": "1.103",
+        "failures": [],
+        "xml": "observed/parent/gcs_client_test.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestGcsTableReload/0",
+        "status": "PASS",
+        "time": "0.268",
+        "failures": [],
+        "xml": "observed/parent/gcs_client_test.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestGcsTableReload/1",
+        "status": "PASS",
+        "time": "0.015",
+        "failures": [],
+        "xml": "observed/parent/gcs_client_test.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestRegisterHeadNode/0",
+        "status": "PASS",
+        "time": "0.259",
+        "failures": [],
+        "xml": "observed/parent/gcs_client_test.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestRegisterHeadNode/1",
+        "status": "PASS",
+        "time": "0.022",
+        "failures": [],
+        "xml": "observed/parent/gcs_client_test.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestReregisterSameHeadNode/0",
+        "status": "FAIL",
+        "time": "0.257",
+        "failures": [
+          "src/ray/gcs_rpc_client/tests/gcs_client_test.cc:1134\nExpected equality of these values:\n  nodes.size()\n    Which is: 2\n  1\n"
+        ],
+        "xml": "observed/parent/gcs_client_test.xml"
+      },
+      {
+        "suite": "RedisMigration/GcsClientTest",
+        "name": "TestReregisterSameHeadNode/1",
+        "status": "FAIL",
+        "time": "0.019",
+        "failures": [
+          "src/ray/gcs_rpc_client/tests/gcs_client_test.cc:1134\nExpected equality of these values:\n  nodes.size()\n    Which is: 2\n  1\n"
+        ],
+        "xml": "observed/parent/gcs_client_test.xml"
+      },
+      {
+        "suite": "GcsNodeManagerTest",
+        "name": "TestRestoredHeadRegistrationReplayHasNoDeathSideEffects",
+        "status": "FAIL",
+        "time": "0.001",
+        "failures": [
+          "src/ray/gcs/tests/gcs_node_manager_test.cc:216\nValue of: restored_manager->GetAllDeadNodes().empty()\n  Actual: false\nExpected: true\n",
+          "src/ray/gcs/tests/gcs_node_manager_test.cc:217\nValue of: restored_manager->IsNodeDead(id)\n  Actual: true\nExpected: false\n",
+          "src/ray/gcs/tests/gcs_node_manager_test.cc:218\nValue of: removed.empty()\n  Actual: false\nExpected: true\n",
+          "src/ray/gcs/tests/gcs_node_manager_test.cc:219\nExpected equality of these values:\n  added\n    Which is: 1\n  0\n",
+          "src/ray/gcs/tests/gcs_node_manager_test.cc:220\nExpected equality of these values:\n  dead_info\n    Which is: 1\n  0\n",
+          "src/ray/gcs/tests/gcs_node_manager_test.cc:221\nExpected equality of these values:\n  dead_liveness\n    Which is: 1\n  0\n"
+        ],
+        "xml": "observed/parent/gcs_node_manager_test.xml"
+      },
+      {
+        "suite": "GcsNodeManagerTest",
+        "name": "TestInitializeDoesNotNotifyNodeAddedListeners",
+        "status": "PASS",
+        "time": "0.",
+        "failures": [],
+        "xml": "observed/parent/gcs_node_manager_test.xml"
+      }
+    ],
+    "passed": 13,
+    "failed": 3,
+    "skipped": 0
+  },
+  "head_recovery_observations": [
+    "[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_node_manager_test.cc:162: RECOVERY_REPLAY phase=restored alive=1 dead=0 stored=ALIVE",
+    "[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_node_manager_test.cc:174: RECOVERY_REPLAY phase=handler_return alive=1 dead=0",
+    "[2026-10-27 20:00:08,687 I 61136 61136] (gcs_node_manager_test) gcs_node_manager_test.cc:206: RECOVERY_REPLAY phase=complete alive=1 dead=0 stored=ALIVE removed=0 added=0 dead_info=0 dead_liveness=0 alive_info=1 alive_liveness=1"
+  ],
+  "parent_recovery_observations": [
+    "[2026-10-27 20:01:11,502 I 62869 62869] (gcs_node_manager_test) gcs_node_manager_test.cc:162: RECOVERY_REPLAY phase=restored alive=1 dead=0 stored=ALIVE",
+    "[2026-10-27 20:01:11,502 I 62869 62869] (gcs_node_manager_test) gcs_node_manager_test.cc:174: RECOVERY_REPLAY phase=handler_return alive=0 dead=1",
+    "[2026-10-27 20:01:11,502 I 62869 62869] (gcs_node_manager_test) gcs_node_manager_test.cc:206: RECOVERY_REPLAY phase=complete alive=1 dead=1 stored=ALIVE removed=1 added=1 dead_info=1 dead_liveness=1 alive_info=1 alive_liveness=1"
+  ]
+}

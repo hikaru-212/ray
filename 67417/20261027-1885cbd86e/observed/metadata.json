@@ -1,0 +1,41 @@
+{
+  "classification": "INDEPENDENT VERIFICATION",
+  "pr": "https://github.com/ray-project/ray/pull/67417",
+  "issue": "https://github.com/ray-project/ray/issues/67414",
+  "revisions": {
+    "head": "1885cbd86ef61cd93890de804c64feaeb3f4ed9f",
+    "parent": "0a509f3448c1f3c71f80b80f46a6fb6a4df971ff"
+  },
+  "original_evidence": {
+    "archive_name": "ray-67417-phase2-evidence.tar.gz",
+    "sha256": "36c567ed4f837b75bb501e4698f6055c42f0d86a534b2764759cd53b7b107c7f",
+    "sidecar_verified": true,
+    "archive_published": false
+  },
+  "recorded_environment": {
+    "kernel": "Linux 6.8.0-147-generic",
+    "architecture": "aarch64",
+    "compiler": "g++ 13.3.0",
+    "python": "3.12.3",
+    "bazel": "7.5.0",
+    "host_name_omitted": true
+  },
+  "commands": {
+    "head_primary_exit": 0,
+    "parent_exit": 3,
+    "head_neighbors_exit": 0,
+    "publication_copies_rerun": false
+  },
+  "results": {
+    "head": {"passed": 16, "failed": 0, "skipped": 0},
+    "parent": {"passed": 13, "expected_failed": 3, "skipped": 0},
+    "new_pr_attributable_correctness_findings": 0
+  },
+  "publication_transformations": [
+    "Parameterized absolute scratch, venv, Bazel binary, cache, log, and result paths in command copies.",
+    "Replaced absolute XML paths in summary.json with paths inside this package.",
+    "Omitted the recorded host name from environment metadata.",
+    "Removed trailing horizontal whitespace and extra EOF blank lines from affected public log, patch, source, documentation, and command copies so manual staging passes git diff --check; semantic content is unchanged.",
+    "Excluded the original archive, source snapshots, Bazel caches, binaries, aggregate build logs, and unrelated files."
+  ]
+}

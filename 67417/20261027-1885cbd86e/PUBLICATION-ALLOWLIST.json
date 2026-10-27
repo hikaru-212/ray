@@ -1,0 +1,207 @@
+{
+  "scope": "Only the files listed here are approved for publication in this package. The original raw archive is not approved for publication.",
+  "package": "67417/20261027-1885cbd86e",
+  "classification": "INDEPENDENT VERIFICATION",
+  "public_file_count": 29,
+  "original_archive": {
+    "name": "ray-67417-phase2-evidence.tar.gz",
+    "sha256": "36c567ed4f837b75bb501e4698f6055c42f0d86a534b2764759cd53b7b107c7f",
+    "published": false
+  },
+  "files": [
+    {
+      "path": ".gitignore",
+      "kind": "publication_control",
+      "source": "Repository-level ignore audit",
+      "transformation": "Re-includes only the selected observed/head and observed/parent Bazel test.log copies for ordinary manual staging."
+    },
+    {
+      "path": "README.md",
+      "kind": "editorial_documentation",
+      "source": "Phase 2 verified results, selected raw evidence, and source audit",
+      "transformation": "Written for publication; distinguishes runtime observations from hypotheses and evidence limits."
+    },
+    {
+      "path": "REPRODUCE.md",
+      "kind": "editorial_documentation",
+      "source": "Executed command scripts, source patches, environment metadata, and saved results",
+      "transformation": "Documents exact command semantics and a portable equivalent setup; no commands were rerun during packaging."
+    },
+    {
+      "path": "PUBLICATION-ALLOWLIST.json",
+      "kind": "publication_manifest",
+      "source": "Publication audit",
+      "transformation": "Lists every file approved for publication and the transformation class."
+    },
+    {
+      "path": "SHA256SUMS",
+      "kind": "integrity_manifest",
+      "source": "Final public files",
+      "transformation": "Generated after final content audit; excludes itself to avoid a recursive checksum."
+    },
+    {
+      "path": "commands/run_head.sh",
+      "kind": "sanitized_command_copy",
+      "source": "commands/run_head.sh",
+      "source_sha256": "8459939ba634645f3722bb4b45358ba02d65f623a754a93acf8d9761a09c3ea5",
+      "transformation": "Preserved targets, filters and Bazel options; parameterized absolute source, venv, binary, cache, log and result paths."
+    },
+    {
+      "path": "commands/run_parent.sh",
+      "kind": "sanitized_command_copy",
+      "source": "commands/run_parent.sh",
+      "source_sha256": "b937f7c0fc2b698050153e421095ab2a69029de4dbc399d9f66ee5bfa6b265ee",
+      "transformation": "Preserved targets, filters and Bazel options; parameterized absolute source, venv, binary, cache, log and result paths."
+    },
+    {
+      "path": "commands/run_additional_head.sh",
+      "kind": "sanitized_command_copy",
+      "source": "commands/run_additional_head.sh",
+      "source_sha256": "21573e21f22d2b5cc1eaa0b172e46eecca17e112832a49209de3bf8d9685ce14",
+      "transformation": "Preserved targets, filters and Bazel options; parameterized absolute source, venv, binary, cache, log and result paths."
+    },
+    {
+      "path": "patches/recovery-test.cc",
+      "kind": "byte_for_byte_copy",
+      "source": "patches/recovery-test.cc",
+      "source_sha256": "3df95dd1893e3427d376454f8eec5842e42c44a0209dfdb92db90b43776521dc"
+    },
+    {
+      "path": "patches/author-test.cc",
+      "kind": "whitespace_sanitized_source_copy",
+      "source": "patches/author-test.cc",
+      "source_sha256": "da8c36dbd30e6cfe6a13c61364d3c527be069c014787555ae5a1e606f057b2ca",
+      "transformation": "Removed one extra blank line at EOF; source text and test semantics are unchanged."
+    },
+    {
+      "path": "patches/pr-production-delta.patch",
+      "kind": "whitespace_sanitized_patch_copy",
+      "source": "patches/pr-production-delta.patch",
+      "source_sha256": "e0b6b4f1801601cd85e715d3b18575223cf4e7620f44e068a45fcdc4ef853601",
+      "transformation": "Removed trailing horizontal whitespace from an added blank line; patch logic is unchanged."
+    },
+    {
+      "path": "patches/head-gcs_node_manager_test.cc.patch",
+      "kind": "whitespace_sanitized_patch_copy",
+      "source": "patches/head-gcs_node_manager_test.cc.patch",
+      "source_sha256": "621ca487d2c4a517aac1e022a45f5a72b8ef74f121793e8c027167ea0fd87380",
+      "transformation": "Removed trailing horizontal whitespace from an added blank line; patch logic is unchanged."
+    },
+    {
+      "path": "patches/parent-gcs_node_manager_test.cc.patch",
+      "kind": "whitespace_sanitized_patch_copy",
+      "source": "patches/parent-gcs_node_manager_test.cc.patch",
+      "source_sha256": "621ca487d2c4a517aac1e022a45f5a72b8ef74f121793e8c027167ea0fd87380",
+      "transformation": "Removed trailing horizontal whitespace from an added blank line; patch logic is unchanged."
+    },
+    {
+      "path": "patches/parent-gcs_client_test.cc.patch",
+      "kind": "whitespace_sanitized_patch_copy",
+      "source": "patches/parent-gcs_client_test.cc.patch",
+      "source_sha256": "30ce184d9c0448ffba03180ca3ce0955a913ab5e50bc63a85f140397cf307fe1",
+      "transformation": "Removed trailing horizontal whitespace from an added blank line; patch logic is unchanged."
+    },
+    {
+      "path": "observed/summary.json",
+      "kind": "sanitized_result_copy",
+      "source": "results/summary.json",
+      "source_sha256": "c1a2f245bc8019eb37ba32de88ca8de7d0f9c461d406e016c7d97a4c40adb146",
+      "transformation": "Only five absolute XML path prefixes were replaced with the corresponding package-relative XML paths; test data and counts are unchanged."
+    },
+    {
+      "path": "observed/source-audit.json",
+      "kind": "byte_for_byte_copy",
+      "source": "results/source-audit.json",
+      "source_sha256": "32911544020d2ded35792156ccbbe8ca4b01a5d029e76d4e399beb201e8db548"
+    },
+    {
+      "path": "observed/source-manifest.json",
+      "kind": "byte_for_byte_copy",
+      "source": "results/source-manifest.json",
+      "source_sha256": "13145fcd79432ae692bdea1021b6f951763b2b38b75c09ca038e0e57d06468e0"
+    },
+    {
+      "path": "observed/validation-audit.json",
+      "kind": "byte_for_byte_copy",
+      "source": "results/validation-audit.json",
+      "source_sha256": "860f92eff625dc88e4b1f7d91dabe9ad44d0c5fc90778c97a2891afa07dab953"
+    },
+    {
+      "path": "observed/metadata.json",
+      "kind": "derived_metadata",
+      "source": "Original archive sidecar, exit-code files, toolchain.txt and Phase 2 result totals",
+      "transformation": "Consolidated concise provenance and omitted the recorded host name."
+    },
+    {
+      "path": "observed/head/gcs_node_manager_test.log",
+      "kind": "byte_for_byte_copy",
+      "source": "results/head-primary/gcs_node_manager_test/test.log",
+      "source_sha256": "62a94bbef093016a721f6fb66004fc948b6cb7a9b1cf70a5c69da1c789101265"
+    },
+    {
+      "path": "observed/head/gcs_node_manager_test.xml",
+      "kind": "byte_for_byte_copy",
+      "source": "results/head-primary/gcs_node_manager_test/test.xml",
+      "source_sha256": "0d36e1d4dcaf77d8b5f722121eb223fa0e005f1476cf565452181c34d813d513"
+    },
+    {
+      "path": "observed/head/gcs_client-primary.log",
+      "kind": "whitespace_sanitized_result_copy",
+      "source": "results/head-primary/gcs_client_test/test.log",
+      "source_sha256": "ab6d39d91a8006fa55ed8aee5ed77b6b39ad5074078b14d5faa1e159750383f1",
+      "transformation": "Removed trailing horizontal whitespace only; log text, ordering and results are unchanged."
+    },
+    {
+      "path": "observed/head/gcs_client-primary.xml",
+      "kind": "byte_for_byte_copy",
+      "source": "results/head-primary/gcs_client_test/test.xml",
+      "source_sha256": "72b485dc21c9e460c3103d37dcc7eb77f15edbb2a7b5887f4bf29419419a599a"
+    },
+    {
+      "path": "observed/head/gcs_client-neighbors.log",
+      "kind": "whitespace_sanitized_result_copy",
+      "source": "results/head-neighbors/gcs_client_test/test.log",
+      "source_sha256": "c1aa2c9bc472b6a57904a98a69ca21e0e5324bba448373921c6dbbce443194cc",
+      "transformation": "Removed trailing horizontal whitespace only; log text, ordering and results are unchanged."
+    },
+    {
+      "path": "observed/head/gcs_client-neighbors.xml",
+      "kind": "byte_for_byte_copy",
+      "source": "results/head-neighbors/gcs_client_test/test.xml",
+      "source_sha256": "8df6712ba27158bcf8c78bd60fa5e516e6e1598b8079fd28e5df6285cc5b48c8"
+    },
+    {
+      "path": "observed/parent/gcs_node_manager_test.log",
+      "kind": "whitespace_sanitized_result_copy",
+      "source": "results/parent/gcs_node_manager_test/test.log",
+      "source_sha256": "98aa0e01d0255c59d2ef283d4cda226644254d3b1cddccc6650512fb1d6ca9f6",
+      "transformation": "Removed trailing horizontal whitespace only; log text, ordering and results are unchanged."
+    },
+    {
+      "path": "observed/parent/gcs_node_manager_test.xml",
+      "kind": "byte_for_byte_copy",
+      "source": "results/parent/gcs_node_manager_test/test.xml",
+      "source_sha256": "ab195754a309f36fa99f2a6cf3c67acad818643011685ef69daabac9170041cb"
+    },
+    {
+      "path": "observed/parent/gcs_client_test.log",
+      "kind": "whitespace_sanitized_result_copy",
+      "source": "results/parent/gcs_client_test/test.log",
+      "source_sha256": "6ca174a2f64f350052b350484aa277e766a4b0c007cda07e3dfc0e355b5da2b9",
+      "transformation": "Removed trailing horizontal whitespace only; log text, ordering and results are unchanged."
+    },
+    {
+      "path": "observed/parent/gcs_client_test.xml",
+      "kind": "byte_for_byte_copy",
+      "source": "results/parent/gcs_client_test/test.xml",
+      "source_sha256": "e8368dbbd764b279edf885ada0d33a53d329aa74706a023f69776cb1fbc6388c"
+    }
+  ],
+  "excluded": [
+    "Original ray-67417-phase2-evidence.tar.gz and its complete raw contents",
+    "Bazel output roots, caches, source snapshots, venv and binaries",
+    "Aggregate build logs that duplicate selected test.log/XML evidence",
+    "Machine-specific absolute paths and host identity",
+    "Files belonging to any other issue, PR, or evidence package"
+  ]
+}

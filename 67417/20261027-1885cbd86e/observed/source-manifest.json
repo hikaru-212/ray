@@ -1,0 +1,14 @@
+{
+  "head": {
+    "sha": "1885cbd86ef61cd93890de804c64feaeb3f4ed9f",
+    "src/ray/gcs/gcs_node_manager.cc": "256abefd8ea052da064a1af4dd47e3e65df72fad6898844d08789638e21123b6",
+    "src/ray/gcs/tests/gcs_node_manager_test.cc": "f5b556bf037dea4a2a2ca5b74db8e9f13ab6f8a93df18b26b949c68a0a8e701e",
+    "src/ray/gcs_rpc_client/tests/gcs_client_test.cc": "548e6b68a8a168d0f84921d4313ee15cebb4b391683e1d88451dd3d3015d7112"
+  },
+  "parent": {
+    "sha": "0a509f3448c1f3c71f80b80f46a6fb6a4df971ff",
+    "src/ray/gcs/gcs_node_manager.cc": "38961c5f69e746b3c3abaff51da3f31df5a4adb351d973d8ff30948b41092ee3",
+    "src/ray/gcs/tests/gcs_node_manager_test.cc": "f5b556bf037dea4a2a2ca5b74db8e9f13ab6f8a93df18b26b949c68a0a8e701e",
+    "src/ray/gcs_rpc_client/tests/gcs_client_test.cc": "548e6b68a8a168d0f84921d4313ee15cebb4b391683e1d88451dd3d3015d7112"
+  }
+}

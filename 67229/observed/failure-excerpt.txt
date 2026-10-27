@@ -1,0 +1,19 @@
+Historical recorded failure, PR HEAD 72f39680c62f3afe3ed437a74ae360417452f1d9
+HASH_SHUFFLE V1, reservation allocator enabled, explicit num_gpus=None
+
+streaming_executor.py:590 in _scheduling_loop_step
+  resource_manager.py:252 in update_usages
+  resource_manager.py:263 in _update_allocated_budgets
+  resource_manager.py:987 in update_budgets
+  resource_manager.py:760 in _update_reservation
+  hash_shuffle.py:1357 in min_max_resource_requirements
+    gpu=self._num_aggregators * gpu_override
+
+TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
+
+The JoinOperator had two configured aggregators and _shuffle_started=False when
+the first exception was observed. No HashShuffleAggregator actor existed yet.
+Shutdown budget refresh repeated the same exception; it was not a second cause.
+
+This is a compact, path-sanitized excerpt derived from the original full stack.
+The original full-stack SHA256 is recorded in results.json.

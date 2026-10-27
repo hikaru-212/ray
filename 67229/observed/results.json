@@ -1,0 +1,61 @@
+{
+  "classification": "Compact derived historical observations from the original private audit; not output from the portable runner in this package.",
+  "expected_output": [
+    {"id": 2, "left": 20, "right": 200},
+    {"id": 3, "left": 30, "right": 300}
+  ],
+  "public_dataset_join": {
+    "parent": {
+      "omitted_reservation_enabled": {"status": "PASS", "output_correct": true, "aggregator_gpu_requests": [0, 0]},
+      "zero_reservation_enabled": {"status": "PASS", "output_correct": true, "aggregator_gpu_requests": [0, 0]},
+      "none_reservation_enabled": {"status": "PASS", "output_correct": true, "aggregator_gpu_requests": [0, 0]}
+    },
+    "head": {
+      "omitted_reservation_enabled": {"status": "PASS", "output_correct": true, "aggregator_gpu_requests": [0, 0]},
+      "zero_reservation_enabled": {"status": "PASS", "output_correct": true, "aggregator_gpu_requests": [0, 0]},
+      "half_reservation_enabled": {"status": "PASS", "output_correct": true, "aggregator_gpu_requests": [0.5, 0.5]},
+      "none_reservation_enabled": {
+        "status": "FAIL",
+        "error": "TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'",
+        "failure_function": "HashShufflingOperatorBase.min_max_resource_requirements",
+        "failure_source": "python/ray/data/_internal/execution/operators/hash_shuffle.py:1357",
+        "pool_started_at_failure": false,
+        "aggregator_gpu_requests": []
+      },
+      "none_reservation_disabled": {"status": "PASS", "output_correct": true, "aggregator_gpu_requests": [0, 0]},
+      "none_reservation_enabled_tracing_disabled": {
+        "status": "FAIL",
+        "error": "TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'",
+        "aggregator_gpu_requests": []
+      }
+    }
+  },
+  "direct_join_operator": {
+    "aggregator_counts": [1, 4],
+    "parent": {
+      "omitted": {"status": "PASS", "max_gpu": "inf"},
+      "zero": {"status": "PASS", "max_gpu": "inf"},
+      "none": {"status": "PASS", "max_gpu": "inf"},
+      "half": {"status": "PASS", "max_gpu": "inf"},
+      "interpretation": "Inherited unbounded maximum; this is not evidence that Parent had a correct GPU upper bound."
+    },
+    "head": {
+      "omitted": {"status": "PASS", "max_gpu_by_aggregator_count": [0, 0]},
+      "zero": {"status": "PASS", "max_gpu_by_aggregator_count": [0, 0]},
+      "none": {"status": "FAIL", "errors": ["TypeError", "TypeError"]},
+      "half": {"status": "PASS", "max_gpu_by_aggregator_count": [0.5, 2.0]}
+    }
+  },
+  "ray_core_none_probe": {
+    "option_validation": "PASS",
+    "gpu_ids": [],
+    "assigned_resources": {},
+    "gcs_required_resources": {},
+    "interpretation": "An explicit num_gpus=None is legal and produces no GPU request."
+  },
+  "source_inputs": {
+    "analysis_json_sha256": "e3eca92cf4fc2906dd641e23d2c1e5105730ff40984a5d4f951140ce075c90fc",
+    "audit_results_log_sha256": "34b7c4d2dba3dbd2fe3f2341abeff0df119f1a49add43280dc45e5892aac5162",
+    "public_full_stack_sha256": "ee882be48633b0962665c0bb3899417f7394a57ffec654671e0be3a5f871ef84"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "classification": "Compact public provenance derived from the original private runtime manifest and run summaries.",
+  "source_repository": "https://github.com/ray-project/ray",
+  "pull_request": "https://github.com/ray-project/ray/pull/67229",
+  "revisions": {
+    "parent": "938ab39460b257374624479c6739fa80315939ea",
+    "head": "72f39680c62f3afe3ed437a74ae360417452f1d9"
+  },
+  "historical_runtime": {
+    "python": "3.12.3",
+    "platform": "Linux aarch64",
+    "ray_version": "3.0.0.dev0",
+    "packages": {
+      "numpy": "2.2.6",
+      "pandas": "2.3.3",
+      "pyarrow": "23.0.1",
+      "polars": "1.40.0",
+      "psutil": "7.2.2"
+    },
+    "cluster": {"num_cpus": 4, "logical_num_gpus": 2},
+    "cuda_required": false,
+    "source_method": "Exact-revision Ray Data source archives over one unchanged Parent native wheel.",
+    "native_build_scope": "No separate HEAD native build; Parent and HEAD used identical native binaries."
+  },
+  "source_sha256": {
+    "parent": {
+      "ray/data/_internal/execution/operators/hash_shuffle.py": "6fb9f00195fd791b2863dacb49436ac7343866a509fd93b23ca185e588a47983",
+      "ray/data/dataset.py": "54f4822ebc1b3c5b6ef10b084caf1f87369756889d6da98c25842a6149793fea",
+      "ray/data/_internal/planner/planner.py": "e9bf721850fb5842744dda8050b5cb6ee6d423f76d694b39f9fe61eb1ddbb6bb",
+      "ray/data/_internal/execution/resource_manager.py": "eb9428b211b5f001453cc0f65ae269afcab467572ce16898749c48a0ed3a8085"
+    },
+    "head": {
+      "ray/data/_internal/execution/operators/hash_shuffle.py": "e150f10107de3995201a4e591fbb3f4eec35533c9150f02844fa0e4bb641182f",
+      "ray/data/dataset.py": "54f4822ebc1b3c5b6ef10b084caf1f87369756889d6da98c25842a6149793fea",
+      "ray/data/_internal/planner/planner.py": "e9bf721850fb5842744dda8050b5cb6ee6d423f76d694b39f9fe61eb1ddbb6bb",
+      "ray/data/_internal/execution/resource_manager.py": "eb9428b211b5f001453cc0f65ae269afcab467572ce16898749c48a0ed3a8085"
+    }
+  },
+  "shared_native_sha256": {
+    "ray/_raylet.so": "641337b73eb2cd22ece0f2fc1264cb93dab0ea5e3f590d611e4da827be6c358b",
+    "ray/core/src/ray/raylet/raylet": "c4a85c4ce39efe5bf0d658961cbb9ba40ac5fa0f12dd6a6ba836ae261607ee51",
+    "ray/core/src/ray/gcs/gcs_server": "154c3aa3229a0bdda058ff5a3d1c04cc67b270a88deb1862361a1c7599f33db2"
+  },
+  "parent_wheel_sha256": "a1e5d6c2f087f422a0a154b73cd169ed3b7fa6bb09298d3b0ac452f381968d56",
+  "changed_files_parent_to_head": [
+    "python/ray/data/_internal/execution/operators/hash_shuffle.py",
+    "python/ray/data/tests/test_reservation_based_resource_allocator.py",
+    "python/ray/data/tests/test_resource_manager.py"
+  ],
+  "private_input_sha256": {
+    "REPORT.txt": "773affe03486174a5344ae2276d7ab62cfe817c24987df8a2b5c9bfaf97de9dd",
+    "verify_none.py": "86b7d29693a1477c4639ef3f9a0e5a9c48836947465e7a6f75d9d1740c9528b2",
+    "run_case.py": "9ff293fd29881ab1357b1ccb46063b747718566983c8fec8c913f6eacb7b5395",
+    "run_matrix.py": "509997f17514f181590c6295ee1c4fc926142f2ed251c00af647cfe2230f8cbc",
+    "audit_results.py": "0cad46221dd1781d97798cfa56043086dc79b4449107b828efe560578e71f34e",
+    "runtime-manifest.json": "8858fbb74fa3c74839daffc94a08ad02727b89d96f01311a71bd2062c3173dd6",
+    "analysis.json": "e3eca92cf4fc2906dd641e23d2c1e5105730ff40984a5d4f951140ce075c90fc"
+  },
+  "exclusion": "No #67382 source, patch, worktree content, or observation is included."
+}

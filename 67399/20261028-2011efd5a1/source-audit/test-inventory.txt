@@ -1,0 +1,44 @@
+72:class RaySyncerTest : public ::testing::Test {
+135:TEST_F(RaySyncerTest, NodeStateCreateSyncMessage) {
+153:TEST_F(RaySyncerTest, NodeStateConsume) {
+172:TEST_F(RaySyncerTest, NodeStateConsumeGroupsByMessageType) {
+204:TEST(MessageTypeValidationTest, IsValidMessageType) {
+213:TEST_F(RaySyncerTest, NodeStateConsumeMalformedMessage) {
+266:struct FakeReactor {
+274:  virtual void OnWriteDone(bool ok) {}
+275:  virtual void OnReadDone(bool ok) {}
+281:TEST_F(RaySyncerTest, RaySyncerBidiReactorBase) {
+291:  sync_reactor.SetSelfRef(std::shared_ptr<FakeRaySyncerBidiReactorBase<FakeReactor>>(
+323:TEST_F(RaySyncerTest, RaySyncerBidiReactorBaseReadsAreNotGatedByProcessing) {
+334:  sync_reactor.SetSelfRef(std::shared_ptr<FakeRaySyncerBidiReactorBase<FakeReactor>>(
+363:    sync_reactor.OnReadDone(true);
+392:TEST_F(RaySyncerTest, RaySyncerBidiReactorBaseBatchSizeTriggerSend) {
+402:  sync_reactor.SetSelfRef(std::shared_ptr<FakeRaySyncerBidiReactorBase<FakeReactor>>(
+433:TEST_F(RaySyncerTest, RaySyncerBidiReactorBaseBatchTimeoutTriggerSend) {
+443:  sync_reactor.SetSelfRef(std::shared_ptr<FakeRaySyncerBidiReactorBase<FakeReactor>>(
+463:TEST_F(RaySyncerTest, RaySyncerBidiReactorBaseDropsMalformedMessages) {
+475:  sync_reactor.SetSelfRef(std::shared_ptr<FakeRaySyncerBidiReactorBase<FakeReactor>>(
+512:  sync_reactor.OnReadDone(/*ok=*/true);
+528:  sync_reactor.OnReadDone(/*ok=*/true);
+535:struct SyncerServerTest {
+764:class SyncerTest : public ::testing::Test {
+788:TEST_F(SyncerTest, Test1To1) {
+915:TEST_F(SyncerTest, Reconnect) {
+944:TEST_F(SyncerTest, Broadcast) {
+1103:TEST_F(SyncerTest, Test1ToN) {
+1128:TEST_F(SyncerTest, TestMToN) {
+1159:struct FakeRaySyncerService : public ray::rpc::syncer::RaySyncer::CallbackService {
+1191:class SyncerReactorTest : public ::testing::Test {
+1212:    // `cli_reactor` will be deleted by `RayClientBidiReactor::OnDone`, so we need to use
+1292:TEST_F(SyncerReactorTest, TestReactor) {
+1324:TEST_F(SyncerReactorTest, TestReactorFailure) {
+1337:class SyncerAuthenticationTest : public ::testing::Test {
+1386:    ~AuthenticatedSyncerServerTest() {
+1419:    ~ClientSyncer() {
+1436:TEST_F(SyncerAuthenticationTest, MatchingTokens) {
+1462:TEST_F(SyncerAuthenticationTest, MismatchedTokens) {
+1505:TEST_F(SyncerAuthenticationTest, ServerHasTokenClientDoesNot) {
+1513:TEST_F(SyncerAuthenticationTest, ServerWithAuthDisabledRejectsToken) {
+1524:TEST_F(SyncerAuthenticationTest, MissingNodeIdAndTokenIsRejected) {
+1531:TEST_F(SyncerAuthenticationTest, MissingNodeIdWithValidTokenIsRejected) {
+1543:TEST_F(SyncerAuthenticationTest, MissingOrMalformedNodeIdWithoutAuthIsRejected) {

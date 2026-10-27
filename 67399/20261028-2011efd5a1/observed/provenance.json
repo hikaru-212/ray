@@ -1,0 +1,48 @@
+{
+  "pr": 67399,
+  "classification": "INDEPENDENT VERIFICATION",
+  "tested_branch": "review/pr-67399",
+  "tested_head": "2011efd5a1e48a0438c8246dfb9342a49291bb3b",
+  "parent": "8d53e59e3da91a39beb6b1b614265cf05d3d26a4",
+  "parent_runtime_tested": false,
+  "target": "//src/ray/ray_syncer/tests:ray_syncer_test",
+  "original_evidence": {
+    "sha256sums_sha256": "bede172eda8ee279740a6e6a624cc94526cd799a7169c91f5fa1de36a0dc8cd5",
+    "manifest_sha256": "25217e372dbb9f4dbc4e57e98b03eddf4d6fa411531eecef080724b805dc7a79",
+    "sha256_check": "all 113 listed files OK before publication preparation"
+  },
+  "published_raw_files": [
+    {
+      "path": "observed/test.log",
+      "source": "results/testlogs/test.log",
+      "sha256": "966bdb96fa23890b4f9dcb8c356ffa51e15f4375206e2166807c53988c6beb3e",
+      "transformation": "none"
+    },
+    {
+      "path": "observed/test.xml",
+      "source": "results/testlogs/test.xml",
+      "sha256": "430bf4113981dd4fdc634e809945ff7198f3970c9a4f1a9310699798a37d439a",
+      "transformation": "none"
+    },
+    {
+      "path": "source-audit/ownership-sites.txt",
+      "source": "logs/source-ownership-sites.log",
+      "sha256": "e46175e9d12c372d62bf9d22397c2a26769213a6e55c052ad329b2a3cbadb789",
+      "transformation": "none"
+    },
+    {
+      "path": "source-audit/test-inventory.txt",
+      "source": "logs/source-test-inventory.log",
+      "sha256": "7177cf8237d6688e9036e7d245a9b3a7220f6925567092f878d85db63f7c3160",
+      "transformation": "none"
+    }
+  ],
+  "selected_source_sha256": {
+    "src/ray/ray_syncer/ray_syncer.cc": "d9b9b77ac677a46659d85d11c1d611622990cc37074ebd23657761a7a0a90f11",
+    "src/ray/ray_syncer/ray_syncer_bidi_reactor.h": "c4a10c75ba916161d42daad25932b891c08ecebe2892492210ae8c50e0af294b",
+    "src/ray/ray_syncer/ray_syncer_bidi_reactor_base.h": "1f57c4ce28a76e03971eeb76e37f742a34cdcd1c4aab486def0c5c7d180ef743",
+    "src/ray/ray_syncer/ray_syncer_client.cc": "2dd6bfde87ec0ea574cb8388562242352c0e494d9b508847d41da6812d01fbd0",
+    "src/ray/ray_syncer/ray_syncer_server.cc": "f5a6409dbc04afc2497a04e2b50a08fcf7da7e2b95fe349244996784b75c750d",
+    "src/ray/ray_syncer/tests/ray_syncer_test.cc": "20d68503c2649516ff7de878ba04d065dd7766be581f42dbcf1104a4be1a34bf"
+  }
+}

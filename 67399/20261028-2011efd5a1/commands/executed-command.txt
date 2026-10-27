@@ -1,0 +1,26 @@
+Working directory: <Ray checkout at 2011efd5a1e48a0438c8246dfb9342a49291bb3b>
+Environment: VIRTUAL_ENV=<existing Python virtual environment>
+Environment: PATH=<existing Python virtual environment>/bin:$PATH
+Environment: PYTHON3_BIN_PATH=<existing Python virtual environment>/bin/python3
+
+timeout --signal=TERM --kill-after=30s 45m \
+  bazel --host_jvm_args=-Xmx1024m test \
+  //src/ray/ray_syncer/tests:ray_syncer_test \
+  --announce_rc \
+  --nocache_test_results \
+  --test_timeout=180 \
+  --jobs=2 \
+  --local_test_jobs=1 \
+  --runs_per_test=1 \
+  --flaky_test_attempts=1 \
+  --test_output=all \
+  --test_summary=detailed \
+  --symlink_prefix=/ \
+  --color=no \
+  --curses=no \
+  --show_progress_rate_limit=15 \
+  --build_event_json_file=<evidence-dir>/results/build-events.jsonl \
+  --execution_log_json_file=<evidence-dir>/results/execution-log.json \
+  --profile=<evidence-dir>/results/bazel-profile.json.gz
+
+Only the three absolute path classes shown in angle brackets were replaced for publication. Bazel argv ordering, flag names and flag values are unchanged.

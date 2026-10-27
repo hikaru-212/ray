@@ -1,0 +1,154 @@
+exec ${PAGER:-/usr/bin/less} "$0" || exit 1
+Executing tests from //src/ray/ray_syncer/tests:ray_syncer_test
+-----------------------------------------------------------------------------
+[==========] Running 24 tests from 5 test suites.
+[----------] Global test environment set-up.
+[----------] 9 tests from RaySyncerTest
+[ RUN      ] RaySyncerTest.NodeStateCreateSyncMessage
+[       OK ] RaySyncerTest.NodeStateCreateSyncMessage (0 ms)
+[ RUN      ] RaySyncerTest.NodeStateConsume
+[2026-10-27 21:04:24,897 I 90128 90128] (ray_syncer_test) node_state.cc:100: Dropping sync message with stale version. latest version: 0, dropped message version: 0
+[2026-10-27 21:04:24,897 I 90128 90128] (ray_syncer_test) node_state.cc:100: Dropping sync message with stale version. latest version: 1, dropped message version: 1
+[       OK ] RaySyncerTest.NodeStateConsume (0 ms)
+[ RUN      ] RaySyncerTest.NodeStateConsumeGroupsByMessageType
+[       OK ] RaySyncerTest.NodeStateConsumeGroupsByMessageType (0 ms)
+[ RUN      ] RaySyncerTest.NodeStateConsumeMalformedMessage
+[2026-10-27 21:04:24,898 W 90128 90128] (ray_syncer_test) node_state.cc:78: Dropping sync message with invalid message type -1
+[2026-10-27 21:04:24,898 W 90128 90128] (ray_syncer_test) node_state.cc:83: Dropping sync message with invalid node_id size 0
+[2026-10-27 21:04:24,898 W 90128 90128] (ray_syncer_test) node_state.cc:47: Ignoring CreateSyncMessage for invalid message type 1094795585
+[       OK ] RaySyncerTest.NodeStateConsumeMalformedMessage (0 ms)
+[ RUN      ] RaySyncerTest.RaySyncerBidiReactorBase
+[       OK ] RaySyncerTest.RaySyncerBidiReactorBase (0 ms)
+[ RUN      ] RaySyncerTest.RaySyncerBidiReactorBaseReadsAreNotGatedByProcessing
+[       OK ] RaySyncerTest.RaySyncerBidiReactorBaseReadsAreNotGatedByProcessing (0 ms)
+[ RUN      ] RaySyncerTest.RaySyncerBidiReactorBaseBatchSizeTriggerSend
+[       OK ] RaySyncerTest.RaySyncerBidiReactorBaseBatchSizeTriggerSend (0 ms)
+[ RUN      ] RaySyncerTest.RaySyncerBidiReactorBaseBatchTimeoutTriggerSend
+[       OK ] RaySyncerTest.RaySyncerBidiReactorBaseBatchTimeoutTriggerSend (105 ms)
+[ RUN      ] RaySyncerTest.RaySyncerBidiReactorBaseDropsMalformedMessages
+[2026-10-27 21:04:25,004 W 90128 90128] (ray_syncer_test) ray_syncer_bidi_reactor_base.h:81: Dropping sync message with invalid message type -1
+[2026-10-27 21:04:25,004 W 90128 90128] (ray_syncer_test) ray_syncer_bidi_reactor_base.h:286: Dropping sync message with invalid message type -1 from node 4260f88e1e704be8ecf2f8525c67de786320d56b24d316da41a7aa80
+[2026-10-27 21:04:25,004 W 90128 90128] (ray_syncer_test) ray_syncer_bidi_reactor_base.h:293: Dropping sync message with invalid node_id size 0 from node 4260f88e1e704be8ecf2f8525c67de786320d56b24d316da41a7aa80
+[2026-10-27 21:04:25,004 W 90128 90128] (ray_syncer_test) ray_syncer_bidi_reactor_base.h:272: Dropping empty sync message batch from node 4260f88e1e704be8ecf2f8525c67de786320d56b24d316da41a7aa80
+[       OK ] RaySyncerTest.RaySyncerBidiReactorBaseDropsMalformedMessages (0 ms)
+[----------] 9 tests from RaySyncerTest (107 ms total)
+
+[----------] 1 test from MessageTypeValidationTest
+[ RUN      ] MessageTypeValidationTest.IsValidMessageType
+[       OK ] MessageTypeValidationTest.IsValidMessageType (0 ms)
+[----------] 1 test from MessageTypeValidationTest (0 ms total)
+
+[----------] 5 tests from SyncerTest
+[ RUN      ] SyncerTest.Test1To1
+[2026-10-27 21:04:26,568 I 90128 90159] (ray_syncer_test) ray_syncer_bidi_reactor_base.h:262: Failed to read a message from node: c0c8d4f1cfd989809b66fea8846eea49ea76d0339012350968dd0285
+[2026-10-27 21:04:26,569 I 90128 90143] (ray_syncer_test) ray_syncer_bidi_reactor_base.h:262: Failed to read a message from node: a96a651315e6d0e305ad21ba06121900943a95920feafb6ad3a80aef
+[2026-10-27 21:04:26,569 I 90128 90159] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=c0c8d4f1cfd989809b66fea8846eea49ea76d0339012350968dd0285
+[       OK ] SyncerTest.Test1To1 (1566 ms)
+[ RUN      ] SyncerTest.Reconnect
+[2026-10-27 21:04:26,623 I 90128 90176] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=50dbfcae2dcaec7fc3e8b286e4e5cc204e21a6b956c0531e88f35cf1
+[2026-10-27 21:04:26,624 I 90128 90161] (ray_syncer_test) node_state.cc:100: Dropping sync message with stale version. latest version: 0, dropped message version: 0
+[2026-10-27 21:04:26,675 I 90128 90176] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=50dbfcae2dcaec7fc3e8b286e4e5cc204e21a6b956c0531e88f35cf1
+[       OK ] SyncerTest.Reconnect (106 ms)
+[ RUN      ] SyncerTest.Broadcast
+[2026-10-27 21:04:26,780 I 90128 90128] (ray_syncer_test) ray_syncer_test.cc:987: s1.id=ed3afaf878d56278e55d82c58aaa5f6690daaacd158a53aae66f38a7
+[2026-10-27 21:04:26,780 I 90128 90128] (ray_syncer_test) ray_syncer_test.cc:988: s3.id=6907ccecd114a9306bd1ed6589713465c45f3881f30fac3231a94909
+[2026-10-27 21:04:26,780 I 90128 90195] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=ed3afaf878d56278e55d82c58aaa5f6690daaacd158a53aae66f38a7
+[2026-10-27 21:04:26,831 I 90128 90193] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=ed3afaf878d56278e55d82c58aaa5f6690daaacd158a53aae66f38a7
+[       OK ] SyncerTest.Broadcast (155 ms)
+[ RUN      ] SyncerTest.Test1ToN
+[2026-10-27 21:04:26,842 I 90128 90197] (ray_syncer_test) ray_syncer_test.cc:632: 880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7: Waiting for message on 81365dd543f15979ca07bf33cd7860954c22f1438e26a74d8cc02acf to be sent. Remainings 1
+[2026-10-27 21:04:28,219 I 90128 90229] (ray_syncer_test) ray_syncer_bidi_reactor_base.h:262: Failed to read a message from node: 880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,219 I 90128 90229] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,219 I 90128 90197] (ray_syncer_test) ray_syncer_bidi_reactor_base.h:262: Failed to read a message from node: 81365dd543f15979ca07bf33cd7860954c22f1438e26a74d8cc02acf
+[2026-10-27 21:04:28,220 I 90128 90231] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,220 I 90128 90233] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,220 I 90128 90221] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,221 I 90128 90223] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,221 I 90128 90217] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,221 I 90128 90199] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,221 I 90128 90207] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,221 I 90128 90227] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,222 I 90128 90213] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,222 I 90128 90219] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,222 I 90128 90209] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,222 I 90128 90211] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,222 I 90128 90215] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,223 I 90128 90225] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,223 I 90128 90203] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,223 I 90128 90201] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,223 I 90128 90235] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[2026-10-27 21:04:28,223 I 90128 90205] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=880b9fe36f23b3a98e1b3ff13fbf87693535bd515f7f9eb0a79a61f7
+[       OK ] SyncerTest.Test1ToN (1400 ms)
+[ RUN      ] SyncerTest.TestMToN
+[2026-10-27 21:04:29,321 I 90128 90245] (ray_syncer_test) ray_syncer_bidi_reactor_base.h:262: Failed to read a message from node: ab915e8672d31db0d9f6e6b0ee72ca0e66220d1d64e5f5fcab403b77
+[2026-10-27 21:04:29,322 I 90128 90245] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=ab915e8672d31db0d9f6e6b0ee72ca0e66220d1d64e5f5fcab403b77
+[2026-10-27 21:04:29,322 I 90128 90247] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=ab915e8672d31db0d9f6e6b0ee72ca0e66220d1d64e5f5fcab403b77
+[2026-10-27 21:04:29,322 I 90128 90243] (ray_syncer_test) ray_syncer_bidi_reactor_base.h:262: Failed to read a message from node: 5634173c36942415f1845fba0244ab0b82de1d78dd7a2e9f9a6608f5
+[2026-10-27 21:04:29,323 I 90128 90251] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=5634173c36942415f1845fba0244ab0b82de1d78dd7a2e9f9a6608f5
+[2026-10-27 21:04:29,323 I 90128 90249] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=5634173c36942415f1845fba0244ab0b82de1d78dd7a2e9f9a6608f5
+[2026-10-27 21:04:29,324 I 90128 90253] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=7c559d2ec9a2579696509e84f415022f61ad405bcbb9f78afb7d747f
+[2026-10-27 21:04:29,325 I 90128 90255] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=7c559d2ec9a2579696509e84f415022f61ad405bcbb9f78afb7d747f
+[2026-10-27 21:04:29,326 I 90128 90257] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=5e406e2cf7fe4d549ea5d3dd974664ea464a73aca38e2eb578b4478d
+[2026-10-27 21:04:29,326 I 90128 90259] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=5e406e2cf7fe4d549ea5d3dd974664ea464a73aca38e2eb578b4478d
+[2026-10-27 21:04:29,327 I 90128 90263] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=3cd05439db378f243d35eb01f214efa895c8242e49a50a540fad9e05
+[2026-10-27 21:04:29,327 I 90128 90261] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=3cd05439db378f243d35eb01f214efa895c8242e49a50a540fad9e05
+[2026-10-27 21:04:29,329 I 90128 90265] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=68f85462fd905590dc0c67f12ba5fd1305b5266f57018d0e7c85a4bd
+[2026-10-27 21:04:29,329 I 90128 90267] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=68f85462fd905590dc0c67f12ba5fd1305b5266f57018d0e7c85a4bd
+[2026-10-27 21:04:29,330 I 90128 90269] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=e26d5bb31ad5cb62b1692bd64900fc82d2c577ec3750cc47bec22b52
+[2026-10-27 21:04:29,330 I 90128 90271] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=e26d5bb31ad5cb62b1692bd64900fc82d2c577ec3750cc47bec22b52
+[2026-10-27 21:04:29,331 I 90128 90275] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=855aaea9d35af579326310bd8c4022bc85939fea217e653fded39758
+[2026-10-27 21:04:29,332 I 90128 90273] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=855aaea9d35af579326310bd8c4022bc85939fea217e653fded39758
+[2026-10-27 21:04:29,332 I 90128 90277] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=1a7578f414de7e0ba3cc52f2b86adc5c26754f4d01d9230d1e4021a4
+[2026-10-27 21:04:29,333 I 90128 90279] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=1a7578f414de7e0ba3cc52f2b86adc5c26754f4d01d9230d1e4021a4
+[2026-10-27 21:04:29,334 I 90128 90281] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=1e355a5a4dc0d3f0441530459257041b9e7d2861024ae929c1a408b5
+[       OK ] SyncerTest.TestMToN (1108 ms)
+[----------] 5 tests from SyncerTest (4336 ms total)
+
+[----------] 2 tests from SyncerReactorTest
+[ RUN      ] SyncerReactorTest.TestReactor
+[2026-10-27 21:04:29,341 I 90128 90128] (ray_syncer_test) ray_syncer_test.cc:1239: Waiting: 0
+[2026-10-27 21:04:29,393 I 90128 90128] (ray_syncer_test) ray_syncer_test.cc:1239: Waiting: 0
+[       OK ] SyncerReactorTest.TestReactor (53 ms)
+[ RUN      ] SyncerReactorTest.TestReactorFailure
+[2026-10-27 21:04:29,395 I 90128 90128] (ray_syncer_test) ray_syncer_test.cc:1239: Waiting: 0
+[2026-10-27 21:04:29,445 I 90128 90128] (ray_syncer_test) ray_syncer_test.cc:1239: Waiting: 0
+[       OK ] SyncerReactorTest.TestReactorFailure (51 ms)
+[----------] 2 tests from SyncerReactorTest (105 ms total)
+
+[----------] 7 tests from SyncerAuthenticationTest
+[ RUN      ] SyncerAuthenticationTest.MatchingTokens
+[2026-10-27 21:04:29,547 I 90128 90290] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=a9b193258152c80609af3a07865f55274396e23ed1e150c13123a739
+[       OK ] SyncerAuthenticationTest.MatchingTokens (151 ms)
+[ RUN      ] SyncerAuthenticationTest.MismatchedTokens
+[2026-10-27 21:04:29,599 W 90128 90190] (ray_syncer_test) ray_syncer_server.cc:82: Invalid bearer token in syncer connection from node f881b4feaff8254f163480baba9e470ca0442ab4bed3f56246642db5
+[2026-10-27 21:04:29,599 I 90128 90293] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=f881b4feaff8254f163480baba9e470ca0442ab4bed3f56246642db5
+[       OK ] SyncerAuthenticationTest.MismatchedTokens (151 ms)
+[ RUN      ] SyncerAuthenticationTest.ServerHasTokenClientDoesNot
+[2026-10-27 21:04:29,750 W 90128 90190] (ray_syncer_test) ray_syncer_server.cc:72: Missing authorization header in syncer connection from node ca8336c63604cf9b5fea43a34a25d5e76d43d4e274b8dd366b36958c
+[2026-10-27 21:04:29,751 I 90128 90296] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=ca8336c63604cf9b5fea43a34a25d5e76d43d4e274b8dd366b36958c
+[       OK ] SyncerAuthenticationTest.ServerHasTokenClientDoesNot (1 ms)
+[ RUN      ] SyncerAuthenticationTest.ServerWithAuthDisabledRejectsToken
+[2026-10-27 21:04:29,752 W 90128 90189] (ray_syncer_test) ray_syncer_server.cc:89: Authorization header in syncer connection from node 81c6fdbcca6fcb46421a850993558caa9211c8bce535bb4ec45363df but auth is disabled
+[2026-10-27 21:04:29,752 I 90128 90298] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=81c6fdbcca6fcb46421a850993558caa9211c8bce535bb4ec45363df
+[       OK ] SyncerAuthenticationTest.ServerWithAuthDisabledRejectsToken (1 ms)
+[ RUN      ] SyncerAuthenticationTest.MissingNodeIdAndTokenIsRejected
+[2026-10-27 21:04:29,753 W 90128 90189] (ray_syncer_test) ray_syncer_server.cc:72: Missing authorization header in syncer connection from node NIL_ID
+[2026-10-27 21:04:29,753 I 90128 90300] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=NIL_ID
+[       OK ] SyncerAuthenticationTest.MissingNodeIdAndTokenIsRejected (1 ms)
+[ RUN      ] SyncerAuthenticationTest.MissingNodeIdWithValidTokenIsRejected
+[2026-10-27 21:04:29,754 W 90128 90189] (ray_syncer_test) ray_syncer_server.cc:96: Missing or malformed node_id in syncer connection from peer ipv4:127.0.0.1:48842
+[2026-10-27 21:04:29,755 I 90128 90302] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=NIL_ID
+[       OK ] SyncerAuthenticationTest.MissingNodeIdWithValidTokenIsRejected (1 ms)
+[ RUN      ] SyncerAuthenticationTest.MissingOrMalformedNodeIdWithoutAuthIsRejected
+[2026-10-27 21:04:29,756 W 90128 90190] (ray_syncer_test) ray_syncer_server.cc:96: Missing or malformed node_id in syncer connection from peer ipv4:127.0.0.1:37820
+[2026-10-27 21:04:29,756 I 90128 90304] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=NIL_ID
+[2026-10-27 21:04:29,757 W 90128 90191] (ray_syncer_test) ray_syncer_server.cc:96: Missing or malformed node_id in syncer connection from peer ipv4:127.0.0.1:37830
+[2026-10-27 21:04:29,757 I 90128 90304] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=NIL_ID
+[2026-10-27 21:04:29,757 W 90128 90189] (ray_syncer_test) ray_syncer_server.cc:96: Missing or malformed node_id in syncer connection from peer ipv4:127.0.0.1:37836
+[2026-10-27 21:04:29,758 I 90128 90304] (ray_syncer_test) ray_syncer.cc:255: Connection is broken. node_id=NIL_ID
+[       OK ] SyncerAuthenticationTest.MissingOrMalformedNodeIdWithoutAuthIsRejected (2 ms)
+[----------] 7 tests from SyncerAuthenticationTest (312 ms total)
+
+[----------] Global test environment tear-down
+[==========] 24 tests from 5 test suites ran. (4861 ms total)
+[  PASSED  ] 24 tests.

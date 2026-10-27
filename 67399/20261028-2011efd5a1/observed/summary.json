@@ -1,0 +1,49 @@
+{
+  "classification": "INDEPENDENT VERIFICATION",
+  "tested_revision": "2011efd5a1e48a0438c8246dfb9342a49291bb3b",
+  "parent_reference_only": "8d53e59e3da91a39beb6b1b614265cf05d3d26a4",
+  "parent_runtime_tested": false,
+  "target": "//src/ray/ray_syncer/tests:ray_syncer_test",
+  "bazel_exit_code": 0,
+  "test_runner_exit_code": 0,
+  "test_action": {
+    "runner": "processwrapper-sandbox",
+    "cache_hit": false,
+    "attempt_count": 1,
+    "duration_seconds": 5.238
+  },
+  "googletest": {
+    "suites": 5,
+    "executed": 24,
+    "passed": 24,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "disabled": 0,
+    "duration_seconds": 4.861,
+    "run_markers": 24,
+    "ok_markers": 24
+  },
+  "suite_counts": {
+    "RaySyncerTest": 9,
+    "MessageTypeValidationTest": 1,
+    "SyncerTest": 5,
+    "SyncerReactorTest": 2,
+    "SyncerAuthenticationTest": 7
+  },
+  "production_factory_cases": 12,
+  "source_ownership_handlers": 8,
+  "weak_timer_guard": true,
+  "build": {
+    "elapsed_seconds": 85.601,
+    "critical_path_seconds": 21.34,
+    "actions_total": 160,
+    "internal_actions": 71,
+    "processwrapper_sandbox_actions": 89
+  },
+  "warnings": {
+    "compiler_warnings_observed": false,
+    "bazel_size_notice": "The target's declared size was larger than needed; execution was unaffected.",
+    "runtime_warning_lines": "Expected negative-path logs for malformed messages, authentication rejection and connection cleanup."
+  }
+}

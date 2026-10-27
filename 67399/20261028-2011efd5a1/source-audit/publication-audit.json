@@ -1,0 +1,89 @@
+{
+  "package": "67399/20261028-2011efd5a1",
+  "source_evidence_integrity": {
+    "sha256sums_sha256": "bede172eda8ee279740a6e6a624cc94526cd799a7169c91f5fa1de36a0dc8cd5",
+    "listed_files": 113,
+    "check_before_preparation": "PASS"
+  },
+  "destination_preflight": {
+    "branch": "review-evidence",
+    "head": "b756abc70b7aec15e599c03141716cbb46e750d7",
+    "remote": "https://github.com/hikaru-212/ray.git",
+    "status": "clean",
+    "proposed_destination_existed": false,
+    "package_local_reincludes": [
+      "commands/bazel-test.sh",
+      "observed/bazel-actions.json",
+      "observed/test.log"
+    ]
+  },
+  "preservation_baseline": {
+    "registered_ray_worktree_count": 41,
+    "registered_ray_worktree_head_and_status_sha256": "56c42fc9aba7f86323b138d85a2a21bbac65f511349b939fee8bc7f5705aaad9",
+    "destination_status_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "destination_unstaged_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "destination_staged_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "raw_files": [
+    {
+      "path": "observed/test.log",
+      "byte_exact": true,
+      "retained_ephemeral_data": [
+        "random test NodeIDs",
+        "process/thread IDs",
+        "loopback ephemeral ports"
+      ],
+      "security_result": "No credential or token value, hostname, absolute filesystem path, environment dump, or external peer address found. Authentication words are expected negative-test messages."
+    },
+    {
+      "path": "observed/test.xml",
+      "byte_exact": true,
+      "security_result": "No credential value, hostname, absolute filesystem path, environment dump, or network address found. Test names containing Token describe test cases."
+    },
+    {
+      "path": "source-audit/ownership-sites.txt",
+      "byte_exact": true,
+      "security_result": "Repository-relative source locations only."
+    },
+    {
+      "path": "source-audit/test-inventory.txt",
+      "byte_exact": true,
+      "security_result": "Repository-relative source locations and test names only."
+    }
+  ],
+  "sanitized_or_derived_files": [
+    {
+      "path": "commands/executed-command.txt",
+      "changes": "Replaced checkout, virtual-environment and evidence absolute paths with angle-bracket placeholders; command flags and ordering unchanged."
+    },
+    {
+      "path": "observed/build-events.json",
+      "changes": "Selected three event types, replaced file:// URIs with package-relative paths, and omitted unrelated build graph fields."
+    },
+    {
+      "path": "observed/bazel-actions.json",
+      "changes": "Selected eight relevant actions and omitted absolute argv/environment/input graph fields."
+    },
+    {
+      "path": "observed/toolchain.txt",
+      "changes": "Removed hostname, PATH, virtual-environment absolute paths, memory/disk state and unset variable listings; preserved exact version values."
+    }
+  ],
+  "excluded": [
+    "binaries",
+    "Bazel output/cache",
+    "virtual environments",
+    "full 81 MB execution log",
+    "full 19 MB selected-action dump",
+    "Bazel profiles",
+    "full source snapshots",
+    "prior-build metadata",
+    "unrelated PR evidence"
+  ],
+  "claims_scan": {
+    "parent_red_head_green_claim": false,
+    "complete_asan_fix_claim": false,
+    "complete_uaf_elimination_claim": false,
+    "full_grpc_lifetime_safety_claim": false
+  }
+}

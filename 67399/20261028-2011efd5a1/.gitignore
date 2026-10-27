@@ -1,0 +1,4 @@
+# Re-include selected public evidence hidden by repository-level rules.
+!commands/bazel-test.sh
+!observed/bazel-actions.json
+!observed/test.log

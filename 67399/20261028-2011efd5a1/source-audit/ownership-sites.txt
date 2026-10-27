@@ -1,0 +1,20 @@
+src/ray/ray_syncer/ray_syncer_server.cc:112:  io_context_.dispatch([this, self = self_ref_]() { Finish(grpc::Status::OK); }, "");
+src/ray/ray_syncer/ray_syncer_server.cc:116:  io_context_.dispatch([this, self = self_ref_]() { Disconnect(); }, "");
+src/ray/ray_syncer/ray_syncer_server.cc:123:       self = self_ref_,
+src/ray/ray_syncer/ray_syncer_server.cc:127:        self_ref_.reset();
+src/ray/ray_syncer/ray_syncer_client.cc:62:      [this, self = self_ref_, status]() {
+src/ray/ray_syncer/ray_syncer_client.cc:64:        self_ref_.reset();
+src/ray/ray_syncer/ray_syncer_client.cc:71:      [this, self = self_ref_]() {
+src/ray/ray_syncer/ray_syncer_bidi_reactor_base.h:113:        // Use weak_ptr to avoid use-after-free when the reactor is destroyed.
+src/ray/ray_syncer/ray_syncer_bidi_reactor_base.h:114:        auto weak_self = std::weak_ptr<RaySyncerBidiReactor>(self_ref_);
+src/ray/ray_syncer/ray_syncer_bidi_reactor_base.h:116:          auto self = weak_self.lock();
+src/ray/ray_syncer/ray_syncer_bidi_reactor_base.h:243:        [this, self = self_ref_, disconnected = IsDisconnected(), ok]() {
+src/ray/ray_syncer/ray_syncer_bidi_reactor_base.h:261:          [this, self = self_ref_]() {
+src/ray/ray_syncer/ray_syncer_bidi_reactor_base.h:318:          [this, self = self_ref_]() { ProcessBufferedSyncMessages(); },
+src/ray/ray_syncer/ray_syncer.cc:92:        auto reactor = std::make_shared<RayClientBidiReactor>(
+src/ray/ray_syncer/ray_syncer.cc:125:        reactor->SetSelfRef(reactor);
+src/ray/ray_syncer/ray_syncer.cc:127:        reactor->StartCall();
+src/ray/ray_syncer/ray_syncer.cc:229:  auto reactor = std::make_shared<RayServerBidiReactor>(
+src/ray/ray_syncer/ray_syncer.cc:265:  reactor->SetSelfRef(reactor);
+src/ray/ray_syncer/ray_syncer.cc:270:    return reactor.get();
+src/ray/ray_syncer/ray_syncer.cc:278:  return reactor.get();

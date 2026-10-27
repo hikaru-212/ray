@@ -1,0 +1,89 @@
+{
+  "format": "selected Bazel execution-log actions",
+  "source_file": "results/execution-log.json",
+  "source_sha256": "56b47f63a585898fb437086f243d405f82e2a98ba2e18e8c5c8a6d28136b13ca",
+  "transformation": "Selected RaySyncer production compile/link, test compile/link and TestRunner fields; omitted command environment, absolute paths, input graphs and unrelated actions.",
+  "actions": [
+    {
+      "mnemonic": "CppCompile",
+      "target_label": "//src/ray/ray_syncer:ray_syncer",
+      "source_inferred_from_output": "src/ray/ray_syncer/node_state.cc",
+      "outputs": ["node_state.pic.d", "node_state.pic.o"],
+      "runner": "processwrapper-sandbox",
+      "cache_hit": false,
+      "exit_code": 0,
+      "execution_wall_time_seconds": 4.754
+    },
+    {
+      "mnemonic": "CppCompile",
+      "target_label": "//src/ray/ray_syncer:ray_syncer",
+      "source_inferred_from_output": "src/ray/ray_syncer/ray_syncer.cc",
+      "outputs": ["ray_syncer.pic.d", "ray_syncer.pic.o"],
+      "runner": "processwrapper-sandbox",
+      "cache_hit": false,
+      "exit_code": 0,
+      "execution_wall_time_seconds": 6.724
+    },
+    {
+      "mnemonic": "CppCompile",
+      "target_label": "//src/ray/ray_syncer:ray_syncer",
+      "source_inferred_from_output": "src/ray/ray_syncer/ray_syncer_client.cc",
+      "outputs": ["ray_syncer_client.pic.d", "ray_syncer_client.pic.o"],
+      "runner": "processwrapper-sandbox",
+      "cache_hit": false,
+      "exit_code": 0,
+      "execution_wall_time_seconds": 5.269
+    },
+    {
+      "mnemonic": "CppCompile",
+      "target_label": "//src/ray/ray_syncer:ray_syncer",
+      "source_inferred_from_output": "src/ray/ray_syncer/ray_syncer_server.cc",
+      "outputs": ["ray_syncer_server.pic.d", "ray_syncer_server.pic.o"],
+      "runner": "processwrapper-sandbox",
+      "cache_hit": false,
+      "exit_code": 0,
+      "execution_wall_time_seconds": 5.393
+    },
+    {
+      "mnemonic": "CppLink",
+      "target_label": "//src/ray/ray_syncer:ray_syncer",
+      "outputs": ["libray_syncer.so"],
+      "runner": "processwrapper-sandbox",
+      "cache_hit": false,
+      "exit_code": 0,
+      "execution_wall_time_seconds": 0.015
+    },
+    {
+      "mnemonic": "CppCompile",
+      "target_label": "//src/ray/ray_syncer/tests:ray_syncer_test",
+      "source_inferred_from_output": "src/ray/ray_syncer/tests/ray_syncer_test.cc",
+      "outputs": ["ray_syncer_test.d", "ray_syncer_test.o"],
+      "runner": "processwrapper-sandbox",
+      "cache_hit": false,
+      "exit_code": 0,
+      "execution_wall_time_seconds": 11.575
+    },
+    {
+      "mnemonic": "CppLink",
+      "target_label": "//src/ray/ray_syncer/tests:ray_syncer_test",
+      "outputs": ["ray_syncer_test"],
+      "runner": "processwrapper-sandbox",
+      "cache_hit": false,
+      "exit_code": 0,
+      "execution_wall_time_seconds": 0.380
+    },
+    {
+      "mnemonic": "TestRunner",
+      "target_label": "//src/ray/ray_syncer/tests:ray_syncer_test",
+      "command_args": [
+        "external/bazel_tools/tools/test/test-setup.sh",
+        "src/ray/ray_syncer/tests/ray_syncer_test"
+      ],
+      "runner": "processwrapper-sandbox",
+      "cache_hit": false,
+      "exit_code": 0,
+      "execution_wall_time_seconds": 5.238,
+      "test_timeout_seconds": 180
+    }
+  ]
+}

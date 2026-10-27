@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="24" failures="0" disabled="0" errors="0" time="4.861" timestamp="2026-10-27T21:04:24.897" name="AllTests">
+  <testsuite name="RaySyncerTest" tests="9" failures="0" disabled="0" skipped="0" errors="0" time="0.107" timestamp="2026-10-27T21:04:24.897">
+    <testcase name="NodeStateCreateSyncMessage" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="135" status="run" result="completed" time="0." timestamp="2026-10-27T21:04:24.897" classname="RaySyncerTest" />
+    <testcase name="NodeStateConsume" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="153" status="run" result="completed" time="0." timestamp="2026-10-27T21:04:24.897" classname="RaySyncerTest" />
+    <testcase name="NodeStateConsumeGroupsByMessageType" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="172" status="run" result="completed" time="0." timestamp="2026-10-27T21:04:24.897" classname="RaySyncerTest" />
+    <testcase name="NodeStateConsumeMalformedMessage" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="213" status="run" result="completed" time="0." timestamp="2026-10-27T21:04:24.897" classname="RaySyncerTest" />
+    <testcase name="RaySyncerBidiReactorBase" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="281" status="run" result="completed" time="0." timestamp="2026-10-27T21:04:24.898" classname="RaySyncerTest" />
+    <testcase name="RaySyncerBidiReactorBaseReadsAreNotGatedByProcessing" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="323" status="run" result="completed" time="0." timestamp="2026-10-27T21:04:24.898" classname="RaySyncerTest" />
+    <testcase name="RaySyncerBidiReactorBaseBatchSizeTriggerSend" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="392" status="run" result="completed" time="0." timestamp="2026-10-27T21:04:24.898" classname="RaySyncerTest" />
+    <testcase name="RaySyncerBidiReactorBaseBatchTimeoutTriggerSend" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="433" status="run" result="completed" time="0.105" timestamp="2026-10-27T21:04:24.898" classname="RaySyncerTest" />
+    <testcase name="RaySyncerBidiReactorBaseDropsMalformedMessages" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="463" status="run" result="completed" time="0." timestamp="2026-10-27T21:04:25.004" classname="RaySyncerTest" />
+  </testsuite>
+  <testsuite name="MessageTypeValidationTest" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0." timestamp="2026-10-27T21:04:25.005">
+    <testcase name="IsValidMessageType" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="204" status="run" result="completed" time="0." timestamp="2026-10-27T21:04:25.005" classname="MessageTypeValidationTest" />
+  </testsuite>
+  <testsuite name="SyncerTest" tests="5" failures="0" disabled="0" skipped="0" errors="0" time="4.336" timestamp="2026-10-27T21:04:25.005">
+    <testcase name="Test1To1" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="788" status="run" result="completed" time="1.566" timestamp="2026-10-27T21:04:25.005" classname="SyncerTest" />
+    <testcase name="Reconnect" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="915" status="run" result="completed" time="0.106" timestamp="2026-10-27T21:04:26.571" classname="SyncerTest" />
+    <testcase name="Broadcast" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="944" status="run" result="completed" time="0.155" timestamp="2026-10-27T21:04:26.677" classname="SyncerTest" />
+    <testcase name="Test1ToN" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="1103" status="run" result="completed" time="1.4" timestamp="2026-10-27T21:04:26.832" classname="SyncerTest" />
+    <testcase name="TestMToN" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="1128" status="run" result="completed" time="1.108" timestamp="2026-10-27T21:04:28.232" classname="SyncerTest" />
+  </testsuite>
+  <testsuite name="SyncerReactorTest" tests="2" failures="0" disabled="0" skipped="0" errors="0" time="0.105" timestamp="2026-10-27T21:04:29.341">
+    <testcase name="TestReactor" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="1292" status="run" result="completed" time="0.053" timestamp="2026-10-27T21:04:29.341" classname="SyncerReactorTest" />
+    <testcase name="TestReactorFailure" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="1324" status="run" result="completed" time="0.051" timestamp="2026-10-27T21:04:29.394" classname="SyncerReactorTest" />
+  </testsuite>
+  <testsuite name="SyncerAuthenticationTest" tests="7" failures="0" disabled="0" skipped="0" errors="0" time="0.312" timestamp="2026-10-27T21:04:29.446">
+    <testcase name="MatchingTokens" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="1436" status="run" result="completed" time="0.151" timestamp="2026-10-27T21:04:29.446" classname="SyncerAuthenticationTest" />
+    <testcase name="MismatchedTokens" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="1462" status="run" result="completed" time="0.151" timestamp="2026-10-27T21:04:29.597" classname="SyncerAuthenticationTest" />
+    <testcase name="ServerHasTokenClientDoesNot" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="1505" status="run" result="completed" time="0.001" timestamp="2026-10-27T21:04:29.749" classname="SyncerAuthenticationTest" />
+    <testcase name="ServerWithAuthDisabledRejectsToken" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="1513" status="run" result="completed" time="0.001" timestamp="2026-10-27T21:04:29.751" classname="SyncerAuthenticationTest" />
+    <testcase name="MissingNodeIdAndTokenIsRejected" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="1524" status="run" result="completed" time="0.001" timestamp="2026-10-27T21:04:29.752" classname="SyncerAuthenticationTest" />
+    <testcase name="MissingNodeIdWithValidTokenIsRejected" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="1531" status="run" result="completed" time="0.001" timestamp="2026-10-27T21:04:29.754" classname="SyncerAuthenticationTest" />
+    <testcase name="MissingOrMalformedNodeIdWithoutAuthIsRejected" file="src/ray/ray_syncer/tests/ray_syncer_test.cc" line="1543" status="run" result="completed" time="0.002" timestamp="2026-10-27T21:04:29.755" classname="SyncerAuthenticationTest" />
+  </testsuite>
+</testsuites>

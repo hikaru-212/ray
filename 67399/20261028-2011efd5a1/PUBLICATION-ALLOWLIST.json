@@ -1,0 +1,128 @@
+{
+  "scope": "Only the files listed here are approved for public publication. The original 113-file evidence directory is not approved wholesale.",
+  "package": "67399/20261028-2011efd5a1",
+  "classification": "INDEPENDENT VERIFICATION",
+  "public_file_count": 19,
+  "files": [
+    {
+      "path": ".gitignore",
+      "kind": "publication_control",
+      "source": "Destination repository ignore audit",
+      "transformation": "Re-includes only commands/bazel-test.sh, observed/bazel-actions.json and observed/test.log for ordinary manual staging."
+    },
+    {
+      "path": "README.md",
+      "kind": "editorial_documentation",
+      "source": "Verified runtime results and source audit",
+      "transformation": "Written for publication; separates source verification, runtime verification and unverified claims."
+    },
+    {
+      "path": "REPRODUCE.md",
+      "kind": "reproduction_documentation",
+      "source": "Executed command, environment and result validation",
+      "transformation": "Written for publication without fixed machine or /tmp paths; does not claim parent execution."
+    },
+    {
+      "path": "PUBLICATION-ALLOWLIST.json",
+      "kind": "publication_manifest",
+      "source": "Publication audit",
+      "transformation": "Lists every public file and transformation class."
+    },
+    {
+      "path": "SHA256SUMS",
+      "kind": "integrity_manifest",
+      "source": "Final public files",
+      "transformation": "Generated last; excludes itself to avoid recursive checksums."
+    },
+    {
+      "path": "commands/bazel-test.sh",
+      "kind": "reproduction_command",
+      "source": "Original run-suite command",
+      "transformation": "Uses caller-selected output directory and active venv; target and Bazel flags remain the same. Not executed during publication preparation."
+    },
+    {
+      "path": "commands/executed-command.txt",
+      "kind": "executed_command_record",
+      "source": "Original run-suite command",
+      "transformation": "Only checkout, venv and evidence absolute paths replaced with placeholders."
+    },
+    {
+      "path": "observed/test.log",
+      "kind": "raw_test_output",
+      "source": "results/testlogs/test.log",
+      "source_sha256": "966bdb96fa23890b4f9dcb8c356ffa51e15f4375206e2166807c53988c6beb3e",
+      "transformation": "none"
+    },
+    {
+      "path": "observed/test.xml",
+      "kind": "raw_gtest_xml",
+      "source": "results/testlogs/test.xml",
+      "source_sha256": "430bf4113981dd4fdc634e809945ff7198f3970c9a4f1a9310699798a37d439a",
+      "transformation": "none"
+    },
+    {
+      "path": "observed/summary.json",
+      "kind": "derived_result_summary",
+      "source": "analysis.json, test.log, test.xml, BEP and execution log",
+      "transformation": "Selected counts, timing, exit and cache fields; no machine paths."
+    },
+    {
+      "path": "observed/build-events.json",
+      "kind": "selected_build_event_evidence",
+      "source": "results/build-events.jsonl",
+      "source_sha256": "647e87a7a4d2c946678c95daecde272818ee5699d2b7545a9985cd73e3958cd1",
+      "transformation": "Selected testResult/testSummary/buildFinished and replaced file URIs with package-relative paths."
+    },
+    {
+      "path": "observed/bazel-actions.json",
+      "kind": "selected_execution_evidence",
+      "source": "results/execution-log.json",
+      "source_sha256": "56b47f63a585898fb437086f243d405f82e2a98ba2e18e8c5c8a6d28136b13ca",
+      "transformation": "Selected relevant compile/link/test actions; omitted absolute argv/environment/input graph."
+    },
+    {
+      "path": "observed/toolchain.txt",
+      "kind": "selected_environment_evidence",
+      "source": "logs/toolchain.log, logs/bazel-version.log, logs/bazel-info.log and dependency pins",
+      "transformation": "Removed hostname and machine paths; preserved exact platform and version values."
+    },
+    {
+      "path": "observed/provenance.json",
+      "kind": "source_provenance",
+      "source": "Git SHA, original manifest and selected source snapshot verification",
+      "transformation": "Selected public source hashes and parent-tested=false fact."
+    },
+    {
+      "path": "source-audit/ownership.md",
+      "kind": "source_audit",
+      "source": "Selected HEAD sources and Phase 3A ownership closure",
+      "transformation": "Written for publication with explicit factory preconditions and runtime limits."
+    },
+    {
+      "path": "source-audit/factory-test-scope.md",
+      "kind": "test_scope_audit",
+      "source": "ray_syncer_test.cc and executed XML cases",
+      "transformation": "Maps 12 production-factory cases and distinguishes 12 non-factory/direct unit cases."
+    },
+    {
+      "path": "source-audit/ownership-sites.txt",
+      "kind": "raw_source_search",
+      "source": "logs/source-ownership-sites.log",
+      "source_sha256": "e46175e9d12c372d62bf9d22397c2a26769213a6e55c052ad329b2a3cbadb789",
+      "transformation": "none"
+    },
+    {
+      "path": "source-audit/test-inventory.txt",
+      "kind": "raw_source_search",
+      "source": "logs/source-test-inventory.log",
+      "source_sha256": "7177cf8237d6688e9036e7d245a9b3a7220f6925567092f878d85db63f7c3160",
+      "transformation": "none"
+    },
+    {
+      "path": "source-audit/publication-audit.json",
+      "kind": "publication_security_and_preservation_audit",
+      "source": "Preflight checks and candidate-file scans",
+      "transformation": "Records sanitization, exclusions, integrity and preservation baselines."
+    }
+  ]
+}

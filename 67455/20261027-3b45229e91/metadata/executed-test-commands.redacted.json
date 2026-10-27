@@ -1,0 +1,32 @@
+[
+  {
+    "cwd": "@PHASE2_ROOT@",
+    "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=@PHASE2_ROOT@/parent/python @PHASE2_ROOT@/venv/bin/python -B @PHASE2_ROOT@/run_experiments.py --revision parent --cases A,B,C > @PHASE2_ROOT@/parent-ABC.log 2>&1",
+    "exit_code": 0
+  },
+  {
+    "cwd": "@PHASE2_ROOT@",
+    "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=@PHASE2_ROOT@/parent/python @PHASE2_ROOT@/venv/bin/python -B @PHASE2_ROOT@/run_followup.py --revision parent > @PHASE2_ROOT@/parent-followup.log 2>&1",
+    "exit_code": 0
+  },
+  {
+    "cwd": "@PHASE2_ROOT@",
+    "command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=@PHASE2_ROOT@/parent/python @PHASE2_ROOT@/venv/bin/python -B -m pytest -q -s -p no:cacheprovider --rootdir=@PHASE2_ROOT@ --confcutdir=@PHASE2_ROOT@ @PHASE2_ROOT@/test_candidate_a.py > @PHASE2_ROOT@/parent-A-quality-pytest.log 2>&1",
+    "exit_code": 0
+  },
+  {
+    "cwd": "@PHASE2_ROOT@",
+    "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=@PHASE2_ROOT@/head/python @PHASE2_ROOT@/venv/bin/python -B @PHASE2_ROOT@/run_experiments.py --revision head --cases A,B,C > @PHASE2_ROOT@/head-ABC.log 2>&1",
+    "exit_code": 0
+  },
+  {
+    "cwd": "@PHASE2_ROOT@",
+    "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=@PHASE2_ROOT@/head/python @PHASE2_ROOT@/venv/bin/python -B @PHASE2_ROOT@/run_followup.py --revision head > @PHASE2_ROOT@/head-followup.log 2>&1",
+    "exit_code": 0
+  },
+  {
+    "cwd": "@PHASE2_ROOT@",
+    "command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=@PHASE2_ROOT@/head/python @PHASE2_ROOT@/venv/bin/python -B -m pytest -q -s -p no:cacheprovider --rootdir=@PHASE2_ROOT@ --confcutdir=@PHASE2_ROOT@ @PHASE2_ROOT@/test_candidate_a.py > @PHASE2_ROOT@/head-A-quality-pytest.log 2>&1",
+    "exit_code": 1
+  }
+]

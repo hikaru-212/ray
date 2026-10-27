@@ -1,0 +1,1519 @@
+{
+  "all_demands_satisfied": false,
+  "assertions": {
+    "no_resize": true,
+    "no_termination": true,
+    "observer_did_not_change_semantic_result": true,
+    "prediction_launches": true,
+    "prediction_remaining": true,
+    "production_sort_matches_observation": true
+  },
+  "case": "A",
+  "comparison_merge_base": "938ab39460b257374624479c6739fa80315939ea",
+  "executable": "@PHASE2_ROOT@/venv/bin/python",
+  "planned_worker_CPU": 2,
+  "preflight": {
+    "S_after_R2_attempt": {
+      "available": {
+        "CPU": 2
+      },
+      "labels": {
+        "x": "1"
+      },
+      "node_kind": "WORKER",
+      "node_type": "S",
+      "scheduled_requests": [],
+      "status": "TO_LAUNCH",
+      "total": {
+        "CPU": 2
+      }
+    },
+    "S_rejects_R2": [
+      {
+        "label_selectors": [
+          {
+            "label_constraints": [
+              {
+                "label_key": "y",
+                "label_values": [
+                  "1"
+                ],
+                "operator": "LABEL_OPERATOR_IN"
+              }
+            ]
+          }
+        ],
+        "resources_bundle": {
+          "CPU": 1.0
+        }
+      }
+    ],
+    "complete_placement_witness": {
+      "available": {
+        "CPU": 0.0
+      },
+      "labels": {
+        "x": "1",
+        "y": "1"
+      },
+      "node_kind": "WORKER",
+      "node_type": "L",
+      "scheduled_requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        },
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "y",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ],
+      "status": "TO_LAUNCH",
+      "total": {
+        "CPU": 3
+      }
+    },
+    "config_validation": "PASS",
+    "node_type_quotas": {
+      "L": 10,
+      "S": 10,
+      "head": 0
+    },
+    "production_sort_keys": [
+      [
+        0,
+        1,
+        1,
+        2.0,
+        [
+          [
+            "CPU",
+            2.0
+          ]
+        ]
+      ],
+      [
+        0,
+        1,
+        1,
+        1.0,
+        [
+          [
+            "CPU",
+            1.0
+          ]
+        ]
+      ]
+    ],
+    "production_sorted_requests": [
+      {
+        "label_selectors": [
+          {
+            "label_constraints": [
+              {
+                "label_key": "x",
+                "label_values": [
+                  "1"
+                ],
+                "operator": "LABEL_OPERATOR_IN"
+              }
+            ]
+          }
+        ],
+        "resources_bundle": {
+          "CPU": 2.0
+        }
+      },
+      {
+        "label_selectors": [
+          {
+            "label_constraints": [
+              {
+                "label_key": "y",
+                "label_values": [
+                  "1"
+                ],
+                "operator": "LABEL_OPERATOR_IN"
+              }
+            ]
+          }
+        ],
+        "resources_bundle": {
+          "CPU": 1.0
+        }
+      }
+    ],
+    "raw_config": {
+      "auth": {},
+      "available_node_types": {
+        "L": {
+          "labels": {
+            "x": "1",
+            "y": "1"
+          },
+          "max_workers": 10,
+          "min_workers": 0,
+          "node_config": {},
+          "priority": 0,
+          "resources": {
+            "CPU": 3
+          }
+        },
+        "S": {
+          "labels": {
+            "x": "1"
+          },
+          "max_workers": 10,
+          "min_workers": 0,
+          "node_config": {},
+          "priority": 0,
+          "resources": {
+            "CPU": 2
+          }
+        },
+        "head": {
+          "labels": {},
+          "max_workers": 0,
+          "min_workers": 0,
+          "node_config": {},
+          "resources": {
+            "CPU": 0
+          }
+        }
+      },
+      "cluster_name": "pr-67455-phase2",
+      "cluster_synced_files": [],
+      "head_node_type": "head",
+      "max_workers": 1,
+      "provider": {
+        "type": "kuberay"
+      }
+    },
+    "scheduling_request": {
+      "cloud_resource_availabilities": {},
+      "cluster_resource_constraints": [],
+      "current_instances": [
+        {
+          "cloud_instance_id": "head-cloud",
+          "im_instance": {
+            "cloud_instance_id": "head-cloud",
+            "instance_id": "head-im",
+            "instance_type": "head",
+            "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+            "node_id": "01010101010101010101010101010101010101010101010101010101",
+            "node_kind": "HEAD",
+            "status": "RAY_RUNNING"
+          },
+          "ray_node": {
+            "available_resources": {
+              "CPU": 0.0
+            },
+            "instance_id": "head-cloud",
+            "node_id": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQ==",
+            "ray_node_type_name": "head",
+            "status": "RUNNING",
+            "total_resources": {
+              "CPU": 0.0
+            }
+          }
+        }
+      ],
+      "disable_launch_config_check": false,
+      "gang_resource_requests": [],
+      "idle_timeout_s": null,
+      "ippr_specs": null,
+      "ippr_statuses": {},
+      "max_num_nodes": 2,
+      "node_type_configs": {
+        "L": {
+          "idle_timeout_s": null,
+          "labels": {
+            "x": "1",
+            "y": "1"
+          },
+          "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+          "max_worker_nodes": 10,
+          "min_worker_nodes": 0,
+          "name": "L",
+          "priority": 0,
+          "resources": {
+            "CPU": 3
+          }
+        },
+        "S": {
+          "idle_timeout_s": null,
+          "labels": {
+            "x": "1"
+          },
+          "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+          "max_worker_nodes": 10,
+          "min_worker_nodes": 0,
+          "name": "S",
+          "priority": 0,
+          "resources": {
+            "CPU": 2
+          }
+        },
+        "head": {
+          "idle_timeout_s": null,
+          "labels": {},
+          "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+          "max_worker_nodes": 1,
+          "min_worker_nodes": 0,
+          "name": "head",
+          "priority": 0,
+          "resources": {
+            "CPU": 0
+          }
+        }
+      },
+      "recoverable_resource_availabilities": {},
+      "resource_requests": [
+        {
+          "count": "1",
+          "request": {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        },
+        {
+          "count": "1",
+          "request": {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        }
+      ]
+    },
+    "task_option_validation": "PASS",
+    "task_options": [
+      {
+        "label_selector": {
+          "x": "1"
+        },
+        "num_cpus": 2
+      },
+      {
+        "label_selector": {
+          "y": "1"
+        },
+        "num_cpus": 1
+      }
+    ],
+    "witness_score": [
+      1.0,
+      true,
+      1,
+      3.0,
+      3.0
+    ]
+  },
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "raw_proto_text": {
+    "infeasible_resource_requests": [
+      "resources_bundle {\n  key: \"CPU\"\n  value: 1\n}\nlabel_selectors {\n  label_constraints {\n    label_key: \"y\"\n    operator: LABEL_OPERATOR_IN\n    label_values: \"1\"\n  }\n}\n"
+    ],
+    "to_launch": [
+      "instance_type: \"S\"\ncount: 1\nid: \"81834050-d5ce-4945-8ea6-a2a49fccb069\"\nrequest_ts_ms: 1793101485401936\n"
+    ]
+  },
+  "raw_reply": {
+    "cluster_resources": {
+      "CPU": 2.0
+    },
+    "infeasible_cluster_resource_constraints": [],
+    "infeasible_gang_resource_requests": [],
+    "infeasible_resource_requests": [
+      {
+        "label_selectors": [
+          {
+            "label_constraints": [
+              {
+                "label_key": "y",
+                "label_values": [
+                  "1"
+                ],
+                "operator": "LABEL_OPERATOR_IN"
+              }
+            ]
+          }
+        ],
+        "resources_bundle": {
+          "CPU": 1.0
+        }
+      }
+    ],
+    "to_ippr": [],
+    "to_launch": [
+      {
+        "count": 1,
+        "id": "81834050-d5ce-4945-8ea6-a2a49fccb069",
+        "instance_type": "S",
+        "request_ts_ms": "1793101485401936"
+      }
+    ],
+    "to_terminate": []
+  },
+  "ray_path": "@PHASE2_ROOT@/head/python/ray/__init__.py",
+  "revision": "3b45229e91b82d367b4706fbc26c2cbf31541c51",
+  "scheduler_path": "@PHASE2_ROOT@/head/python/ray/autoscaler/v2/scheduler.py",
+  "scheduler_sha256": "224a412826ce171eca747f1216c16d520536d521a4c6bd726039e8bf2cd858e7",
+  "semantic_reply": {
+    "cluster_resources": {
+      "CPU": 2.0
+    },
+    "infeasible_constraints": [],
+    "infeasible_gang": [],
+    "remaining": [
+      {
+        "label_selectors": [
+          {
+            "label_constraints": [
+              {
+                "label_key": "y",
+                "label_values": [
+                  "1"
+                ],
+                "operator": "LABEL_OPERATOR_IN"
+              }
+            ]
+          }
+        ],
+        "resources_bundle": {
+          "CPU": 1.0
+        }
+      }
+    ],
+    "to_ippr": [],
+    "to_launch": {
+      "S": 1
+    },
+    "to_terminate": []
+  },
+  "trace": [
+    {
+      "event": "sorted_requests",
+      "line": 1754,
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        },
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "y",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1777,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1777,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1799,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1799,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1799,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1799,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1838,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1838,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "can_launch": true,
+      "count": 1,
+      "event": "global_cap",
+      "line": 1942,
+      "max": 2,
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "after": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "before": {
+        "available": {
+          "CPU": 2
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "event": "candidate",
+      "line": 2068,
+      "remaining": [],
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        }
+      ],
+      "score": [
+        1.0,
+        true,
+        1,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "after": {
+        "available": {
+          "CPU": 1.0
+        },
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "L",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 3
+        }
+      },
+      "before": {
+        "available": {
+          "CPU": 3
+        },
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "L",
+        "scheduled_requests": [],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 3
+        }
+      },
+      "event": "candidate",
+      "line": 2068,
+      "remaining": [],
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        }
+      ],
+      "score": [
+        1.0,
+        true,
+        1,
+        0.8888888888888886,
+        0.8888888888888886
+      ]
+    },
+    {
+      "event": "selected",
+      "line": 2106,
+      "node": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "other_candidates": [
+        {
+          "available": {
+            "CPU": 3
+          },
+          "labels": {
+            "x": "1",
+            "y": "1"
+          },
+          "node_kind": "WORKER",
+          "node_type": "L",
+          "scheduled_requests": [],
+          "status": "TO_LAUNCH",
+          "total": {
+            "CPU": 3
+          }
+        }
+      ],
+      "remaining": []
+    },
+    {
+      "can_launch": false,
+      "count": 2,
+      "event": "global_cap",
+      "line": 1942,
+      "max": 2,
+      "quotas": {
+        "L": 10,
+        "S": 9,
+        "head": 0
+      }
+    },
+    {
+      "after": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "before": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "event": "candidate",
+      "line": 2068,
+      "remaining": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "y",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ],
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "y",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ],
+      "score": [
+        0,
+        true,
+        1,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "event": "selected",
+      "line": 2082,
+      "node": null,
+      "other_candidates": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {
+            "x": "1"
+          },
+          "node_kind": "WORKER",
+          "node_type": "S",
+          "scheduled_requests": [
+            {
+              "label_selectors": [
+                {
+                  "label_constraints": [
+                    {
+                      "label_key": "x",
+                      "label_values": [
+                        "1"
+                      ],
+                      "operator": "LABEL_OPERATOR_IN"
+                    }
+                  ]
+                }
+              ],
+              "resources_bundle": {
+                "CPU": 2.0
+              }
+            }
+          ],
+          "status": "TO_LAUNCH",
+          "total": {
+            "CPU": 2
+          }
+        }
+      ],
+      "remaining": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "y",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "event": "planning_result",
+      "line": 1985,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        },
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {
+            "x": "1"
+          },
+          "node_kind": "WORKER",
+          "node_type": "S",
+          "scheduled_requests": [
+            {
+              "label_selectors": [
+                {
+                  "label_constraints": [
+                    {
+                      "label_key": "x",
+                      "label_values": [
+                        "1"
+                      ],
+                      "operator": "LABEL_OPERATOR_IN"
+                    }
+                  ]
+                }
+              ],
+              "resources_bundle": {
+                "CPU": 2.0
+              }
+            }
+          ],
+          "status": "TO_LAUNCH",
+          "total": {
+            "CPU": 2
+          }
+        }
+      ],
+      "remaining": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "y",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ]
+    }
+  ]
+}

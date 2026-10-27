@@ -1,0 +1,32 @@
+[
+  {
+    "publication_path": "reproducer/adapted/run_experiments.py",
+    "original_script": "reproducer/run_experiments.py",
+    "sha256": "7e9a2529f3e0f08b6ab6f02b55c8b143aeecd0751c90e05becceed741a7e7d01",
+    "changes": [
+      "Import os; obtain ROOT from RAY_REVIEW_RUN_ROOT; assert revision-specific scheduler source path before execution."
+    ],
+    "syntax_checked": true,
+    "scheduler_execution_status": "not run"
+  },
+  {
+    "publication_path": "reproducer/adapted/run_followup.py",
+    "original_script": "reproducer/run_followup.py",
+    "sha256": "93c7e496cd0236ae40a2f4a96e1495f088039bbc5d2ff89822b634fd2060e495",
+    "changes": [
+      "Byte-identical convenience copy beside adapted main module."
+    ],
+    "syntax_checked": true,
+    "scheduler_execution_status": "not run"
+  },
+  {
+    "publication_path": "reproducer/adapted/test_candidate_a.py",
+    "original_script": "reproducer/test_candidate_a.py",
+    "sha256": "5e40505c26bcd425287dafb4e29b0709c8fe78303787f7f4c4cb7cebba137ec4",
+    "changes": [
+      "Byte-identical convenience copy beside adapted main module."
+    ],
+    "syntax_checked": true,
+    "scheduler_execution_status": "not run"
+  }
+]

@@ -1,0 +1,362 @@
+{
+  "required_artifacts": [
+    "environment.json",
+    "executed-test-commands.json",
+    "run_experiments.py",
+    "run_followup.py",
+    "parent-A.json",
+    "head-A.json",
+    "parent-B.json",
+    "head-B.json",
+    "parent-C.json",
+    "head-C.json",
+    "parent-C_finite.json",
+    "head-C_finite.json",
+    "parent-A-quality-pytest.log",
+    "head-A-quality-pytest.log",
+    "parent-followup.log",
+    "head-followup.log",
+    "preservation-audit.json"
+  ],
+  "missing_required": [],
+  "top_level_artifacts": [
+    {
+      "name": "environment.json",
+      "type": "file",
+      "bytes": 8101,
+      "sha256": "9cbcbc31059ab0c2afd514004b88d9731c153e65fb661f0790fc73b3f29def7f",
+      "selected": true
+    },
+    {
+      "name": "executed-test-commands.json",
+      "type": "file",
+      "bytes": 2451,
+      "sha256": "e261f327839b5a85e2be579342e428f504b4716ebedce71e49c7204742272a88",
+      "selected": true
+    },
+    {
+      "name": "git-commit-tree-end.txt",
+      "type": "file",
+      "bytes": 82,
+      "sha256": "0e95721838f0302c274c51fd0f5aa6c50469e9360e6b708156ede728f72f4f1c",
+      "selected": true
+    },
+    {
+      "name": "git-identity-end.txt",
+      "type": "file",
+      "bytes": 57,
+      "sha256": "1f04a880a350ad7adb86aeab6dcd8a2c381ee281638c23ed6ca1114957973595",
+      "selected": false
+    },
+    {
+      "name": "git-identity-start.txt",
+      "type": "file",
+      "bytes": 82,
+      "sha256": "0e95721838f0302c274c51fd0f5aa6c50469e9360e6b708156ede728f72f4f1c",
+      "selected": true
+    },
+    {
+      "name": "git-status-end.txt",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "selected": true
+    },
+    {
+      "name": "git-status-start.txt",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "selected": true
+    },
+    {
+      "name": "head",
+      "type": "directory",
+      "selected": false,
+      "reason": "Excluded source/runtime/generated dependency tree."
+    },
+    {
+      "name": "head-A-quality-pytest.log",
+      "type": "file",
+      "bytes": 4487,
+      "sha256": "347f3ec2c5ba6886f37a65192a4ca1a8546fb6a2c416391e2e820d4b93c8cead",
+      "selected": true
+    },
+    {
+      "name": "head-A.json",
+      "type": "file",
+      "bytes": 33708,
+      "sha256": "0ee032b2760980b3d9ed6985fb94146848160f7d986000b5108f539deba25d50",
+      "selected": true
+    },
+    {
+      "name": "head-ABC.log",
+      "type": "file",
+      "bytes": 134387,
+      "sha256": "39fd55e0a22523be9c77e27d08c765d624af70e6dbb6eecb904eec6d3619780c",
+      "selected": true
+    },
+    {
+      "name": "head-B.json",
+      "type": "file",
+      "bytes": 47899,
+      "sha256": "9dc901d5fefaf617be8aeebd5a28c215e2628d1e529a6691f7ee7a84d23ad03a",
+      "selected": true
+    },
+    {
+      "name": "head-C.json",
+      "type": "file",
+      "bytes": 37568,
+      "sha256": "18a507033b6b06cbf0bf2693f7f504c9ac5e41f5978f583988509ded86267a4b",
+      "selected": true
+    },
+    {
+      "name": "head-C_finite.json",
+      "type": "file",
+      "bytes": 33014,
+      "sha256": "7b93d32f6b9e4c4619551f459318d7b290fefb3570de2a961fe9109b5e6cf9b9",
+      "selected": true
+    },
+    {
+      "name": "head-D_distinct_unused_fallbacks.json",
+      "type": "file",
+      "bytes": 40106,
+      "sha256": "3b86f6910db6a6ce252f6c78435230c6c54aee223d45aa3a309147afc512efcc",
+      "selected": true
+    },
+    {
+      "name": "head-D_primary_only.json",
+      "type": "file",
+      "bytes": 23447,
+      "sha256": "92caecd1e6aa3e3dfbe4974c3a30f081944129e380afdcfccf68e26a983484ea",
+      "selected": true
+    },
+    {
+      "name": "head-D_same_unused_fallbacks.json",
+      "type": "file",
+      "bytes": 32320,
+      "sha256": "87e0ea4e6b0fd0bd29b134fc53feb0a54aff6e807079291e1c2d84fbcb18aa04",
+      "selected": true
+    },
+    {
+      "name": "head-followup.log",
+      "type": "file",
+      "bytes": 147523,
+      "sha256": "397d4ad135e9722921659ac1018cb744594df118e73365bfeb42335913bcfdcb",
+      "selected": true
+    },
+    {
+      "name": "head-generated-raw",
+      "type": "directory",
+      "selected": false,
+      "reason": "Excluded source/runtime/generated dependency tree."
+    },
+    {
+      "name": "head-import-provenance.json",
+      "type": "file",
+      "bytes": 30014,
+      "sha256": "8903840c042e39dbddb1c3a36d39a39e780e3e61d58b6ea99bf395d0d735bbdb",
+      "selected": true
+    },
+    {
+      "name": "head-protoc-v3.log",
+      "type": "file",
+      "bytes": 290,
+      "sha256": "a87e0ede13cc73e8f77173cf6d67723945c97651ccf81cf213487dab0446e2aa",
+      "selected": true
+    },
+    {
+      "name": "head-source.tar",
+      "type": "file",
+      "bytes": 89016320,
+      "sha256": "79c227c0ca186a53c350cee78915ca1524133b6fd42c89e219b5725163b1613a",
+      "selected": false
+    },
+    {
+      "name": "head.descriptor.pb",
+      "type": "file",
+      "bytes": 151859,
+      "sha256": "a2587a60d44a2a19c4428b8590a0432df1d76980cfc5720a809a077e38a3d511",
+      "selected": false
+    },
+    {
+      "name": "parent",
+      "type": "directory",
+      "selected": false,
+      "reason": "Excluded source/runtime/generated dependency tree."
+    },
+    {
+      "name": "parent-A-quality-pytest.log",
+      "type": "file",
+      "bytes": 2102,
+      "sha256": "152633f29583e503eb6c617932f6c8d1e993c71b67149106834fb52a7e327058",
+      "selected": true
+    },
+    {
+      "name": "parent-A.json",
+      "type": "file",
+      "bytes": 27809,
+      "sha256": "7ef34376785d1a3e63fc6b83dc1626002e261d7756660f40ad9ef7fb867bac0f",
+      "selected": true
+    },
+    {
+      "name": "parent-ABC.log",
+      "type": "file",
+      "bytes": 102367,
+      "sha256": "e058e12fca48fed4944e5c8ff1b567dc9093f0d01bf2ac64d4de20d6b5efad9b",
+      "selected": true
+    },
+    {
+      "name": "parent-B.json",
+      "type": "file",
+      "bytes": 35401,
+      "sha256": "b5024d54d36cc05a6aeca439ee6167525a9979b047b31a9a9d2038396e821255",
+      "selected": true
+    },
+    {
+      "name": "parent-C.json",
+      "type": "file",
+      "bytes": 27869,
+      "sha256": "ff1a78794110484a66780d899daf662e4e2b447a1342115843dd91a2794c882d",
+      "selected": true
+    },
+    {
+      "name": "parent-C_finite.json",
+      "type": "file",
+      "bytes": 23437,
+      "sha256": "f138d97c511beba41ae4195d69fa975e63986c494c5456ae6c0a395cdfbd50aa",
+      "selected": true
+    },
+    {
+      "name": "parent-D_distinct_unused_fallbacks.json",
+      "type": "file",
+      "bytes": 32320,
+      "sha256": "269e57e163b045af18057d13808b18773a12ec120fe21bfc18df4dab3b584dce",
+      "selected": true
+    },
+    {
+      "name": "parent-D_primary_only.json",
+      "type": "file",
+      "bytes": 23443,
+      "sha256": "7c3f4600697951a66dfaecd79741ec42cade38db2446e2a290373dfba9b28c65",
+      "selected": true
+    },
+    {
+      "name": "parent-D_same_unused_fallbacks.json",
+      "type": "file",
+      "bytes": 32316,
+      "sha256": "f37b89c421e90bebb547d8d42fcd53db8269c4aa2bb9c6b676e4a34933093752",
+      "selected": true
+    },
+    {
+      "name": "parent-followup.log",
+      "type": "file",
+      "bytes": 127124,
+      "sha256": "96c3eae37ef5e09c3e8f5ff23ffb734ee570953aafe6422e2f5150b3785d06e3",
+      "selected": true
+    },
+    {
+      "name": "parent-generated-raw",
+      "type": "directory",
+      "selected": false,
+      "reason": "Excluded source/runtime/generated dependency tree."
+    },
+    {
+      "name": "parent-import-provenance.json",
+      "type": "file",
+      "bytes": 30508,
+      "sha256": "d88729db03f947e2de024bdacb2571a01186083ec29c1c38e206c6940e56cf74",
+      "selected": true
+    },
+    {
+      "name": "parent-protoc-v3.log",
+      "type": "file",
+      "bytes": 290,
+      "sha256": "a87e0ede13cc73e8f77173cf6d67723945c97651ccf81cf213487dab0446e2aa",
+      "selected": true
+    },
+    {
+      "name": "parent-protoc.log",
+      "type": "file",
+      "bytes": 559,
+      "sha256": "b7acfae9a0851743ae695865142a67695258d7d0fd352fe0de0f7dbe3db95f55",
+      "selected": true
+    },
+    {
+      "name": "parent-source.tar",
+      "type": "file",
+      "bytes": 89006080,
+      "sha256": "a4dff121919ae366dad7f325938a2d1bcd658b5e5c46536f33ce487ec282204b",
+      "selected": false
+    },
+    {
+      "name": "parent.descriptor.pb",
+      "type": "file",
+      "bytes": 151859,
+      "sha256": "a2587a60d44a2a19c4428b8590a0432df1d76980cfc5720a809a077e38a3d511",
+      "selected": false
+    },
+    {
+      "name": "prepare_runtime.py",
+      "type": "file",
+      "bytes": 2307,
+      "sha256": "cc1e52cb78fca613ec60e65c4c5ae3a4d263ad076e46d3f6627a2ff6d7e5616f",
+      "selected": false
+    },
+    {
+      "name": "prepare_runtime_v3.py",
+      "type": "file",
+      "bytes": 2366,
+      "sha256": "bdcd05149822e9abbc3d0908c84c6473559355fef07c6065c8653e40f8f572e8",
+      "selected": true
+    },
+    {
+      "name": "preservation-audit.json",
+      "type": "file",
+      "bytes": 995,
+      "sha256": "a7d50a7356835cf1534fa83044af4ee524be9a26c56aa21b08d6e7c6370373c6",
+      "selected": true
+    },
+    {
+      "name": "run_experiments.py",
+      "type": "file",
+      "bytes": 12262,
+      "sha256": "bf79fcd199aceb74da602fb618ccbf02a743f0033b647f90658c85ae3bd0cd03",
+      "selected": true
+    },
+    {
+      "name": "run_followup.py",
+      "type": "file",
+      "bytes": 4125,
+      "sha256": "93c7e496cd0236ae40a2f4a96e1495f088039bbc5d2ff89822b634fd2060e495",
+      "selected": true
+    },
+    {
+      "name": "setup-v2.log",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "selected": false
+    },
+    {
+      "name": "setup-v3.log",
+      "type": "file",
+      "bytes": 8101,
+      "sha256": "9cbcbc31059ab0c2afd514004b88d9731c153e65fb661f0790fc73b3f29def7f",
+      "selected": true
+    },
+    {
+      "name": "test_candidate_a.py",
+      "type": "file",
+      "bytes": 558,
+      "sha256": "5e40505c26bcd425287dafb4e29b0709c8fe78303787f7f4c4cb7cebba137ec4",
+      "selected": true
+    },
+    {
+      "name": "venv",
+      "type": "directory",
+      "selected": false,
+      "reason": "Excluded source/runtime/generated dependency tree."
+    }
+  ]
+}

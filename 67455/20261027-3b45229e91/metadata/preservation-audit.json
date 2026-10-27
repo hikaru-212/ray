@@ -1,0 +1,22 @@
+{
+  "parent": {
+    "regular_files_compared": 5436,
+    "symlinks_compared": 0,
+    "changed_archived_files": [],
+    "source_archive_sha256": "a4dff121919ae366dad7f325938a2d1bcd658b5e5c46536f33ce487ec282204b"
+  },
+  "head": {
+    "regular_files_compared": 5436,
+    "symlinks_compared": 0,
+    "changed_archived_files": [],
+    "source_archive_sha256": "79c227c0ca186a53c350cee78915ca1524133b6fd42c89e219b5725163b1613a"
+  },
+  "git_status_start": "",
+  "git_status_end": "",
+  "git_status_equal": true,
+  "git_commit_tree_start": "3b45229e91b82d367b4706fbc26c2cbf31541c51\n7fcee5a7332c76803b504aacb0ea6923965bdf23\n",
+  "git_commit_tree_end": "3b45229e91b82d367b4706fbc26c2cbf31541c51\n7fcee5a7332c76803b504aacb0ea6923965bdf23\n",
+  "git_commit_tree_equal": true,
+  "ending_branch": "review/pr-67455",
+  "audit_note": "An earlier audit compared HEAD+tree against HEAD+branch; that formatting assertion failed. This audit compares the same HEAD+tree fields. Both earlier files are preserved."
+}

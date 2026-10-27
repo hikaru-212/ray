@@ -1,0 +1,55 @@
+{
+  "baseline": {
+    "source": {
+      "head": "3b45229e91b82d367b4706fbc26c2cbf31541c51",
+      "branch": "review/pr-67455",
+      "status": "",
+      "branch_refs_sha256": "ca2af1fe372e13e4fa2de99a2890b2a09615525a1c3d17d72b4fedc4a58cd044",
+      "remotes": "fork\thttps://github.com/hikaru-212/ray.git (fetch)\nfork\thttps://github.com/hikaru-212/ray.git (push)\norigin\thttps://github.com/ray-project/ray.git (fetch)\norigin\thttps://github.com/ray-project/ray.git (push)\n",
+      "index_sha256": "0aafe67f61ef7593c2cd8cae5abd1cd30dde4a001e8736fbde32795879ea82c2"
+    },
+    "evidence": {
+      "head": "cbad7347b0e20c19fdd4b590334e10320835ca74",
+      "branch": "review-evidence",
+      "status": "",
+      "branch_refs_sha256": "c508c552a3884127ae459dfc980040a9f79b1dddedfafb7d3377845944f0627a",
+      "remotes": "origin\thttps://github.com/hikaru-212/ray.git (fetch)\norigin\thttps://github.com/hikaru-212/ray.git (push)\n",
+      "index_sha256": "95616e67c91d141ef5a18980dcde9a831216674317571c6a7a7fd0858a32bee4",
+      "shallow": "false",
+      "reachable_commits": 9,
+      "pr_head_in_ancestry": false,
+      "history_sha256": "9f7025c410d626a201375e042e87512c20697bc8a167d3a06b36e4e3e8ec2310",
+      "preexisting_file_count": 100,
+      "preexisting_inventory_sha256": "c5996ef1c0576de1d5cd3b85a8f2df5c62046103b61d529ffc7011157af3caac"
+    }
+  },
+  "initial": {
+    "source": {
+      "head": "3b45229e91b82d367b4706fbc26c2cbf31541c51",
+      "branch": "review/pr-67455",
+      "status": "",
+      "branch_refs_sha256": "ca2af1fe372e13e4fa2de99a2890b2a09615525a1c3d17d72b4fedc4a58cd044",
+      "remotes": "fork\thttps://github.com/hikaru-212/ray.git (fetch)\nfork\thttps://github.com/hikaru-212/ray.git (push)\norigin\thttps://github.com/ray-project/ray.git (fetch)\norigin\thttps://github.com/ray-project/ray.git (push)\n",
+      "index_sha256": "0aafe67f61ef7593c2cd8cae5abd1cd30dde4a001e8736fbde32795879ea82c2"
+    },
+    "evidence": {
+      "head": "e5eb5df62926c52e48d1b282099f11ac8b3ea01a",
+      "branch": "review-evidence",
+      "status": "",
+      "branch_refs_sha256": "09284c7ac273aabc46d63daf365c0b9b986cb0c2c92d32f5ab5458f801786070",
+      "remotes": "origin\thttps://github.com/hikaru-212/ray.git (fetch)\norigin\thttps://github.com/hikaru-212/ray.git (push)\n",
+      "index_sha256": "55b2ddeeaf2435541ea127b5dce3dd7e5d128ea4015194fd0fc733053fff9523",
+      "shallow": "false",
+      "reachable_commits": 7,
+      "pr_head_in_ancestry": false,
+      "history_sha256": "2e4575b4b6b08ebec4fa88e67c08093bd5f1312766f17d1ca52af335e86ddac6",
+      "preexisting_file_count": 92,
+      "preexisting_inventory_sha256": "329be2daa21294c24b48006a7d452f1634479d227e8459604277dcd5f2bdb300"
+    }
+  },
+  "external": {
+    "initial_head": "e5eb5df62926c52e48d1b282099f11ac8b3ea01a",
+    "prewrite_head": "cbad7347b0e20c19fdd4b590334e10320835ca74",
+    "description": "An external merge advanced review-evidence before any publication file was written. It added 67229 evidence and changed the root README; no 67455 path was involved. The assistant issued no merge/commit/ref-update command. Both initial and pre-write baseline snapshots are retained. The complete 9-commit pre-write history excludes the reviewed PR HEAD."
+  }
+}

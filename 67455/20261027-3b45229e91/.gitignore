@@ -1,0 +1,2 @@
+# Keep publication logs visible despite the repository-wide *.log rule.
+!logs/*.log

@@ -1,0 +1,26 @@
+{
+  "parent": {
+    "revision": "938ab39460b257374624479c6739fa80315939ea",
+    "scheduler_sha256": "64a4b17646d52512be9de68c85e36ef7cf6ceaa9ba6793d5c71ca300d03a31ca",
+    "matches_git_blob": true,
+    "unchanged_archive_members": 5436,
+    "native_sha256": "af46848e8b413a027aa17b958d1dd1bf93f41c4a55b9009002ce7e1112ef6ec0",
+    "descriptor_sha256": "a2587a60d44a2a19c4428b8590a0432df1d76980cfc5720a809a077e38a3d511",
+    "isolated_ray_imports": 247,
+    "all_imports_within_revision_copy": true
+  },
+  "head": {
+    "revision": "3b45229e91b82d367b4706fbc26c2cbf31541c51",
+    "scheduler_sha256": "224a412826ce171eca747f1216c16d520536d521a4c6bd726039e8bf2cd858e7",
+    "matches_git_blob": true,
+    "unchanged_archive_members": 5436,
+    "native_sha256": "af46848e8b413a027aa17b958d1dd1bf93f41c4a55b9009002ce7e1112ef6ec0",
+    "descriptor_sha256": "a2587a60d44a2a19c4428b8590a0432df1d76980cfc5720a809a077e38a3d511",
+    "isolated_ray_imports": 247,
+    "all_imports_within_revision_copy": true
+  },
+  "protobuf_definitions_changed_between_revisions": false,
+  "generated_descriptor_sets_byte_identical": true,
+  "full_native_compatibility_established": false,
+  "scope": "Read-only publication audit; no scheduler rerun."
+}

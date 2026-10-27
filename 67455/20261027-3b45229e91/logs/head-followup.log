@@ -1,0 +1,5696 @@
+2026-10-27 11:45:44,590	DEBUG scheduler.py:1208 -- Scheduling for request: resource_request=[{'request': {'resources_bundle': {'CPU': 2.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'x', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}], 'placement_constraints': []}, 'count': '1'}, {'request': {'resources_bundle': {'CPU': 1.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'y', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}], 'placement_constraints': []}, 'count': '1'}], gang_resource_request=[], cluster_constraint=[]
+2026-10-27 11:45:44,590	WARNING scheduler.py:2132 -- Head node head-im(ray=01010101010101010101010101010101010101010101010101010101) is outdated with node config changes. Please check the node's config or restart the cluster or restart the head node. Autoscaler is not able to shutdown the outdated head node
+2026-10-27 11:45:44,591	DEBUG scheduler.py:2099 -- Best node: SchedulingNode(node_type=S, node_kind=2, instance_id=None,instance_status=None,ray_node_id=,idle_duration_ms=0,termination_request=None,status=SchedulingNodeStatus.TO_LAUNCH, total_resources={'CPU': 2}, available_resources_for_demand={'CPU': 0.0}, available_resources_for_cluster_resource_constraints={'CPU': 2},labels={'x': '1'}, launch_reason=None), sched_requests_for_demand={'resourcesBundle': {'CPU': 2.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'x', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}]}), sched_requests_for_cluster_resource_constraints=), score: (1.0, True, 1, 2.0, 2.0), remaining requests: []
+2026-10-27 11:45:44,591	DEBUG scheduler.py:2099 -- Best node: SchedulingNode(node_type=L, node_kind=2, instance_id=None,instance_status=None,ray_node_id=,idle_duration_ms=0,termination_request=None,status=SchedulingNodeStatus.TO_LAUNCH, total_resources={'CPU': 3}, available_resources_for_demand={'CPU': 2.0}, available_resources_for_cluster_resource_constraints={'CPU': 3},labels={'x': '1', 'y': '1'}, launch_reason=None), sched_requests_for_demand={'resourcesBundle': {'CPU': 1.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'y', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}]}), sched_requests_for_cluster_resource_constraints=), score: (1.0, True, 1, 0.11111111111111108, 0.11111111111111108), remaining requests: []
+2026-10-27 11:45:44,591	DEBUG scheduler.py:1208 -- Scheduling for request: resource_request=[{'request': {'resources_bundle': {'CPU': 2.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'x', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}], 'placement_constraints': []}, 'count': '1'}, {'request': {'resources_bundle': {'CPU': 1.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'y', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}], 'placement_constraints': []}, 'count': '1'}], gang_resource_request=[], cluster_constraint=[]
+2026-10-27 11:45:44,592	WARNING scheduler.py:2132 -- Head node head-im(ray=01010101010101010101010101010101010101010101010101010101) is outdated with node config changes. Please check the node's config or restart the cluster or restart the head node. Autoscaler is not able to shutdown the outdated head node
+2026-10-27 11:45:44,593	DEBUG scheduler.py:2099 -- Best node: SchedulingNode(node_type=S, node_kind=2, instance_id=None,instance_status=None,ray_node_id=,idle_duration_ms=0,termination_request=None,status=SchedulingNodeStatus.TO_LAUNCH, total_resources={'CPU': 2}, available_resources_for_demand={'CPU': 0.0}, available_resources_for_cluster_resource_constraints={'CPU': 2},labels={'x': '1'}, launch_reason=None), sched_requests_for_demand={'resourcesBundle': {'CPU': 2.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'x', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}]}), sched_requests_for_cluster_resource_constraints=), score: (1.0, True, 1, 2.0, 2.0), remaining requests: []
+2026-10-27 11:45:44,594	DEBUG scheduler.py:2099 -- Best node: SchedulingNode(node_type=L, node_kind=2, instance_id=None,instance_status=None,ray_node_id=,idle_duration_ms=0,termination_request=None,status=SchedulingNodeStatus.TO_LAUNCH, total_resources={'CPU': 3}, available_resources_for_demand={'CPU': 2.0}, available_resources_for_cluster_resource_constraints={'CPU': 3},labels={'x': '1', 'y': '1'}, launch_reason=None), sched_requests_for_demand={'resourcesBundle': {'CPU': 1.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'y', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}]}), sched_requests_for_cluster_resource_constraints=), score: (1.0, True, 1, 0.11111111111111108, 0.11111111111111108), remaining requests: []
+{
+  "assertions": {
+    "observer_did_not_change_result": true,
+    "predicted_launches": true,
+    "predicted_remaining": true
+  },
+  "case": "C_finite",
+  "fixture": {
+    "cloud_resource_availabilities": {},
+    "cluster_resource_constraints": [],
+    "current_instances": [
+      {
+        "cloud_instance_id": "head-cloud",
+        "im_instance": {
+          "cloud_instance_id": "head-cloud",
+          "instance_id": "head-im",
+          "instance_type": "head",
+          "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+          "node_id": "01010101010101010101010101010101010101010101010101010101",
+          "node_kind": "HEAD",
+          "status": "RAY_RUNNING"
+        },
+        "ray_node": {
+          "available_resources": {
+            "CPU": 0.0
+          },
+          "instance_id": "head-cloud",
+          "node_id": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQ==",
+          "ray_node_type_name": "head",
+          "status": "RUNNING",
+          "total_resources": {
+            "CPU": 0.0
+          }
+        }
+      }
+    ],
+    "disable_launch_config_check": false,
+    "gang_resource_requests": [],
+    "idle_timeout_s": null,
+    "ippr_specs": null,
+    "ippr_statuses": {},
+    "max_num_nodes": 3,
+    "node_type_configs": {
+      "L": {
+        "idle_timeout_s": null,
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+        "max_worker_nodes": 10,
+        "min_worker_nodes": 0,
+        "name": "L",
+        "priority": 0,
+        "resources": {
+          "CPU": 3
+        }
+      },
+      "S": {
+        "idle_timeout_s": null,
+        "labels": {
+          "x": "1"
+        },
+        "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+        "max_worker_nodes": 10,
+        "min_worker_nodes": 0,
+        "name": "S",
+        "priority": 0,
+        "resources": {
+          "CPU": 2
+        }
+      },
+      "head": {
+        "idle_timeout_s": null,
+        "labels": {},
+        "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+        "max_worker_nodes": 1,
+        "min_worker_nodes": 0,
+        "name": "head",
+        "priority": 0,
+        "resources": {
+          "CPU": 0
+        }
+      }
+    },
+    "recoverable_resource_availabilities": {},
+    "resource_requests": [
+      {
+        "count": "1",
+        "request": {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        }
+      },
+      {
+        "count": "1",
+        "request": {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "y",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      }
+    ]
+  },
+  "merge_base": "938ab39460b257374624479c6739fa80315939ea",
+  "raw_config": {
+    "auth": {},
+    "available_node_types": {
+      "L": {
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "max_workers": 10,
+        "min_workers": 0,
+        "node_config": {},
+        "priority": 0,
+        "resources": {
+          "CPU": 3
+        }
+      },
+      "S": {
+        "labels": {
+          "x": "1"
+        },
+        "max_workers": 10,
+        "min_workers": 0,
+        "node_config": {},
+        "priority": 0,
+        "resources": {
+          "CPU": 2
+        }
+      },
+      "head": {
+        "labels": {},
+        "max_workers": 0,
+        "min_workers": 0,
+        "node_config": {},
+        "resources": {
+          "CPU": 0
+        }
+      }
+    },
+    "cluster_name": "pr-67455-phase2",
+    "cluster_synced_files": [],
+    "head_node_type": "head",
+    "max_workers": 2,
+    "provider": {
+      "type": "kuberay"
+    }
+  },
+  "raw_reply": {
+    "cluster_resources": {
+      "CPU": 5.0
+    },
+    "infeasible_cluster_resource_constraints": [],
+    "infeasible_gang_resource_requests": [],
+    "infeasible_resource_requests": [],
+    "to_ippr": [],
+    "to_launch": [
+      {
+        "count": 1,
+        "id": "ecbe5e79-34fc-4f2d-92dd-8508bb8efbee",
+        "instance_type": "L",
+        "request_ts_ms": "1793101544591613"
+      },
+      {
+        "count": 1,
+        "id": "219cfa3b-ec16-40a7-9a6c-fbad7dcfd31d",
+        "instance_type": "S",
+        "request_ts_ms": "1793101544591619"
+      }
+    ],
+    "to_terminate": []
+  },
+  "revision": "3b45229e91b82d367b4706fbc26c2cbf31541c51",
+  "semantic_reply": {
+    "cluster_resources": {
+      "CPU": 5.0
+    },
+    "infeasible_constraints": [],
+    "infeasible_gang": [],
+    "remaining": [],
+    "to_ippr": [],
+    "to_launch": {
+      "L": 1,
+      "S": 1
+    },
+    "to_terminate": []
+  },
+  "trace": [
+    {
+      "event": "sorted_requests",
+      "line": 1754,
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        },
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "y",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1777,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1777,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1799,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1799,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1799,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1799,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1838,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1838,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "can_launch": true,
+      "count": 1,
+      "event": "global_cap",
+      "line": 1942,
+      "max": 3,
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "after": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "before": {
+        "available": {
+          "CPU": 2
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "event": "candidate",
+      "line": 2068,
+      "remaining": [],
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        }
+      ],
+      "score": [
+        1.0,
+        true,
+        1,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "after": {
+        "available": {
+          "CPU": 1.0
+        },
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "L",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 3
+        }
+      },
+      "before": {
+        "available": {
+          "CPU": 3
+        },
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "L",
+        "scheduled_requests": [],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 3
+        }
+      },
+      "event": "candidate",
+      "line": 2068,
+      "remaining": [],
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        }
+      ],
+      "score": [
+        1.0,
+        true,
+        1,
+        0.8888888888888886,
+        0.8888888888888886
+      ]
+    },
+    {
+      "event": "selected",
+      "line": 2106,
+      "node": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "other_candidates": [
+        {
+          "available": {
+            "CPU": 3
+          },
+          "labels": {
+            "x": "1",
+            "y": "1"
+          },
+          "node_kind": "WORKER",
+          "node_type": "L",
+          "scheduled_requests": [],
+          "status": "TO_LAUNCH",
+          "total": {
+            "CPU": 3
+          }
+        }
+      ],
+      "remaining": []
+    },
+    {
+      "can_launch": true,
+      "count": 2,
+      "event": "global_cap",
+      "line": 1942,
+      "max": 3,
+      "quotas": {
+        "L": 10,
+        "S": 9,
+        "head": 0
+      }
+    },
+    {
+      "after": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "before": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "event": "candidate",
+      "line": 2068,
+      "remaining": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "y",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ],
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "y",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ],
+      "score": [
+        0,
+        true,
+        1,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "after": {
+        "available": {
+          "CPU": 2.0
+        },
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "L",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 3
+        }
+      },
+      "before": {
+        "available": {
+          "CPU": 3
+        },
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "L",
+        "scheduled_requests": [],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 3
+        }
+      },
+      "event": "candidate",
+      "line": 2068,
+      "remaining": [],
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "y",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ],
+      "score": [
+        1.0,
+        true,
+        1,
+        0.11111111111111108,
+        0.11111111111111108
+      ]
+    },
+    {
+      "after": {
+        "available": {
+          "CPU": 2
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "before": {
+        "available": {
+          "CPU": 2
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "event": "candidate",
+      "line": 2068,
+      "remaining": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "y",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ],
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "y",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ],
+      "score": [
+        0,
+        true,
+        0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "event": "selected",
+      "line": 2106,
+      "node": {
+        "available": {
+          "CPU": 2.0
+        },
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "L",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "y",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 3
+        }
+      },
+      "other_candidates": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {
+            "x": "1"
+          },
+          "node_kind": "WORKER",
+          "node_type": "S",
+          "scheduled_requests": [
+            {
+              "label_selectors": [
+                {
+                  "label_constraints": [
+                    {
+                      "label_key": "x",
+                      "label_values": [
+                        "1"
+                      ],
+                      "operator": "LABEL_OPERATOR_IN"
+                    }
+                  ]
+                }
+              ],
+              "resources_bundle": {
+                "CPU": 2.0
+              }
+            }
+          ],
+          "status": "TO_LAUNCH",
+          "total": {
+            "CPU": 2
+          }
+        },
+        {
+          "available": {
+            "CPU": 2
+          },
+          "labels": {
+            "x": "1"
+          },
+          "node_kind": "WORKER",
+          "node_type": "S",
+          "scheduled_requests": [],
+          "status": "TO_LAUNCH",
+          "total": {
+            "CPU": 2
+          }
+        }
+      ],
+      "remaining": []
+    },
+    {
+      "event": "planning_result",
+      "line": 1985,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        },
+        {
+          "available": {
+            "CPU": 2.0
+          },
+          "labels": {
+            "x": "1",
+            "y": "1"
+          },
+          "node_kind": "WORKER",
+          "node_type": "L",
+          "scheduled_requests": [
+            {
+              "label_selectors": [
+                {
+                  "label_constraints": [
+                    {
+                      "label_key": "y",
+                      "label_values": [
+                        "1"
+                      ],
+                      "operator": "LABEL_OPERATOR_IN"
+                    }
+                  ]
+                }
+              ],
+              "resources_bundle": {
+                "CPU": 1.0
+              }
+            }
+          ],
+          "status": "TO_LAUNCH",
+          "total": {
+            "CPU": 3
+          }
+        },
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {
+            "x": "1"
+          },
+          "node_kind": "WORKER",
+          "node_type": "S",
+          "scheduled_requests": [
+            {
+              "label_selectors": [
+                {
+                  "label_constraints": [
+                    {
+                      "label_key": "x",
+                      "label_values": [
+                        "1"
+                      ],
+                      "operator": "LABEL_OPERATOR_IN"
+                    }
+                  ]
+                }
+              ],
+              "resources_bundle": {
+                "CPU": 2.0
+              }
+            }
+          ],
+          "status": "TO_LAUNCH",
+          "total": {
+            "CPU": 2
+          }
+        }
+      ],
+      "remaining": []
+    }
+  ],
+  "validated_task_options": [
+    {
+      "label_selector": {
+        "x": "1"
+      },
+      "num_cpus": 2
+    },
+    {
+      "label_selector": {
+        "y": "1"
+      },
+      "num_cpus": 1
+    }
+  ]
+}
+2026-10-27 11:45:44,598	DEBUG scheduler.py:1208 -- Scheduling for request: resource_request=[{'request': {'resources_bundle': {'CPU': 2.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'x', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}, {'label_constraints': [{'label_key': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['u0']}]}], 'placement_constraints': []}, 'count': '1'}, {'request': {'resources_bundle': {'CPU': 1.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'x', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}, {'label_constraints': [{'label_key': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['u1']}]}], 'placement_constraints': []}, 'count': '1'}], gang_resource_request=[], cluster_constraint=[]
+2026-10-27 11:45:44,598	WARNING scheduler.py:2132 -- Head node head-im(ray=01010101010101010101010101010101010101010101010101010101) is outdated with node config changes. Please check the node's config or restart the cluster or restart the head node. Autoscaler is not able to shutdown the outdated head node
+2026-10-27 11:45:44,599	DEBUG scheduler.py:2099 -- Best node: SchedulingNode(node_type=S, node_kind=2, instance_id=None,instance_status=None,ray_node_id=,idle_duration_ms=0,termination_request=None,status=SchedulingNodeStatus.TO_LAUNCH, total_resources={'CPU': 2}, available_resources_for_demand={'CPU': 0.0}, available_resources_for_cluster_resource_constraints={'CPU': 2},labels={'x': '1'}, launch_reason=None), sched_requests_for_demand={'resourcesBundle': {'CPU': 2.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'x', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}, {'labelConstraints': [{'labelKey': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['u0']}]}]}), sched_requests_for_cluster_resource_constraints=), score: (1.0, True, 1, 2.0, 2.0), remaining requests: []
+2026-10-27 11:45:44,599	DEBUG scheduler.py:2077 -- No nodes can schedule the requests: [{'resources_bundle': {'CPU': 1.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'x', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}, {'label_constraints': [{'label_key': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['u1']}]}], 'placement_constraints': []}], for nodes: [SchedulingNode(node_type=S, node_kind=2, instance_id=None,instance_status=None,ray_node_id=,idle_duration_ms=0,termination_request=None,status=SchedulingNodeStatus.TO_LAUNCH, total_resources={'CPU': 2}, available_resources_for_demand={'CPU': 0.0}, available_resources_for_cluster_resource_constraints={'CPU': 2},labels={'x': '1'}, launch_reason=None), sched_requests_for_demand={'resourcesBundle': {'CPU': 2.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'x', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}, {'labelConstraints': [{'labelKey': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['u0']}]}]}), sched_requests_for_cluster_resource_constraints=)]
+2026-10-27 11:45:44,599	DEBUG scheduler.py:1960 -- Max number of nodes reached: 2, cannot launch more nodes.
+2026-10-27 11:45:44,600	DEBUG scheduler.py:1208 -- Scheduling for request: resource_request=[{'request': {'resources_bundle': {'CPU': 2.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'x', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}, {'label_constraints': [{'label_key': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['u0']}]}], 'placement_constraints': []}, 'count': '1'}, {'request': {'resources_bundle': {'CPU': 1.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'x', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}, {'label_constraints': [{'label_key': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['u1']}]}], 'placement_constraints': []}, 'count': '1'}], gang_resource_request=[], cluster_constraint=[]
+2026-10-27 11:45:44,600	WARNING scheduler.py:2132 -- Head node head-im(ray=01010101010101010101010101010101010101010101010101010101) is outdated with node config changes. Please check the node's config or restart the cluster or restart the head node. Autoscaler is not able to shutdown the outdated head node
+2026-10-27 11:45:44,601	DEBUG scheduler.py:2099 -- Best node: SchedulingNode(node_type=S, node_kind=2, instance_id=None,instance_status=None,ray_node_id=,idle_duration_ms=0,termination_request=None,status=SchedulingNodeStatus.TO_LAUNCH, total_resources={'CPU': 2}, available_resources_for_demand={'CPU': 0.0}, available_resources_for_cluster_resource_constraints={'CPU': 2},labels={'x': '1'}, launch_reason=None), sched_requests_for_demand={'resourcesBundle': {'CPU': 2.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'x', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}, {'labelConstraints': [{'labelKey': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['u0']}]}]}), sched_requests_for_cluster_resource_constraints=), score: (1.0, True, 1, 2.0, 2.0), remaining requests: []
+2026-10-27 11:45:44,602	DEBUG scheduler.py:2077 -- No nodes can schedule the requests: [{'resources_bundle': {'CPU': 1.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'x', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}, {'label_constraints': [{'label_key': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['u1']}]}], 'placement_constraints': []}], for nodes: [SchedulingNode(node_type=S, node_kind=2, instance_id=None,instance_status=None,ray_node_id=,idle_duration_ms=0,termination_request=None,status=SchedulingNodeStatus.TO_LAUNCH, total_resources={'CPU': 2}, available_resources_for_demand={'CPU': 0.0}, available_resources_for_cluster_resource_constraints={'CPU': 2},labels={'x': '1'}, launch_reason=None), sched_requests_for_demand={'resourcesBundle': {'CPU': 2.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'x', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}, {'labelConstraints': [{'labelKey': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['u0']}]}]}), sched_requests_for_cluster_resource_constraints=)]
+2026-10-27 11:45:44,602	DEBUG scheduler.py:1960 -- Max number of nodes reached: 2, cannot launch more nodes.
+{
+  "assertions": {
+    "observer_did_not_change_result": true,
+    "predicted_launches": true,
+    "predicted_remaining": true
+  },
+  "case": "D_distinct_unused_fallbacks",
+  "fixture": {
+    "cloud_resource_availabilities": {},
+    "cluster_resource_constraints": [],
+    "current_instances": [
+      {
+        "cloud_instance_id": "head-cloud",
+        "im_instance": {
+          "cloud_instance_id": "head-cloud",
+          "instance_id": "head-im",
+          "instance_type": "head",
+          "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+          "node_id": "01010101010101010101010101010101010101010101010101010101",
+          "node_kind": "HEAD",
+          "status": "RAY_RUNNING"
+        },
+        "ray_node": {
+          "available_resources": {
+            "CPU": 0.0
+          },
+          "instance_id": "head-cloud",
+          "node_id": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQ==",
+          "ray_node_type_name": "head",
+          "status": "RUNNING",
+          "total_resources": {
+            "CPU": 0.0
+          }
+        }
+      }
+    ],
+    "disable_launch_config_check": false,
+    "gang_resource_requests": [],
+    "idle_timeout_s": null,
+    "ippr_specs": null,
+    "ippr_statuses": {},
+    "max_num_nodes": 2,
+    "node_type_configs": {
+      "L": {
+        "idle_timeout_s": null,
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+        "max_worker_nodes": 10,
+        "min_worker_nodes": 0,
+        "name": "L",
+        "priority": 0,
+        "resources": {
+          "CPU": 3
+        }
+      },
+      "S": {
+        "idle_timeout_s": null,
+        "labels": {
+          "x": "1"
+        },
+        "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+        "max_worker_nodes": 10,
+        "min_worker_nodes": 0,
+        "name": "S",
+        "priority": 0,
+        "resources": {
+          "CPU": 2
+        }
+      },
+      "head": {
+        "idle_timeout_s": null,
+        "labels": {},
+        "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+        "max_worker_nodes": 1,
+        "min_worker_nodes": 0,
+        "name": "head",
+        "priority": 0,
+        "resources": {
+          "CPU": 0
+        }
+      }
+    },
+    "recoverable_resource_availabilities": {},
+    "resource_requests": [
+      {
+        "count": "1",
+        "request": {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u0"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        }
+      },
+      {
+        "count": "1",
+        "request": {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      }
+    ]
+  },
+  "merge_base": "938ab39460b257374624479c6739fa80315939ea",
+  "raw_config": {
+    "auth": {},
+    "available_node_types": {
+      "L": {
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "max_workers": 10,
+        "min_workers": 0,
+        "node_config": {},
+        "priority": 0,
+        "resources": {
+          "CPU": 3
+        }
+      },
+      "S": {
+        "labels": {
+          "x": "1"
+        },
+        "max_workers": 10,
+        "min_workers": 0,
+        "node_config": {},
+        "priority": 0,
+        "resources": {
+          "CPU": 2
+        }
+      },
+      "head": {
+        "labels": {},
+        "max_workers": 0,
+        "min_workers": 0,
+        "node_config": {},
+        "resources": {
+          "CPU": 0
+        }
+      }
+    },
+    "cluster_name": "pr-67455-phase2",
+    "cluster_synced_files": [],
+    "head_node_type": "head",
+    "max_workers": 1,
+    "provider": {
+      "type": "kuberay"
+    }
+  },
+  "raw_reply": {
+    "cluster_resources": {
+      "CPU": 2.0
+    },
+    "infeasible_cluster_resource_constraints": [],
+    "infeasible_gang_resource_requests": [],
+    "infeasible_resource_requests": [
+      {
+        "label_selectors": [
+          {
+            "label_constraints": [
+              {
+                "label_key": "x",
+                "label_values": [
+                  "1"
+                ],
+                "operator": "LABEL_OPERATOR_IN"
+              }
+            ]
+          },
+          {
+            "label_constraints": [
+              {
+                "label_key": "unused",
+                "label_values": [
+                  "u1"
+                ],
+                "operator": "LABEL_OPERATOR_IN"
+              }
+            ]
+          }
+        ],
+        "resources_bundle": {
+          "CPU": 1.0
+        }
+      }
+    ],
+    "to_ippr": [],
+    "to_launch": [
+      {
+        "count": 1,
+        "id": "2ea87e60-7f2e-4337-a231-93454077b11c",
+        "instance_type": "S",
+        "request_ts_ms": "1793101544599809"
+      }
+    ],
+    "to_terminate": []
+  },
+  "revision": "3b45229e91b82d367b4706fbc26c2cbf31541c51",
+  "semantic_reply": {
+    "cluster_resources": {
+      "CPU": 2.0
+    },
+    "infeasible_constraints": [],
+    "infeasible_gang": [],
+    "remaining": [
+      {
+        "label_selectors": [
+          {
+            "label_constraints": [
+              {
+                "label_key": "x",
+                "label_values": [
+                  "1"
+                ],
+                "operator": "LABEL_OPERATOR_IN"
+              }
+            ]
+          },
+          {
+            "label_constraints": [
+              {
+                "label_key": "unused",
+                "label_values": [
+                  "u1"
+                ],
+                "operator": "LABEL_OPERATOR_IN"
+              }
+            ]
+          }
+        ],
+        "resources_bundle": {
+          "CPU": 1.0
+        }
+      }
+    ],
+    "to_ippr": [],
+    "to_launch": {
+      "S": 1
+    },
+    "to_terminate": []
+  },
+  "trace": [
+    {
+      "event": "sorted_requests",
+      "line": 1754,
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u0"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        },
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1777,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1777,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1799,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1799,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1799,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1799,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1838,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1838,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "can_launch": true,
+      "count": 1,
+      "event": "global_cap",
+      "line": 1942,
+      "max": 2,
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "after": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "before": {
+        "available": {
+          "CPU": 2
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "event": "candidate",
+      "line": 2068,
+      "remaining": [],
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u0"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        }
+      ],
+      "score": [
+        1.0,
+        true,
+        1,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "after": {
+        "available": {
+          "CPU": 1.0
+        },
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "L",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 3
+        }
+      },
+      "before": {
+        "available": {
+          "CPU": 3
+        },
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "L",
+        "scheduled_requests": [],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 3
+        }
+      },
+      "event": "candidate",
+      "line": 2068,
+      "remaining": [],
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u0"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        }
+      ],
+      "score": [
+        1.0,
+        true,
+        1,
+        0.8888888888888886,
+        0.8888888888888886
+      ]
+    },
+    {
+      "event": "selected",
+      "line": 2106,
+      "node": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "other_candidates": [
+        {
+          "available": {
+            "CPU": 3
+          },
+          "labels": {
+            "x": "1",
+            "y": "1"
+          },
+          "node_kind": "WORKER",
+          "node_type": "L",
+          "scheduled_requests": [],
+          "status": "TO_LAUNCH",
+          "total": {
+            "CPU": 3
+          }
+        }
+      ],
+      "remaining": []
+    },
+    {
+      "can_launch": false,
+      "count": 2,
+      "event": "global_cap",
+      "line": 1942,
+      "max": 2,
+      "quotas": {
+        "L": 10,
+        "S": 9,
+        "head": 0
+      }
+    },
+    {
+      "after": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "before": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "event": "candidate",
+      "line": 2068,
+      "remaining": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ],
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ],
+      "score": [
+        0,
+        true,
+        1,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "event": "selected",
+      "line": 2082,
+      "node": null,
+      "other_candidates": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {
+            "x": "1"
+          },
+          "node_kind": "WORKER",
+          "node_type": "S",
+          "scheduled_requests": [
+            {
+              "label_selectors": [
+                {
+                  "label_constraints": [
+                    {
+                      "label_key": "x",
+                      "label_values": [
+                        "1"
+                      ],
+                      "operator": "LABEL_OPERATOR_IN"
+                    }
+                  ]
+                },
+                {
+                  "label_constraints": [
+                    {
+                      "label_key": "unused",
+                      "label_values": [
+                        "u0"
+                      ],
+                      "operator": "LABEL_OPERATOR_IN"
+                    }
+                  ]
+                }
+              ],
+              "resources_bundle": {
+                "CPU": 2.0
+              }
+            }
+          ],
+          "status": "TO_LAUNCH",
+          "total": {
+            "CPU": 2
+          }
+        }
+      ],
+      "remaining": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "event": "planning_result",
+      "line": 1985,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        },
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {
+            "x": "1"
+          },
+          "node_kind": "WORKER",
+          "node_type": "S",
+          "scheduled_requests": [
+            {
+              "label_selectors": [
+                {
+                  "label_constraints": [
+                    {
+                      "label_key": "x",
+                      "label_values": [
+                        "1"
+                      ],
+                      "operator": "LABEL_OPERATOR_IN"
+                    }
+                  ]
+                },
+                {
+                  "label_constraints": [
+                    {
+                      "label_key": "unused",
+                      "label_values": [
+                        "u0"
+                      ],
+                      "operator": "LABEL_OPERATOR_IN"
+                    }
+                  ]
+                }
+              ],
+              "resources_bundle": {
+                "CPU": 2.0
+              }
+            }
+          ],
+          "status": "TO_LAUNCH",
+          "total": {
+            "CPU": 2
+          }
+        }
+      ],
+      "remaining": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ]
+    }
+  ],
+  "validated_task_options": [
+    {
+      "fallback_strategy": [
+        {
+          "label_selector": {
+            "unused": "u0"
+          }
+        }
+      ],
+      "label_selector": {
+        "x": "1"
+      },
+      "num_cpus": 2
+    },
+    {
+      "fallback_strategy": [
+        {
+          "label_selector": {
+            "unused": "u1"
+          }
+        }
+      ],
+      "label_selector": {
+        "x": "1"
+      },
+      "num_cpus": 1
+    }
+  ]
+}
+2026-10-27 11:45:44,607	DEBUG scheduler.py:1208 -- Scheduling for request: resource_request=[{'request': {'resources_bundle': {'CPU': 2.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'x', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}, {'label_constraints': [{'label_key': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['u0']}]}], 'placement_constraints': []}, 'count': '1'}, {'request': {'resources_bundle': {'CPU': 1.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'x', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}, {'label_constraints': [{'label_key': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['u0']}]}], 'placement_constraints': []}, 'count': '1'}], gang_resource_request=[], cluster_constraint=[]
+2026-10-27 11:45:44,607	WARNING scheduler.py:2132 -- Head node head-im(ray=01010101010101010101010101010101010101010101010101010101) is outdated with node config changes. Please check the node's config or restart the cluster or restart the head node. Autoscaler is not able to shutdown the outdated head node
+2026-10-27 11:45:44,608	DEBUG scheduler.py:2099 -- Best node: SchedulingNode(node_type=L, node_kind=2, instance_id=None,instance_status=None,ray_node_id=,idle_duration_ms=0,termination_request=None,status=SchedulingNodeStatus.TO_LAUNCH, total_resources={'CPU': 3}, available_resources_for_demand={'CPU': 0.0}, available_resources_for_cluster_resource_constraints={'CPU': 3},labels={'x': '1', 'y': '1'}, launch_reason=None), sched_requests_for_demand={'resourcesBundle': {'CPU': 2.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'x', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}, {'labelConstraints': [{'labelKey': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['u0']}]}]}|{'resourcesBundle': {'CPU': 1.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'x', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}, {'labelConstraints': [{'labelKey': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['u0']}]}]}), sched_requests_for_cluster_resource_constraints=), score: (1.0, True, 1, 3.0, 3.0), remaining requests: []
+2026-10-27 11:45:44,608	DEBUG scheduler.py:1208 -- Scheduling for request: resource_request=[{'request': {'resources_bundle': {'CPU': 2.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'x', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}, {'label_constraints': [{'label_key': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['u0']}]}], 'placement_constraints': []}, 'count': '1'}, {'request': {'resources_bundle': {'CPU': 1.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'x', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}, {'label_constraints': [{'label_key': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['u0']}]}], 'placement_constraints': []}, 'count': '1'}], gang_resource_request=[], cluster_constraint=[]
+2026-10-27 11:45:44,608	WARNING scheduler.py:2132 -- Head node head-im(ray=01010101010101010101010101010101010101010101010101010101) is outdated with node config changes. Please check the node's config or restart the cluster or restart the head node. Autoscaler is not able to shutdown the outdated head node
+2026-10-27 11:45:44,610	DEBUG scheduler.py:2099 -- Best node: SchedulingNode(node_type=L, node_kind=2, instance_id=None,instance_status=None,ray_node_id=,idle_duration_ms=0,termination_request=None,status=SchedulingNodeStatus.TO_LAUNCH, total_resources={'CPU': 3}, available_resources_for_demand={'CPU': 0.0}, available_resources_for_cluster_resource_constraints={'CPU': 3},labels={'x': '1', 'y': '1'}, launch_reason=None), sched_requests_for_demand={'resourcesBundle': {'CPU': 2.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'x', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}, {'labelConstraints': [{'labelKey': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['u0']}]}]}|{'resourcesBundle': {'CPU': 1.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'x', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}, {'labelConstraints': [{'labelKey': 'unused', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['u0']}]}]}), sched_requests_for_cluster_resource_constraints=), score: (1.0, True, 1, 3.0, 3.0), remaining requests: []
+{
+  "assertions": {
+    "observer_did_not_change_result": true,
+    "predicted_launches": true,
+    "predicted_remaining": true
+  },
+  "case": "D_same_unused_fallbacks",
+  "fixture": {
+    "cloud_resource_availabilities": {},
+    "cluster_resource_constraints": [],
+    "current_instances": [
+      {
+        "cloud_instance_id": "head-cloud",
+        "im_instance": {
+          "cloud_instance_id": "head-cloud",
+          "instance_id": "head-im",
+          "instance_type": "head",
+          "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+          "node_id": "01010101010101010101010101010101010101010101010101010101",
+          "node_kind": "HEAD",
+          "status": "RAY_RUNNING"
+        },
+        "ray_node": {
+          "available_resources": {
+            "CPU": 0.0
+          },
+          "instance_id": "head-cloud",
+          "node_id": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQ==",
+          "ray_node_type_name": "head",
+          "status": "RUNNING",
+          "total_resources": {
+            "CPU": 0.0
+          }
+        }
+      }
+    ],
+    "disable_launch_config_check": false,
+    "gang_resource_requests": [],
+    "idle_timeout_s": null,
+    "ippr_specs": null,
+    "ippr_statuses": {},
+    "max_num_nodes": 2,
+    "node_type_configs": {
+      "L": {
+        "idle_timeout_s": null,
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+        "max_worker_nodes": 10,
+        "min_worker_nodes": 0,
+        "name": "L",
+        "priority": 0,
+        "resources": {
+          "CPU": 3
+        }
+      },
+      "S": {
+        "idle_timeout_s": null,
+        "labels": {
+          "x": "1"
+        },
+        "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+        "max_worker_nodes": 10,
+        "min_worker_nodes": 0,
+        "name": "S",
+        "priority": 0,
+        "resources": {
+          "CPU": 2
+        }
+      },
+      "head": {
+        "idle_timeout_s": null,
+        "labels": {},
+        "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+        "max_worker_nodes": 1,
+        "min_worker_nodes": 0,
+        "name": "head",
+        "priority": 0,
+        "resources": {
+          "CPU": 0
+        }
+      }
+    },
+    "recoverable_resource_availabilities": {},
+    "resource_requests": [
+      {
+        "count": "1",
+        "request": {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u0"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        }
+      },
+      {
+        "count": "1",
+        "request": {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u0"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      }
+    ]
+  },
+  "merge_base": "938ab39460b257374624479c6739fa80315939ea",
+  "raw_config": {
+    "auth": {},
+    "available_node_types": {
+      "L": {
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "max_workers": 10,
+        "min_workers": 0,
+        "node_config": {},
+        "priority": 0,
+        "resources": {
+          "CPU": 3
+        }
+      },
+      "S": {
+        "labels": {
+          "x": "1"
+        },
+        "max_workers": 10,
+        "min_workers": 0,
+        "node_config": {},
+        "priority": 0,
+        "resources": {
+          "CPU": 2
+        }
+      },
+      "head": {
+        "labels": {},
+        "max_workers": 0,
+        "min_workers": 0,
+        "node_config": {},
+        "resources": {
+          "CPU": 0
+        }
+      }
+    },
+    "cluster_name": "pr-67455-phase2",
+    "cluster_synced_files": [],
+    "head_node_type": "head",
+    "max_workers": 1,
+    "provider": {
+      "type": "kuberay"
+    }
+  },
+  "raw_reply": {
+    "cluster_resources": {
+      "CPU": 3.0
+    },
+    "infeasible_cluster_resource_constraints": [],
+    "infeasible_gang_resource_requests": [],
+    "infeasible_resource_requests": [],
+    "to_ippr": [],
+    "to_launch": [
+      {
+        "count": 1,
+        "id": "710ebf33-b278-49d5-9396-734202ac3f29",
+        "instance_type": "L",
+        "request_ts_ms": "1793101544608413"
+      }
+    ],
+    "to_terminate": []
+  },
+  "revision": "3b45229e91b82d367b4706fbc26c2cbf31541c51",
+  "semantic_reply": {
+    "cluster_resources": {
+      "CPU": 3.0
+    },
+    "infeasible_constraints": [],
+    "infeasible_gang": [],
+    "remaining": [],
+    "to_ippr": [],
+    "to_launch": {
+      "L": 1
+    },
+    "to_terminate": []
+  },
+  "trace": [
+    {
+      "event": "sorted_requests",
+      "line": 1754,
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u0"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        },
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u0"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          },
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1777,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          },
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1777,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          },
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1799,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          },
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1799,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          },
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1838,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          },
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1838,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "can_launch": true,
+      "count": 1,
+      "event": "global_cap",
+      "line": 1942,
+      "max": 2,
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "after": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "before": {
+        "available": {
+          "CPU": 2
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "event": "candidate",
+      "line": 2068,
+      "remaining": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u0"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ],
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u0"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        },
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u0"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ],
+      "score": [
+        1.0,
+        true,
+        1,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "after": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "L",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          },
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 3
+        }
+      },
+      "before": {
+        "available": {
+          "CPU": 3
+        },
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "L",
+        "scheduled_requests": [],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 3
+        }
+      },
+      "event": "candidate",
+      "line": 2068,
+      "remaining": [],
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u0"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        },
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            },
+            {
+              "label_constraints": [
+                {
+                  "label_key": "unused",
+                  "label_values": [
+                    "u0"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ],
+      "score": [
+        1.0,
+        true,
+        1,
+        3.0,
+        3.0
+      ]
+    },
+    {
+      "event": "selected",
+      "line": 2106,
+      "node": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "L",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          },
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              },
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "unused",
+                    "label_values": [
+                      "u0"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 3
+        }
+      },
+      "other_candidates": [
+        {
+          "available": {
+            "CPU": 2
+          },
+          "labels": {
+            "x": "1"
+          },
+          "node_kind": "WORKER",
+          "node_type": "S",
+          "scheduled_requests": [],
+          "status": "TO_LAUNCH",
+          "total": {
+            "CPU": 2
+          }
+        }
+      ],
+      "remaining": []
+    },
+    {
+      "event": "planning_result",
+      "line": 1985,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        },
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {
+            "x": "1",
+            "y": "1"
+          },
+          "node_kind": "WORKER",
+          "node_type": "L",
+          "scheduled_requests": [
+            {
+              "label_selectors": [
+                {
+                  "label_constraints": [
+                    {
+                      "label_key": "x",
+                      "label_values": [
+                        "1"
+                      ],
+                      "operator": "LABEL_OPERATOR_IN"
+                    }
+                  ]
+                },
+                {
+                  "label_constraints": [
+                    {
+                      "label_key": "unused",
+                      "label_values": [
+                        "u0"
+                      ],
+                      "operator": "LABEL_OPERATOR_IN"
+                    }
+                  ]
+                }
+              ],
+              "resources_bundle": {
+                "CPU": 2.0
+              }
+            },
+            {
+              "label_selectors": [
+                {
+                  "label_constraints": [
+                    {
+                      "label_key": "x",
+                      "label_values": [
+                        "1"
+                      ],
+                      "operator": "LABEL_OPERATOR_IN"
+                    }
+                  ]
+                },
+                {
+                  "label_constraints": [
+                    {
+                      "label_key": "unused",
+                      "label_values": [
+                        "u0"
+                      ],
+                      "operator": "LABEL_OPERATOR_IN"
+                    }
+                  ]
+                }
+              ],
+              "resources_bundle": {
+                "CPU": 1.0
+              }
+            }
+          ],
+          "status": "TO_LAUNCH",
+          "total": {
+            "CPU": 3
+          }
+        }
+      ],
+      "remaining": []
+    }
+  ],
+  "validated_task_options": [
+    {
+      "fallback_strategy": [
+        {
+          "label_selector": {
+            "unused": "u0"
+          }
+        }
+      ],
+      "label_selector": {
+        "x": "1"
+      },
+      "num_cpus": 2
+    },
+    {
+      "fallback_strategy": [
+        {
+          "label_selector": {
+            "unused": "u0"
+          }
+        }
+      ],
+      "label_selector": {
+        "x": "1"
+      },
+      "num_cpus": 1
+    }
+  ]
+}
+2026-10-27 11:45:44,614	DEBUG scheduler.py:1208 -- Scheduling for request: resource_request=[{'request': {'resources_bundle': {'CPU': 2.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'x', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}], 'placement_constraints': []}, 'count': '1'}, {'request': {'resources_bundle': {'CPU': 1.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'x', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}], 'placement_constraints': []}, 'count': '1'}], gang_resource_request=[], cluster_constraint=[]
+2026-10-27 11:45:44,614	WARNING scheduler.py:2132 -- Head node head-im(ray=01010101010101010101010101010101010101010101010101010101) is outdated with node config changes. Please check the node's config or restart the cluster or restart the head node. Autoscaler is not able to shutdown the outdated head node
+2026-10-27 11:45:44,615	DEBUG scheduler.py:2099 -- Best node: SchedulingNode(node_type=L, node_kind=2, instance_id=None,instance_status=None,ray_node_id=,idle_duration_ms=0,termination_request=None,status=SchedulingNodeStatus.TO_LAUNCH, total_resources={'CPU': 3}, available_resources_for_demand={'CPU': 0.0}, available_resources_for_cluster_resource_constraints={'CPU': 3},labels={'x': '1', 'y': '1'}, launch_reason=None), sched_requests_for_demand={'resourcesBundle': {'CPU': 2.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'x', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}]}|{'resourcesBundle': {'CPU': 1.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'x', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}]}), sched_requests_for_cluster_resource_constraints=), score: (1.0, True, 1, 3.0, 3.0), remaining requests: []
+2026-10-27 11:45:44,615	DEBUG scheduler.py:1208 -- Scheduling for request: resource_request=[{'request': {'resources_bundle': {'CPU': 2.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'x', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}], 'placement_constraints': []}, 'count': '1'}, {'request': {'resources_bundle': {'CPU': 1.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'x', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}], 'placement_constraints': []}, 'count': '1'}], gang_resource_request=[], cluster_constraint=[]
+2026-10-27 11:45:44,615	WARNING scheduler.py:2132 -- Head node head-im(ray=01010101010101010101010101010101010101010101010101010101) is outdated with node config changes. Please check the node's config or restart the cluster or restart the head node. Autoscaler is not able to shutdown the outdated head node
+2026-10-27 11:45:44,617	DEBUG scheduler.py:2099 -- Best node: SchedulingNode(node_type=L, node_kind=2, instance_id=None,instance_status=None,ray_node_id=,idle_duration_ms=0,termination_request=None,status=SchedulingNodeStatus.TO_LAUNCH, total_resources={'CPU': 3}, available_resources_for_demand={'CPU': 0.0}, available_resources_for_cluster_resource_constraints={'CPU': 3},labels={'x': '1', 'y': '1'}, launch_reason=None), sched_requests_for_demand={'resourcesBundle': {'CPU': 2.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'x', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}]}|{'resourcesBundle': {'CPU': 1.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'x', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}]}), sched_requests_for_cluster_resource_constraints=), score: (1.0, True, 1, 3.0, 3.0), remaining requests: []
+{
+  "assertions": {
+    "observer_did_not_change_result": true,
+    "predicted_launches": true,
+    "predicted_remaining": true
+  },
+  "case": "D_primary_only",
+  "fixture": {
+    "cloud_resource_availabilities": {},
+    "cluster_resource_constraints": [],
+    "current_instances": [
+      {
+        "cloud_instance_id": "head-cloud",
+        "im_instance": {
+          "cloud_instance_id": "head-cloud",
+          "instance_id": "head-im",
+          "instance_type": "head",
+          "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+          "node_id": "01010101010101010101010101010101010101010101010101010101",
+          "node_kind": "HEAD",
+          "status": "RAY_RUNNING"
+        },
+        "ray_node": {
+          "available_resources": {
+            "CPU": 0.0
+          },
+          "instance_id": "head-cloud",
+          "node_id": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQ==",
+          "ray_node_type_name": "head",
+          "status": "RUNNING",
+          "total_resources": {
+            "CPU": 0.0
+          }
+        }
+      }
+    ],
+    "disable_launch_config_check": false,
+    "gang_resource_requests": [],
+    "idle_timeout_s": null,
+    "ippr_specs": null,
+    "ippr_statuses": {},
+    "max_num_nodes": 2,
+    "node_type_configs": {
+      "L": {
+        "idle_timeout_s": null,
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+        "max_worker_nodes": 10,
+        "min_worker_nodes": 0,
+        "name": "L",
+        "priority": 0,
+        "resources": {
+          "CPU": 3
+        }
+      },
+      "S": {
+        "idle_timeout_s": null,
+        "labels": {
+          "x": "1"
+        },
+        "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+        "max_worker_nodes": 10,
+        "min_worker_nodes": 0,
+        "name": "S",
+        "priority": 0,
+        "resources": {
+          "CPU": 2
+        }
+      },
+      "head": {
+        "idle_timeout_s": null,
+        "labels": {},
+        "launch_config_hash": "rrhmljjn5ofde4a5tppv07hivtqv8s9k3asakpvrfrvbn4rpdvig",
+        "max_worker_nodes": 1,
+        "min_worker_nodes": 0,
+        "name": "head",
+        "priority": 0,
+        "resources": {
+          "CPU": 0
+        }
+      }
+    },
+    "recoverable_resource_availabilities": {},
+    "resource_requests": [
+      {
+        "count": "1",
+        "request": {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        }
+      },
+      {
+        "count": "1",
+        "request": {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      }
+    ]
+  },
+  "merge_base": "938ab39460b257374624479c6739fa80315939ea",
+  "raw_config": {
+    "auth": {},
+    "available_node_types": {
+      "L": {
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "max_workers": 10,
+        "min_workers": 0,
+        "node_config": {},
+        "priority": 0,
+        "resources": {
+          "CPU": 3
+        }
+      },
+      "S": {
+        "labels": {
+          "x": "1"
+        },
+        "max_workers": 10,
+        "min_workers": 0,
+        "node_config": {},
+        "priority": 0,
+        "resources": {
+          "CPU": 2
+        }
+      },
+      "head": {
+        "labels": {},
+        "max_workers": 0,
+        "min_workers": 0,
+        "node_config": {},
+        "resources": {
+          "CPU": 0
+        }
+      }
+    },
+    "cluster_name": "pr-67455-phase2",
+    "cluster_synced_files": [],
+    "head_node_type": "head",
+    "max_workers": 1,
+    "provider": {
+      "type": "kuberay"
+    }
+  },
+  "raw_reply": {
+    "cluster_resources": {
+      "CPU": 3.0
+    },
+    "infeasible_cluster_resource_constraints": [],
+    "infeasible_gang_resource_requests": [],
+    "infeasible_resource_requests": [],
+    "to_ippr": [],
+    "to_launch": [
+      {
+        "count": 1,
+        "id": "34661421-a9d0-4696-a873-ef4ca8b281fa",
+        "instance_type": "L",
+        "request_ts_ms": "1793101544615366"
+      }
+    ],
+    "to_terminate": []
+  },
+  "revision": "3b45229e91b82d367b4706fbc26c2cbf31541c51",
+  "semantic_reply": {
+    "cluster_resources": {
+      "CPU": 3.0
+    },
+    "infeasible_constraints": [],
+    "infeasible_gang": [],
+    "remaining": [],
+    "to_ippr": [],
+    "to_launch": {
+      "L": 1
+    },
+    "to_terminate": []
+  },
+  "trace": [
+    {
+      "event": "sorted_requests",
+      "line": 1754,
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        },
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          },
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1777,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          },
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1777,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          },
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1799,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          },
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1799,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          },
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1838,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "event": "groups_and_initial_state",
+      "groups": [
+        [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          },
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ]
+      ],
+      "line": 1838,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        }
+      ],
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "can_launch": true,
+      "count": 1,
+      "event": "global_cap",
+      "line": 1942,
+      "max": 2,
+      "quotas": {
+        "L": 10,
+        "S": 10,
+        "head": 0
+      }
+    },
+    {
+      "after": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "before": {
+        "available": {
+          "CPU": 2
+        },
+        "labels": {
+          "x": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "S",
+        "scheduled_requests": [],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 2
+        }
+      },
+      "event": "candidate",
+      "line": 2068,
+      "remaining": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ],
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        },
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ],
+      "score": [
+        1.0,
+        true,
+        1,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "after": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "L",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          },
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 3
+        }
+      },
+      "before": {
+        "available": {
+          "CPU": 3
+        },
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "L",
+        "scheduled_requests": [],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 3
+        }
+      },
+      "event": "candidate",
+      "line": 2068,
+      "remaining": [],
+      "requests": [
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 2.0
+          }
+        },
+        {
+          "label_selectors": [
+            {
+              "label_constraints": [
+                {
+                  "label_key": "x",
+                  "label_values": [
+                    "1"
+                  ],
+                  "operator": "LABEL_OPERATOR_IN"
+                }
+              ]
+            }
+          ],
+          "resources_bundle": {
+            "CPU": 1.0
+          }
+        }
+      ],
+      "score": [
+        1.0,
+        true,
+        1,
+        3.0,
+        3.0
+      ]
+    },
+    {
+      "event": "selected",
+      "line": 2106,
+      "node": {
+        "available": {
+          "CPU": 0.0
+        },
+        "labels": {
+          "x": "1",
+          "y": "1"
+        },
+        "node_kind": "WORKER",
+        "node_type": "L",
+        "scheduled_requests": [
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 2.0
+            }
+          },
+          {
+            "label_selectors": [
+              {
+                "label_constraints": [
+                  {
+                    "label_key": "x",
+                    "label_values": [
+                      "1"
+                    ],
+                    "operator": "LABEL_OPERATOR_IN"
+                  }
+                ]
+              }
+            ],
+            "resources_bundle": {
+              "CPU": 1.0
+            }
+          }
+        ],
+        "status": "TO_LAUNCH",
+        "total": {
+          "CPU": 3
+        }
+      },
+      "other_candidates": [
+        {
+          "available": {
+            "CPU": 2
+          },
+          "labels": {
+            "x": "1"
+          },
+          "node_kind": "WORKER",
+          "node_type": "S",
+          "scheduled_requests": [],
+          "status": "TO_LAUNCH",
+          "total": {
+            "CPU": 2
+          }
+        }
+      ],
+      "remaining": []
+    },
+    {
+      "event": "planning_result",
+      "line": 1985,
+      "nodes": [
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {},
+          "node_kind": "HEAD",
+          "node_type": "head",
+          "scheduled_requests": [],
+          "status": "SCHEDULABLE",
+          "total": {
+            "CPU": 0.0
+          }
+        },
+        {
+          "available": {
+            "CPU": 0.0
+          },
+          "labels": {
+            "x": "1",
+            "y": "1"
+          },
+          "node_kind": "WORKER",
+          "node_type": "L",
+          "scheduled_requests": [
+            {
+              "label_selectors": [
+                {
+                  "label_constraints": [
+                    {
+                      "label_key": "x",
+                      "label_values": [
+                        "1"
+                      ],
+                      "operator": "LABEL_OPERATOR_IN"
+                    }
+                  ]
+                }
+              ],
+              "resources_bundle": {
+                "CPU": 2.0
+              }
+            },
+            {
+              "label_selectors": [
+                {
+                  "label_constraints": [
+                    {
+                      "label_key": "x",
+                      "label_values": [
+                        "1"
+                      ],
+                      "operator": "LABEL_OPERATOR_IN"
+                    }
+                  ]
+                }
+              ],
+              "resources_bundle": {
+                "CPU": 1.0
+              }
+            }
+          ],
+          "status": "TO_LAUNCH",
+          "total": {
+            "CPU": 3
+          }
+        }
+      ],
+      "remaining": []
+    }
+  ],
+  "validated_task_options": [
+    {
+      "label_selector": {
+        "x": "1"
+      },
+      "num_cpus": 2
+    },
+    {
+      "label_selector": {
+        "x": "1"
+      },
+      "num_cpus": 1
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+[
+  {
+    "revision": "parent",
+    "case": "A",
+    "launches": {
+      "L": 1
+    },
+    "remaining_count": 0,
+    "planned_worker_cpu": 3
+  },
+  {
+    "revision": "parent",
+    "case": "B",
+    "launches": {
+      "A": 1
+    },
+    "remaining_count": 0,
+    "planned_worker_cpu": 2
+  },
+  {
+    "revision": "parent",
+    "case": "C",
+    "launches": {
+      "L": 1
+    },
+    "remaining_count": 0,
+    "planned_worker_cpu": 3
+  },
+  {
+    "revision": "parent",
+    "case": "C_finite",
+    "launches": {
+      "L": 1
+    },
+    "remaining_count": 0,
+    "planned_worker_cpu": 3
+  },
+  {
+    "revision": "parent",
+    "case": "D_distinct_unused_fallbacks",
+    "launches": {
+      "L": 1
+    },
+    "remaining_count": 0,
+    "planned_worker_cpu": 3
+  },
+  {
+    "revision": "parent",
+    "case": "D_same_unused_fallbacks",
+    "launches": {
+      "L": 1
+    },
+    "remaining_count": 0,
+    "planned_worker_cpu": 3
+  },
+  {
+    "revision": "parent",
+    "case": "D_primary_only",
+    "launches": {
+      "L": 1
+    },
+    "remaining_count": 0,
+    "planned_worker_cpu": 3
+  },
+  {
+    "revision": "head",
+    "case": "A",
+    "launches": {
+      "S": 1
+    },
+    "remaining_count": 1,
+    "planned_worker_cpu": 2
+  },
+  {
+    "revision": "head",
+    "case": "B",
+    "launches": {
+      "B": 1,
+      "A": 1
+    },
+    "remaining_count": 0,
+    "planned_worker_cpu": 4
+  },
+  {
+    "revision": "head",
+    "case": "C",
+    "launches": {
+      "L": 1,
+      "S": 1
+    },
+    "remaining_count": 0,
+    "planned_worker_cpu": 5
+  },
+  {
+    "revision": "head",
+    "case": "C_finite",
+    "launches": {
+      "L": 1,
+      "S": 1
+    },
+    "remaining_count": 0,
+    "planned_worker_cpu": 5
+  },
+  {
+    "revision": "head",
+    "case": "D_distinct_unused_fallbacks",
+    "launches": {
+      "S": 1
+    },
+    "remaining_count": 1,
+    "planned_worker_cpu": 2
+  },
+  {
+    "revision": "head",
+    "case": "D_same_unused_fallbacks",
+    "launches": {
+      "L": 1
+    },
+    "remaining_count": 0,
+    "planned_worker_cpu": 3
+  },
+  {
+    "revision": "head",
+    "case": "D_primary_only",
+    "launches": {
+      "L": 1
+    },
+    "remaining_count": 0,
+    "planned_worker_cpu": 3
+  }
+]

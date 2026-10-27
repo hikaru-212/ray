@@ -1,0 +1,12 @@
+{
+  "text_files_scanned": 52,
+  "findings": [],
+  "url_hosts": [
+    "github.com"
+  ],
+  "binary_files_included": false,
+  "large_dependency_artifacts_included": false,
+  "method": "Pattern scan plus manual inspection of selected historical text, generated docs, and scripts; no exhaustive secret-detection guarantee.",
+  "path_redaction": "Only documented path-prefix substitutions; original files unchanged.",
+  "scan_excludes_own_output_and_later_allowlist_manifest": true
+}

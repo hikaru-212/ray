@@ -1,0 +1,23 @@
+2026-10-27 11:47:07,652	DEBUG scheduler.py:1208 -- Scheduling for request: resource_request=[{'request': {'resources_bundle': {'CPU': 2.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'x', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}], 'placement_constraints': []}, 'count': '1'}, {'request': {'resources_bundle': {'CPU': 1.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'y', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}], 'placement_constraints': []}, 'count': '1'}], gang_resource_request=[], cluster_constraint=[]
+2026-10-27 11:47:07,652	WARNING scheduler.py:2132 -- Head node head-im(ray=01010101010101010101010101010101010101010101010101010101) is outdated with node config changes. Please check the node's config or restart the cluster or restart the head node. Autoscaler is not able to shutdown the outdated head node
+2026-10-27 11:47:07,653	DEBUG scheduler.py:2099 -- Best node: SchedulingNode(node_type=S, node_kind=2, instance_id=None,instance_status=None,ray_node_id=,idle_duration_ms=0,termination_request=None,status=SchedulingNodeStatus.TO_LAUNCH, total_resources={'CPU': 2}, available_resources_for_demand={'CPU': 0.0}, available_resources_for_cluster_resource_constraints={'CPU': 2},labels={'x': '1'}, launch_reason=None), sched_requests_for_demand={'resourcesBundle': {'CPU': 2.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'x', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}]}), sched_requests_for_cluster_resource_constraints=), score: (1.0, True, 1, 2.0, 2.0), remaining requests: []
+2026-10-27 11:47:07,653	DEBUG scheduler.py:2077 -- No nodes can schedule the requests: [{'resources_bundle': {'CPU': 1.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'y', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}], 'placement_constraints': []}], for nodes: [SchedulingNode(node_type=S, node_kind=2, instance_id=None,instance_status=None,ray_node_id=,idle_duration_ms=0,termination_request=None,status=SchedulingNodeStatus.TO_LAUNCH, total_resources={'CPU': 2}, available_resources_for_demand={'CPU': 0.0}, available_resources_for_cluster_resource_constraints={'CPU': 2},labels={'x': '1'}, launch_reason=None), sched_requests_for_demand={'resourcesBundle': {'CPU': 2.0}, 'labelSelectors': [{'labelConstraints': [{'labelKey': 'x', 'operator': 'LABEL_OPERATOR_IN', 'labelValues': ['1']}]}]}), sched_requests_for_cluster_resource_constraints=)]
+2026-10-27 11:47:07,653	DEBUG scheduler.py:1960 -- Max number of nodes reached: 2, cannot launch more nodes.
+ACTUAL_REPLY {'to_launch': [{'instance_type': 'S', 'count': 1, 'id': '775ed867-f140-4686-81b6-0720882b556c', 'request_ts_ms': '1793101627653928'}], 'to_ippr': [], 'to_terminate': [], 'cluster_resources': {'CPU': 2.0}, 'infeasible_resource_requests': [{'resources_bundle': {'CPU': 1.0}, 'label_selectors': [{'label_constraints': [{'label_key': 'y', 'operator': 'LABEL_OPERATOR_IN', 'label_values': ['1']}]}]}], 'infeasible_gang_resource_requests': [], 'infeasible_cluster_resource_constraints': []}
+F
+=================================== FAILURES ===================================
+__________________ test_candidate_a_complete_one_worker_plan ___________________
+
+    def test_candidate_a_complete_one_worker_plan():
+        raw, options, request, requests = experiment.fixture('A')
+        experiment.preflight('A', raw, options, request, requests)
+        reply = experiment.sched.ResourceDemandScheduler().schedule(request)
+        print('ACTUAL_REPLY', experiment.plain(reply))
+>       assert not reply.infeasible_resource_requests
+E       assert not [resources_bundle {\n  key: "CPU"\n  value: 1\n}\nlabel_selectors {\n  label_constraints {\n    label_key: "y"\n    operator: LABEL_OPERATOR_IN\n    label_values: "1"\n  }\n}\n]
+E        +  where [resources_bundle {\n  key: "CPU"\n  value: 1\n}\nlabel_selectors {\n  label_constraints {\n    label_key: "y"\n    operator: LABEL_OPERATOR_IN\n    label_values: "1"\n  }\n}\n] = SchedulingReply(to_launch=[instance_type: "S"\ncount: 1\nid: "775ed867-f140-4686-81b6-0720882b556c"\nrequest_ts_ms: 17931...TOR_IN\n    label_values: "1"\n  }\n}\n], infeasible_gang_resource_requests=[], infeasible_cluster_resource_constraints=[]).infeasible_resource_requests
+
+test_candidate_a.py:10: AssertionError
+=========================== short test summary info ============================
+FAILED test_candidate_a.py::test_candidate_a_complete_one_worker_plan - asser...
+1 failed in 0.44s

@@ -1,0 +1,15 @@
+Purpose: exact normal-routing timing, showing why the original 1-second cancellation attempt did not reach the timeout boundary.
+
+Source: /home/researcher/oss/evidence/ray-67554-d3b-cancellation-20261101-fm5aGr/evidence/summary.json
+line 274: elapsed_seconds=0.009219821
+
+Source: /home/researcher/oss/evidence/ray-67554-d3b-cancellation-20261101-fm5aGr/evidence/events.jsonl
+line 9, event=http_outcome:
+  request_id=ray-67554-d3b-cancel-0001
+  started_unix_ns=1793513257898627688
+  ended_unix_ns=1793513257907847509
+  elapsed_seconds=0.009219821
+  external_http_status=200
+  response_request_id=ray-67554-d3b-cancel-0001
+
+Interpretation boundary: the 9.219821 ms completion preceded the configured 1-second HAProxy timeout. This run did not observe tracker cancellation or abandoned cleanup.

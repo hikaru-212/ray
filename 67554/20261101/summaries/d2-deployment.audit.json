@@ -1,0 +1,19 @@
+{
+  "artifact_class": "audit-derived-summary",
+  "source": {
+    "path": "/home/researcher/oss/evidence/ray-67554-d2-minimal-serve-20261101-HnP6Em/evidence/summary.json",
+    "sha256": "045abf42ba0568d20ce5ca8e570c48d49f38004ea05fa34f6ef9bfd71bf53a82"
+  },
+  "classification": "D2_DEPLOYMENT_REGISTRATION_PASS",
+  "criteria": {
+    "A_ray_started": true,
+    "B_serve_application_deployed": true,
+    "C_production_llm_router_alive": true,
+    "D_two_distinct_healthy_cpu_mock_replicas": true,
+    "E_longpoll_delivered_two_memberships": true,
+    "F_dynamo_has_two_schedulable_workers": true,
+    "G_kv_router_attached_without_fallback": true,
+    "H_clean_shutdown": true
+  },
+  "interpretation": "A real local Ray and Serve application ran with production LLMRouter/KVAwareRouter, the exact-HEAD production tracker, two distinct healthy CPU mock replicas, two LongPoll memberships, two schedulable Dynamo workers, no router fallback, and clean shutdown."
+}

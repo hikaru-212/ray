@@ -1,0 +1,25 @@
+{
+  "artifact_class": "audit-derived-summary",
+  "source": {
+    "path": "/home/researcher/oss/evidence/ray-67554-d3b-cancellation-20261101-fm5aGr/evidence/summary.json",
+    "sha256": "8d0b9ab8e2dc0a11cfaaece02b6c76a0ee3b15628f5dca82e8d98b9e5896c23c",
+    "json_locations": [
+      "/classification",
+      "/criteria",
+      "/http_outcome/result"
+    ]
+  },
+  "classification": "D3B_NOT_ESTABLISHED_ROUTING_COMPLETED_BEFORE_TIMEOUT",
+  "request_id": "ray-67554-d3b-cancel-0001",
+  "started_unix_ns": 1793513257898627688,
+  "ended_unix_ns": 1793513257907847509,
+  "elapsed_seconds": 0.009219821,
+  "http_status": 200,
+  "response_request_id_roundtrip": true,
+  "configured_haproxy_timeout_seconds": 1,
+  "native_booking_observed": true,
+  "cancellation_handler_observed": false,
+  "abandoned_cleanup_observed": false,
+  "native_free_inferred": false,
+  "interpretation": "The request completed normally in 9.219821 ms, so this run does not establish or refute cancellation reachability under a pending selection."
+}

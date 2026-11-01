@@ -1,0 +1,44 @@
+{
+  "artifact_class": "audit-derived-summary",
+  "source": {
+    "path": "/home/researcher/oss/evidence/ray-67554-d3b2-native-queue-20261101-zItUJQ/evidence/summary.json",
+    "sha256": "71df82f0e0a4f253ee190ae3aae66b9bd811162ed075fa0a9eb8c3e2ef52af42"
+  },
+  "classification": "OBSERVATION_INCONCLUSIVE",
+  "configuration": {
+    "active_request_expiry_seconds": "5",
+    "expiry_not_immediate": "Dynamo expires an active request only after it is at least 5s old and a periodic 60s force-expiry tick runs. The resulting release delay is phase-dependent, not fixed at 5s.",
+    "force_expiry_sweep_interval_seconds": 60,
+    "haproxy_router_timeout_seconds": 5,
+    "haproxy_timeout_strictly_greater": true,
+    "queue_threshold": "0",
+    "target_serve_timeout_seconds": 1
+  },
+  "criteria": {
+    "clean_baseline": true,
+    "clean_shutdown": true,
+    "configuration_visible_in_actor_and_haproxy": true,
+    "exact_cleanup_wrapper_task_terminal_without_exception": false,
+    "exact_production_cleanup_coroutine_for_target_seen": false,
+    "expiry_age_guard_and_periodic_sweep_observed": false,
+    "final_native_accounting_clean": true,
+    "native_selection_result_matches_target_id": false,
+    "no_target_free_warning_in_logs": true,
+    "original_selection_future_alive_when_cleanup_first_seen": false,
+    "original_selection_future_terminal_success": false,
+    "priming_loads_released_after_supported_expiry_sweep": true,
+    "priming_precondition": true,
+    "production_chain_still_exact_without_fallback": true,
+    "production_llm_router_alive": true,
+    "queue_threshold_zero_logged_and_pending_observed": true,
+    "ray_started": true,
+    "real_serve_request_timeout_408": false,
+    "serve_application_deployed": true,
+    "serve_application_still_running_after_observation": true,
+    "target_demonstrably_entered_native_pending_queue": true,
+    "target_response_request_id_roundtrip": true,
+    "target_was_only_post_prime_http_request": true,
+    "two_workers_and_production_chain": true
+  },
+  "interpretation": "The initial backpressure run established two distinct priming reservations and genuine native pending selection for X, but its cancellation/cleanup observation was inconclusive."
+}

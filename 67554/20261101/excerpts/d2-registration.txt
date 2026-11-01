@@ -1,0 +1,16 @@
+Purpose: minimal ANSI-stripped excerpt proving D2 deployment and registration.
+Raw evidence remains private and unchanged.
+
+Source: /home/researcher/oss/evidence/ray-67554-d2-minimal-serve-20261101-HnP6Em/evidence/summary.json
+line 2: "classification": "D2_DEPLOYMENT_REGISTRATION_PASS"
+lines 25-27: two distinct healthy CPU mock replicas=true; LongPoll delivered two memberships=true; Dynamo has two schedulable workers=true
+line 121: active_router_used_fallback=false
+lines 151 and 175: both Dynamo workers lifecycle="schedulable"
+line 191: ServeStatus reports the application RUNNING, LLMServer RUNNING replicas=2, and LLMRouter RUNNING replicas=1
+
+Source: /home/researcher/oss/evidence/ray-67554-d2-minimal-serve-20261101-HnP6Em/evidence/driver.stderr.log
+line 59: 2026-11-01 05:34:04.364 UTC — Dynamo SelectionService created (indexer threads 2).
+line 78: 2026-11-01 05:34:08.196 UTC — KV router membership +1; tracking 1 worker.
+line 87: 2026-11-01 05:34:08.300 UTC — KV router membership +1; tracking 2 workers.
+
+Sanitization: ANSI color escapes and process IDs were omitted; assertions and timestamps are unchanged.

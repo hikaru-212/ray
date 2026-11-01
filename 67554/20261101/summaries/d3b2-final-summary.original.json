@@ -1,0 +1,1632 @@
+{
+  "baseline": {
+    "active_request_ids": [],
+    "actor_runtime_environment": {
+      "DYN_ROUTER_ACTIVE_REQUEST_EXPIRY_SECS": "5",
+      "DYN_ROUTER_QUEUE_THRESHOLD": "0",
+      "RAY_SERVE_HAPROXY_INGRESS_REQUEST_ROUTER_TIMEOUT_S": "5"
+    },
+    "driver_observation_requested_monotonic_ns": 17583740865492,
+    "driver_observation_requested_unix_ns": 1793517304997484861,
+    "driver_observation_returned_monotonic_ns": 17583745716978,
+    "driver_observation_returned_unix_ns": 1793517305002336097,
+    "dynamo_loads": [
+      {
+        "loads": [
+          {
+            "active_requests": 0,
+            "dp_rank": 0,
+            "potential_decode_blocks": 0,
+            "potential_prefill_tokens": 0,
+            "worker_id": 13316335369824107713
+          },
+          {
+            "active_requests": 0,
+            "dp_rank": 0,
+            "potential_decode_blocks": 0,
+            "potential_prefill_tokens": 0,
+            "worker_id": 4363950666218866675
+          }
+        ],
+        "model_name": "default",
+        "pending_count": 0,
+        "pending_isl_tokens": 0,
+        "routing_group": "default"
+      }
+    ],
+    "dynamo_pending_count": 0,
+    "dynamo_pending_isl_tokens": 0,
+    "dynamo_total_active_requests": 0,
+    "exact_cleanup_currently_pending_for_target": false,
+    "exact_cleanup_ever_observed_for_target": false,
+    "observation_boundary": {
+      "completed_task_reference_retained": true,
+      "frame_and_future_state_read_only": true,
+      "native_future_intercepted": false,
+      "native_method_invoked_by_observer": false,
+      "native_task_paused": false,
+      "production_method_wrapped": false,
+      "scheduling_gate_added": false,
+      "task_or_future_callback_added": false
+    },
+    "observed_exact_cleanup_tasks": [],
+    "production_pending_task_count": 0,
+    "production_pending_tasks": [],
+    "production_provenance": {
+      "booking_chain": {
+        "dynamo_select_and_reserve": {
+          "callable": "<built-in method select_and_reserve of builtins.SelectionService object at 0xebe84ad7cf50>",
+          "owner_class": "builtins.SelectionService"
+        },
+        "http_route": {
+          "first_line": 183,
+          "qualified_name": "ray.llm._internal.serve.core.ingress.router.LLMRouter.route",
+          "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/core/ingress/router.py",
+          "source_block_sha256": "e0ef82ebff321e17fe19561009541499eb1c785b78b3a4cae32d552dd3e434e0",
+          "source_file_sha256": "805111735c556da98f33a6fc64e053667d42b89d4b299063895b721c623f9653"
+        },
+        "kv_choose_replicas": {
+          "first_line": 60,
+          "qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_aware_router.KVAwareRouter.choose_replicas",
+          "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_aware_router.py",
+          "source_block_sha256": "7911c8e48f56d68972f40597d378f5239a13997ec65d3b54ff3ca16035f714e7",
+          "source_file_sha256": "9d640251f3eafcb70f87887a110bcbdb1c8c7c39db376adb26276e92331c840b"
+        },
+        "tracker_select_worker": {
+          "first_line": 412,
+          "qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker.select_worker",
+          "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+          "source_block_sha256": "55ef4923a34a14232654de4b23bb574835259582f78e4be347f3d83de58ea99b",
+          "source_file_sha256": "0ca74ddeaf1be27b31129ec67a9689b72e7866d323e475d6c4876d1091714a5c"
+        }
+      },
+      "cleanup_code_object_id": 259382941767824,
+      "cleanup_first_line": 494,
+      "cleanup_qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker._free_abandoned_reservation",
+      "cleanup_source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+      "serve_direct_ingress_cancellation": {
+        "first_line": 3122,
+        "qualified_name": "ray.serve._private.replica.Replica._direct_ingress_asgi",
+        "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/serve/_private/replica.py",
+        "source_block_sha256": "a8778f600375437a7ee4632c71b9427fb6337ffdd6804d6500cffe49bbca708e",
+        "source_file_sha256": "263e233fb6d96a74ebedcc3dc6da63f2ae2c25be60b1b00b008128e27e13dc30"
+      },
+      "serve_timeout_header_parser": {
+        "first_line": 840,
+        "qualified_name": "ray.serve._private.http_util.parse_request_timeout_header",
+        "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/serve/_private/http_util.py",
+        "source_block_sha256": "b8d96a715e7754a5e5aebda514b1bba7dd80b725979a16b9fd818aaf84c75f4b",
+        "source_file_sha256": "fbb72d0e254927708ecdccbf65f02c81127cf75d70f6d68d2596725a1bafc298"
+      },
+      "tracker_abandoned_cleanup": {
+        "first_line": 494,
+        "qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker._free_abandoned_reservation",
+        "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+        "source_block_sha256": "463bc670a761a3c707f88f6e32bafaac30fecc0dae28298bc81c5080a180baeb",
+        "source_file_sha256": "0ca74ddeaf1be27b31129ec67a9689b72e7866d323e475d6c4876d1091714a5c"
+      }
+    },
+    "request_ids": [
+      "ray-67554-d3b2-prime-0001",
+      "ray-67554-d3b2-prime-0002",
+      "ray-67554-d3b2-target-0001"
+    ],
+    "request_states": {
+      "ray-67554-d3b2-prime-0001": null,
+      "ray-67554-d3b2-prime-0002": null,
+      "ray-67554-d3b2-target-0001": null
+    },
+    "router_and_tracker_identity": {
+      "active_router_is_production_kv_aware": true,
+      "active_router_tracker_is_router_tracker": true,
+      "active_router_used_fallback": false,
+      "global_tracker_is_router_tracker": true,
+      "selection_service_class": "builtins.SelectionService",
+      "tracker_class": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker",
+      "tracker_object_id": 259382932763328
+    },
+    "target_request_id": "ray-67554-d3b2-target-0001",
+    "time_monotonic_ns": 17583742745003,
+    "time_unix_ns": 1793517304999364373
+  },
+  "classification": "CANCELLATION_NOT_ESTABLISHED",
+  "cleanup": {
+    "disk_free_after": 5939232768,
+    "disk_reserve_preserved": true,
+    "errors": [],
+    "failures": [],
+    "ray_init_attempted": true,
+    "ray_initialized_before_cleanup": true,
+    "ray_initialized_once": true,
+    "ray_is_initialized_after_cleanup": false,
+    "ray_shutdown_called": true,
+    "ray_shutdown_required": true,
+    "ray_temp_dir": "/tmp/r67554d3b2-6j_lm9hn",
+    "ray_temp_dir_preserved": true,
+    "serve_shutdown_called": true,
+    "serve_shutdown_required": true,
+    "shutdown_succeeded_or_not_required": true
+  },
+  "configuration": {
+    "active_request_expiry_seconds": "5",
+    "expiry_not_immediate": "Dynamo expires an active request only after it is at least 5s old and a periodic 60s force-expiry tick runs. The resulting release delay is phase-dependent, not fixed at 5s.",
+    "force_expiry_sweep_interval_seconds": 60,
+    "haproxy_router_timeout_seconds": 5,
+    "haproxy_timeout_strictly_greater": true,
+    "queue_threshold": "0",
+    "target_serve_timeout_seconds": 1
+  },
+  "configuration_validation_before_workload": {
+    "actor_expiry_seconds_exact": true,
+    "actor_haproxy_timeout_exact": true,
+    "actor_queue_threshold_exact": true,
+    "llm_router_actor_environment": {
+      "DYN_ROUTER_ACTIVE_REQUEST_EXPIRY_SECS": "5",
+      "DYN_ROUTER_QUEUE_THRESHOLD": "0",
+      "RAY_SERVE_HAPROXY_INGRESS_REQUEST_ROUTER_TIMEOUT_S": "5"
+    }
+  },
+  "criteria": {
+    "clean_baseline": true,
+    "clean_shutdown": true,
+    "configuration_visible_in_actor_and_haproxy": true,
+    "exact_cleanup_wrapper_task_terminal_without_exception": false,
+    "exact_production_cleanup_coroutine_for_target_seen": false,
+    "expiry_age_guard_and_periodic_sweep_observed": false,
+    "external_http_200_via_confirmed_haproxy_fallback": true,
+    "final_native_accounting_clean": false,
+    "internal_llm_router_timeout_408": true,
+    "native_selection_result_matches_target_id": false,
+    "no_target_free_warning_in_logs": true,
+    "original_selection_future_alive_when_cleanup_first_seen": false,
+    "original_selection_future_terminal_success": false,
+    "priming_loads_released_after_supported_expiry_sweep": true,
+    "priming_precondition": true,
+    "production_chain_still_exact_without_fallback": true,
+    "production_llm_router_alive": true,
+    "queue_threshold_zero_logged_and_pending_observed": true,
+    "ray_started": true,
+    "serve_application_deployed": true,
+    "serve_application_still_running_after_observation": true,
+    "target_demonstrably_entered_native_pending_queue": true,
+    "target_response_request_id_roundtrip": true,
+    "target_was_only_post_prime_http_request": true,
+    "two_workers_and_production_chain": true
+  },
+  "evidence_boundary": {
+    "artificial_selection_delay_or_gate": false,
+    "automatic_http_retries": 0,
+    "direct_coroutine_cancellation_injected": false,
+    "http_requests_attempted": 3,
+    "http_requests_maximum": 3,
+    "native_future_interception": false,
+    "native_method_wrapped_or_invoked_by_observer": false,
+    "native_task_pause": false,
+    "poll_sleep_purpose": "Bounded passive observation only; never used to alter native or Python scheduling order.",
+    "priming_requests_maximum": 2,
+    "production_cleanup_modified": false,
+    "same_id_reuse": false,
+    "target_requests_maximum": 1,
+    "worker_retirement": false
+  },
+  "expiry_behavior": {
+    "cleanup_terminal_monotonic_ns": null,
+    "configured_expiry_seconds": 5,
+    "elapsed_from_p1_booking_to_cleanup_terminal_seconds": null,
+    "first_prime_booking_ended_monotonic_ns": 17583757760257,
+    "force_expiry_debug_log_lines": [],
+    "interpretation": "Five seconds is the age guard. Release occurs on a periodic 60-second sweep (or an add-request side effect), so the runner observes for 75 seconds rather than assuming immediate release.",
+    "mock_lifecycle_boundary": "P1/P2 may remain in KVTokenTracker._requests because the CPU mock emits no completion events and Python's production stale tracking TTL is 3600 seconds. This is not used to judge native Dynamo expiry.",
+    "priming_loads_observed_released": true,
+    "python_tracker_states_after_native_release": {
+      "ray-67554-d3b2-prime-0001": {
+        "expected_output_tokens": 4,
+        "output_tokens": 0,
+        "prefill_completed": false,
+        "prompt_tokens": 7,
+        "total_blocks": 1,
+        "worker_id": 13316335369824107713
+      },
+      "ray-67554-d3b2-prime-0002": {
+        "expected_output_tokens": 4,
+        "output_tokens": 0,
+        "prefill_completed": false,
+        "prompt_tokens": 7,
+        "total_blocks": 1,
+        "worker_id": 4363950666218866675
+      }
+    },
+    "source_sweep_interval_seconds": 60
+  },
+  "haproxy_effective_config": {
+    "candidates_modified_since_run_start": [
+      {
+        "configured_timeout_line_present": true,
+        "mtime_ns": 1793517304146496569,
+        "path": "/tmp/haproxy-serve/65ce4861185d362f5946bb5d3e17d95b1f06eea277dc920c9f616a33/haproxy.cfg",
+        "sha256": "a306a5b6a333d58185763d4357e47b64d684ba898d3c52827cd864294f9f40ef",
+        "wait_for_body_lines": [
+          "http-request wait-for-body time 5s if has_ingress_request_router_app"
+        ]
+      }
+    ],
+    "effective_timeout_verified": true,
+    "matching_configs": [
+      {
+        "configured_timeout_line_present": true,
+        "mtime_ns": 1793517304146496569,
+        "path": "/tmp/haproxy-serve/65ce4861185d362f5946bb5d3e17d95b1f06eea277dc920c9f616a33/haproxy.cfg",
+        "sha256": "a306a5b6a333d58185763d4357e47b64d684ba898d3c52827cd864294f9f40ef",
+        "wait_for_body_lines": [
+          "http-request wait-for-body time 5s if has_ingress_request_router_app"
+        ]
+      }
+    ],
+    "strictly_greater_than_target_serve_timeout": true
+  },
+  "http_path_split": {
+    "external_http_200_is_not_kv_booking_proof": true,
+    "external_http_status": 200,
+    "external_replica_id": "uqzzos3q",
+    "external_response_request_id": "ray-67554-d3b2-target-0001",
+    "fallback_llmserver_200_lines": [
+      {
+        "line": "(ServeReplica:ray-67554-d3b2-native-queue-cancellation:LLMServer:d3b2-offline-mock-model pid=103888) INFO 2026-11-01 07:15:06,035 ray-67554-d3b2-native-queue-cancellation_LLMServer:d3b2-offline-mock-model uqzzos3q ray-67554-d3b2-target-0001 -- POST /v1/chat/completions 200 0.9ms [repeated 2x across cluster]",
+        "path": "/home/researcher/oss/evidence/ray-67554-d3b2-final-observation-20261101-HrASXXue/evidence/driver.stderr.log"
+      },
+      {
+        "line": "INFO 2026-11-01 07:15:06,035 ray-67554-d3b2-native-queue-cancellation_LLMServer:d3b2-offline-mock-model uqzzos3q ray-67554-d3b2-target-0001 -- POST /v1/chat/completions 200 0.9ms",
+        "path": "/tmp/r67554d3b2-6j_lm9hn/session_latest/logs/worker-36a2ada34bb78f91ced368e13dad26ca1636ab3987058ea70b8abf86-01000000-103888.err"
+      },
+      {
+        "line": "INFO 2026-11-01 07:15:06,035 ray-67554-d3b2-native-queue-cancellation_LLMServer:d3b2-offline-mock-model uqzzos3q ray-67554-d3b2-target-0001 -- POST /v1/chat/completions 200 0.9ms",
+        "path": "/tmp/r67554d3b2-6j_lm9hn/session_latest/logs/serve/replica_ray-67554-d3b2-native-queue-cancellation_LLMServer_d3b2-offline-mock-model_uqzzos3q.log"
+      }
+    ],
+    "haproxy_fallback_confirmed": true,
+    "internal_llm_router_408_lines": [
+      {
+        "line": "(ServeReplica:ray-67554-d3b2-native-queue-cancellation:LLMRouter pid=103890) INFO 2026-11-01 07:15:06,033 ray-67554-d3b2-native-queue-cancellation_LLMRouter jwhskzlx ray-67554-d3b2-target-0001 -- POST __call__ 408 1000.7ms",
+        "path": "/home/researcher/oss/evidence/ray-67554-d3b2-final-observation-20261101-HrASXXue/evidence/driver.stderr.log"
+      },
+      {
+        "line": "INFO 2026-11-01 07:15:06,033 ray-67554-d3b2-native-queue-cancellation_LLMRouter jwhskzlx ray-67554-d3b2-target-0001 -- POST __call__ 408 1000.7ms",
+        "path": "/tmp/r67554d3b2-6j_lm9hn/session_latest/logs/worker-2f2da05a7e56eeea28ef53812696a4eaaddcc0ed97f11ce80ba3fb63-01000000-103890.err"
+      }
+    ],
+    "internal_llm_router_status": 408
+  },
+  "native_outcome_boundaries": {
+    "native_expiry": {
+      "force_expiry_log_observed": false,
+      "not_used_as_proof_of_target_cleanup": true,
+      "priming_load_release_observed": true
+    },
+    "production_free": {
+      "basis": "No free_reservation(X) inference is made without exact cleanup correlation, a successful X reserve result, terminal cleanup, and clean final accounting.",
+      "directly_observed": false,
+      "inferred": false
+    },
+    "target_python_tracker_booking_state": null,
+    "target_selection": {
+      "directly_observed_from_retained_future": false,
+      "reserve_future_terminal_success": false,
+      "selection_result_matches_target_id": false
+    }
+  },
+  "offline_model_fixture": {
+    "contains_model_weights": false,
+    "directory": "/home/researcher/oss/evidence/ray-67554-d3b2-final-observation-20261101-HrASXXue/evidence/offline-model",
+    "files": {
+      "chat_template.jinja": {
+        "bytes": 142,
+        "sha256": "d629de47ce9069c0437e6e2b73f5fb1cfd95e2c28cf140c299ad86e4c7bfd06b"
+      },
+      "config.json": {
+        "bytes": 271,
+        "sha256": "fb85d3fb2993eaaf35532e1c02e9472b30e3b3bed9e9a6e885ff73d49924db6f"
+      },
+      "tokenizer.json": {
+        "bytes": 1563,
+        "sha256": "da5959c6bc60ebdbc82a816794c9fe443b6a1c30a731860a3f7731878fcb08d7"
+      },
+      "tokenizer_config.json": {
+        "bytes": 223,
+        "sha256": "0faecb102b2782924ac9312986d64ef59bb57d3ee9b4a8c3bbf03f2e56b438b4"
+      }
+    }
+  },
+  "preconditions": {
+    "adapter_sha256": "60178e019687f38cff7c070115e7f6f687edcaf35c404a022bd6c7fbfc92ca47",
+    "d1_provenance_sha256": "b0498881022cc30ec89374c01fea8a91b548bf04bd79c29635ff97b3ef9660e5",
+    "disk_free_before": 5971128320,
+    "dynamo_core_source": "/home/researcher/oss/evidence/ray-67554-phase2c2-20261030-vOlLmn/dynamo-v1.4.0-core-mod.rs",
+    "dynamo_core_source_sha256": "2e67f2a41ee7419f7c8b72b3a3be9054d544cf63bb62f89833507002b67a8aa7",
+    "dynamo_multi_worker_source": "/home/researcher/oss/evidence/ray-67554-phase2c2-20261030-vOlLmn/dynamo-v1.4.0-multi_worker.rs",
+    "dynamo_multi_worker_source_sha256": "c20b0805d5da5e55b8c99f0de5e7f64e48444c8d64685ab3dc72b252a40c6b4f",
+    "dynamo_native_path": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/dynamo/_core.abi3.so",
+    "dynamo_native_sha256": "131160571ba798adc5293a445e52254ee22ac294ec05d8ce2a52a17db1322177",
+    "head": "94bc7f96c0df3c967edb8842d6c98d3b658fef42",
+    "proven_d3a_adapter_sha256": "1f1d1d7c66c82094044d86c818455b99b180085e02857fda5fd0d1d19d995e3a",
+    "proven_d3a_runner_sha256": "bad859dd0847056ec885038e9a93ac609342ff3db3628eb3b15852b93ba5e4a5",
+    "proven_d3a_summary_sha256": "7ab2f705a26827b4d9dc0339675de8ec6fa49fce99d0a7976e2877c74c1ae44b",
+    "runner_sha256": "d980d37885217a188b33386df0bbb48907fe14b86dd3858925f1f1884a57be0c",
+    "runtime_working_dir_uri": "local:///tmp/ray-67554-d3a-prep-20261101-6HCOSF",
+    "tracker_path": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+    "tracker_sha256": "0ca74ddeaf1be27b31129ec67a9689b72e7866d323e475d6c4876d1091714a5c",
+    "worktree_clean": true
+  },
+  "priming": {
+    "after_p1": {
+      "active_request_ids": [
+        "ray-67554-d3b2-prime-0001"
+      ],
+      "actor_runtime_environment": {
+        "DYN_ROUTER_ACTIVE_REQUEST_EXPIRY_SECS": "5",
+        "DYN_ROUTER_QUEUE_THRESHOLD": "0",
+        "RAY_SERVE_HAPROXY_INGRESS_REQUEST_ROUTER_TIMEOUT_S": "5"
+      },
+      "driver_observation_requested_monotonic_ns": 17583757783334,
+      "driver_observation_requested_unix_ns": 1793517305014403079,
+      "driver_observation_returned_monotonic_ns": 17583761675117,
+      "driver_observation_returned_unix_ns": 1793517305018294320,
+      "dynamo_loads": [
+        {
+          "loads": [
+            {
+              "active_requests": 1,
+              "dp_rank": 0,
+              "potential_decode_blocks": 0,
+              "potential_prefill_tokens": 7,
+              "worker_id": 13316335369824107713
+            },
+            {
+              "active_requests": 0,
+              "dp_rank": 0,
+              "potential_decode_blocks": 0,
+              "potential_prefill_tokens": 0,
+              "worker_id": 4363950666218866675
+            }
+          ],
+          "model_name": "default",
+          "pending_count": 0,
+          "pending_isl_tokens": 0,
+          "routing_group": "default"
+        }
+      ],
+      "dynamo_pending_count": 0,
+      "dynamo_pending_isl_tokens": 0,
+      "dynamo_total_active_requests": 1,
+      "exact_cleanup_currently_pending_for_target": false,
+      "exact_cleanup_ever_observed_for_target": false,
+      "observation_boundary": {
+        "completed_task_reference_retained": true,
+        "frame_and_future_state_read_only": true,
+        "native_future_intercepted": false,
+        "native_method_invoked_by_observer": false,
+        "native_task_paused": false,
+        "production_method_wrapped": false,
+        "scheduling_gate_added": false,
+        "task_or_future_callback_added": false
+      },
+      "observed_exact_cleanup_tasks": [],
+      "production_pending_task_count": 0,
+      "production_pending_tasks": [],
+      "production_provenance": {
+        "booking_chain": {
+          "dynamo_select_and_reserve": {
+            "callable": "<built-in method select_and_reserve of builtins.SelectionService object at 0xebe84ad7cf50>",
+            "owner_class": "builtins.SelectionService"
+          },
+          "http_route": {
+            "first_line": 183,
+            "qualified_name": "ray.llm._internal.serve.core.ingress.router.LLMRouter.route",
+            "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/core/ingress/router.py",
+            "source_block_sha256": "e0ef82ebff321e17fe19561009541499eb1c785b78b3a4cae32d552dd3e434e0",
+            "source_file_sha256": "805111735c556da98f33a6fc64e053667d42b89d4b299063895b721c623f9653"
+          },
+          "kv_choose_replicas": {
+            "first_line": 60,
+            "qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_aware_router.KVAwareRouter.choose_replicas",
+            "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_aware_router.py",
+            "source_block_sha256": "7911c8e48f56d68972f40597d378f5239a13997ec65d3b54ff3ca16035f714e7",
+            "source_file_sha256": "9d640251f3eafcb70f87887a110bcbdb1c8c7c39db376adb26276e92331c840b"
+          },
+          "tracker_select_worker": {
+            "first_line": 412,
+            "qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker.select_worker",
+            "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+            "source_block_sha256": "55ef4923a34a14232654de4b23bb574835259582f78e4be347f3d83de58ea99b",
+            "source_file_sha256": "0ca74ddeaf1be27b31129ec67a9689b72e7866d323e475d6c4876d1091714a5c"
+          }
+        },
+        "cleanup_code_object_id": 259382941767824,
+        "cleanup_first_line": 494,
+        "cleanup_qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker._free_abandoned_reservation",
+        "cleanup_source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+        "serve_direct_ingress_cancellation": {
+          "first_line": 3122,
+          "qualified_name": "ray.serve._private.replica.Replica._direct_ingress_asgi",
+          "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/serve/_private/replica.py",
+          "source_block_sha256": "a8778f600375437a7ee4632c71b9427fb6337ffdd6804d6500cffe49bbca708e",
+          "source_file_sha256": "263e233fb6d96a74ebedcc3dc6da63f2ae2c25be60b1b00b008128e27e13dc30"
+        },
+        "serve_timeout_header_parser": {
+          "first_line": 840,
+          "qualified_name": "ray.serve._private.http_util.parse_request_timeout_header",
+          "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/serve/_private/http_util.py",
+          "source_block_sha256": "b8d96a715e7754a5e5aebda514b1bba7dd80b725979a16b9fd818aaf84c75f4b",
+          "source_file_sha256": "fbb72d0e254927708ecdccbf65f02c81127cf75d70f6d68d2596725a1bafc298"
+        },
+        "tracker_abandoned_cleanup": {
+          "first_line": 494,
+          "qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker._free_abandoned_reservation",
+          "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+          "source_block_sha256": "463bc670a761a3c707f88f6e32bafaac30fecc0dae28298bc81c5080a180baeb",
+          "source_file_sha256": "0ca74ddeaf1be27b31129ec67a9689b72e7866d323e475d6c4876d1091714a5c"
+        }
+      },
+      "request_ids": [
+        "ray-67554-d3b2-prime-0001",
+        "ray-67554-d3b2-prime-0002",
+        "ray-67554-d3b2-target-0001"
+      ],
+      "request_states": {
+        "ray-67554-d3b2-prime-0001": {
+          "expected_output_tokens": 4,
+          "output_tokens": 0,
+          "prefill_completed": false,
+          "prompt_tokens": 7,
+          "total_blocks": 1,
+          "worker_id": 13316335369824107713
+        },
+        "ray-67554-d3b2-prime-0002": null,
+        "ray-67554-d3b2-target-0001": null
+      },
+      "router_and_tracker_identity": {
+        "active_router_is_production_kv_aware": true,
+        "active_router_tracker_is_router_tracker": true,
+        "active_router_used_fallback": false,
+        "global_tracker_is_router_tracker": true,
+        "selection_service_class": "builtins.SelectionService",
+        "tracker_class": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker",
+        "tracker_object_id": 259382932763328
+      },
+      "target_request_id": "ray-67554-d3b2-target-0001",
+      "time_monotonic_ns": 17583759454538,
+      "time_unix_ns": 1793517305016074032
+    },
+    "after_p2": {
+      "active_request_ids": [
+        "ray-67554-d3b2-prime-0001",
+        "ray-67554-d3b2-prime-0002"
+      ],
+      "actor_runtime_environment": {
+        "DYN_ROUTER_ACTIVE_REQUEST_EXPIRY_SECS": "5",
+        "DYN_ROUTER_QUEUE_THRESHOLD": "0",
+        "RAY_SERVE_HAPROXY_INGRESS_REQUEST_ROUTER_TIMEOUT_S": "5"
+      },
+      "driver_observation_requested_monotonic_ns": 17583768842036,
+      "driver_observation_requested_unix_ns": 1793517305025461739,
+      "driver_observation_returned_monotonic_ns": 17583772945130,
+      "driver_observation_returned_unix_ns": 1793517305029564417,
+      "dynamo_loads": [
+        {
+          "loads": [
+            {
+              "active_requests": 1,
+              "dp_rank": 0,
+              "potential_decode_blocks": 0,
+              "potential_prefill_tokens": 7,
+              "worker_id": 13316335369824107713
+            },
+            {
+              "active_requests": 1,
+              "dp_rank": 0,
+              "potential_decode_blocks": 0,
+              "potential_prefill_tokens": 7,
+              "worker_id": 4363950666218866675
+            }
+          ],
+          "model_name": "default",
+          "pending_count": 0,
+          "pending_isl_tokens": 0,
+          "routing_group": "default"
+        }
+      ],
+      "dynamo_pending_count": 0,
+      "dynamo_pending_isl_tokens": 0,
+      "dynamo_total_active_requests": 2,
+      "exact_cleanup_currently_pending_for_target": false,
+      "exact_cleanup_ever_observed_for_target": false,
+      "observation_boundary": {
+        "completed_task_reference_retained": true,
+        "frame_and_future_state_read_only": true,
+        "native_future_intercepted": false,
+        "native_method_invoked_by_observer": false,
+        "native_task_paused": false,
+        "production_method_wrapped": false,
+        "scheduling_gate_added": false,
+        "task_or_future_callback_added": false
+      },
+      "observed_exact_cleanup_tasks": [],
+      "production_pending_task_count": 0,
+      "production_pending_tasks": [],
+      "production_provenance": {
+        "booking_chain": {
+          "dynamo_select_and_reserve": {
+            "callable": "<built-in method select_and_reserve of builtins.SelectionService object at 0xebe84ad7cf50>",
+            "owner_class": "builtins.SelectionService"
+          },
+          "http_route": {
+            "first_line": 183,
+            "qualified_name": "ray.llm._internal.serve.core.ingress.router.LLMRouter.route",
+            "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/core/ingress/router.py",
+            "source_block_sha256": "e0ef82ebff321e17fe19561009541499eb1c785b78b3a4cae32d552dd3e434e0",
+            "source_file_sha256": "805111735c556da98f33a6fc64e053667d42b89d4b299063895b721c623f9653"
+          },
+          "kv_choose_replicas": {
+            "first_line": 60,
+            "qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_aware_router.KVAwareRouter.choose_replicas",
+            "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_aware_router.py",
+            "source_block_sha256": "7911c8e48f56d68972f40597d378f5239a13997ec65d3b54ff3ca16035f714e7",
+            "source_file_sha256": "9d640251f3eafcb70f87887a110bcbdb1c8c7c39db376adb26276e92331c840b"
+          },
+          "tracker_select_worker": {
+            "first_line": 412,
+            "qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker.select_worker",
+            "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+            "source_block_sha256": "55ef4923a34a14232654de4b23bb574835259582f78e4be347f3d83de58ea99b",
+            "source_file_sha256": "0ca74ddeaf1be27b31129ec67a9689b72e7866d323e475d6c4876d1091714a5c"
+          }
+        },
+        "cleanup_code_object_id": 259382941767824,
+        "cleanup_first_line": 494,
+        "cleanup_qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker._free_abandoned_reservation",
+        "cleanup_source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+        "serve_direct_ingress_cancellation": {
+          "first_line": 3122,
+          "qualified_name": "ray.serve._private.replica.Replica._direct_ingress_asgi",
+          "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/serve/_private/replica.py",
+          "source_block_sha256": "a8778f600375437a7ee4632c71b9427fb6337ffdd6804d6500cffe49bbca708e",
+          "source_file_sha256": "263e233fb6d96a74ebedcc3dc6da63f2ae2c25be60b1b00b008128e27e13dc30"
+        },
+        "serve_timeout_header_parser": {
+          "first_line": 840,
+          "qualified_name": "ray.serve._private.http_util.parse_request_timeout_header",
+          "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/serve/_private/http_util.py",
+          "source_block_sha256": "b8d96a715e7754a5e5aebda514b1bba7dd80b725979a16b9fd818aaf84c75f4b",
+          "source_file_sha256": "fbb72d0e254927708ecdccbf65f02c81127cf75d70f6d68d2596725a1bafc298"
+        },
+        "tracker_abandoned_cleanup": {
+          "first_line": 494,
+          "qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker._free_abandoned_reservation",
+          "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+          "source_block_sha256": "463bc670a761a3c707f88f6e32bafaac30fecc0dae28298bc81c5080a180baeb",
+          "source_file_sha256": "0ca74ddeaf1be27b31129ec67a9689b72e7866d323e475d6c4876d1091714a5c"
+        }
+      },
+      "request_ids": [
+        "ray-67554-d3b2-prime-0001",
+        "ray-67554-d3b2-prime-0002",
+        "ray-67554-d3b2-target-0001"
+      ],
+      "request_states": {
+        "ray-67554-d3b2-prime-0001": {
+          "expected_output_tokens": 4,
+          "output_tokens": 0,
+          "prefill_completed": false,
+          "prompt_tokens": 7,
+          "total_blocks": 1,
+          "worker_id": 13316335369824107713
+        },
+        "ray-67554-d3b2-prime-0002": {
+          "expected_output_tokens": 4,
+          "output_tokens": 0,
+          "prefill_completed": false,
+          "prompt_tokens": 7,
+          "total_blocks": 1,
+          "worker_id": 4363950666218866675
+        },
+        "ray-67554-d3b2-target-0001": null
+      },
+      "router_and_tracker_identity": {
+        "active_router_is_production_kv_aware": true,
+        "active_router_tracker_is_router_tracker": true,
+        "active_router_used_fallback": false,
+        "global_tracker_is_router_tracker": true,
+        "selection_service_class": "builtins.SelectionService",
+        "tracker_class": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker",
+        "tracker_object_id": 259382932763328
+      },
+      "target_request_id": "ray-67554-d3b2-target-0001",
+      "time_monotonic_ns": 17583770678398,
+      "time_unix_ns": 1793517305027297893
+    },
+    "p1_exchange": {
+      "elapsed_seconds": 0.00706824,
+      "ended_monotonic_ns": 17583757760257,
+      "ended_unix_ns": 1793517305014379711,
+      "request": {
+        "headers": {
+          "connection": "close",
+          "content-length": "136",
+          "content-type": "application/json",
+          "x-request-id": "ray-67554-d3b2-prime-0001"
+        },
+        "json": {
+          "max_tokens": 4,
+          "messages": [
+            {
+              "content": "hello world",
+              "role": "user"
+            }
+          ],
+          "model": "d3b2-offline-mock-model",
+          "stream": false,
+          "temperature": 0.0
+        },
+        "method": "POST",
+        "url": "http://127.0.0.1:8000/v1/chat/completions"
+      },
+      "response": {
+        "body_json": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "logprobs": null,
+              "message": {
+                "annotations": null,
+                "audio": null,
+                "content": "test_0 test_1 test_2 test_3",
+                "function_call": null,
+                "reasoning": null,
+                "refusal": null,
+                "role": "assistant"
+              },
+              "routed_experts": null,
+              "stop_reason": null,
+              "token_ids": null
+            }
+          ],
+          "created": 17583,
+          "ec_transfer_params": null,
+          "id": "b48f610057f17423",
+          "kv_transfer_params": null,
+          "metrics": null,
+          "model": "d3b2-offline-mock-model",
+          "object": "chat.completion",
+          "prompt_logprobs": null,
+          "prompt_text": null,
+          "prompt_token_ids": null,
+          "service_tier": null,
+          "system_fingerprint": null,
+          "usage": {
+            "completion_tokens": 4,
+            "completion_tokens_details": null,
+            "prompt_tokens": 0,
+            "prompt_tokens_details": null,
+            "total_tokens": 4
+          }
+        },
+        "body_json_error": null,
+        "body_text": "{\"id\":\"b48f610057f17423\",\"object\":\"chat.completion\",\"created\":17583,\"model\":\"d3b2-offline-mock-model\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"test_0 test_1 test_2 test_3\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"reasoning\":null},\"logprobs\":null,\"finish_reason\":\"stop\",\"stop_reason\":null,\"token_ids\":null,\"routed_experts\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":0,\"total_tokens\":4,\"completion_tokens\":4,\"prompt_tokens_details\":null,\"completion_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"prompt_text\":null,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"metrics\":null}",
+        "fully_read": true,
+        "headers": {
+          "connection": "close",
+          "content-length": "687",
+          "content-type": "application/json",
+          "date": "Sun, 01 Nov 2026 07:15:04 GMT",
+          "server": "uvicorn",
+          "x-replica-id": "mj331xz4",
+          "x-request-id": "ray-67554-d3b2-prime-0001",
+          "x-serve-session-id": ""
+        },
+        "reason": "OK",
+        "status": 200
+      },
+      "started_monotonic_ns": 17583750692017,
+      "started_unix_ns": 1793517305007311595
+    },
+    "p2_exchange": {
+      "elapsed_seconds": 0.003496861,
+      "ended_monotonic_ns": 17583768823750,
+      "ended_unix_ns": 1793517305025443203,
+      "request": {
+        "headers": {
+          "connection": "close",
+          "content-length": "136",
+          "content-type": "application/json",
+          "x-request-id": "ray-67554-d3b2-prime-0002"
+        },
+        "json": {
+          "max_tokens": 4,
+          "messages": [
+            {
+              "content": "hello world",
+              "role": "user"
+            }
+          ],
+          "model": "d3b2-offline-mock-model",
+          "stream": false,
+          "temperature": 0.0
+        },
+        "method": "POST",
+        "url": "http://127.0.0.1:8000/v1/chat/completions"
+      },
+      "response": {
+        "body_json": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "logprobs": null,
+              "message": {
+                "annotations": null,
+                "audio": null,
+                "content": "test_0 test_1 test_2 test_3",
+                "function_call": null,
+                "reasoning": null,
+                "refusal": null,
+                "role": "assistant"
+              },
+              "routed_experts": null,
+              "stop_reason": null,
+              "token_ids": null
+            }
+          ],
+          "created": 17583,
+          "ec_transfer_params": null,
+          "id": "b02ac8643c9a9d34",
+          "kv_transfer_params": null,
+          "metrics": null,
+          "model": "d3b2-offline-mock-model",
+          "object": "chat.completion",
+          "prompt_logprobs": null,
+          "prompt_text": null,
+          "prompt_token_ids": null,
+          "service_tier": null,
+          "system_fingerprint": null,
+          "usage": {
+            "completion_tokens": 4,
+            "completion_tokens_details": null,
+            "prompt_tokens": 0,
+            "prompt_tokens_details": null,
+            "total_tokens": 4
+          }
+        },
+        "body_json_error": null,
+        "body_text": "{\"id\":\"b02ac8643c9a9d34\",\"object\":\"chat.completion\",\"created\":17583,\"model\":\"d3b2-offline-mock-model\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"test_0 test_1 test_2 test_3\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"reasoning\":null},\"logprobs\":null,\"finish_reason\":\"stop\",\"stop_reason\":null,\"token_ids\":null,\"routed_experts\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":0,\"total_tokens\":4,\"completion_tokens\":4,\"prompt_tokens_details\":null,\"completion_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"prompt_text\":null,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"metrics\":null}",
+        "fully_read": true,
+        "headers": {
+          "connection": "close",
+          "content-length": "687",
+          "content-type": "application/json",
+          "date": "Sun, 01 Nov 2026 07:15:04 GMT",
+          "server": "uvicorn",
+          "x-replica-id": "uqzzos3q",
+          "x-request-id": "ray-67554-d3b2-prime-0002",
+          "x-serve-session-id": ""
+        },
+        "reason": "OK",
+        "status": 200
+      },
+      "started_monotonic_ns": 17583765326889,
+      "started_unix_ns": 1793517305021946509
+    }
+  },
+  "priming_precondition": {
+    "checks": {
+      "both_tracker_states_present": true,
+      "distinct_workers": true,
+      "exact_production_tracker_no_fallback": true,
+      "p1_http_200_and_request_id_roundtrip": true,
+      "p1_selected_worker_served_http": true,
+      "p1_worker_positive_active_prefill": true,
+      "p2_http_200_and_request_id_roundtrip": true,
+      "p2_selected_worker_served_http": true,
+      "p2_worker_positive_active_prefill": true,
+      "pending_count_zero": true,
+      "target_not_tracked": true
+    },
+    "p1_worker_id": 13316335369824107713,
+    "p1_worker_load": {
+      "active_requests": 1,
+      "dp_rank": 0,
+      "potential_decode_blocks": 0,
+      "potential_prefill_tokens": 7,
+      "worker_id": 13316335369824107713
+    },
+    "p2_worker_id": 4363950666218866675,
+    "p2_worker_load": {
+      "active_requests": 1,
+      "dp_rank": 0,
+      "potential_decode_blocks": 0,
+      "potential_prefill_tokens": 7,
+      "worker_id": 4363950666218866675
+    }
+  },
+  "production_native_free": {
+    "basis": "No free_reservation(X) inference is made without exact cleanup correlation, a successful X reserve result, terminal cleanup, and clean final accounting.",
+    "directly_observed": false,
+    "inferred": false
+  },
+  "ray_cluster_resources": {
+    "CPU": 6.0,
+    "memory": 3657248359.0,
+    "node:192.168.64.4": 1.0,
+    "node:__internal_head__": 1.0,
+    "object_store_memory": 1567392153.0
+  },
+  "ray_temp": {
+    "af_unix_max_path_bytes": 107,
+    "path": "/tmp/r67554d3b2-6j_lm9hn",
+    "preserved_by_runner": true,
+    "socket_path_probe": "/tmp/r67554d3b2-6j_lm9hn/session_9999-12-31_23-59-59_999999_9999999999/sockets/plasma_store",
+    "socket_path_probe_bytes": 91
+  },
+  "registration_snapshot": {
+    "active_request_router_class": "ray.serve.llm.request_router.KVAwareRouter",
+    "active_request_router_mro": [
+      "ray.serve.llm.request_router.KVAwareRouter",
+      "ray.llm._internal.serve.routing_policies.kv_aware.kv_aware_router.KVAwareRouter",
+      "ray.serve._private.request_router.request_router.MultiplexMixin",
+      "ray.serve._private.request_router.request_router.RequestRouter",
+      "abc.ABC",
+      "builtins.object"
+    ],
+    "active_router_is_production_kv_aware": true,
+    "active_router_tracker_is_router_tracker": true,
+    "active_router_used_fallback": false,
+    "block_size": 16,
+    "candidate_worker_replicas": {
+      "13316335369824107713": "SERVE_REPLICA::ray-67554-d3b2-native-queue-cancellation#LLMServer:d3b2-offline-mock-model#mj331xz4",
+      "4363950666218866675": "SERVE_REPLICA::ray-67554-d3b2-native-queue-cancellation#LLMServer:d3b2-offline-mock-model#uqzzos3q"
+    },
+    "configured_request_router_class": "ray.serve.llm.request_router.KVAwareRouter",
+    "global_tracker_is_router_tracker": true,
+    "llm_router_class": "d3b2_adapter.LLMRouter",
+    "llm_router_replica_id": "SERVE_REPLICA::ray-67554-d3b2-native-queue-cancellation#LLMRouter#jwhskzlx",
+    "production_llm_router_base": "ray.llm._internal.serve.core.ingress.router.LLMRouter",
+    "selection_service_class": "builtins.SelectionService",
+    "tokenizer_class": "ray.llm._internal.serve.routing_policies.kv_aware.vllm.tokenizer.Tokenizer",
+    "tracker_class": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker",
+    "tracker_sha256": "0ca74ddeaf1be27b31129ec67a9689b72e7866d323e475d6c4876d1091714a5c",
+    "tracker_source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+    "workers": [
+      {
+        "block_size": 16,
+        "data_parallel_size": 1,
+        "data_parallel_start_rank": 0,
+        "endpoint": "ray://SERVE_REPLICA::ray-67554-d3b2-native-queue-cancellation#LLMServer:d3b2-offline-mock-model#uqzzos3q",
+        "is_eagle": null,
+        "kv_events_endpoint": null,
+        "kv_events_endpoints": {
+          "0": "tcp://192.168.64.4:22557"
+        },
+        "kv_transfer_domain": null,
+        "kv_transfer_enforcement": null,
+        "kv_transfer_preferred_weight": null,
+        "lifecycle": "schedulable",
+        "max_num_batched_tokens": 256,
+        "model_name": "default",
+        "replay_endpoint": "tcp://192.168.64.4:23557",
+        "routing_group": "default",
+        "stable_routing_id": null,
+        "taints": [],
+        "topology_domains": {},
+        "total_kv_blocks": null,
+        "worker_id": 4363950666218866675
+      },
+      {
+        "block_size": 16,
+        "data_parallel_size": 1,
+        "data_parallel_start_rank": 0,
+        "endpoint": "ray://SERVE_REPLICA::ray-67554-d3b2-native-queue-cancellation#LLMServer:d3b2-offline-mock-model#mj331xz4",
+        "is_eagle": null,
+        "kv_events_endpoint": null,
+        "kv_events_endpoints": {
+          "0": "tcp://192.168.64.4:22558"
+        },
+        "kv_transfer_domain": null,
+        "kv_transfer_enforcement": null,
+        "kv_transfer_preferred_weight": null,
+        "lifecycle": "schedulable",
+        "max_num_batched_tokens": 256,
+        "model_name": "default",
+        "replay_endpoint": "tcp://192.168.64.4:23558",
+        "routing_group": "default",
+        "stable_routing_id": null,
+        "taints": [],
+        "topology_domains": {},
+        "total_kv_blocks": null,
+        "worker_id": 13316335369824107713
+      }
+    ]
+  },
+  "router_health": {
+    "status": "ok"
+  },
+  "runtime_log_validation_after_observation": {
+    "fallback_llmserver_200_lines": [
+      {
+        "line": "(ServeReplica:ray-67554-d3b2-native-queue-cancellation:LLMServer:d3b2-offline-mock-model pid=103888) INFO 2026-11-01 07:15:06,035 ray-67554-d3b2-native-queue-cancellation_LLMServer:d3b2-offline-mock-model uqzzos3q ray-67554-d3b2-target-0001 -- POST /v1/chat/completions 200 0.9ms [repeated 2x across cluster]",
+        "path": "/home/researcher/oss/evidence/ray-67554-d3b2-final-observation-20261101-HrASXXue/evidence/driver.stderr.log"
+      },
+      {
+        "line": "INFO 2026-11-01 07:15:06,035 ray-67554-d3b2-native-queue-cancellation_LLMServer:d3b2-offline-mock-model uqzzos3q ray-67554-d3b2-target-0001 -- POST /v1/chat/completions 200 0.9ms",
+        "path": "/tmp/r67554d3b2-6j_lm9hn/session_latest/logs/worker-36a2ada34bb78f91ced368e13dad26ca1636ab3987058ea70b8abf86-01000000-103888.err"
+      },
+      {
+        "line": "INFO 2026-11-01 07:15:06,035 ray-67554-d3b2-native-queue-cancellation_LLMServer:d3b2-offline-mock-model uqzzos3q ray-67554-d3b2-target-0001 -- POST /v1/chat/completions 200 0.9ms",
+        "path": "/tmp/r67554d3b2-6j_lm9hn/session_latest/logs/serve/replica_ray-67554-d3b2-native-queue-cancellation_LLMServer_d3b2-offline-mock-model_uqzzos3q.log"
+      }
+    ],
+    "force_expiry_lines": [],
+    "internal_router_408_lines": [
+      {
+        "line": "(ServeReplica:ray-67554-d3b2-native-queue-cancellation:LLMRouter pid=103890) INFO 2026-11-01 07:15:06,033 ray-67554-d3b2-native-queue-cancellation_LLMRouter jwhskzlx ray-67554-d3b2-target-0001 -- POST __call__ 408 1000.7ms",
+        "path": "/home/researcher/oss/evidence/ray-67554-d3b2-final-observation-20261101-HrASXXue/evidence/driver.stderr.log"
+      },
+      {
+        "line": "INFO 2026-11-01 07:15:06,033 ray-67554-d3b2-native-queue-cancellation_LLMRouter jwhskzlx ray-67554-d3b2-target-0001 -- POST __call__ 408 1000.7ms",
+        "path": "/tmp/r67554d3b2-6j_lm9hn/session_latest/logs/worker-2f2da05a7e56eeea28ef53812696a4eaaddcc0ed97f11ce80ba3fb63-01000000-103890.err"
+      }
+    ],
+    "queue_config_lines": [
+      {
+        "line": "(ServeReplica:ray-67554-d3b2-native-queue-cancellation:LLMRouter pid=103890) 2026-11-01T07:15:00.500589Z  INFO dynamo_kv_router::scheduling::config: KvRouterConfig initialized (DYN_* env overrides applied) overlap_score_credit=1.0 overlap_score_credit_decay=0.0 prefill_load_scale=1.0 decode_active_request_weight=0.0 router_temperature=0.0 use_kv_events=true router_replica_sync=false router_track_active_blocks=true router_track_output_blocks=false router_assume_kv_reuse=true router_track_prefill_tokens=true router_tracking_hash=public-xxh3-v1 router_tracking_key_id=None router_queue_threshold=Some(0.0) router_policy_config=None conditional_disagg_enabled=false conditional_disagg_policy=IslBounding conditional_disagg_eff_isl_threshold=2048 conditional_disagg_eff_isl_ratio_threshold=0.7 conditional_disagg_prefill_busy_threshold=None conditional_disagg_decode_busy_threshold=None router_predicted_ttl_secs=None",
+        "path": "/home/researcher/oss/evidence/ray-67554-d3b2-final-observation-20261101-HrASXXue/evidence/driver.stderr.log"
+      },
+      {
+        "line": "2026-11-01T07:15:00.500589Z  INFO dynamo_kv_router::scheduling::config: KvRouterConfig initialized (DYN_* env overrides applied) overlap_score_credit=1.0 overlap_score_credit_decay=0.0 prefill_load_scale=1.0 decode_active_request_weight=0.0 router_temperature=0.0 use_kv_events=true router_replica_sync=false router_track_active_blocks=true router_track_output_blocks=false router_assume_kv_reuse=true router_track_prefill_tokens=true router_tracking_hash=public-xxh3-v1 router_tracking_key_id=None router_queue_threshold=Some(0.0) router_policy_config=None conditional_disagg_enabled=false conditional_disagg_policy=IslBounding conditional_disagg_eff_isl_threshold=2048 conditional_disagg_eff_isl_ratio_threshold=0.7 conditional_disagg_prefill_busy_threshold=None conditional_disagg_decode_busy_threshold=None router_predicted_ttl_secs=None",
+        "path": "/tmp/r67554d3b2-6j_lm9hn/session_latest/logs/worker-2f2da05a7e56eeea28ef53812696a4eaaddcc0ed97f11ce80ba3fb63-01000000-103890.err"
+      }
+    ],
+    "queue_threshold_zero_logged": true,
+    "target_cleanup_warning_lines": []
+  },
+  "runtime_log_validation_at_cleanup": {
+    "fallback_llmserver_200_lines": [
+      {
+        "line": "(ServeReplica:ray-67554-d3b2-native-queue-cancellation:LLMServer:d3b2-offline-mock-model pid=103888) INFO 2026-11-01 07:15:06,035 ray-67554-d3b2-native-queue-cancellation_LLMServer:d3b2-offline-mock-model uqzzos3q ray-67554-d3b2-target-0001 -- POST /v1/chat/completions 200 0.9ms [repeated 2x across cluster]",
+        "path": "/home/researcher/oss/evidence/ray-67554-d3b2-final-observation-20261101-HrASXXue/evidence/driver.stderr.log"
+      },
+      {
+        "line": "INFO 2026-11-01 07:15:06,035 ray-67554-d3b2-native-queue-cancellation_LLMServer:d3b2-offline-mock-model uqzzos3q ray-67554-d3b2-target-0001 -- POST /v1/chat/completions 200 0.9ms",
+        "path": "/tmp/r67554d3b2-6j_lm9hn/session_latest/logs/worker-36a2ada34bb78f91ced368e13dad26ca1636ab3987058ea70b8abf86-01000000-103888.err"
+      },
+      {
+        "line": "INFO 2026-11-01 07:15:06,035 ray-67554-d3b2-native-queue-cancellation_LLMServer:d3b2-offline-mock-model uqzzos3q ray-67554-d3b2-target-0001 -- POST /v1/chat/completions 200 0.9ms",
+        "path": "/tmp/r67554d3b2-6j_lm9hn/session_latest/logs/serve/replica_ray-67554-d3b2-native-queue-cancellation_LLMServer_d3b2-offline-mock-model_uqzzos3q.log"
+      }
+    ],
+    "force_expiry_lines": [],
+    "internal_router_408_lines": [
+      {
+        "line": "(ServeReplica:ray-67554-d3b2-native-queue-cancellation:LLMRouter pid=103890) INFO 2026-11-01 07:15:06,033 ray-67554-d3b2-native-queue-cancellation_LLMRouter jwhskzlx ray-67554-d3b2-target-0001 -- POST __call__ 408 1000.7ms",
+        "path": "/home/researcher/oss/evidence/ray-67554-d3b2-final-observation-20261101-HrASXXue/evidence/driver.stderr.log"
+      },
+      {
+        "line": "INFO 2026-11-01 07:15:06,033 ray-67554-d3b2-native-queue-cancellation_LLMRouter jwhskzlx ray-67554-d3b2-target-0001 -- POST __call__ 408 1000.7ms",
+        "path": "/tmp/r67554d3b2-6j_lm9hn/session_latest/logs/worker-2f2da05a7e56eeea28ef53812696a4eaaddcc0ed97f11ce80ba3fb63-01000000-103890.err"
+      }
+    ],
+    "queue_config_lines": [
+      {
+        "line": "(ServeReplica:ray-67554-d3b2-native-queue-cancellation:LLMRouter pid=103890) 2026-11-01T07:15:00.500589Z  INFO dynamo_kv_router::scheduling::config: KvRouterConfig initialized (DYN_* env overrides applied) overlap_score_credit=1.0 overlap_score_credit_decay=0.0 prefill_load_scale=1.0 decode_active_request_weight=0.0 router_temperature=0.0 use_kv_events=true router_replica_sync=false router_track_active_blocks=true router_track_output_blocks=false router_assume_kv_reuse=true router_track_prefill_tokens=true router_tracking_hash=public-xxh3-v1 router_tracking_key_id=None router_queue_threshold=Some(0.0) router_policy_config=None conditional_disagg_enabled=false conditional_disagg_policy=IslBounding conditional_disagg_eff_isl_threshold=2048 conditional_disagg_eff_isl_ratio_threshold=0.7 conditional_disagg_prefill_busy_threshold=None conditional_disagg_decode_busy_threshold=None router_predicted_ttl_secs=None",
+        "path": "/home/researcher/oss/evidence/ray-67554-d3b2-final-observation-20261101-HrASXXue/evidence/driver.stderr.log"
+      },
+      {
+        "line": "2026-11-01T07:15:00.500589Z  INFO dynamo_kv_router::scheduling::config: KvRouterConfig initialized (DYN_* env overrides applied) overlap_score_credit=1.0 overlap_score_credit_decay=0.0 prefill_load_scale=1.0 decode_active_request_weight=0.0 router_temperature=0.0 use_kv_events=true router_replica_sync=false router_track_active_blocks=true router_track_output_blocks=false router_assume_kv_reuse=true router_track_prefill_tokens=true router_tracking_hash=public-xxh3-v1 router_tracking_key_id=None router_queue_threshold=Some(0.0) router_policy_config=None conditional_disagg_enabled=false conditional_disagg_policy=IslBounding conditional_disagg_eff_isl_threshold=2048 conditional_disagg_eff_isl_ratio_threshold=0.7 conditional_disagg_prefill_busy_threshold=None conditional_disagg_decode_busy_threshold=None router_predicted_ttl_secs=None",
+        "path": "/tmp/r67554d3b2-6j_lm9hn/session_latest/logs/worker-2f2da05a7e56eeea28ef53812696a4eaaddcc0ed97f11ce80ba3fb63-01000000-103890.err"
+      }
+    ],
+    "queue_threshold_zero_logged": true,
+    "target_cleanup_warning_lines": []
+  },
+  "runtime_log_validation_before_workload": {
+    "fallback_llmserver_200_lines": [],
+    "force_expiry_lines": [],
+    "internal_router_408_lines": [],
+    "queue_config_lines": [
+      {
+        "line": "(ServeReplica:ray-67554-d3b2-native-queue-cancellation:LLMRouter pid=103890) 2026-11-01T07:15:00.500589Z  INFO dynamo_kv_router::scheduling::config: KvRouterConfig initialized (DYN_* env overrides applied) overlap_score_credit=1.0 overlap_score_credit_decay=0.0 prefill_load_scale=1.0 decode_active_request_weight=0.0 router_temperature=0.0 use_kv_events=true router_replica_sync=false router_track_active_blocks=true router_track_output_blocks=false router_assume_kv_reuse=true router_track_prefill_tokens=true router_tracking_hash=public-xxh3-v1 router_tracking_key_id=None router_queue_threshold=Some(0.0) router_policy_config=None conditional_disagg_enabled=false conditional_disagg_policy=IslBounding conditional_disagg_eff_isl_threshold=2048 conditional_disagg_eff_isl_ratio_threshold=0.7 conditional_disagg_prefill_busy_threshold=None conditional_disagg_decode_busy_threshold=None router_predicted_ttl_secs=None",
+        "path": "/home/researcher/oss/evidence/ray-67554-d3b2-final-observation-20261101-HrASXXue/evidence/driver.stderr.log"
+      },
+      {
+        "line": "2026-11-01T07:15:00.500589Z  INFO dynamo_kv_router::scheduling::config: KvRouterConfig initialized (DYN_* env overrides applied) overlap_score_credit=1.0 overlap_score_credit_decay=0.0 prefill_load_scale=1.0 decode_active_request_weight=0.0 router_temperature=0.0 use_kv_events=true router_replica_sync=false router_track_active_blocks=true router_track_output_blocks=false router_assume_kv_reuse=true router_track_prefill_tokens=true router_tracking_hash=public-xxh3-v1 router_tracking_key_id=None router_queue_threshold=Some(0.0) router_policy_config=None conditional_disagg_enabled=false conditional_disagg_policy=IslBounding conditional_disagg_eff_isl_threshold=2048 conditional_disagg_eff_isl_ratio_threshold=0.7 conditional_disagg_prefill_busy_threshold=None conditional_disagg_decode_busy_threshold=None router_predicted_ttl_secs=None",
+        "path": "/tmp/r67554d3b2-6j_lm9hn/session_latest/logs/worker-2f2da05a7e56eeea28ef53812696a4eaaddcc0ed97f11ce80ba3fb63-01000000-103890.err"
+      }
+    ],
+    "queue_threshold_zero_logged": true,
+    "target_cleanup_warning_lines": []
+  },
+  "runtime_module_paths": {
+    "d3a_adapter": "/tmp/ray-67554-d3a-prep-20261101-6HCOSF/d3a_adapter.py",
+    "d3b2_adapter": "/tmp/ray-67554-d3b2-prep-20261101-Tphyoein/d3b2_adapter.py",
+    "dynamo_llm": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/dynamo/llm/__init__.py",
+    "ray": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/__init__.py"
+  },
+  "serve_status_after_deploy": "ServeStatus(proxies={'65ce4861185d362f5946bb5d3e17d95b1f06eea277dc920c9f616a33': <ProxyStatus.HEALTHY: 'HEALTHY'>}, applications={'ray-67554-d3b2-native-queue-cancellation': ApplicationStatusOverview(status=<ApplicationStatus.RUNNING: 'RUNNING'>, message='', last_deployed_time_s=1793517296.3995416, deployments={'LLMServer:d3b2-offline-mock-model': DeploymentStatusOverview(status=<DeploymentStatus.HEALTHY: 'HEALTHY'>, status_trigger=<DeploymentStatusTrigger.CONFIG_UPDATE_COMPLETED: 'CONFIG_UPDATE_COMPLETED'>, replica_states={'RUNNING': 2}, message=''), 'LLMRouter': DeploymentStatusOverview(status=<DeploymentStatus.HEALTHY: 'HEALTHY'>, status_trigger=<DeploymentStatusTrigger.UPSCALE_COMPLETED: 'UPSCALE_COMPLETED'>, replica_states={'RUNNING': 1}, message='')})}, target_capacity=None)",
+  "serve_status_after_observation": "ServeStatus(proxies={'65ce4861185d362f5946bb5d3e17d95b1f06eea277dc920c9f616a33': <ProxyStatus.HEALTHY: 'HEALTHY'>}, applications={'ray-67554-d3b2-native-queue-cancellation': ApplicationStatusOverview(status=<ApplicationStatus.RUNNING: 'RUNNING'>, message='', last_deployed_time_s=1793517296.3995416, deployments={'LLMServer:d3b2-offline-mock-model': DeploymentStatusOverview(status=<DeploymentStatus.HEALTHY: 'HEALTHY'>, status_trigger=<DeploymentStatusTrigger.CONFIG_UPDATE_COMPLETED: 'CONFIG_UPDATE_COMPLETED'>, replica_states={'RUNNING': 2}, message=''), 'LLMRouter': DeploymentStatusOverview(status=<DeploymentStatus.HEALTHY: 'HEALTHY'>, status_trigger=<DeploymentStatusTrigger.UPSCALE_COMPLETED: 'UPSCALE_COMPLETED'>, replica_states={'RUNNING': 1}, message='')})}, target_capacity=None)",
+  "server_health": [
+    null,
+    null
+  ],
+  "server_replicas": {
+    "SERVE_REPLICA::ray-67554-d3b2-native-queue-cancellation#LLMServer:d3b2-offline-mock-model#mj331xz4": {
+      "backend_http_endpoint": [
+        "192.168.64.4",
+        30002
+      ],
+      "routing_stats": {
+        "kv_event_metadata": {
+          "block_size": 16,
+          "dp_rank": 0,
+          "endpoint": "tcp://192.168.64.4:22558",
+          "max_num_batched_tokens": 256,
+          "replay_endpoint": "tcp://192.168.64.4:23558"
+        }
+      }
+    },
+    "SERVE_REPLICA::ray-67554-d3b2-native-queue-cancellation#LLMServer:d3b2-offline-mock-model#uqzzos3q": {
+      "backend_http_endpoint": [
+        "192.168.64.4",
+        30001
+      ],
+      "routing_stats": {
+        "kv_event_metadata": {
+          "block_size": 16,
+          "dp_rank": 0,
+          "endpoint": "tcp://192.168.64.4:22557",
+          "max_num_batched_tokens": 256,
+          "replay_endpoint": "tcp://192.168.64.4:23557"
+        }
+      }
+    }
+  },
+  "target": {
+    "cleanup_first_sample": null,
+    "final_snapshot": {
+      "active_request_ids": [
+        "ray-67554-d3b2-prime-0001",
+        "ray-67554-d3b2-prime-0002"
+      ],
+      "actor_runtime_environment": {
+        "DYN_ROUTER_ACTIVE_REQUEST_EXPIRY_SECS": "5",
+        "DYN_ROUTER_QUEUE_THRESHOLD": "0",
+        "RAY_SERVE_HAPROXY_INGRESS_REQUEST_ROUTER_TIMEOUT_S": "5"
+      },
+      "driver_observation_requested_monotonic_ns": 17658796945483,
+      "driver_observation_requested_unix_ns": 1793517380053564769,
+      "driver_observation_returned_monotonic_ns": 17658801901888,
+      "driver_observation_returned_unix_ns": 1793517380058521050,
+      "dynamo_loads": [
+        {
+          "loads": [
+            {
+              "active_requests": 0,
+              "dp_rank": 0,
+              "potential_decode_blocks": 0,
+              "potential_prefill_tokens": 0,
+              "worker_id": 13316335369824107713
+            },
+            {
+              "active_requests": 0,
+              "dp_rank": 0,
+              "potential_decode_blocks": 0,
+              "potential_prefill_tokens": 0,
+              "worker_id": 4363950666218866675
+            }
+          ],
+          "model_name": "default",
+          "pending_count": 1,
+          "pending_isl_tokens": 7,
+          "routing_group": "default"
+        }
+      ],
+      "dynamo_pending_count": 1,
+      "dynamo_pending_isl_tokens": 7,
+      "dynamo_total_active_requests": 0,
+      "exact_cleanup_currently_pending_for_target": false,
+      "exact_cleanup_ever_observed_for_target": false,
+      "observation_boundary": {
+        "completed_task_reference_retained": true,
+        "frame_and_future_state_read_only": true,
+        "native_future_intercepted": false,
+        "native_method_invoked_by_observer": false,
+        "native_task_paused": false,
+        "production_method_wrapped": false,
+        "scheduling_gate_added": false,
+        "task_or_future_callback_added": false
+      },
+      "observed_exact_cleanup_tasks": [],
+      "production_pending_task_count": 1,
+      "production_pending_tasks": [
+        {
+          "exact_cleanup_for_target": false,
+          "scheduled_await_chain": [
+            {
+              "first_line": 494,
+              "object_id": 259382507152352,
+              "qualified_name": "KVTokenTracker._free_abandoned_reservation",
+              "request_id": "ray-67554-d3b2-target-0001",
+              "reserve_cancelled": false,
+              "reserve_done": false,
+              "reserve_object_id": 259382507685488,
+              "source_file": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+              "type": "builtins.coroutine"
+            },
+            {
+              "first_line": null,
+              "object_id": 259382507492096,
+              "qualified_name": null,
+              "source_file": null,
+              "type": "_asyncio.FutureIter"
+            }
+          ],
+          "scheduled_awaitable": "KVTokenTracker._free_abandoned_reservation",
+          "scheduled_awaitable_object_id": 259382507152352,
+          "scheduled_candidates": [
+            {
+              "code_object_id": 259383360385264,
+              "first_line": 494,
+              "object_id": 259382507152352,
+              "qualified_name": "KVTokenTracker._free_abandoned_reservation",
+              "source": "wrapper_frame_local",
+              "source_file": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+              "type": "builtins.coroutine"
+            }
+          ],
+          "scheduled_code_is_exact_production_cleanup_code": false,
+          "scheduled_frame_locals": {
+            "request_id": {
+              "object_id": 259382876944016,
+              "type": "builtins.str",
+              "value": "ray-67554-d3b2-target-0001"
+            },
+            "reserve": {
+              "future_state": {
+                "cancelled": false,
+                "done": false,
+                "object_id": 259382507685488,
+                "present": true,
+                "type": "_asyncio.Future"
+              },
+              "object_id": 259382507685488,
+              "type": "_asyncio.Future"
+            },
+            "self": {
+              "object_id": 259382932763328,
+              "type": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker"
+            }
+          },
+          "scheduled_frame_object_id": 259382920363312,
+          "scheduled_frame_request_id": "ray-67554-d3b2-target-0001",
+          "scheduled_frame_self_is_exact_tracker": true,
+          "scheduled_source": "wrapper_frame_local",
+          "task_await_chain": [
+            {
+              "first_line": null,
+              "object_id": 259382507479744,
+              "qualified_name": null,
+              "source_file": null,
+              "type": "_asyncio.Task"
+            },
+            {
+              "first_line": 287,
+              "object_id": 259382517836736,
+              "qualified_name": "KVTokenTracker._schedule.<locals>._run",
+              "source_file": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+              "type": "builtins.coroutine"
+            },
+            {
+              "first_line": 494,
+              "object_id": 259382507152352,
+              "qualified_name": "KVTokenTracker._free_abandoned_reservation",
+              "request_id": "ray-67554-d3b2-target-0001",
+              "reserve_cancelled": false,
+              "reserve_done": false,
+              "reserve_object_id": 259382507685488,
+              "source_file": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+              "type": "builtins.coroutine"
+            },
+            {
+              "first_line": null,
+              "object_id": 259382507492096,
+              "qualified_name": null,
+              "source_file": null,
+              "type": "_asyncio.FutureIter"
+            }
+          ],
+          "task_cancelled": false,
+          "task_done": false,
+          "task_in_production_pending_set": true,
+          "task_object_id": 259382507479744,
+          "wrapper_code_object_id": 259383359397904,
+          "wrapper_coroutine": "KVTokenTracker._schedule.<locals>._run",
+          "wrapper_coroutine_object_id": 259382517836736,
+          "wrapper_cr_await": {
+            "code_object_id": 259383360385264,
+            "first_line": 494,
+            "object_id": 259382507152352,
+            "qualified_name": "KVTokenTracker._free_abandoned_reservation",
+            "source_file": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+            "type": "builtins.coroutine"
+          },
+          "wrapper_frame_awaitable": {
+            "code_object_id": 259383360385264,
+            "first_line": 494,
+            "object_id": 259382507152352,
+            "qualified_name": "KVTokenTracker._free_abandoned_reservation",
+            "source_file": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+            "type": "builtins.coroutine"
+          },
+          "wrapper_frame_locals": {
+            "awaitable": {
+              "code_object_id": 259383360385264,
+              "first_line": 494,
+              "object_id": 259382507152352,
+              "qualified_name": "KVTokenTracker._free_abandoned_reservation",
+              "source_file": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+              "type": "builtins.coroutine"
+            }
+          },
+          "wrapper_frame_object_id": 259382517936752
+        }
+      ],
+      "production_provenance": {
+        "booking_chain": {
+          "dynamo_select_and_reserve": {
+            "callable": "<built-in method select_and_reserve of builtins.SelectionService object at 0xebe84ad7cf50>",
+            "owner_class": "builtins.SelectionService"
+          },
+          "http_route": {
+            "first_line": 183,
+            "qualified_name": "ray.llm._internal.serve.core.ingress.router.LLMRouter.route",
+            "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/core/ingress/router.py",
+            "source_block_sha256": "e0ef82ebff321e17fe19561009541499eb1c785b78b3a4cae32d552dd3e434e0",
+            "source_file_sha256": "805111735c556da98f33a6fc64e053667d42b89d4b299063895b721c623f9653"
+          },
+          "kv_choose_replicas": {
+            "first_line": 60,
+            "qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_aware_router.KVAwareRouter.choose_replicas",
+            "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_aware_router.py",
+            "source_block_sha256": "7911c8e48f56d68972f40597d378f5239a13997ec65d3b54ff3ca16035f714e7",
+            "source_file_sha256": "9d640251f3eafcb70f87887a110bcbdb1c8c7c39db376adb26276e92331c840b"
+          },
+          "tracker_select_worker": {
+            "first_line": 412,
+            "qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker.select_worker",
+            "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+            "source_block_sha256": "55ef4923a34a14232654de4b23bb574835259582f78e4be347f3d83de58ea99b",
+            "source_file_sha256": "0ca74ddeaf1be27b31129ec67a9689b72e7866d323e475d6c4876d1091714a5c"
+          }
+        },
+        "cleanup_code_object_id": 259382941767824,
+        "cleanup_first_line": 494,
+        "cleanup_qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker._free_abandoned_reservation",
+        "cleanup_source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+        "serve_direct_ingress_cancellation": {
+          "first_line": 3122,
+          "qualified_name": "ray.serve._private.replica.Replica._direct_ingress_asgi",
+          "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/serve/_private/replica.py",
+          "source_block_sha256": "a8778f600375437a7ee4632c71b9427fb6337ffdd6804d6500cffe49bbca708e",
+          "source_file_sha256": "263e233fb6d96a74ebedcc3dc6da63f2ae2c25be60b1b00b008128e27e13dc30"
+        },
+        "serve_timeout_header_parser": {
+          "first_line": 840,
+          "qualified_name": "ray.serve._private.http_util.parse_request_timeout_header",
+          "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/serve/_private/http_util.py",
+          "source_block_sha256": "b8d96a715e7754a5e5aebda514b1bba7dd80b725979a16b9fd818aaf84c75f4b",
+          "source_file_sha256": "fbb72d0e254927708ecdccbf65f02c81127cf75d70f6d68d2596725a1bafc298"
+        },
+        "tracker_abandoned_cleanup": {
+          "first_line": 494,
+          "qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker._free_abandoned_reservation",
+          "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+          "source_block_sha256": "463bc670a761a3c707f88f6e32bafaac30fecc0dae28298bc81c5080a180baeb",
+          "source_file_sha256": "0ca74ddeaf1be27b31129ec67a9689b72e7866d323e475d6c4876d1091714a5c"
+        }
+      },
+      "request_ids": [
+        "ray-67554-d3b2-prime-0001",
+        "ray-67554-d3b2-prime-0002",
+        "ray-67554-d3b2-target-0001"
+      ],
+      "request_states": {
+        "ray-67554-d3b2-prime-0001": {
+          "expected_output_tokens": 4,
+          "output_tokens": 0,
+          "prefill_completed": false,
+          "prompt_tokens": 7,
+          "total_blocks": 1,
+          "worker_id": 13316335369824107713
+        },
+        "ray-67554-d3b2-prime-0002": {
+          "expected_output_tokens": 4,
+          "output_tokens": 0,
+          "prefill_completed": false,
+          "prompt_tokens": 7,
+          "total_blocks": 1,
+          "worker_id": 4363950666218866675
+        },
+        "ray-67554-d3b2-target-0001": null
+      },
+      "router_and_tracker_identity": {
+        "active_router_is_production_kv_aware": true,
+        "active_router_tracker_is_router_tracker": true,
+        "active_router_used_fallback": false,
+        "global_tracker_is_router_tracker": true,
+        "selection_service_class": "builtins.SelectionService",
+        "tracker_class": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker",
+        "tracker_object_id": 259382932763328
+      },
+      "target_request_id": "ray-67554-d3b2-target-0001",
+      "time_monotonic_ns": 17658799301956,
+      "time_unix_ns": 1793517380055921368
+    },
+    "outcome": {
+      "result": {
+        "elapsed_seconds": 1.002706164,
+        "ended_monotonic_ns": 17584778705747,
+        "ended_unix_ns": 1793517306035325200,
+        "request": {
+          "headers": {
+            "connection": "close",
+            "content-length": "136",
+            "content-type": "application/json",
+            "x-request-id": "ray-67554-d3b2-target-0001",
+            "x-request-timeout-seconds": "1"
+          },
+          "json": {
+            "max_tokens": 4,
+            "messages": [
+              {
+                "content": "hello world",
+                "role": "user"
+              }
+            ],
+            "model": "d3b2-offline-mock-model",
+            "stream": false,
+            "temperature": 0.0
+          },
+          "method": "POST",
+          "url": "http://127.0.0.1:8000/v1/chat/completions"
+        },
+        "response": {
+          "body_json": {
+            "choices": [
+              {
+                "finish_reason": "stop",
+                "index": 0,
+                "logprobs": null,
+                "message": {
+                  "annotations": null,
+                  "audio": null,
+                  "content": "test_0 test_1 test_2 test_3",
+                  "function_call": null,
+                  "reasoning": null,
+                  "refusal": null,
+                  "role": "assistant"
+                },
+                "routed_experts": null,
+                "stop_reason": null,
+                "token_ids": null
+              }
+            ],
+            "created": 17584,
+            "ec_transfer_params": null,
+            "id": "9805d669718c91c9",
+            "kv_transfer_params": null,
+            "metrics": null,
+            "model": "d3b2-offline-mock-model",
+            "object": "chat.completion",
+            "prompt_logprobs": null,
+            "prompt_text": null,
+            "prompt_token_ids": null,
+            "service_tier": null,
+            "system_fingerprint": null,
+            "usage": {
+              "completion_tokens": 4,
+              "completion_tokens_details": null,
+              "prompt_tokens": 0,
+              "prompt_tokens_details": null,
+              "total_tokens": 4
+            }
+          },
+          "body_json_error": null,
+          "body_text": "{\"id\":\"9805d669718c91c9\",\"object\":\"chat.completion\",\"created\":17584,\"model\":\"d3b2-offline-mock-model\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"test_0 test_1 test_2 test_3\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"reasoning\":null},\"logprobs\":null,\"finish_reason\":\"stop\",\"stop_reason\":null,\"token_ids\":null,\"routed_experts\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":0,\"total_tokens\":4,\"completion_tokens\":4,\"prompt_tokens_details\":null,\"completion_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"prompt_text\":null,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"metrics\":null}",
+          "fully_read": true,
+          "headers": {
+            "connection": "close",
+            "content-length": "687",
+            "content-type": "application/json",
+            "date": "Sun, 01 Nov 2026 07:15:05 GMT",
+            "server": "uvicorn",
+            "x-replica-id": "uqzzos3q",
+            "x-request-id": "ray-67554-d3b2-target-0001",
+            "x-serve-session-id": ""
+          },
+          "reason": "OK",
+          "status": 200
+        },
+        "started_monotonic_ns": 17583775999583,
+        "started_unix_ns": 1793517305032619203
+      },
+      "thread_finished_monotonic_ns": 17584778727324,
+      "thread_finished_unix_ns": 1793517306035346860
+    },
+    "pending_sample": {
+      "active_request_ids": [
+        "ray-67554-d3b2-prime-0001",
+        "ray-67554-d3b2-prime-0002"
+      ],
+      "actor_runtime_environment": {
+        "DYN_ROUTER_ACTIVE_REQUEST_EXPIRY_SECS": "5",
+        "DYN_ROUTER_QUEUE_THRESHOLD": "0",
+        "RAY_SERVE_HAPROXY_INGRESS_REQUEST_ROUTER_TIMEOUT_S": "5"
+      },
+      "driver_observation_requested_monotonic_ns": 17583776221141,
+      "driver_observation_requested_unix_ns": 1793517305032840719,
+      "driver_observation_returned_monotonic_ns": 17583780837372,
+      "driver_observation_returned_unix_ns": 1793517305037456784,
+      "dynamo_loads": [
+        {
+          "loads": [
+            {
+              "active_requests": 1,
+              "dp_rank": 0,
+              "potential_decode_blocks": 0,
+              "potential_prefill_tokens": 7,
+              "worker_id": 13316335369824107713
+            },
+            {
+              "active_requests": 1,
+              "dp_rank": 0,
+              "potential_decode_blocks": 0,
+              "potential_prefill_tokens": 7,
+              "worker_id": 4363950666218866675
+            }
+          ],
+          "model_name": "default",
+          "pending_count": 1,
+          "pending_isl_tokens": 7,
+          "routing_group": "default"
+        }
+      ],
+      "dynamo_pending_count": 1,
+      "dynamo_pending_isl_tokens": 7,
+      "dynamo_total_active_requests": 2,
+      "exact_cleanup_currently_pending_for_target": false,
+      "exact_cleanup_ever_observed_for_target": false,
+      "observation_boundary": {
+        "completed_task_reference_retained": true,
+        "frame_and_future_state_read_only": true,
+        "native_future_intercepted": false,
+        "native_method_invoked_by_observer": false,
+        "native_task_paused": false,
+        "production_method_wrapped": false,
+        "scheduling_gate_added": false,
+        "task_or_future_callback_added": false
+      },
+      "observed_exact_cleanup_tasks": [],
+      "production_pending_task_count": 0,
+      "production_pending_tasks": [],
+      "production_provenance": {
+        "booking_chain": {
+          "dynamo_select_and_reserve": {
+            "callable": "<built-in method select_and_reserve of builtins.SelectionService object at 0xebe84ad7cf50>",
+            "owner_class": "builtins.SelectionService"
+          },
+          "http_route": {
+            "first_line": 183,
+            "qualified_name": "ray.llm._internal.serve.core.ingress.router.LLMRouter.route",
+            "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/core/ingress/router.py",
+            "source_block_sha256": "e0ef82ebff321e17fe19561009541499eb1c785b78b3a4cae32d552dd3e434e0",
+            "source_file_sha256": "805111735c556da98f33a6fc64e053667d42b89d4b299063895b721c623f9653"
+          },
+          "kv_choose_replicas": {
+            "first_line": 60,
+            "qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_aware_router.KVAwareRouter.choose_replicas",
+            "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_aware_router.py",
+            "source_block_sha256": "7911c8e48f56d68972f40597d378f5239a13997ec65d3b54ff3ca16035f714e7",
+            "source_file_sha256": "9d640251f3eafcb70f87887a110bcbdb1c8c7c39db376adb26276e92331c840b"
+          },
+          "tracker_select_worker": {
+            "first_line": 412,
+            "qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker.select_worker",
+            "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+            "source_block_sha256": "55ef4923a34a14232654de4b23bb574835259582f78e4be347f3d83de58ea99b",
+            "source_file_sha256": "0ca74ddeaf1be27b31129ec67a9689b72e7866d323e475d6c4876d1091714a5c"
+          }
+        },
+        "cleanup_code_object_id": 259382941767824,
+        "cleanup_first_line": 494,
+        "cleanup_qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker._free_abandoned_reservation",
+        "cleanup_source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+        "serve_direct_ingress_cancellation": {
+          "first_line": 3122,
+          "qualified_name": "ray.serve._private.replica.Replica._direct_ingress_asgi",
+          "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/serve/_private/replica.py",
+          "source_block_sha256": "a8778f600375437a7ee4632c71b9427fb6337ffdd6804d6500cffe49bbca708e",
+          "source_file_sha256": "263e233fb6d96a74ebedcc3dc6da63f2ae2c25be60b1b00b008128e27e13dc30"
+        },
+        "serve_timeout_header_parser": {
+          "first_line": 840,
+          "qualified_name": "ray.serve._private.http_util.parse_request_timeout_header",
+          "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/serve/_private/http_util.py",
+          "source_block_sha256": "b8d96a715e7754a5e5aebda514b1bba7dd80b725979a16b9fd818aaf84c75f4b",
+          "source_file_sha256": "fbb72d0e254927708ecdccbf65f02c81127cf75d70f6d68d2596725a1bafc298"
+        },
+        "tracker_abandoned_cleanup": {
+          "first_line": 494,
+          "qualified_name": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker._free_abandoned_reservation",
+          "source": "/tmp/ray-67554-d1-20261101-0b5XuV/venv/lib/python3.12/site-packages/ray/llm/_internal/serve/routing_policies/kv_aware/kv_token_tracker.py",
+          "source_block_sha256": "463bc670a761a3c707f88f6e32bafaac30fecc0dae28298bc81c5080a180baeb",
+          "source_file_sha256": "0ca74ddeaf1be27b31129ec67a9689b72e7866d323e475d6c4876d1091714a5c"
+        }
+      },
+      "request_ids": [
+        "ray-67554-d3b2-prime-0001",
+        "ray-67554-d3b2-prime-0002",
+        "ray-67554-d3b2-target-0001"
+      ],
+      "request_states": {
+        "ray-67554-d3b2-prime-0001": {
+          "expected_output_tokens": 4,
+          "output_tokens": 0,
+          "prefill_completed": false,
+          "prompt_tokens": 7,
+          "total_blocks": 1,
+          "worker_id": 13316335369824107713
+        },
+        "ray-67554-d3b2-prime-0002": {
+          "expected_output_tokens": 4,
+          "output_tokens": 0,
+          "prefill_completed": false,
+          "prompt_tokens": 7,
+          "total_blocks": 1,
+          "worker_id": 4363950666218866675
+        },
+        "ray-67554-d3b2-target-0001": null
+      },
+      "router_and_tracker_identity": {
+        "active_router_is_production_kv_aware": true,
+        "active_router_tracker_is_router_tracker": true,
+        "active_router_used_fallback": false,
+        "global_tracker_is_router_tracker": true,
+        "selection_service_class": "builtins.SelectionService",
+        "tracker_class": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker",
+        "tracker_object_id": 259382932763328
+      },
+      "target_request_id": "ray-67554-d3b2-target-0001",
+      "time_monotonic_ns": 17583778435931,
+      "time_unix_ns": 1793517305035055550
+    },
+    "sample_count": 2805,
+    "target_thread_started_monotonic_ns": 17583775891699,
+    "terminal_sample": null
+  },
+  "target_assertions": {
+    "exact_cleanup_wrapper_task_terminal_without_exception": false,
+    "exact_production_cleanup_coroutine_for_target_seen": false,
+    "expiry_age_guard_and_periodic_sweep_observed": false,
+    "external_http_200_via_confirmed_haproxy_fallback": true,
+    "final_native_accounting_clean": false,
+    "internal_llm_router_timeout_408": true,
+    "native_selection_result_matches_target_id": false,
+    "no_target_free_warning_in_logs": true,
+    "original_selection_future_alive_when_cleanup_first_seen": false,
+    "original_selection_future_terminal_success": false,
+    "priming_loads_released_after_supported_expiry_sweep": true,
+    "production_chain_still_exact_without_fallback": true,
+    "queue_threshold_zero_logged_and_pending_observed": true,
+    "serve_application_still_running_after_observation": true,
+    "target_demonstrably_entered_native_pending_queue": true,
+    "target_response_request_id_roundtrip": true,
+    "target_was_only_post_prime_http_request": true
+  }
+}

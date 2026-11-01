@@ -1,0 +1,19 @@
+Purpose: minimal ANSI-stripped excerpt proving real HTTP request-ID propagation and native booking.
+Raw evidence remains private and unchanged.
+
+Source: /home/researcher/oss/evidence/ray-67554-d3a-http-booking-20261101-FFfNoj/evidence/summary.json
+line 4: active request IDs include "ray-67554-d3a-http-booking-0001"
+line 17: active_router_used_fallback=false
+line 32: selected worker load potential_prefill_tokens=7
+line 76: request_id_tracked_exactly=true
+line 85: requested_request_id="ray-67554-d3a-http-booking-0001"
+line 90: post-booking potential_prefill_tokens=7
+
+Source: /home/researcher/oss/evidence/ray-67554-d3a-http-booking-20261101-FFfNoj/evidence/driver.stderr.log
+line 103: 2026-11-01T05:54:46.742398Z — Dynamo selected worker 11068153126354715887 for request ray-67554-d3a-http-booking-0001.
+line 104: production router selected Serve replica qfsmp1b0 for the same request ID.
+line 105: LLMRouter internal POST completed 200 in 12.2 ms.
+line 108: on_reservations_created completed OK.
+line 110: LLMServer replica qfsmp1b0 served the same request ID with HTTP 200.
+
+Sanitization: ANSI escapes, process IDs, and an unrelated proxy endpoint update were omitted; routing identities and timings are unchanged.

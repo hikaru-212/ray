@@ -1,0 +1,14 @@
+Purpose: minimal ANSI-stripped production log chronology for priming, internal timeout, HAProxy fallback, native expiry, and shutdown.
+Raw evidence remains private and unchanged.
+
+Source: /home/researcher/oss/evidence/ray-67554-d3b2-final-observation-20261101-HrASXXue/evidence/driver.stderr.log
+line 109: 2026-11-01T07:15:05.012003Z — P1 selected worker 13316335369824107713.
+line 114: 2026-11-01T07:15:05.023315Z — P2 selected worker 4363950666218866675.
+line 157: 2026-11-01 07:15:06.033 UTC — LLMRouter target X POST returned 408 in 1000.7 ms.
+line 315: 2026-11-01 07:15:06.035 UTC — regular LLMServer replica served target X with HTTP 200 in 0.9 ms (HAProxy fallback path).
+lines 2342-2343: 2026-11-01T07:16:04.230493Z/.230516Z — Dynamo expired P1 and P2 as stale requests.
+line 2940: 2026-11-01 07:16:20.095 UTC — Serve application deletion began.
+line 2946: 2026-11-01 07:16:20.273 UTC — LongPoll removed two workers; tracker now has zero.
+lines 2948-2949: 2026-11-01T07:16:20.273799Z/.273803Z — Dynamo removed both workers.
+
+Interpretation boundary: the external 200 does not establish KV-aware success for X. It follows the internal router 408 and production HAProxy fallback.

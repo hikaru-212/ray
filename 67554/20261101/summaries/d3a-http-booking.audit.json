@@ -1,0 +1,36 @@
+{
+  "artifact_class": "audit-derived-summary",
+  "source": {
+    "path": "/home/researcher/oss/evidence/ray-67554-d3a-http-booking-20261101-FFfNoj/evidence/summary.json",
+    "sha256": "7ab2f705a26827b4d9dc0339675de8ec6fa49fce99d0a7976e2877c74c1ae44b"
+  },
+  "classification": "D3A_HTTP_BOOKING_PASS_WITH_MOCK_LIFECYCLE_LIMITATION",
+  "criteria": {
+    "A_ray_started": true,
+    "B_serve_application_deployed": true,
+    "C_production_llm_router_alive": true,
+    "D_two_distinct_healthy_cpu_mock_replicas": true,
+    "E_longpoll_delivered_two_memberships": true,
+    "F_dynamo_has_two_schedulable_workers": true,
+    "G_kv_router_attached_without_fallback": true,
+    "H_clean_booking_baseline": true,
+    "I_http_completed_200": true,
+    "J_client_request_id_roundtrip": true,
+    "K_exact_request_id_in_production_tracker": true,
+    "L_nonempty_token_ids_reached_selection": true,
+    "M_real_dynamo_booking_changed_load": true,
+    "N_booked_worker_served_http": true,
+    "O_production_chain_no_fallback": true,
+    "P_http_completion_distinct_from_lifecycle_completion": true,
+    "Q_clean_shutdown": true
+  },
+  "observations": {
+    "request_id": "ray-67554-d3a-http-booking-0001",
+    "elapsed_seconds": 0.014962932000344153,
+    "selected_worker_id": 11068153126354715887,
+    "serving_replica_id": "qfsmp1b0",
+    "potential_prefill_tokens": 7,
+    "active_router_used_fallback": false
+  },
+  "limitation": "The CPU mock engine does not publish production request-completion/KV events; booking and serving were established, lifecycle completion was not."
+}

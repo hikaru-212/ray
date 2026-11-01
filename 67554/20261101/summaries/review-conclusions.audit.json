@@ -1,0 +1,53 @@
+{
+  "artifact_class": "audit-derived-summary",
+  "date": "2026-11-01",
+  "pr_head": "94bc7f96c0df3c967edb8842d6c98d3b658fef42",
+  "conclusions": {
+    "d2_real_serve_deployment": {
+      "established": true,
+      "classification": "D2_DEPLOYMENT_REGISTRATION_PASS",
+      "details": "Production LLMRouter/KVAwareRouter, exact-HEAD KVTokenTracker, Dynamo SelectionService, two distinct healthy CPU mock LLMServer replicas, LongPoll membership, two schedulable workers, no router fallback, clean shutdown."
+    },
+    "d3a_real_http_booking": {
+      "established": true,
+      "classification": "D3A_HTTP_BOOKING_PASS_WITH_MOCK_LIFECYCLE_LIMITATION",
+      "details": "Client request ID reached production tracker and native Dynamo booking; selected worker and serving replica were consistent; prompt token IDs were nonempty; active router used the exact tracker and no fallback."
+    },
+    "d3b_normal_cancellation": {
+      "established": false,
+      "classification": "D3B_NOT_ESTABLISHED_ROUTING_COMPLETED_BEFORE_TIMEOUT",
+      "elapsed_seconds": 0.009219821,
+      "configured_timeout_seconds": 1,
+      "details": "Normal routing completed before timeout, so cancellation and abandoned cleanup were not exercised."
+    },
+    "d3b2_native_pending": {
+      "established": true,
+      "details": "Supported Dynamo queue backpressure produced pending_count=1 while two distinct priming reservations held positive prefill load."
+    },
+    "d3b2_http_path_split": {
+      "established": true,
+      "internal_llm_router_status": 408,
+      "internal_elapsed_ms": 1000.7,
+      "external_status": 200,
+      "external_elapsed_seconds": 1.002706164,
+      "details": "Production HAProxy fallback served the external request after the ingress LLMRouter timed out. External 200 is not evidence of successful KV-aware booking for X."
+    },
+    "d3b2_cancellation_handler_reachability": {
+      "established": true,
+      "retrospective_classification": "CLEANUP_PRESENT_OBSERVER_MISSED",
+      "experiment_wording": "CANCELLATION_REACHED_CLEANUP_INCOMPLETE",
+      "details": "Complete snapshots show the production _free_abandoned_reservation(X, reserve) coroutine on the exact tracker with the original pending reserve Future."
+    },
+    "d3b2_cleanup_completion": {
+      "established": false,
+      "classification": "NATIVE_RESERVATION_OUTCOME_UNRESOLVED",
+      "details": "The reserve Future remained pending; no X selection result, terminal cleanup, or free_reservation(X) was observed or safely inferred."
+    },
+    "same_id_stale_free": {
+      "controlled_counterexample_valid": true,
+      "natural_production_reachability_established": false,
+      "details": "The 2026-10-30 counterexample remains valid only for its explicitly gated ordering. D3B-2 did not add Same-ID reuse or worker retirement."
+    }
+  },
+  "raw_summary_policy": "Original runtime summaries are preserved byte-identically where selected. Retrospective corrections are separate artifacts and do not rewrite original classifications."
+}

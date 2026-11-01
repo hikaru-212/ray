@@ -1,0 +1,40 @@
+{
+  "source": "/home/researcher/oss/evidence/ray-67554-d3b2-final-observation-20261101-HrASXXue/evidence/snapshots.jsonl",
+  "source_sha256": "49f8dbe20803b09f476f3becdb9a7280c0bf26b0558013c3a0363f4653c6007a",
+  "first_source_line": 42,
+  "last_source_line": 2809,
+  "first_time_unix_ns": 1793517306048095748,
+  "last_time_unix_ns": 1793517380055921368,
+  "production_tracker": {
+    "class": "ray.llm._internal.serve.routing_policies.kv_aware.kv_token_tracker.KVTokenTracker",
+    "object_id": 259382932763328
+  },
+  "pending_task": {
+    "object_id": 259382507479744,
+    "in_production_pending_set": true,
+    "done_at_last_snapshot": false,
+    "cancelled_at_last_snapshot": false
+  },
+  "wrapper": {
+    "qualified_name": "KVTokenTracker._schedule.<locals>._run",
+    "first_line": 287,
+    "coroutine_object_id": 259382517836736
+  },
+  "scheduled_coroutine": {
+    "qualified_name": "KVTokenTracker._free_abandoned_reservation",
+    "first_line": 494,
+    "coroutine_object_id": 259382507152352,
+    "active_code_object_id": 259383360385264,
+    "observer_expected_code_object_id": 259382941767824,
+    "frame_self_is_exact_tracker": true,
+    "frame_request_id": "ray-67554-d3b2-target-0001"
+  },
+  "native_reserve_future": {
+    "object_id": 259382507685488,
+    "terminal_await_object_id": 259382507492096,
+    "done_at_last_snapshot": false,
+    "cancelled_at_last_snapshot": false
+  },
+  "retrospective_interpretation": "CANCELLATION_REACHED_CLEANUP_INCOMPLETE",
+  "native_outcome": "NATIVE_RESERVATION_OUTCOME_UNRESOLVED"
+}

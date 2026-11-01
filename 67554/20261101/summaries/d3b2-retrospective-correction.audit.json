@@ -1,0 +1,46 @@
+{
+  "artifact_class": "audit-derived-summary",
+  "original_summary": {
+    "path": "/home/researcher/oss/evidence/ray-67554-d3b2-final-observation-20261101-HrASXXue/evidence/summary.json",
+    "sha256": "6d385e603cfd1524d8c522229c594148942c039c8ce3fe38a2840cbab960ecaa",
+    "classification": "CANCELLATION_NOT_ESTABLISHED",
+    "preserved_unchanged_in_package": "d3b2-final-summary.original.json"
+  },
+  "snapshot_source": {
+    "path": "/home/researcher/oss/evidence/ray-67554-d3b2-final-observation-20261101-HrASXXue/evidence/snapshots.jsonl",
+    "sha256": "49f8dbe20803b09f476f3becdb9a7280c0bf26b0558013c3a0363f4653c6007a",
+    "first_cleanup_line": 42,
+    "last_cleanup_line": 2809,
+    "samples_with_same_task": 2768
+  },
+  "observer_defect": {
+    "predicate": "_code(candidate) is _CLEANUP_CODE",
+    "expected_code_object_id": 259382941767824,
+    "observed_code_object_id": 259383360385264,
+    "explanation": "Code-object identity is not stable across Serve/cloudpickle serialization. The false predicate prevented the observer from setting exact_cleanup_for_target and retaining the reserve Future as an exact match."
+  },
+  "correlated_objects": {
+    "tracker_object_id": 259382932763328,
+    "task_object_id": 259382507479744,
+    "wrapper_coroutine_object_id": 259382517836736,
+    "cleanup_coroutine_object_id": 259382507152352,
+    "reserve_future_object_id": 259382507685488,
+    "future_iter_object_id": 259382507492096,
+    "request_id": "ray-67554-d3b2-target-0001",
+    "cleanup_qualified_name": "KVTokenTracker._free_abandoned_reservation",
+    "cleanup_first_line": 494,
+    "self_is_exact_production_tracker": true,
+    "reserve_future_done_at_first_sample": false,
+    "reserve_future_cancelled_at_first_sample": false,
+    "reserve_future_done_at_final_sample": false,
+    "reserve_future_cancelled_at_final_sample": false
+  },
+  "revised_cancellation_boundary": "CLEANUP_PRESENT_OBSERVER_MISSED",
+  "experiment_level_classification": "CANCELLATION_REACHED_CLEANUP_INCOMPLETE",
+  "independent_native_outcome": "NATIVE_RESERVATION_OUTCOME_UNRESOLVED",
+  "production_free_reservation_x": {
+    "directly_observed": false,
+    "inferred": false
+  },
+  "same_id_stale_free_reproduced_in_deployment": false
+}

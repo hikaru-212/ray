@@ -1,0 +1,13 @@
+The controlled BASE/HEAD and H3 evidence is retained in the prior package:
+  /home/researcher/oss/ray-review-evidence/67554/20261030/
+
+Prior-package anchors:
+  HEAD summary sha256:   3d92f5602ae3aab98a09d2dae7219a1e3902b89f2dc08636786a68e2b31573fd
+  HEAD timeline sha256:  0be03c7febf197b717b133c2fca22ef2fad7ff29de8a399fb87b9b7c6cf08611
+  Parent summary sha256: 6f44f40aae5abd5e3d126bae229aa4a1f7351512db7c382713defda67983cdc8
+  Parent timeline sha256:6fa0557287aba0ffa5dd54b20889a558103e82e9b7d958f977caf9290f5d3b07
+  Prior SHA256SUMS:       1a8c932b40d34f18e27ff6879dd742991cbcce8928ad7e9ed37c40efbbb4d317
+
+Established scope: controlled callback ordering produced a Parent-green / HEAD-red Same-ID stale-free counterexample while the distinct-ID control remained preserved.
+
+Boundary: that harness deliberately held a native PyO3 completion callback and therefore did not establish that the same ordering occurs naturally under a deployed Ray Serve/Dynamo scheduler. The 20261101 package does not upgrade that reachability claim.
